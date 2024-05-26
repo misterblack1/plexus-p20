@@ -1,8 +1,14 @@
-# Documents I have found on the Plexus machines, mostly submitted by viewers. 
+# Technical information and documentation of Plexus machines
 
-MC1488 / MC1489 used at RS232 drivers/buffers
+For the Plexus P/20 and P/15:
 
-MOSTEK MK68564 used as the SIO chip to drive the 8 serial ports (4 of them)
+- MC1488 / MC1489 used at RS232 drivers/buffers
+- MOSTEK MK68564 used as the SIO chip to drive the 8 serial ports (4 of them)
+- The Motorola MC146818 is used for the battery backed up RAM and clock, just like on the PC and countless other systems. There is a NiCD battery attached to the motherboard to power this circuit when the system is turned off.  
+- The reset circuit on the Plexus is inside the primary power supply. Pin 4 on the motherboard power connector is the input from the PSU to the motherboard, so you cannot run the system on the bench with a different power supply without managing this input yourself. (Logic low = held in reset, logic high 5V = out of reset.) 
+- The PSU remote power on pin is grounded to turn on the power supply. It has relays inside to turn itself on and also power up the secondary PSU and external fan.
+- The PSU reset input is grounded by the front keyswitch, which which is input into the reset circuit inside the PSU which supplies a reset (Logic low) to the motherboard via pin 4.
+- On my system the primary PSU powers up the motherboard, hard drive, floppy drive and tape drive. The secondary PSU powers up the multibus backplane and the SCSI / MFM interposer. These are powered by normal Molex style 5/12v connectors, so you can use a normal PC splitter to eliminate the secondary PSU if you aren't using any multibus cards. Just unplug the cable that feeds from the primary to the secondary power supply.
 
 ### Serial port map:
 
