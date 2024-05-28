@@ -28,3 +28,33 @@ Ports 1-3: 1-TX, 6-RX and 8-GND
 Ports 4-5: 1-TX, 2-RTS, 4-DTR, 6-RX, 7-CTS, 8-GND, 9-DCD
 Port 6-7: Normal DB25 RS232 with full flow control
 ```
+Memory map:
+```
+|   Bus Master | Space |  Loc   | Address Range | Function
+ Job MB DMA BLK Usr Sys Job DMA
+  x      x       x       x       000000 - 7FFFFF  Main User memory
+  x      x           x   x       000000 - 7FFFFF  Main Sys memory
+     x               x   x       780000 - 7FFFFF  Main Sys Memory
+             x       x   x       600000 - 6FFFFF  Main Sys Memory
+  x      x           x       x   800000 - 80FFFF  PROM (4 - 27128s)
+  x                  x   x       900000 - 901FFF  User Page Map
+  x                  x   x       902000 - 903FFF  Sys Page Map
+  x      x           x       x   A00001 - A0003F  UART 'A' (odd)
+  x      x           x       x   A10001 - A1003F  UART 'B' (odd)
+  x      x           x       x   A20001 - A2003F  UART 'C' (odd)
+  x      x           x       x   A30001 - A3003F  UART 'D' (odd)
+  x      x           x       x   A70000 - A70003  SCSI Data Buffers
+  x                  x   x       B00000 - B7FFFF  MBus I/O Space
+  x                  x   x       B80000 - BFFFFF  MBus Mem Space
+  x      x   x       x       x   C00000 - C03FFF  SRAM
+  x      x           x       x   D00001 - D0001B  Calendar (odd)
+  x      x           x       x   D0001D - D0007F  Calendar RAM (odd)
+  x      x           x       x   E00000 - E0001E  Control/Status Reg.
+  x      x           x       x   F00003           MBus Int Vector
+  x      x           x       x   F00005           Job Int Vector
+  x      x           x       x   F00007           DMA Int Vector
+  x      x           x       x   F00009           SCSI Int Vector
+  x      x           x       x   F0000B           UART Int Vector
+  x      x           x       x   F0000D           Clock Int Vector
+  x      x           x       x   F0000F           Panic Int Vector
+```
