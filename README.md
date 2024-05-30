@@ -5,4 +5,6 @@ Plexus was a California based company that was making UNIX server from around 19
 
 I have placed any useful technical information in the readme.md in the /docs directory.
 
+We have a discussion happening on Discord around this machine: https://discord.gg/hyrhQqWh
+
 Thank you to everyone who has contributed to finding this information!
