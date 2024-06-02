@@ -1,0 +1,26 @@
+#	"@(#)c2FIX	1.1"
+This change fixes a bug in C optimizer.
+The file is /usr/src/cmd/c/c21.c.
+This is in routine rmove, after case CBR, the first two
+lines in the 'if r==0' clause:
+
+190,191c
+< 				p->back->back->forw = p->forw;
+< 				p->forw->back = p->back->back;
+---
+> 				if (p->forw->op==CBR
+> 				  || p->forw->op==SXT
+> 				  || p->forw->op==CFCC) {
+> 					p->back->forw = p->forw;
+> 					p->forw->back = p->back;
+> 				} else {
+> 					p->back->back->forw = p->forw;
+> 					p->forw->back = p->back->back;
+> 				}
+
+The old code deleted a test or compare with constant operands
+and a following conditional branch that would always fail.
+The new code only deletes the branch (leaves the test)
+if the combination is followed by another instruction that
+needs the condition codes.  The test and second branch are liable
+to be deleted later.

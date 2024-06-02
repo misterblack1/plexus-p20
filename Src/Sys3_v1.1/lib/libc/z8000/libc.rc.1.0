@@ -1,0 +1,92 @@
+:	Create the C library as /lib/libc.a
+:	[optional] -o or -n     for compiler other than cc
+:	WARNING:  this make creates all .o files in current directory.
+:		  therefore, source file names must be unique across
+:		  all libc subdirectories: csu, crt, stdio, .etc.
+
+trap "rm -f *.o a.out; exit" 0 3 15; trap "" 1 2
+LIB=${LIB-/lib}
+rm -f libc.a *.o
+
+echo $LIB/libc.a
+echo
+
+c=cc
+case $1 in
+
+	-o)	c=occ
+		shift
+		;;
+
+	-n)	c=ncc
+		shift
+		;;
+
+esac
+echo Compiler: $c
+echo
+
+$c -O -c */*.[c] 
+if [ ! $? = 0 ]
+then
+	echo "Compiler failure"
+	exit
+fi
+for i in csu crt gen stdio sys; do
+	if test "`echo $i/*.s`" = "$i/*.s"; then continue; fi
+	for j in $i/*.s ; do
+		/lib/cpp -P < $j > tempfile.s
+		as -u -o `basename $j .s`.o tempfile.s
+	done
+done
+rm -f tempfile.s
+
+mv *crt0.o $LIB
+chmod 0664 $LIB/*crt0.o
+chgrp bin $LIB/*crt0.o
+chown bin $LIB/*crt0.o
+
+echo
+echo "entering loader phase"
+echo
+
+: the following for loop removes local symbols from .o files
+for i in *.o
+do
+	echo $i
+	ld -rx $i
+	if [ $? -gt 1 ]
+	then
+		echo "$i: loader failure"
+		exit
+	fi
+	mv a.out $i
+	chmod 0664 $i
+	chgrp bin $i
+	chown bin $i
+done
+
+echo
+echo "make library"
+echo
+
+mv _print.o _print.osav
+ar rv libc.a `lorder *.o | sed 's/^ *//' |
+		sort | comm -23 - order.out | cat order.in - | tsort`
+if [ ! $? = 0 ]
+then
+	echo "archive failure"
+	exit
+fi
+:
+:	_print.o does printf formatting and has no floating point
+:	print ability.  _fprint.o is same but has the f.p. ability.
+:	Thus always call in _fprint.o unless _print.o is explicitly
+:	listed.
+mv _print.osav _print.o
+ar ra _fprint.o libc.a _print.o
+
+mv libc.a $LIB
+chmod 0664 $LIB/libc.a
+chgrp bin $LIB/libc.a
+chown bin $LIB/libc.a

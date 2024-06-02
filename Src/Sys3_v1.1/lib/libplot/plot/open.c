@@ -1,0 +1,4 @@
+openvt(){
+}
+openpl(){
+}

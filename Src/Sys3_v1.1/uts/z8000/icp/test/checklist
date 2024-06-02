@@ -1,0 +1,104 @@
+input modes
+
+	[ ]	IGNBRK - Ignore break condition
+	[ ]	BRKINT - Signal interrupt on break
+	[ ]	IGNPAR - Ignore characters with parity errors
+	[ ]	PARMRK - Mark parity errors
+	[ ]	INPCK  - Enable input parity checking
+	[ ]	ISTRIP - Strip character (8bits -> 7bits)
+	[ ]	INLCR  - Map NL to CR on input
+	[ ]	IGNCR  - Ignore CR
+	[ ]	ICRNL  - Map CR to NL on input
+	[ ]	IUCLC  - Map upper-case to lower-case on input
+	[ ]	IXON   - Enable start/stop output control
+	[ ]	IXANY  - Enable any character to restart output
+	[ ]	IXOFF  - Enable start/stop input control
+
+
+output modes
+
+	[ ]	OPOST  - Postprocess output
+	[ ]	OLCUC  - Map lower case to upper on output
+	[ ]	ONLCR  - Map NL to CR-NL on output
+	[ ]	OCRNL  - Map CR to NL on output
+	[ ]	ONOCR  - No CR output at column 0
+	[ ]	ONLRET - NL performs CR function
+	[ ]	OFILL  - Use fill characters for delay
+	[ ]	OFDEL  - Fill is DEL, else NULL
+	[ ]	NL0    - new-line delay (0)
+	[ ]	NL1    - new-line delay (~.1 sec)
+	[ ]	CR0    - carriage-return delay (0)
+	[ ]	CR1    - carriage-return delay (var.)
+	[ ]	CR2    - carriage-return delay (.1 sec)
+	[ ]	CR3    - carriage-return delay (.15 sec)
+	[ ]	TAB0   - horizontal-tab delay (0)
+	[ ]	TAB1   - horizontal-tab delay (var.)
+	[ ]	TAB2   - horizontal-tab delay (.1 sec)
+	[ ]	TAB3   - Expand tabs to spaces
+	[ ]	BS0    - backspace delays (0)
+	[ ]	BS1    - backspace delays (.05 sec)
+	[ ]	VT0    - vertical-tab delay (0)
+	[ ]	VT1    - vertical-tab delay (?)
+	[ ]	FF0    - form-feed delays (0)
+	[ ]	FF1    - form-feed delays (?)
+
+
+control modes
+
+	[ ]	B0     - Hang up
+	[ ]	B50    - 50 Baud
+	[ ]	B75    - 75 Baud
+	[ ]	B110   - 110 Baud
+	[ ]	B134   - 134.5 Baud
+	[ ]	B150   - 150 Baud
+	[ ]	B200   - 200 Baud
+	[ ]	B300   - 300 Baud
+	[ ]	B600   - 600 Baud
+	[ ]	B1200  - 1200 Baud
+	[ ]	B1800  - 1800 Baud
+	[ ]	B2400  - 2400 Baud
+	[ ]	B4800  - 4800 Baud
+	[ ]	B9600  - 9600 Baud
+	[ ]	EXTA   - External A
+	[ ]	EXTB   - External B
+	[ ]	CS5    - 5 bits/char
+	[ ]	CS6    - 6 bits/char
+	[ ]	CS7    - 7 bits/char
+	[ ]	CS8    - 8 bits/char
+	[ ]	CSTOPB - Send two stop bits
+	[ ]    -CSTOPB - Send one stop bit
+	[ ]	CREAD  - Enable receiver
+	[ ]	PARENB - Parity enable
+	[ ]	PARODD - Odd parity
+	[ ]    -PARODD - Even parity
+	[ ]	HUPCL  - Hang up on last close
+	[ ]	CLOCAL - Local line
+	[ ]    -CLOCAL - Dial-up line
+
+
+line discpline 0 mode
+
+	[ ]	ISIG   - Enable signals
+	[ ]	ICANON - Canonical input (erase and kill processing)
+	[ ]	XCASE  - Canonical upper/lower presentation
+	[ ]	ECHO   - Enable echo
+	[ ]	ECHOE  - Echo erase character as BS-SP-BS
+	[ ]	ECHOK  - Echo NL after kill character
+	[ ]	ECHONL - Echo NL
+	[ ]	NOFLSH - Disable flush after interrupt or quit
+
+
+line discpline
+
+
+control characters
+
+
+	[ ]	interrupt
+	[ ]	quit
+	[ ]	erase
+	[ ]	kill
+	[ ]	end-of-file
+	[ ]	line delimiter
+	[ ]	reserved
+	[ ]	reserved

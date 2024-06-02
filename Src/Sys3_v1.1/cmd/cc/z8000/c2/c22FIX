@@ -1,0 +1,73 @@
+#	"@(#)c22FIX	1.1"
+
+/*
+ *	Aug. 4, 1981
+ *
+ *	the following change should be made to the file c22.c
+ *	in the optimizer.  The optimizer is working on something like:
+ *			clr	-18(r14)
+ *			jp	L1
+ *				.
+ *				.
+ *				.
+ *		L1:
+ *			tst	-18(r14)
+ *			jp	z,cret
+ *
+ *
+ *	what it wants to produce is
+ *			clr	-18(r14)
+ *			jp	cret
+ *
+ *
+ *	everything works ok if the 'jp cret' were a jump to
+ *	a regular label. But with the jump to cret the optimizer
+ *	tried to increment the referenct count of the cret label.
+ *	There is no label named 'cret' so some location in low
+ *	memory would be changed
+ */
+
+385,387c385,393
+< 		p->ref = p1->ref;
+< 		p->labno = p1->labno;
+< 		p->ref->refc++;
+---
+> 		if( p1->ref ) {
+> 			p->ref = p1->ref;
+> 			p->labno = p1->labno;
+> 			p->ref->refc++;
+> 		} else { /* must be jpr cc,cret */
+> 			p->ref = 0;
+> 			p->labno = 0;
+> 			p->code = copy(1,p1->code);
+> 		}
+/*
+ *
+ *	when the fix is installed the code should appear as
+ *	follows
+ *
+ *
+ */
+
+redunbr(p)
+register struct node *p;
+{
+		.
+		.
+		.
+		.
+	if (compare(p1->subop, ap1, ap2)>0) {
+		nredunj++;
+		nchange++;
+		decref(p->ref);
+		if( p1->ref ) {
+			p->ref = p1->ref;
+			p->labno = p1->labno;
+			p->ref->refc++;
+		} else { /* must be jpr cc,cret */
+			p->ref = 0;
+			p->labno = 0;
+			p->code = copy(1,p1->code);
+		}
+	}
+}

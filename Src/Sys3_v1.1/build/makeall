@@ -1,0 +1,173 @@
+# Mkall will do the following based on the shell variables: 
+#	PROTO != <null> - make the proto.
+#	COPY != <null> - mkfs on $DEV, mount $DEV as $FS, and copy
+#		root and source to $DEV.
+#	CLEAN != <null> - clean and clobber all source in $FS/usr/src.
+#	SYSMAKE != <null> - chroot $FS and make almost everything in
+#		$FS/usr/src.
+#	STRIP != <null> - strip the commands when it compiles them.
+#		Only meaningful when SYSMAKE is non-null.
+#	REL = <number>
+#	VER = <number> - The Release and Version of the made uts.
+#		Meaningful only when SYSMAKE is non-null.
+#
+# Following is synopsis of command and default setting for the
+# shell variables it uses.
+#
+# "[cmd=<commmand>] [lib=<library>] [uts=<uts>] [games=<game>] \"
+#	"[PROTO=true] [COPY=true] [CLEAN=true] [SYSMAKE=true] \"
+#	"[STRIP=] [REL=1.0] [VER=] [FS= ] [DEV= ] makeall"
+#
+# makeall2 MUST BE IN /usr/src/build
+#
+
+PROTO=${PROTO-true}
+COPY=${COPY-true}
+CLEAN=${CLEAN-true}
+SYSMAKE=${SYSMAKE-true}
+STRIP=${STRIP-""}
+FS=${FS-""}
+DEV=${DEV-""}
+REL=${REL-1.0}
+VER=${VER-""}
+
+#	==== Create the proto
+#	The size of the file system required 10047 blocks, stripped
+#	code on 7/19/82
+
+if test -n "$PROTO";  then
+	cd /release
+	./proto.release 2
+	cd /usr/src/build
+	mv make.proto make.protold
+	cp /release/make.proto make.proto
+	ed - make.proto <<!
+	0a
+/tmp/empty
+20000 2000
+.
+	w
+	q
+!
+	echo PROTO DONE
+fi
+
+if test -z "$COPY" -a -z "$CLEAN" -a -z "$SYSMAKE"; then exit; fi
+if test -z "$DEV"; then echo missing disk device; exit; fi
+if test -z "$FS"; then echo missing file system; exit; fi
+if test "$FS" = "/"; then  exit; fi
+
+#	====== COPY SOURCE
+#	Requires 25186 (1K) blocks on 7/19/82.  This will change.
+#	and includes the compiled (stripped) object.
+
+if test -n "$COPY"; then
+	/etc/umount $DEV >/dev/null 2>&1
+	a=`/etc/mount ^ egrep " $DEV "`
+	if test -n "$a";  then
+		echo "$DEV is mounted"
+		exit 1
+	fi
+
+	/etc/mkfs $DEV 30000
+	/etc/mount $DEV $FS
+	cd /
+	mkdir $FS/usr
+	mkdir $FS/usr/tmp
+	mkdir $FS/usr/spool
+	mkdir $FS/usr/games
+	find \
+		bin \
+		dev \
+		etc \
+		lib \
+		stand \
+		sys3 \
+		tmp \
+		usr/READ.ME \
+		usr/adm \
+		usr/bin \
+		usr/include \
+		usr/lib \
+		usr/man \
+		usr/pub \
+		usr/src \
+		usr/tools \
+		-print \
+		^ cpio -pdlm $FS
+
+	rm -rf \
+		$FS/usr/src/cmd/config \
+		$FS/usr/src/cmd/crash \
+		$FS/usr/src/cmd/efl \
+		$FS/usr/src/cmd/f77 \
+		$FS/usr/src/cmd/gath \
+		$FS/usr/src/cmd/gcos \
+		$FS/usr/src/cmd/graf \
+		$FS/usr/src/cmd/ovld \
+		$FS/usr/src/cmd/rje \
+		$FS/usr/src/cmd/vpm \
+		$FS/usr/src/lib/lib2 \
+		$FS/usr/src/lib/libF77 \
+		$FS/usr/src/lib/libI77
+
+fi
+
+#	====== CLEAN AND CLOBBER
+
+if test -n "$CLEAN"; then
+
+	set +x
+	cd $FS/usr/src/lib; echo CLEAN/CLOBBER LIBRARIES 
+	for i in `find . -name '*.mk' -print`; do
+		(cd `dirname $i` ; make -k -s -f `basename $i` clobber clean )
+	done
+	cd libm; rm -f *.o
+	cd ../libl; rm -f *.o */*.o
+	cd ../liby; rm -f *.o
+	cd ../libc/z8000; rm -f *.o */*.o
+
+	cd $FS/usr/src/cmd; echo CLEAN/CLOBBER COMMANDS
+	rm -rf *.o
+	for i in `find . -name '*.mk' -print`; do
+		(cd `dirname $i` ; make -k -s -f `basename $i` clobber clean )
+	done
+
+	cd ../uts; echo CLEAN/CLOBBER UTS
+	make -s -f uts.mk clobber clean
+
+	cd ../games
+	make -s -f games.mk clobber clean
+fi
+	
+: UPDATE HEADER FILES FROM usr/include to usr/src
+if test -n "$SYSMAKE"; then
+	set +x
+
+	cd $FS/usr/include
+	for i in *.h; do
+		cp $i $FS/usr/src/head;
+	done
+	cd $FS/usr/include/sys
+	for i in *.h; do
+		cp $i $FS/usr/src/head/sys
+	done
+	
+	mv $FS/usr/lsrc $FS/usr/tlsrc
+	cd $FS/usr/src/cmd
+	find . \( -name '*.tmk' -o -name '*.trc' \) -exec rm -f {} \;
+
+	cp /usr/src/:mkcmd /usr/src/build/makeall2 $FS/usr/src 
+	cp /usr/src/cmd/pdp11.sh $FS/bin/pdp11; chmod 755 $FS/bin/pdp11
+
+	cd $FS/usr/src
+	sed -e 's, -s,,g' ldflags > temp
+	mv temp ldflags
+	if test -n "$STRIP"; then
+		sed -e 's,$, -s,' ldflags > temp
+		mv temp ldflags
+	fi
+
+	cmd=$cmd lib=$lib uts=$uts games=$games VER="$VER" REL="$REL" 
+		STRIP="$STRIP" chroot $FS /bin/sh /usr/src/makeall2
+fi

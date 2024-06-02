@@ -1,0 +1,7 @@
+clist.c -------- Should be replaced by clist.s from icp/ml 
+ic.c ----------- down load interface to si.c
+icpmisc.c ------ as the file says. the miscelaneous parts of the icp driver
+oldsi.c -------- old si.c. get rid of it when happy with current si.c
+pp.c ----------- Parallel printer interface to si.c
+si.c ----------- unix<=>icp interface software
+sp.c ----------- tty interface to si.c

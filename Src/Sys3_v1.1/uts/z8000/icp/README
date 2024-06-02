@@ -1,0 +1,30 @@
+This is an attempt to bring some order to the proliferating `#ifdefs' that
+seem to have infected the icp code. The following is a list of ifdefs and
+what they do (or once did):
+
+VPR	-	This cause the pio driver to use a larger buffer (512) instead
+		of the old  256 char buffer. It may be used with the 1.0
+		version kernel. However the reverse will cause the ICP to
+		reject the request. At a future date, this may be incorporated
+		into the ICP code as a permanent feature. Also note that there
+		is a corresponding flag in the io driver for the ICP (si.c)
+		that must be also evoked if the enhanced parallel port is to
+		be used. Historical note: this was added to improve the
+		Versatec throughput.
+
+VPMSYS	-	This causes the Virtual Protocol code to be compiled.  This is
+		a 'global' ifdef which controls 'sub' ifdefs.  This is on the
+		UNIX and ICP sides.
+
+VPMICP	-	This is again related to the Virtual Protocol code.  This 
+		causes several 'lcb' structures to be enlarged for VPM.  This 
+		is on the UNIX and ICP sides.
+
+VPMSYSIS - 	This ifdef is related to the UNIX side.  This causes the 
+		IMSC UNIX driver to NOT be compiled and the IS driver to be
+		compiled.
+
+VPMSYSIMSC -	This ifdef is related to the UNIX side.  This causes the 
+		IS UNIX driver to be compiled and the IMSC driver to NOT be
+		compiled.
+

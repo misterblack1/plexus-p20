@@ -1,0 +1,106 @@
+# Test everything (almost)
+j=2
+k=4
+if ++j!=--k put="inc/dec"
+eval("goto "_arg(1))
+fun func(a)b
+ for b=1,b<a,++b 0
+ return a==b
+nuf
+testall:
+if !func(12) put="func"
+# Test operators
+if 1+1 != 2 put="add"
+if  13%1 put="rem"
+if 123456+1 != 123457 put="add"
+if 99999.999-99999.999 put ="subt"
+if (88888*88888)-(88888*88888) put="mult"
+if ((6+9)/3)!=5 put="presc"
+if 222/222 != 1 put="div"
+if (1&1) != 1 put="and"
+if (1&0) != 0 put="and"
+if (0|0) != 0 put="or"
+if (0|1) != 1 put="or"
+if (1|0) != 1 put="or"
+if 4^4 != 256 put="pow"
+if floor(3.1459) != 3 put="int"
+if (5>4) != 1 put="comp"
+if (222==222) != 1 put="comp"
+if (3!=2) != 1 put="comp"
+a=5
+if !(0<=a<=9) put = "comp extr"
+if -(-1) != 1 put="neg"
+if !0 != 1 put="not"
+# Test builtin functions
+if 1!=format("%.6f", floor(1.99999999)) put="int"
+if 25!=sqrt(625) put="sqrt"
+if narg()!=2 put="narg"
+if "c"!=ftype("/dev/null") put="ftype"
+if 1!=access("/dev/null",2) put="access"
+if 144!=eval("12*12") put="expr"
+if 123!=abs(-123) put="abs"
+if format("%.6f", 387420489^(1/3))!=729 put="pow"
+if 0.29552!=format("%.6f", sin(.3)) put="sin"
+if 15/32!=.46875 put="fraction"
+if .955336!=format("%.6f", cos(.3)) put="cos"
+if (1/5+1/5+1/5+1/5+1/5)!=1 put="fractions"
+if 2.718282!=format("%.6f", exp(1)) put="exp"
+#  Test string functions:
+a="123"
+b=123
+if a!=b put = a_"!="_b
+if size(a) != size(b) put = "size "_size(a)_"!="_size(b)
+c="Now is the time for all good men to come to the aid of the party."
+if index(c, "cmn")==0 put = "index fail"
+if substr(c, index(c,"p"), 25)!= "party." put = "substr err"
+d="catcatcatcat"
+if d!=("cat"_"cat"_"cat"_"cat") put = "cat err"
+if "abc" > "defghi" put = "compare err"
+if (186000*5280*12/1000000000)!=("186000"*"12"*"5280"/"1000000000") put="err"
+if index(12345,99) put = "index conv err"
+if 3!= match("123", "[1-3]*") put = "match err"
+if 7!= match("123.123xxx", "\([1-3]*\.[1-3]*\)") put = "match err"
+if mstring(1) != "123.123" put = "mstring()"
+aaa[1]=1
+aaa[2,aaa[1]]=21
+if aaa[2,1]!=21 put="subscr"
+j=0
+for i=1 4 (++j)
+if j!=4 put="for"
+ar[1,1]=1
+++ar[1,1]
+++ar[1,1]
+if ar[1,1]!=3 put="subscr incr"
+# test IF
+for i=1 3
+	if i==1
+		++i1
+		if !i1 put = "if-if err"
+	else if i==2
+		++i2
+		if i2
+			i2
+		else
+			put = "if2 err"
+		fi
+	else if i==3
+		++i3
+	else
+		put = "bad if"
+	fi fi fi
+next
+if (i1+i2+i3)!=3 put="if err"
+for i=1 5
+  if i>3 continue
+  j=i
+next
+if j!=3 put="continue"
+for i=1 5
+  if i==3 break
+next
+if i!=3 put="break"
+array[1,2,3,4]=1234
+if trans("ABC ","ABC ","abc")!="abc" put="trans() err"
+put = "Ok if nothing printed"
+exit
+run

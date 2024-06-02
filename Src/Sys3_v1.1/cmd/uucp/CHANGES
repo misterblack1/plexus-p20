@@ -1,0 +1,123 @@
+	/*  CHANGES 3.22  1/30/80  15:07:52  */
+1/30/80	(uucp.mk makefile)	add chkpth to uuxqt
+1/30/80	(uuxqt.c)	add more security
+1/30/80	(shio.c)	change setuid code 
+1/30/80	(gwd.c)		close 2 rather than redirect to /dev/null
+1/27/80	(pk1.c)		fix protocol bug
+1/11/80	(expfile.c uucp.c uux.c)
+			check for expfile failure - gwd didn't work
+1/11/80	(uucp.mk - makefile)
+			-i option argument for uucico - variable
+1/10/80	(gwd.c)		changes for gwd messages in uucp and uux
+1/7/80	(cntrl.c)	condense some code
+1/5/80	(assert.c chkpth.c cico.c cntrl.c conn.c gename.c gnsys.c pk.p 
+	pk1.c systat.c ulockf.c uucp.c uucp.h uucp.mk uulog.c uux.c uuxqt.c
+	uucpdefs.c uuname.c)
+		change ASSERT statements
+		add program name to each program
+1/2/80	(uucp.mk, makefile)
+			add chown of INSDIR to OWNER
+12/20	(uuxqt.c)	return exit status and signal by mail
+12/17	(gio.c)		fix 0 len read in grdmsg
+12/17	(pk1.c)		fix different size packet bug
+12/6/79	(cico.c)	fix now work flow bug
+12/6/79	(uux.c)		fix stdin double eot problem
+11/7	(uuclean.c)	fix mailst calls
+11/6	(all uustat/uusub routine)
+			fixes from hdc
+11/4	(uuxqt.c)	add log infor for mail failure
+11/4	(shio.c)	catch signals and change ASSERTS
+10/29	(uucp.c)	add chkperm to local work - to make directories
+10/29	(makefile)	add some uustat/uusub stuff
+10/29	(uuname.c)	fix usage message
+10/25	(conn.c)	complete rewrite of Dialcodes and Devices processing
+10/25	(uucp.h, uucpdefs.c)	remove Dialfile and Devfile variables
+10/24	(anlwrk.c)	reduce size of static buffer
+10/24	(uucp.c, cntrl.c)	notify remote user changes
+10/24	(cico.c, conn.c)	remove some debug statements
+10/22	(ulockf.c uucp.h)	make LCK.. timeout a manifest
+10/22	(uuxqt.c conn.c systat.c)	cosmetic changes
+10/15	(uuxqt.c)	return mail failure to sender; interface to mailst 
+			changed
+10/15	(cntrl.c uuclean.c )	interface to mailst changed
+10/15	(makefile)	sdmail.c changed to mailst.c
+10/11	(conn.c)	do full strcmp for sysname; fix ASSERT in sendthem()
+10/2/79	(pk.p, pk1.c, gio.c, cico.c)	misc cleanup
+10/2/79	(uucp.h, uucpdefs.c, systat.c, conn.c)	changes to make STST
+			file processing more flexible
+10/2/79	(uust.h, uusub.h, us_sst.c, us_rrs.c, ub_sst.c, us_open.c,
+	 uustat.c, uusub.c)
+			new modules for uustat processing
+10/2/79	(anlwrk.c, uucp.h, makefile, cico.c, cntrl.c, logent.c
+	 gename.c, uucpdefs.c, uucp.c)
+			changes for uustat stuff
+9/7/79	(makefile)	make mode of spool 755; add OLDLOG directory for
+			old LOGFILE and SYSLOG files
+7/23/79	(makefile)	uulog should run setuid if spool 755
+7/18/79	(cico.c uux.c uuxqt.c cntrl.c uucp.h chmpth.c cpmv.c)
+			changes to allow mode 755 on spool directory;
+			work file (C.  D. ...) will be 644 - the default can 
+			be changed in uucp.h (WFMASK)
+7/18/79	(makefile)	uuclean must run setuid now
+7/12/79	(cico.c)	remove extra interrupt routines
+7/12/79	(imsg.c)	change debug statements for octal or characters
+7/11/79	(uuxqt.c)	fix long notify message bug
+7/11/79	(uux.c)		allow filename without ! after "<"
+7/6-7/10/79	(anyread.c cico.c conn.c expfile.c getprm.c gio.c sdmail.c
+uucpdefs.h uucpdefs.c logent.c
+ulockf.c uuclean.c uucp.c uucp.h uucpname.c uulog.c uux.c uuxqt.c makefile
+chkpth.c cntrl.c gnamef.c)
+			changes for lint complaints
+			uucpdefs.h deleted; uucpdefs.c added
+7/6/79	(makefile)	add lint stuff
+7/5/79	(expfile.c)	use umask in mkdirs instead of chmod
+6/29/79	(cntrl.c)	remove TM on request denied for receive file
+6/22/79	(makefile)	add all dependencies
+6/22/79	(uuname.c)	don't print duplicates if they are adjacent
+6/22/79	(conn.c)	change speed fields in L.sys and L-devices to "class":
+			an optional prefix and the speed - for new type acu
+6/22/79	(conn.c)	try multiple paths for call;
+			remove multiple L.sys files
+6/22/79	(uucp.h)	remove multiple L.sys files stuff
+6/22/79	(uucpdefs.h)	remove multiple L.sys files stuff
+6/22/79	(versys.c)	remove reference to Sysfile array
+6/22/79	(uuname.c)	remove reference to Sysfile
+6/21/79	(uucp.c)	declare FILE *gtcfile()
+6/21/79	(pk1.c)		change includes for pk.p, pk.h
+6/12/79	(uuxqt.c)	check for redirection (<>) in command line
+6/11/79	(cico.c)	add umask(0111)
+6/11/79	(uuxqt.c)	add umask(0111)
+6/11/79	(uux.c)		add umask(0111)
+6/11/79	(uucp.c)	add umask(0111)
+6/11/79	(uuxqt.c)	fix command overflow bug in notify
+6/8/79	(uuxqt.c)	check for command string `...` in uuxqt
+6/8/79	(getprm.c)	check for command string `...` in uuxqt
+6/3/79	(uuclean.c)	send mail to requestor for C. file deleted
+6/3/79	(makefile)	send mail to requestor for C. file deleted
+5/31/79	(uux.c)		change to allow binary file input; add logent;
+5/31/79	(makefile)	add logent to uux
+5/28/79	(pk1.c)		make same as vax
+5/28/79	(pk0.c)		make same as vax version
+5/28/79	(conn.c)	fix ifdate to allow times crossing 2400
+5/24/79	(uux.c)		add an error message; try to continue if gwd fails;
+5/24/79	(uucp.c)	multi commands/C. file; put -c in command file;
+			use dummy D. name on -c;
+			check for same file on local copy;
+			check ANYREAD/ANYWRITE on local cp
+			check for stat failure on send file;
+5/24/79	(cntrl.c)	don't look for D. if -c option; don't unlink dummy D.;
+			add local notify on file access failures;
+5/23/79	(uucp.h)	add "dialout" routine option
+5/23/79	(conn.c)	add "dialout" routine option
+5/23/79	(uucp.c)	fix sysfile2 system name too long bug
+5/22/79	(anlwrk.c)	fix allocation bug - break loop (gtwrk) when list full
+5/21/79	(chkpth.c)	fix rdpth to use first null in USERFILE for defaults
+5/18/79	(logent.c)	add pid to log entries
+5/18/79	(cico.c)	add 2 logent calls
+5/18/79	(cntrl.c)	touch lock files after each transaction
+5/18/79	(ulockf.c)	add ultouch (touch lock files); reduce lock timeout
+5/16/79	(cntrl.c)	turnoff protocol on message failure
+5/16/79	(pk1.c)		try to fix loop when slave hangs up
+5/16/79	(cico.c)	fix to get core dumps on kill
+5/7/79	(makefile)	add -l option to uuname program
+5/7/79	(uuname.c)	add -l option to uuname.c

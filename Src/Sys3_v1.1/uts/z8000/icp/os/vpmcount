@@ -1,0 +1,121 @@
+INCRT = $(ROOT)/usr/include
+CFLAGS = -O -DICP -DVPMSYS -Dpdp11 -DCOUNT -I$(INCRT)
+FRC =
+
+FILES =\
+	bcopy.o\
+	blist.o\
+	clock.o\
+	daemon.o\
+	main.o\
+	mb.o\
+	pbif.o\
+	pbs.o\
+	prf.o\
+	sched.o\
+	slp.o\
+	subr.o\
+	trap.o
+
+all:	$(FILES)
+
+bcopy.o:
+	/lib/cpp -DASSM -DICP -DVPMSYS -Dpdp11 -DCOUNT -I$(INCRT) -P  $< >tempfile
+	as -u tempfile -o $@
+	rm tempfile
+	$(FRC)
+
+blist.o:\
+	$(INCRT)/sys/param.h\
+	$(INCRT)/icp/sioccomm.h\
+	$(INCRT)/icp/icp.h
+	cc $(CFLAGS) -c $<
+	$(FRC)
+
+clock.o:\
+	$(INCRT)/sys/param.h\
+	$(INCRT)/sys/callo.h\
+	$(INCRT)/icp/proc.h
+	cc $(CFLAGS) -c $<
+	$(FRC)
+
+daemon.o:\
+	$(INCRT)/sys/param.h\
+	$(INCRT)/sys/tty.h\
+	$(INCRT)/icp/sioc.h\
+	$(INCRT)/icp/siocunix.h\
+	$(INCRT)/icp/siocprom.h\
+	$(INCRT)/icp/sioccomm.h\
+	$(INCRT)/icp/icp.h\
+	$(INCRT)/icp/pbsioc.h
+	cc $(CFLAGS) -c $<
+	$(FRC)
+
+main.o:\
+	$(INCRT)/sys/param.h\
+	$(INCRT)/sys/tty.h\
+	$(INCRT)/icp/sioc.h\
+	$(INCRT)/icp/siocunix.h\
+	$(INCRT)/icp/siocprom.h\
+	$(INCRT)/icp/sioccomm.h\
+	$(INCRT)/icp/icp.h\
+	$(INCRT)/icp/pbsioc.h
+	cc $(CFLAGS) -c $<
+	$(FRC)
+
+mb.o:\
+	$(INCRT)/sys/param.h\
+	$(INCRT)/icp/sioc.h\
+	$(INCRT)/icp/sioccomm.h\
+	$(INCRT)/icp/icp.h\
+	$(INCRT)/icp/pbsioc.h
+	cc $(CFLAGS) -c $<
+	$(FRC)
+
+pbif.o:\
+	$(INCRT)/sys/param.h\
+	$(INCRT)/icp/sioccomm.h\
+	$(INCRT)/icp/icp.h\
+	$(INCRT)/icp/pbsioc.h
+	cc $(CFLAGS) -c $<
+	$(FRC)
+
+pbs.o:\
+	$(INCRT)/sys/param.h\
+	$(INCRT)/icp/sioc.h\
+	$(INCRT)/icp/sioccomm.h\
+	$(INCRT)/icp/icp.h\
+	$(INCRT)/icp/pbsioc.h
+	cc $(CFLAGS) -c $<
+	$(FRC)
+
+prf.o:\
+	$(INCRT)/icp/sioc.h
+	cc $(CFLAGS) -c $<
+	$(FRC)
+
+sched.o:\
+	$(INCRT)/sys/param.h\
+	$(INCRT)/sys/conf.h\
+	$(INCRT)/icp/sioccomm.h\
+	$(INCRT)/icp/icp.h\
+	$(INCRT)/icp/pbsioc.h
+	cc $(CFLAGS) -c $<
+	$(FRC)
+
+slp.o:\
+	$(INCRT)/sys/param.h\
+	$(INCRT)/icp/proc.h
+	cc $(CFLAGS) -c $<
+	$(FRC)
+
+subr.o:
+	cc $(CFLAGS) -c $<
+	$(FRC)
+
+trap.o:\
+	$(INCRT)/icp/sioc.h
+	cc $(CFLAGS) -c $<
+	$(FRC)
+
+FRC:

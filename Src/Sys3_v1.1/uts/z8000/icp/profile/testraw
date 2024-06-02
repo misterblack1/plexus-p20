@@ -1,0 +1,8 @@
+ttyagr /dev/tty0&
+ttyagr /dev/tty1&
+ttyagr /dev/tty2&
+ttyagr /dev/tty3&
+ttyagr /dev/tty4&
+ttyagr /dev/tty5&
+ttyagr /dev/tty6&
+ttyagr /dev/tty7&

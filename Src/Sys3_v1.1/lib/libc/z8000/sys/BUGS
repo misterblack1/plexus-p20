@@ -1,0 +1,109 @@
+alarm.s		- 03/02/82 JSE	Copied as is from Plexus V7 source.
+
+access.s
+acct.s
+chdir.s
+chmod.s
+chown.s
+chroot.s
+close.s
+creat.s		- 03/01/82 JSE	Copied as is from Plexus V7 source
+
+dup.s		- 03/01/82 JSE	Copied from Plexus V7, removed dup2 code.
+
+execl.s
+execle.s
+execv.s
+execve.s
+exit.s
+fork.s
+fstat.s		- 03/01/82 JSE	Copied as is from Plexus V7 source.
+
+getgid.s	- 03/01/82 JSE	Copied from Plexus V7, removed getegid code.
+
+getpid.s	- 03/02/82 JSE	Copied as is from Plexus V7 source.
+
+getuid.s	- 03/02/82 JSE	Copied from Plexus V7 src and removed 
+				geteuid code.
+
+ioctl.s		- 03/02/82 JSE	Copied from Plexus V7 src and modified
+				so that first arg (fildes) goes into r0
+				and removed clr r7 after ioctl sys-call.
+
+kill.s
+link.s
+lseek.s
+mknod.s
+mount.s		- 03/02/82 JSE	Copied as is from Plexus V7 src.
+
+nice.s		- 03/02/82 JSE	Copied from P-V7 src. Removed clr r7 after
+				nice system call.
+
+open.s		- 03/02/82 JSE	Copied from P-V7 src. Added 3rd arg to open.
+
+pause.s		- 03/02/82 JSE	Copied from P-V7 src. After pause sys-call,
+				added jp c,cerror and clr r7.
+
+pipe.s
+profil.s
+ptrace.s
+read.s		- 03/02/82 JSE	Copied as is from Plexus V7 source.
+
+sbrk.s		- 03/02/82 JSE	Copied as is from P-V7 src.  However, R-III
+				sbrk.s differed from Rel 7: the test for
+				an error after sbrk/brk sys-call changed.
+				TEST THIS ONE OUT UNDER P-III.
+
+setgid.s
+setuid.s
+signal.s			TEST THIS ONE
+stat.s
+stime.s
+sync.s		- 03/02/82 JSE	Copied as is from Plexus V7 source.
+
+time.s		- 03/02/82 JSE	Copied from P-V7 src, removed ftime code.
+
+times.s
+umask.s
+umount.s
+unlink.s
+utime.s
+wait.s
+write.s		- 03/02/82 JSE	Copied as is from Plexus V7 source.
+
+fcntl.s
+getegid.s
+geteuid.s
+getppid.s
+gtty.s
+setpgrp.s
+stty.s		- 03/03/82 JSE	Wrote Z8000 version.
+
+syscall.s	
+tell.s
+ulimit.s
+uname.s
+ustat.s		 - 03/04/82 JSE Wrote Z8000 version.
+
+*.s		- 03/04/82 JSE	Replaced calls on csav/cret with
+				push/pop/ret operations
+
+locking.s	- 03/08/82 JSE	Changed #include "syscall.h" to <syscall.h>
+
+fcntl.s
+gtty.s
+ioctl.s
+nice.s
+setpgrp.s
+stty.s
+syscall.s
+tell.s
+ulimit.s
+uname.s
+ustat.s		- 04/13/82 JSE	Changed to correctly return the return value
+				in r7 (or r6,r7).
+
+time.s
+times.s		- 04/13/82 JSE	Added check for error after sc and jp to cerror.
+
+ugrow.s		- 12/02/82 JSE	Added.

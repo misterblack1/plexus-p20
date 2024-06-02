@@ -1,0 +1,18 @@
+
+
+
+
+		--- PWD V6 ---		--- V7 ---
+    100000	backspace delay		backspace delay
+    040000	form-feed delay		form-feed delay
+    030000	CR delays		CR delays
+    006000	Tab delays		tab delays (XTABS tab expansion)
+    001400	NL delays		NL delays
+    000200	parity on input		Even Parity
+    000100	odd parity		Odd Parity
+    000040	RAW			Raw
+    000020	CR->LF CR&LF->CR+LF	CR->LF CR&LF->CR+LF
+    000010	ECHO			ECHO
+    000004	Upper to Lower case	upper case to lower
+    000002	Echo & Tab->spaces	CBREAK
+    000001	Hang up			TANDEM ^S,^Q flow control

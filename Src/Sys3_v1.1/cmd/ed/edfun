@@ -1,0 +1,22 @@
+if [ "$1" != "" -a -w "$1" ]
+then
+ed - $1 > xa <<!
+	/^_msgtab/
+	/^0/-
+	q
+!
+
+end=`tail -1 xa`
+
+ed - $1 > /dev/null <<!
+	?^\.data?s//.text/
+	/^${end}/
+	/^L/
+	i
+.data
+.
+	w
+	q
+!
+rm -f xa
+fi

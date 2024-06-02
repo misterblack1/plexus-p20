@@ -1,0 +1,19 @@
+   124	h 
+   125	cc -DPROFILE -I/p3/usr/include -O -Dpdp11 -DICP getdata.c -o getdata 
+   126	tar cvbf 20 /dev/rmt0 getdata 
+   127	vi getdata 
+   128	vi getdata.c 
+   129	ls 
+   130	vi ttyag.c 
+   131	vi getdata.c 
+   132	h 
+   133	cc -DPROFILE -I/p3/usr/include -O -Dpdp11 -DICP getdata.c -o getdata 
+   134	tar cvbf 20 /dev/rmt0 getdata 
+   135	bc 
+   136	vi getdata.c 
+   137	h 
+   138	cc -DPROFILE -I/p3/usr/include -O -Dpdp11 -DICP getdata.c -o getdata 
+   139	ls 
+   140	h > trash 
+   141	rm trash 
+   142	h > trash 

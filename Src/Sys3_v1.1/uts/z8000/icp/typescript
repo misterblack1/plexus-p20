@@ -1,0 +1,49 @@
+Script started on Wed Dec  8 21:01:25 1982
+$ make -f vpr.mk vpr
+	cd cf; make -f vprcf.mk "INCRT=/usr/include"
+	cc -O -DICP -DVPR -Dz8000 -I/usr/include -c c.c
+	/lib/cpp -DASSM -DICP -DVPR -Dz8000 -I/usr/include -P  l.s >tempfile
+	as -u tempfile -o l.o
+	rm tempfile
+	/lib/cpp -DASSM -DICP -DVPR -Dz8000 -I/usr/include -P  mch.s >tempfile
+	as -u tempfile -o mch.o
+	rm tempfile
+	cd ml; make -f vprml.mk "INCRT=/usr/include"
+	/lib/cpp -DASSM -DICP -DVPR -Dz8000 -I/usr/include -P  clist.s >tempfile
+	as -u tempfile -o clist.o
+	rm tempfile
+	cc -O -DICP -DVPR -Dz8000 -I/usr/include -c cinit.c
+	cd io; make -f vprio.mk "INCRT=/usr/include"
+	cc -O -DICP -Dz8000 -I/usr/include -DVPR -c ctc.c
+	cc -O -DICP -Dz8000 -I/usr/include -DVPR -c dh.c
+	cc -O -DICP -Dz8000 -I/usr/include -DVPR -c dma.c
+	cc -O -DICP -Dz8000 -I/usr/include -DVPR -c partab.c
+	cc -O -DICP -Dz8000 -I/usr/include -DVPR -c pio.c
+	cc -O -DICP -Dz8000 -I/usr/include -DVPR -c tt0.c
+	cc -O -DICP -Dz8000 -I/usr/include -DVPR -c tty.c
+	cd os; make -f vpros.mk "INCRT=/usr/include"
+	/lib/cpp -DASSM -DICP -DVPR -Dz8000 -I/usr/include -P  bcopy.s >tempfile
+	as -u tempfile -o bcopy.o
+	rm tempfile
+	cc -O -DICP -DVPR -Dz8000 -I/usr/include -c blist.c
+	cc -O -DICP -DVPR -Dz8000 -I/usr/include -c clock.c
+	cc -O -DICP -DVPR -Dz8000 -I/usr/include -c daemon.c
+	cc -O -DICP -DVPR -Dz8000 -I/usr/include -c main.c
+	cc -O -DICP -DVPR -Dz8000 -I/usr/include -c mb.c
+	cc -O -DICP -DVPR -Dz8000 -I/usr/include -c pbif.c
+	cc -O -DICP -DVPR -Dz8000 -I/usr/include -c pbs.c
+	cc -O -DICP -DVPR -Dz8000 -I/usr/include -c prf.c
+	cc -O -DICP -DVPR -Dz8000 -I/usr/include -c sched.c
+	cc -O -DICP -DVPR -Dz8000 -I/usr/include -c slp.c
+	cc -O -DICP -DVPR -Dz8000 -I/usr/include -c subr.c
+	cc -O -DICP -DVPR -Dz8000 -I/usr/include -c trap.c
+	ld -o vpr -r -d -X cf/l.o cf/mch.o cf/c.o ml/c*.o os/*.o io/*.o
+$ size vpr
+15988+1216+14980 = 32184b = 076670b
+$ bc
+2^15-32184
+584
+$qu
+syntax error on line 2, teletype
+$ 
+script done on Wed Dec  8 21:18:38 1982

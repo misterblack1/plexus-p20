@@ -1,0 +1,1 @@
+cc -X -O -B/lib/k -DHWFP -DOVKRNL -I/usr/include -DPNETDFS -c $1

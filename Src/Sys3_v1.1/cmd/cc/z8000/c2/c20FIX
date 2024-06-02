@@ -1,0 +1,46 @@
+#	"@(#)c20FIX	1.1"
+
+Sept. 8, 1981
+
+The funny code has been their forever.  I think the reason it wasn't
+handled has something to do with the more limited addressing for
+conditional jumps on the 11. Who knows?  Any way the following seems
+to fix up both  'jp cc,L10;jp L10' and 'jp cc,cret;jp cret'.  It should be
+used for a while before release.
+
+An interesting side affect is shown up by your code example.  The old
+optimizer took your	' if(i==0)return;'	and make it a 'test'
+instruction because it was followed by a conditional jump on z flag.
+By the time the optimizer sees the 'cp' instruction the conditional
+jump is gone and so the 'cp' instr is left in (it could be deleated).
+I'm not sure its worth trying to fix that one, i hate to just start
+deleting code.
+
+Oh well, in regular cases it is probably ok the way it is.
+
+I added the code after the block starting
+
+ 		if(p->op == CJP && (rp = p->forw) && rp->op == LABEL) {
+			.....
+		}
+
+and before the block
+		if (p->op==JP) {
+			xjump(p);
+			...
+		}
+
+
+644,655d643
+< 		if(p->op == CJP && (rp = nonlab(p->forw)) && rp->op == JP) {
+< 			if( p->code && equstr(p->code,rp->code)
+< 			   || p->labno == rp->labno ) {
+< 				p->back->forw = p->forw;
+< 				p->forw->back = p->back;
+< 				p = p->back;
+< 				if( !p->code && p->ref ) decref(p->ref);
+< 				nchange++;
+< 				njp1++;
+< 				break;
+< 			}
+< 		}

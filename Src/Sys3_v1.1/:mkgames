@@ -1,0 +1,10 @@
+cd games
+	if test -z "$1"; then
+		make -f games.mk install
+		exit
+	fi
+	for i in $*;do
+		basename=`expr $i \: '\(.*\)\..$'`
+		if test -z "$basename" ; then basename=$i;fi
+		make -f games.mk $basename INS="/etc/install -f /usr/games"
+	done

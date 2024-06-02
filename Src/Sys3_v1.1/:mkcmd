@@ -1,0 +1,366 @@
+: All comments added by JSE
+:
+: sh [-f] [-s] [-p] [-y] command ...
+: where
+:	command	is a source file, eg, strip.c, or a directory,
+:		e.g., adb
+:	[-f]	keep "-f" flag in cc options. Otherwise, it is removed.
+:	[-s]	remove "-i" flag from cc options.  Also disables
+:		clobber on .mk files
+:	[-p]	sets pflag=-p.  pflag not used anywhere.
+:	[-y]	on yacc stuff, yacc it and compile results.  If [-s]
+:		option is given, moves .c to .x.  otherwise, rm .c.
+:		See below.
+:
+: cc options =    "-O"
+:		+ flags in /usr/src/ldflags
+:		- "-f" if [-f] option omitted
+:		- "-i" if [-s] option given
+:		
+: Files used:
+:	/etc/places - defines for shell variables SRC, LSRC, BIN, ETC,
+:		      UBIN, LBIN, LIB, LINTLIB, YACCLIB, and LDFILE
+:	$SRC/ldflags - extra compiler/loader flags for commands.
+:		       If a command is in this file, use ld flags
+:		       therein.  Otherwise, use LDFLAGS.
+:		       Layout: note a space, not tab, after command.
+:			command -n -s
+:			init -n
+:
+: The [-s] and [-y] work in conjunction on yacc stuff as follows:
+:	[-y] [-s]	-yacc file.y, compile file.c, mv file.c file.x
+:	[-y]		-yacc file.y, compile file.c, rm file.c.
+:	     [-s]	-on file.y, mv file.x to file.c, compile file.c,
+:			 remove file.c.  No yacc-ing.
+:	neither		-yacc file.y, compile file.c, rm file.c
+: NOTE: the [-s] flag also removes the "-i" compiler option. See above.
+:
+: WARNINGS/CAVEATS:
+:	 1. The compiler/loader options defined in LDFILE and modified
+:	    by the options to :mkcmd do not apply to .rc files in
+:	    cmd directory yet.
+:	 2. UBIN, BIN and ETC are not passed to *.mk or *.rc files.
+:	 3. Likenamed files such as passwd.etc and passwd.c will not
+:	    both get made.  In the passwd case, passwd.c will always
+:	    get made when passwd is given as argument.
+
+CLEAN="rm -f *.o"
+asource=$source
+places=${places-/etc/places}
+if [ -r $places ]
+	then
+		. $places
+else
+	SRC=${SRC-`pwd`}
+	LSRC=${LSRC-/usr/lsrc}
+	BIN=${BIN-/bin}
+	UBIN=${UBIN-/usr/bin}
+	LBIN=${LBIN-/usr/lbin}
+	ETC=${ETC-/etc}
+	INCLUDE=${INCLUDE-/usr/include}
+	LIB=${LIB-""}
+	LINTLIB=${LINTLIB--ll}
+	YACCLIB=${YACCLIB--ly}
+fi
+LDFILE=${LDFILE-${SRC}/ldflags}
+LDFLAGS=${LDFLAGS-"-n"}
+cd ${SRC}/cmd
+arguments=$*
+pflag=
+for A in $*
+do
+	case $A in
+
+	-y)	yflag=-y
+		;;
+
+	-f)	fflag=FFLAG=-f
+		;;
+
+	-s)	sflag=-s
+		yaccrm=YACCRM=:
+		iflag=IFLAG=
+		;;
+	-p)	pflag=-p
+		command="sed -e 's/-p //'"
+		arguments=`echo $arguments | eval $command`
+		command=
+		;;
+	esac
+done
+
+
+for A in $arguments
+do(
+	if [ x$A = x-s -o x$A = x-y -o x$A = x-f ]
+	then
+		continue
+	fi
+
+	if [ $asource ]
+		then source=$asource
+	elif [ -f ${LSRC}/cmd/$A -o -d ${LSRC}/cmd/$A ]
+		then source=$LSRC
+		else source=$SRC
+	fi
+	cd ${source}/cmd
+	NAME= TEST=./
+	B=`echo $A ^ sed -e 's/.*\///' `
+	echo ======== $B
+	i=$B
+	if [ -d $B ] 
+		then echo "******** directory $B"
+	else	B=`echo $i | sed -e 's/\(.*\)\..*/\1/'`
+		if [ -f $B.mk -o -f $LSRC/cmd/$B.mk ]
+			then i=$B.mk
+		elif [ -f $B.rc -o -f $LSRC/cmd/$B.rc ]
+			then i=$B.rc
+		elif [ -f $B.c  -o -f $LSRC/cmd/$B.c ] 
+			then i=$B.c
+		elif [ -f $B.y -o -f $LSRC/cmd/$B.y ]
+			then i=$B.y
+		elif [ -f $B.l -o -f $LSRC/cmd/$B.l ] 
+			then i=$B.l
+		elif [ -f $B.s -o -f $LSRC/cmd/$B.s ] 
+			then i=$B.s
+		elif [ -f $B.sh -o -f $LSRC/cmd/$B.sh ] 
+			then i=$B.sh
+		elif [ -f $B.ex -o -f $LSRC/cmd/$B.ex ]
+			then i=$B.ex
+		elif [ -f $B.etc -o -f $LSRC/cmd/$B.etc ] 
+			then i=$B.etc
+		elif [ -f $B.o -o -f $LSRC/cmd/$B.o ] 
+			then rm -f $B.o 
+		fi
+	fi
+
+	if [ $source = $SRC -a -f ${LSRC}/cmd/$i ]
+		then source=$LSRC
+			cd ${source}/cmd
+	fi
+
+	ldflags="$LDFLAGS"
+: If $B, item to be made, is in LDFILE, use the ld flags therein.
+	command="sed -e 's/$B //'"
+	if [ -r ${LDFILE} ]; then
+		tldflags=`eval grep "'^$B '" $LDFILE`
+		if [ "$tldflags" ] ; then ldflags=$tldflags; fi
+	fi
+	ldflags=`echo $ldflags | eval $command`
+
+	case $i in
+
+	*.mk)
+		if [ x$sflag = x-s ]
+		then
+			command="sed -e 's/-i//'"
+			ldflags=`echo $ldflags | eval $command`
+		else
+			command="sed -e 's/-f//'"
+			ldflags=`echo $ldflags | eval $command`
+			if [ `expr "x$ldflags" : '.*-i'` != 0 ] 
+				then
+					command="sed -e 's/-n//'"
+					ldflags=`echo $ldflags | eval $command`
+			fi
+		fi
+		MK=$B.mk
+#		if [ -f "$B.tmk" ] ; then MK=$B.tmk; echo $MK; fi
+: The $fflag argument may confuse make
+		COMP="make -b -f $MK $iflag $fflag install LIB=$LIB \
+			INCLUDE=$INCLUDE"
+		if [ "x$ldflags" != x ]
+			then COMP="$COMP LDFLAGS='$ldflags'"
+		fi
+		COMP="$COMP && make -b -f $MK $iflag $yaccrm clobber"
+		echo $COMP
+		eval $COMP
+		;;
+	*.rc)	
+		RC=$B.rc
+#		if [ -f "$B.trc" ] ; then RC=$B.trc; echo $RC; fi
+		LDFLAGS="$ldflags" LIB=$LIB \
+			INCLUDE=$INCLUDE sh -x $RC
+		;;
+	*.y)	if [ x$sflag != x-s -o x$yflag = x-y ]
+		then
+			echo yacc $i
+			if yacc $i
+			then	echo mv y.tab.c ${B}.c
+				mv y.tab.c ${B}.c
+				lib=$YACCLIB places=$places LDFILE=$LDFILE \
+					${SRC}/:mkcmd $sflag $yflag ${B}.c
+			else	echo "yacc failed"
+			fi
+			if [ x$sflag != x-s ]
+			then
+				rm -f ${B}.c
+			else
+				mv ${B}.c ${B}.x
+			fi
+		else
+			mv ${B}.x ${B}.c
+			lib=$YACCLIB places=$places LDFILE=$LDFILE \
+				${SRC}/:mkcmd $sflag $yflag ${B}.c
+			mv ${B}.c ${B}.x
+		fi
+		;;
+
+	*.l)	if [ x$sflag != x-s -o x$yflag = x-y ]
+		then
+			echo lex $i
+			if lex $i
+			then	echo mv lex.yy.c ${B}.c
+				mv lex.yy.c ${B}.c
+				lib=$LINTLIB places=$places LDFILE=$LDFILE \
+					${SRC}/:mkcmd $sflag $yflag ${B}.c
+			else	echo "lex failed"
+			fi
+			if [ x$sflag != x-s ]
+			then
+				rm -f ${B}.c
+			else
+				mv ${B}.c ${B}.x
+			fi
+		else
+			mv ${B}.x ${B}.c
+			lib=$LINTLIB places=$places LDFILE=$LDFILE \
+				${SRC}/:mkcmd $sflag $yflag ${B}.c
+			mv ${B}.c ${B}.x
+		fi
+		;;
+
+	*.x)
+		:
+		;;
+
+	*.c)
+		if [ x$fflag = x ]
+		then
+			command="sed -e 's/-f//'"
+			ldflags=`echo $ldflags | eval $command`
+		fi
+		if [ x$sflag = x-s ]
+		then
+			command="sed -e 's/-i//'"
+			ldflags=`echo $ldflags | eval $command`
+		else
+			if [ `expr "x$ldflags" : '.*-i'` != 0 ] 
+				then
+					command="sed -e 's/-n//'"
+					ldflags=`echo $ldflags | eval $command`
+			fi
+		fi
+		COMP="cc -O $ldflags -I$INCLUDE $i -o $TEST$B $lib $LIB"
+		echo $COMP
+		if eval $COMP
+		then
+			NAME=$B
+		else	echo $B: cc failed
+			rm -f $B $B.o
+		fi
+		lib=
+		;;
+
+	*.s)
+		echo "/lib/cpp -P -I$INCLUDE < $i > tempfile.s && \\
+		   as -o $TEST$B.o tempfile.s && \\
+		   ld -s -o $TEST$B TEST$B.o $LIB"
+		if /lib/cpp -P -I$INCLUDE < $i > tempfile.s &&
+		   as -o $TEST$B.o tempfile.s &&
+		   ld -s -o $TEST$B TEST$B.o $LIB
+		then	NAME=$B
+		else	echo $B: as failed
+		fi
+		rm -f $TEST$B.o tempfile.s
+		;;
+
+	*.ex) 	echo "$i is merely a sample."
+		echo "You should use it as a prototype for your own current situation"
+		continue
+		;;
+	*.sh|*.etc)
+		echo cp $i $B
+		if cp $i $B
+		then NAME=$B
+		else echo $B: cp failed
+		fi
+		;;
+	*.o)	rm -f $i
+		continue
+		;;
+
+	*)	NAME= TEST=
+		if [ x$fflag = x ]
+		then
+			command="sed -e 's/-f//'"
+			ldflags=`echo $ldflags | eval $command`
+		fi
+		if [ x$sflag = x-s ]
+		then
+			command="sed -e 's/-i//'"
+			ldflags=`echo $ldflags | eval $command`
+		else
+			if [ `expr "x$ldflags" : '.*-i'` != 0 ] 
+			then
+				command="sed -e 's/-n//'"
+				ldflags=`echo $ldflags | eval $command`
+			fi
+		fi
+		if [ -d $i ]
+		then	echo cd $i
+			cd $i
+			if [ -f ${i}.mk ]
+			then
+				MK=${i}.mk
+#				if [ -f ${i}.tmk ]; then
+#					MK=${i}.tmk ;echo $MK
+#				fi
+				COMP="make -b -f $MK ARGS=\"${ARGS}\" \
+					$iflag $fflag install LIB=$LIB \
+					INCLUDE=$INCLUDE"
+				if [ "x$ldflags" != x ]
+					then COMP="$COMP LDFLAGS='$ldflags'"
+				fi
+				echo $COMP
+				if eval $COMP
+				then make -b -f $MK $iflag $fflag $yaccrm clobber
+				else echo MAKE ERROR
+				fi
+			elif [ -f ${i}.rc ]
+				then
+				RC=${i}.rc
+#				if [ -f ${i}.trc]; then
+#					RC=${i}.trc;echo $RC
+#				fi
+				LDFLAGS="$ldflags" \
+					INCLUDE=$INCLUDE LIB=$LIB sh -x $RC
+			else echo XXXXXXXX Do Not Know How to MAKE $B
+			fi
+			$CLEAN
+		else	echo "XXXXXXXX Cannot make $B"
+		fi
+
+	esac
+
+	: Install binary just made in appropriate bin
+	case $NAME in
+
+	"")	:
+		;;
+
+	*)
+		cd $TEST
+		if [ X`basename $i .etc` = X$B ]
+			then echo /etc/install -f $ETC $NAME
+			/etc/install -f $ETC $NAME
+		elif [ $source = $LSRC ]
+			then echo /etc/install -n ${LBIN} $NAME
+			/etc/install -n ${LBIN} $NAME
+		else echo /etc/install -n ${UBIN} $NAME
+			/etc/install -n ${UBIN} $NAME 
+		fi
+		rm -f $NAME
+		;;
+	esac
+);done

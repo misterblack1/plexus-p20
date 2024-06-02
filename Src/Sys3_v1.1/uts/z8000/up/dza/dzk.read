@@ -1,0 +1,24 @@
+This software does DMA output to a DZ and executes on
+a KMC11-A.  Installation procedure follows:
+
+1) Install kmc program object in /lib:
+	/lib/cpp dza.s | kas -o /lib/dzkmc.o 
+2) Install kmc load shell in /etc:
+	cp dzkload /etc
+3) Update /etc/rc to call dzkload for
+	multi-user,
+	power-fail.
+  For example, add 
+	/etc/dzkload /dev/kmc0
+4) Make nodes for kmc and dz lines
+	mknod /dev/kmc0 c X 0
+	mknod /dev/tty?? c Y Z
+The high-order two bits of the eight-bit minor device number for each
+dz line specify the kmc (minor device number) that controls the dz
+associated with that line.  For example
+	mknod /dev/tty?? c Y 0240
+specifies the first line on the fifth dz, to be controlled by the kmc
+with minor device number 2.  The dz number is controlled by the order of
+appearance in the file which describes the configuration.
+The first four dz's must be associated  with one kmc and the next four
+dz's must be associated with a differented kmc.

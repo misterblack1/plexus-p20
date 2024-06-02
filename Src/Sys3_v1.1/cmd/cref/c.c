@@ -1,0 +1,1 @@
+#define N (X)

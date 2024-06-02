@@ -1,0 +1,42 @@
+#	"@(#)c23FIX	1.1"
+Following code changes were made to make c2 a little
+more restrictive about tossing out the call to csv.
+
+If a routine passes a couple of tests it is likely that all
+computation can be performed in scratch registers and
+csv need not be called.  The list of requirements included:
+all local variables must be in registers,
+no functions may be called (including implicit calls
+like floating point add).
+This code prevents functions which take the address of an argument
+from being turned into no-csv functions.
+A problem arises because without the call to csv r14 is not a valid
+frame pointer. C2 must find all references to r14 and
+change them to references to r15.  This is easy for normal argument
+references since the indexed address mode is used and the offset
+can easily be found and adjusted; with &arg, though, the
+code generated is something like
+
+		ld	r7, r14
+		add	r7, $offset
+
+the offset which must be adjusted may be an instruction or two ahead of
+or after the reference to r14.
+
+
+345c345
+< 	register maxfix;
+---
+> 	register indir, maxfix;
+347c347,348
+< 	if( (r = isreg(s)) >= 0 ) {
+---
+> 	if( (r = isreg(s)) >= 0 || (r = isanyreg(s)) >= 0 ) {
+> 		indir = 0;
+352a354,355
+> 		else if ( base == 14 && !indir )
+> 			return(1);
+371a375
+> 		indir = 1;
+373a378
+> 		indir = 1;

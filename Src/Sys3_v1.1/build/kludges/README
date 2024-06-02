@@ -1,0 +1,3 @@
+Files in this directory are copied over by makebase
+after the creation of the file system with mkfs.  They
+thus overwrite the files put there by mkfs with the proto.

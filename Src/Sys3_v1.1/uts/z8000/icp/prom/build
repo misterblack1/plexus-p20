@@ -1,0 +1,8 @@
+ld -o siocprom -r -d -X \
+l.o \
+main.o \
+mb.o \
+mch.o \
+prf.o \
+sio.o \
+trap.o

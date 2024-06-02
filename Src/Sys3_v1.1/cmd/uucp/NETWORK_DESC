@@ -1,0 +1,726 @@
+
+
+
+
+
+
+
+
+
+            A Dial-Up Network of UNIX8TM9 Systems
+
+
+                        D. A. Nowitz
+
+                         M. E. Lesk
+
+                     Bell Laboratories
+               Murray Hill, New Jersey 07974
+
+
+
+                          _A_B_S_T_R_A_C_T
+
+          A network of over eighty UNIX* computer  sys-
+     tems has been established using the telephone sys-
+     tem as its primary communication medium.  The net-
+     work  was designed to meet the growing demands for
+     software distribution and exchange.   Some  advan-
+     tages of our design are:
+
+     -    The startup cost is low.  A system needs only
+          a  dial-up  port,  but systems with automatic
+          calling units have much more flexibility.
+
+     -    No operating system changes are  required  to
+          install or use the system.
+
+     -    The communication is basically  over  dial-up
+          lines, however, hardwired communication lines
+          can be used to increase speed.
+
+     -    The command for  sending/receiving  files  is
+          simple to use.
+
+          Keywords: networks, communications,  software
+          distribution, software maintenance
+
+
+
+August 18, 1978
+
+
+
+
+__________________________
+*UNIX is a Trademark of Bell Laboratories.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            A Dial-Up Network of UNIX8TM9 Systems
+
+
+                        D. A. Nowitz
+
+                         M. E. Lesk
+
+                     Bell Laboratories
+               Murray Hill, New Jersey 07974
+
+
+
+_1.  _P_u_r_p_o_s_e
+
+     The widespread use of the UNIX* system[1]  within  Bell
+Laboratories  has produced problems of software distribution
+and maintenance.  A conventional mechanism  was  set  up  to
+distribute the operating system and associated programs from
+a central site to the various users.  However this mechanism
+alone does not meet all software distribution needs.  Remote
+sites generate much software and must transmit it  to  other
+sites.   Some  UNIX systems are themselves central sites for
+redistribution of a particular specialized utility, such  as
+the  Switching Control Center System.  Other sites have par-
+ticular, often long-distance needs  for  software  exchange;
+switching  research,  for example, is carried on in New Jer-
+sey, Illinois, Ohio, and  Colorado.   In  addition,  general
+purpose  utility  programs  are  written  at all UNIX system
+sites.  The UNIX system is modified  and  enhanced  by  many
+people  in  many places and it would be very constricting to
+deliver new software in a one-way stream without any  alter-
+native  for  the user sites to respond with changes of their
+own.
+
+     Straightforward software distribution is only  part  of
+the  problem.   A large project may exceed the capacity of a
+single computer and several machines may be used by the  one
+group of people.  It then becomes necessary for them to pass
+messages, data and other information back an  forth  between
+computers.
+
+     Several groups with similar problems, both  inside  and
+outside  of  Bell  Laboratories,  have  constructed networks
+built of hardwired connections only.[2,3] Our network,  how-
+ever,  uses  both  dial-up and hardwired connections so that
+service can be provided to as many sites as possible.
+
+
+__________________________
+*UNIX is a Trademark of Bell Laboratories.
+
+
+
+
+
+
+
+
+
+
+                           - 2 -                      Nowitz
+
+
+_2.  _D_e_s_i_g_n _G_o_a_l_s
+
+     Although some of our machines are  connected  directly,
+others  can  only  communicate over low-speed dial-up lines.
+Since the dial-up  lines  are  often  unavailable  and  file
+transfers  may take considerable time, we spool all work and
+transmit in the background.  We also had to adapt to a  com-
+munity  of  systems  which  are  independently  operated and
+resistant to suggestions that they should all buy particular
+hardware  or  install  particular operating system modifica-
+tions.  Therefore, we make  minimal  demands  on  the  local
+sites  in  the  network.   Our  implementation  requires  no
+operating system changes; in  fact,  the  transfer  programs
+look  like  any  other  user entering the system through the
+normal dial-up login ports, and obeying all local protection
+rules.
+
+     We distinguish ``active'' and  ``passive''  systems  on
+the  network.  Active systems have an automatic calling unit
+or a hardwired line to another system, and  can  initiate  a
+connection.   Passive  systems  do  not have the hardware to
+initiate a connection.  However, an  active  system  can  be
+assigned  the  job  of calling passive systems and executing
+work found there; this makes a passive system the functional
+equivalent  of  an  active  system, except for an additional
+delay while it waits to be polled.  Also, people  frequently
+log into active systems and request copying from one passive
+system to another.  This requires two telephone  calls,  but
+even so, it is faster than mailing tapes.
+
+     Where convenient, we use hardwired communication lines.
+These  permit  much  faster transmission and multiplexing of
+the communications link.  Dial-up connections  are  made  at
+either 300 or 1200 baud; hardwired connections are asynchro-
+nous up to 9600 baud and might run even faster  on  special-
+purpose  communications  hardware.[4,5]  Thus, systems typi-
+cally join our network first as  passive  systems  and  when
+they find the service more important, they acquire automatic
+calling units and become active  systems;  eventually,  they
+may  install  high-speed  links  to particular machines with
+which they handle a great deal of  traffic.   At  no  point,
+however, must users change their programs or procedures.
+
+     The basic operation of  the  network  is  very  simple.
+Each  participating  system  has a spool directory, in which
+work to be done (files to be moved, or commands to  be  exe-
+cuted remotely) is stored.  A standard program, _u_u_c_i_c_o, per-
+forms all transfers.  This program starts by  identifying  a
+particular  communication  channel  to  a remote system with
+which it will hold a conversation.  _U_u_c_i_c_o  then  selects  a
+device  and establishes the connection, logs onto the remote
+machine and starts the _u_u_c_i_c_o program on the remote machine.
+Once  two  of these programs are connected, they first agree
+on a line protocol, and then start  exchanging  work.   Each
+
+
+
+
+
+
+
+
+
+                           - 3 -                      Nowitz
+
+
+program  in turn, beginning with the calling (active system)
+program, transmits everything it needs, and  then  asks  the
+other  what  it wants done.  Eventually neither has any more
+work, and both exit.
+
+     In this way, all services are available from all sites;
+passive  sites,  however, must wait until called.  A variety
+of protocols may be used; this conforms to  the  real,  non-
+standard  world.   As long as the caller and called programs
+have a protocol in common, they can  communicate.   Further-
+more, each caller knows the hours when each destination sys-
+tem should be called.  If a destination is unavailable,  the
+data intended for it remain in the spool directory until the
+destination machine can be reached.
+
+     The implementation of this  Bell  Laboratories  network
+between  independent  sites,  all of which store proprietary
+programs and data,  illustratives  the  pervasive  need  for
+security and administrative controls over file access.  Each
+site, in configuring its programs and system  files,  limits
+and monitors transmission.  In order to access a file a user
+needs access permission for the machine  that  contains  the
+file  and  access  permission  for the file itself.  This is
+achieved by first requiring the user to use his password  to
+log  into  his local machine and then his local machine logs
+into the remote machine whose files are to be accessed.   In
+addition,  records  are  kept identifying all files that are
+moved into and out of the local system, and how the  reques-
+tor  of  such  accesses  identified himself.  Some sites may
+arrange to permit users only to call up and request work  to
+be  done;  the calling users are then called back before the
+work is actually done.  It is then possible to  verify  that
+the  request is legitimate from the standpoint of the target
+system, as well as  the  originating  system.   Furthermore,
+because  of the call-back, no site can masquerade as another
+even if it knows all the necessary passwords.
+
+     Each machine can optionally maintain a  sequence  count
+for  conversations with other machines and require a verifi-
+cation of the count  at  the  start  of  each  conversation.
+Thus,  even  if  call  back  is  not  in  use,  a successful
+masquerade requires the calling party to present the correct
+sequence  number.   A  would-be  impersonator  must not just
+steal the correct phone number, user name, and password, but
+also  the  sequence  count,  and  must  call in sufficiently
+promptly to precede the next legitimate request from  either
+side.   Even a successful masquerade will be detected on the
+next correct conversation.
+
+_3.  _P_r_o_c_e_s_s_i_n_g
+
+     The user has two commands which set up  communications,
+_u_u_c_p  to set up file copying, and _u_u_x to set up command exe-
+cution where some of the required resources  (system  and/or
+
+
+
+
+
+
+
+
+
+                           - 4 -                      Nowitz
+
+
+files) are not on the local machine.  Each of these commands
+will put work and data files into the  spool  directory  for
+execution  by _u_u_c_p daemons.  Figure 1 shows the major blocks
+of the file transfer process.
+
+_F_i_l_e _C_o_p_y
+
+     The _u_u_c_i_c_o program is used to  perform  all  communica-
+tions  between  the  two systems.  It performs the following
+functions:
+
+     -  Scan the spool directory for work.
+
+     -  Place a call to a remote system.
+
+     -  Negotiate a line protocol to be used.
+
+     -  Start program _u_u_c_i_c_o on the remote system.
+
+     -  Execute all requests from both systems.
+
+     -  Log work requests and work completions.
+
+_U_u_c_i_c_o may be started in several ways;
+
+     a)   by a system daemon,
+
+     b)   by one of the _u_u_c_p or _u_u_x programs,
+
+     c)   by a remote system.
+
+_S_c_a_n _F_o_r _W_o_r_k
+
+     The file names in the spool directory  are  constructed
+to  allow  the  daemon programs (_u_u_c_i_c_o, _u_u_x_q_t) to determine
+the files they should look  at,  the  remote  machines  they
+should  call and the order in which the files for a particu-
+lar remote machine should be processed.
+
+_C_a_l_l _R_e_m_o_t_e _S_y_s_t_e_m
+
+     The call is made using information from  several  files
+which reside in the uucp program directory.  At the start of
+the call process, a lock is set on the system  being  called
+so that another call will not be attempted at the same time.
+
+     The system name is found in a  ``systems''  file.   The
+information contained for each system is:
+
+
+     [1]  system name,
+
+
+
+
+
+
+
+
+
+
+
+
+                           - 5 -                      Nowitz
+
+
+     [2]  times to call the system (days-of-week and  times-
+          of-day),
+
+     [3]  device or device type to be used for call,
+
+     [4]  line speed,
+
+     [5]  phone number,
+
+     [6]  login information (multiple fields).
+
+     The time field is checked against the present  time  to
+see  if  the call should be made.  The _p_h_o_n_e _n_u_m_b_e_r may con-
+tain abbreviations  (e.g.  ``nyc'',  ``boston'')  which  get
+translated  into dial sequences using a ``dial-codes'' file.
+This permits the same ``phone number'' to be stored at every
+site,  despite  local  variations  in telephone services and
+dialing conventions.
+
+     A ``devices'' file is scanned using fields [3] and  [4]
+from  the  ``systems''  file to find an available device for
+the connection.  The program  will  try  all  devices  which
+satisfy  [3]  and [4] until a connection is made, or no more
+devices can be tried.  If a non-multiplexable device is suc-
+cessfully  opened,  a  lock  file is created so that another
+copy of _u_u_c_i_c_o will not try to use it.  If the connection is
+complete,  the  _l_o_g_i_n  _i_n_f_o_r_m_a_t_i_o_n  is  used to log into the
+remote system.  Then a command is sent to the remote  system
+to  start  the _u_u_c_i_c_o program.  The conversation between the
+two _u_u_c_i_c_o programs begins with a handshake started  by  the
+called, _S_L_A_V_E, system.  The _S_L_A_V_E sends a message to let the
+_M_A_S_T_E_R know it is ready to receive the system identification
+and  conversation  sequence  number.   The response from the
+_M_A_S_T_E_R is verified by the _S_L_A_V_E and if acceptable,  protocol
+selection begins.
+
+_L_i_n_e _P_r_o_t_o_c_o_l _S_e_l_e_c_t_i_o_n
+
+     The remote system sends a message
+
+            P_p_r_o_t_o-_l_i_s_t
+
+where _p_r_o_t_o-_l_i_s_t is a string of characters, each  represent-
+ing  a line protocol.  The calling program checks the proto-
+list for a letter corresponding to an available line  proto-
+col  and  returns  a _u_s_e-_p_r_o_t_o_c_o_l message.  The _u_s_e-_p_r_o_t_o_c_o_l
+message is
+
+            U_c_o_d_e
+
+where code is either a one character protocol letter or a  _N
+which means there is no common protocol.
+
+     Greg Chesson designed and implemented the standard line
+
+
+
+
+
+
+
+
+
+                           - 6 -                      Nowitz
+
+
+protocol  used by the uucp transmission program.  Other pro-
+tocols may be added by individual installations.
+
+_W_o_r_k _P_r_o_c_e_s_s_i_n_g
+
+     During processing, one program is the  _M_A_S_T_E_R  and  the
+other  is _S_L_A_V_E.  Initially, the calling program is the _M_A_S_-
+_T_E_R.  These roles may switch one or more  times  during  the
+conversation.
+
+     There are four messages used during the  work  process-
+ing,  each  specified by the first character of the message.
+They are
+
+                    S   send a file,
+                    R   receive a file,
+                    C   copy complete,
+                    H   hangup.
+
+
+The _M_A_S_T_E_R will send _R or _S messages until all work from the
+spool  directory  is  complete,  at which point an _H message
+will be sent.  The _S_L_A_V_E will reply with _S_Y, _S_N, _R_Y, _R_N, _H_Y,
+_H_N, corresponding to _y_e_s or _n_o for each request.
+
+     The send and receive replies are based on permission to
+access  the  requested  file/directory.   After each file is
+copied into the spool directory of the receiving  system,  a
+copy-complete  message  is sent by the receiver of the file.
+The message _C_Y will be sent if the UNIX _c_p command, used  to
+copy  from the spool directory, is successful.  Otherwise, a
+_C_N message is sent.  The requests and results are logged  on
+both  systems,  and,  if requested, mail is sent to the user
+reporting completion (or the user can request status  infor-
+mation from the log program at any time).
+
+     The hangup response is determined by the _S_L_A_V_E  program
+by  a  work  scan  of  the spool directory.  If work for the
+remote system exists in the _S_L_A_V_E'_s spool  directory,  a  _H_N
+message  is  sent and the programs switch roles.  If no work
+exists, an _H_Y response is sent.
+
+     A sample conversation is shown in Figure 2.
+
+_C_o_n_v_e_r_s_a_t_i_o_n _T_e_r_m_i_n_a_t_i_o_n
+
+     When a _H_Y message is  received  by  the  _M_A_S_T_E_R  it  is
+echoed  back  to the _S_L_A_V_E and the protocols are turned off.
+Each program sends a final "OO" message to the other.
+
+_4.  _P_r_e_s_e_n_t _U_s_e_s
+
+     One application of this software is remote mail.   Nor-
+mally,  a  UNIX system user writes ``mail dan'' to send mail
+
+
+
+
+
+
+
+
+
+                           - 7 -                      Nowitz
+
+
+to user ``dan''.  By writing ``mail usg!dan''  the  mail  is
+sent to user ``dan'' on system ``usg''.
+
+     The primary uses of our network to date  have  been  in
+software  maintenance.   Relatively  few of the bytes passed
+between systems are intended for people to  read.   Instead,
+new  programs  (or  new  versions  of  programs) are sent to
+users, and potential bugs are returned  to  authors.   Aaron
+Cohen  has  implemented  a ``stockroom'' which allows remote
+users to call in and request software.  He keeps  a  ``stock
+list''  of  available programs, and new bug fixes and utili-
+ties are added regularly.  In this  way,  users  can  always
+obtain  the latest version of anything without bothering the
+authors of the programs.  Although the stock list  is  main-
+tained  on  a  particular system, the items in the stockroom
+may be warehoused in many places; typically each program  is
+distributed  from the home site of its author.  Where neces-
+sary, uucp does remote-to-remote copies.
+
+     We also routinely retrieve test cases from  other  sys-
+tems  to  determine  whether  errors  on  remote systems are
+caused  by  local  misconfigurations  or  old  versions   of
+software, or whether they are bugs that must be fixed at the
+home site.  This helps identify errors rapidly.  For one set
+of  test  programs  maintained  by  us, over 70% of the bugs
+reported from remote sites were due  to  old  software,  and
+were fixed merely by distributing the current version.
+
+     Another application of the network for software mainte-
+nance is to compare files on two different machines.  A very
+useful utility  on  one  machine  has  been  Doug  McIlroy's
+``diff'' program which compares two text files and indicates
+the differences, line by line, between them.[6]  Only  lines
+which are not identical are printed.  Similarly, the program
+``uudiff'' compares files (or directories) on two  machines.
+One  of  these  directories may be on a passive system.  The
+``uudiff'' program is  set  up  to  work  similarly  to  the
+inter-system mail, but it is slightly more complicated.
+
+     To avoid moving  large  numbers  of  usually  identical
+files, _u_u_d_i_f_f computes file checksums on each side, and only
+moves files that are different for detailed comparison.  For
+large  files, this process can be iterated; checksums can be
+computed for each line, and only those lines that  are  dif-
+ferent actually moved.
+
+     The ``uux''  command  has  been  useful  for  providing
+remote  output.   There  are some machines which do not have
+hard-copy devices, but which are connected  over  9600  baud
+communication lines to machines with printers.  The _u_u_x com-
+mand allows the formatting of  the  printout  on  the  local
+machine  and  printing  on the remote machine using standard
+UNIX command programs.
+
+
+
+
+
+
+
+
+
+
+                           - 8 -                      Nowitz
+
+
+_5.  _P_e_r_f_o_r_m_a_n_c_e
+
+     Throughput,  of  course,  is  primarily  dependent   on
+transmission   speed.    The  table  below  shows  the  real
+throughput of characters on communication links of different
+speeds.   These  numbers  represent actual data transferred;
+they do not include bytes used by the line protocol for data
+validation  such  as  checksums and messages.  At the higher
+speeds, contention for the processors on both ends  prevents
+the  network from driving the line full speed.  The range of
+speeds represents the difference  between  light  and  heavy
+loads  on  the  two  systems.   If desired, operating system
+modifications can be installed that permit full use of  even
+very fast links.
+
+              Nominal speed   Characters/sec.
+                 300 baud              27
+                1200 baud         100-110
+                9600 baud         200-850
+
+In addition to the transfer time, there is some overhead for
+making the connection and logging in ranging from 15 seconds
+to 1 minute.  Even at 300 baud,  however,  a  typical  5,000
+byte  source  program  can  be  transferred  in four minutes
+instead of the 2 days that might be required to mail a tape.
+
+     Traffic  between  systems  is  variable.   Between  two
+closely  related  systems,  we observed 20 files moved and 5
+remote commands executed in a typical day.   A  more  normal
+traffic out of a single system would be around a dozen files
+per day.
+
+     The total number of sites at present in the  main  net-
+work  is  82,  which  includes most of the Bell Laboratories
+full-size machines which  run  the  UNIX  operating  system.
+Geographically,   the  machines  range  from  Andover,  Mas-
+sachusetts to Denver, Colorado.
+
+     Uucp has also been used to set up another network which
+connects  a  group  of systems in operational sites with the
+home site.  The two networks touch at  one  Bell  Labs  com-
+puter.
+
+_6.  _F_u_r_t_h_e_r _G_o_a_l_s
+
+     Eventually, we would like to develop a full  system  of
+remote  software  maintenance.   Conventional maintenance (a
+support group which mails tapes) has many well-known  disad-
+vantages.[7]  There  are  distribution  errors  and  delays,
+resulting in old software running at remote  sites  and  old
+bugs continually reappearing.  These difficulties are aggra-
+vated when there are 100 different small systems, instead of
+a few large ones.
+
+
+
+
+
+
+
+
+
+
+                           - 9 -                      Nowitz
+
+
+     The availability of file transfer on a network of  com-
+patible  operating  systems  makes  it possible just to send
+programs directly to the end  user  who  wants  them.   This
+avoids  the  bottleneck  of negotiation and packaging in the
+central support group.  The ``stockroom'' serves this  func-
+tion for new utilities and fixes to old utilities.  However,
+it is still likely that distributions will not be  sent  and
+installed  as often as needed.  Users are justifiably suspi-
+cious of the ``latest version'' that has just  arrived;  all
+too  often it features the ``latest bug.'' What is needed is
+to address both problems simultaneously:
+
+1.   Send distributions whenever programs change.
+
+2.   Have sufficient quality  control  so  that  users  will
+     install them.
+
+To do this, we recommend systematic regression testing  both
+on the distributing and receiving systems.  Acceptance test-
+ing on the receiving systems can be  automated  and  permits
+the  local system to ensure that its essential work can con-
+tinue despite the constant installation of changes sent from
+elsewhere.  The work of writing the test sequences should be
+recovered in lower counseling and distribution costs.
+
+     Some slow-speed network services are also being  imple-
+mented.   We  now  have  inter-system ``mail'' and ``diff,''
+plus the many implied commands represented by ``uux.''  How-
+ever,   we  still  need  inter-system  ``write''  (real-time
+inter-user communication) and ``who'' (list of people logged
+in on different systems).  A slow-speed network of this sort
+may be very useful for speeding up counseling and education,
+even if not fast enough for the distributed data base appli-
+cations that attract many users to networks.  Effective  use
+of  remote  execution  over  slow-speed lines, however, must
+await the general installation of multiplexable channels  so
+that long file transfers do not lock out short inquiries.
+
+_7.  _L_e_s_s_o_n_s
+
+     The following is a summary of the lessons we learned in
+building these programs.
+
+1.   By starting your network in  a  way  that  requires  no
+     hardware or major operating system changes, you can get
+     going quickly.
+
+2.   Support will follow use.  Since the network existed and
+     was  being  used,  system  maintainers were easily per-
+     suaded to help keep it operating, including  purchasing
+     additional hardware to speed traffic.
+
+
+
+
+
+
+
+
+
+
+
+
+                           - 10 -                     Nowitz
+
+
+3.   Make the network commands  look  like  local  commands.
+     Our  users  have a resistance to learning anything new:
+     all the inter-system  commands  look  very  similar  to
+     standard  UNIX  system commands so that little training
+     cost is involved.
+
+4.   An initial  error  was  not  coordinating  enough  with
+     existing  communications projects: thus, the first ver-
+     sion of this network was restricted to  dial-up,  since
+     it  did  not support the various hardware links between
+     systems.  This has been fixed in the current system.
+
+_A_c_k_n_o_w_l_e_d_g_e_m_e_n_t_s
+
+     We thank G. L. Chesson for his design  and  implementa-
+tion  of the packet driver and protocol, and A. S. Cohen, J.
+Lions, and P. F. Long for their suggestions and assistance.
+
+_R_e_f_e_r_e_n_c_e_s
+
+
+1.   D. M. Ritchie and K. Thompson, "The  UNIX  Time-Sharing
+     System,"  _B_e_l_l  _S_y_s. _T_e_c_h. _J.  Vol. 57(6) pp. 1905-1929
+     (1978).
+
+2.   T. A. Dolotta, R. C. Haight, and J.  R.  Mashey,  "UNIX
+     Time-Sharing  System: The Programmer's Workbench," _B_e_l_l
+     _S_y_s. _T_e_c_h. _J.  Vol. 57(6) pp. 2177-2200 (1978).
+
+3.   G. L. Chesson, "The  Network  UNIX  System,"  _O_p_e_r_a_t_i_n_g
+     _S_y_s_t_e_m_s  _R_e_v_i_e_w  Vol.  9(5) pp.  60-66 (1975).  Also in
+     _P_r_o_c. _5_t_h _S_y_m_p. _o_n _O_p_e_r_a_t_i_n_g _S_y_s_t_e_m_s _P_r_i_n_c_i_p_l_e_s.
+
+4.   A. G. Fraser, "Spider - An Experimental Data Communica-
+     tions  System," _P_r_o_c. _I_E_E_E _C_o_n_f. _o_n _C_o_m_m_u_n_i_c_a_t_i_o_n_s,  p.
+     21F (June 1974).  IEEE Cat. No. 74CH0859-9-CSCB.
+
+5.   A. G. Fraser, "A Virtual Channel Network,"  _D_a_t_a_m_a_t_i_o_n,
+      pp. 51-56 (February 1975).
+
+6.   J. W. Hunt and M. D. McIlroy, "An  Algorithm  for  Dif-
+     ferential  File  Comparison," Comp. Sci. Tech. Rep. No.
+     41,  Bell Laboratories,  Murray Hill, New Jersey  (June
+     1976).
+
+7.   F. P. Brooks, Jr.,  _T_h_e  _M_y_t_h_i_c_a_l  _M_a_n-_M_o_n_t_h,  Addison-
+     Wesley, Reading, Mass. (1975).
+
+
+
+
+
+
+
+
+
+
+
+
+

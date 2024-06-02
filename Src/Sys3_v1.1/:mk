@@ -1,0 +1,5 @@
+./:mkhead \*
+./:mkcmd $* cc
+./:mklib \*
+./:mkcmd $* \*
+./:mkstand

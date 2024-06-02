@@ -1,0 +1,7 @@
+UBIN=${UBIN-/usr/bin}
+INCLUDE=${INCLUDE-/usr/include}
+CFLAGS=${CFLAGS--O}
+LDFLAGS=${LDFLAGS-"-n -s"}
+cc $CFLAGS -I$INCLUDE -o regcmp $LDFLAGS regcmp.c -lPW $LIB
+/etc/install -n $UBIN regcmp
+rm -f regcmp

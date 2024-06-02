@@ -1,0 +1,8 @@
+_fprint.o fprintf.o
+_fprint.o printf.o
+_fprint.o sprintf.o
+cuexit.o fakcu.o
+flsbuf.o cuexit.o
+frexp.o frexp.o
+ldexp.o ldexp.o
+modf.o modf.o

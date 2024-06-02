@@ -1,0 +1,50 @@
+* 1=mmt help msg, 2=man, 3=mm
+-1
+Usage: "mmt [options] files" (or "mvt [options] files") where "options" are:
+ -a	=> output to terminal
+ -e	=> eqn
+ -t	=> tbl
+ -Tst	=> STARE
+ -Ttek	=> Tektronix 4014
+ -T4014	=> Tektronix 4014
+ -Tvp	=> Versatec printer
+ -y	=> use -mm (uncompacted) rather than -cm
+ -	=> instead of "files" inside a pipeline.
+Other options as required by TROFF and the macros.
+-2
+Usage: "man [ options ] [ section ] entries" where "options" are:
+ -t     typeset "entries" in normal (8.5x11) format
+ -s     typeset "entries" in small (6x9) format (usable with next 4 options)
+ -Tst   display typeset output on the MHCC STARE facility
+ -T4014 display typeset output on a Tektronix 4014
+ -Ttek  display typeset output on a Tektronix 4014
+ -Tvp   display typeset output on the MH Versatec printer
+ -12    12-pitch (effective only with DASI terminals)
+ -c     filter nroff output through col
+ -d     find "entry" in current directory rather than in /usr/man
+        (must use complete filename, e.g., acct.1m)
+ -w     show only path names of "entries" (relative to /usr/man
+        or current directory for -d)
+ -y     use uncompacted macros
+Other "options" are passed to nroff or troff.
+Default is to format "entries" with nroff on your terminal,
+        using the $TERM environment variable (or 450 if it is undefined).
+The "-T" options of the "mm" command (e.g. "-Tlp") are also
+        recognized and override the value of $TERM.  (Type "help term2"
+        for a list of the available terminal types.)
+"Section" is 1 to 8; it may be changed before each "entry".
+-3
+Usage: "mm [options] files" where "options" are:
+ -12	=> 12-pitch (effective only with DASI terminals)
+ -e	=> neqn
+ -t	=> tbl
+ -c	=> col
+ -E	=> "-e" option of NROFF (not effective with "-c")
+ -y	=> use uncompacted macros (-mm) rather than compacted (-cm)
+ -Tterm	=> where term is the desired terminal type, e.g., -Thp.  (Type
+	   "help term2" for a list of available terminal types.)  If
+	   no -T option is given then $TERM is used if it has a value
+	   otherwise the default is DASI 450.
+ -	=> instead of "files" inside a pipeline.
+Other options as required by NROFF and/or PWB/MM.
+-4

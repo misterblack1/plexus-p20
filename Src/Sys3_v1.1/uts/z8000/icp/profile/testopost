@@ -1,0 +1,8 @@
+ttyag /dev/tty0&
+ttyag /dev/tty1&
+ttyag /dev/tty2&
+ttyag /dev/tty3&
+ttyag /dev/tty4&
+ttyag /dev/tty5&
+ttyag /dev/tty6&
+ttyag /dev/tty7&

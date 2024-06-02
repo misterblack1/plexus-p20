@@ -1,0 +1,3 @@
+> spellhist
+/etc/install -f /usr/lib/spell spellhist
+rm -f spellhist

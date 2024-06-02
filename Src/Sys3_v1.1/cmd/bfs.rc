@@ -1,0 +1,7 @@
+LDFLAGS=${LDFLAGS-"-n -s"}
+UBIN=${UBIN-/usr/bin}
+CFLAGS=${CFLAGS--O}
+INCLUDE=${INCLUDE-/usr/include}
+cc $CFLAGS $LDFLAGS -I$INCLUDE bfs.c -o bfs -lPW $LIB
+/etc/install -n $UBIN bfs
+rm -f bfs

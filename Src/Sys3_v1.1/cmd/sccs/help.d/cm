@@ -1,0 +1,68 @@
+*
+*	Messages common to more than one SCCS command.
+*
+-1
+"unknown key letter"
+You supplied a keyletter which the command does not recognize.
+-2
+"key letter twice"
+You supplied a keyletter more than once.
+-3
+"missing file arg"
+You left off the name of the file to be processed.
+-4
+"cannot create lock file"
+There are two known reasons why this can occur.
+
+1) Someone else is updating the SCCS file (or the p-file).
+   You'll have to wait until they're through, and try again.
+
+2) You do not have write permission in the directory where the
+   SCCS file resides.  If this is so, you are not allowed to
+   create any files (including the ``lock file'') in that
+   directory.
+
+If it is neither of the two reasons and the problem persists, contact
+your Source Code Administrator (SCA).
+-5
+"bad date/time"
+The date/time must be a legitimate date/time in the form
+"YY[MM[DD[HH[MM[SS]]]]]".  The program knows about things
+like leap years, so be precise.
+-6
+"no id keywords"
+No SCCS identification keywords were substituted for (or found).
+If this message came from delta then you just tryed to make a
+delta without any keywords.
+
+If this message came from get then
+your source code administrator blew it.
+Complain to him/her.
+
+If this message came from admin,
+you blew it.
+-7
+"No id keywords"
+No SCCS identification keywords were substituted for.
+You may not have any keywords in the file,
+in which case you can ignore this warning.
+If this message came from delta then you just made a
+delta without any keywords.
+If this message came from get then
+the last time you made a delta you changed the lines
+on which they appeared.
+It's a little late to be
+telling you that you messed up the last time you made a delta, but this is
+the best we can do for now, and it's better than nothing.
+
+This isn't an error, only a warning.
+-8
+"value after ... arg"
+You had something after the indicated keyletter argument and you weren't
+supposed to.
+-9
+"User ID not in password file ..."
+You are apparently running on a system on which you do not
+have a login (via a data link of some type).  SCCS will
+not allow you to make changes to a file if your user ID is not
+located in the password file.

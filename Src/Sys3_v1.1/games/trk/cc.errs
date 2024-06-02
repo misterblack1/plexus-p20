@@ -1,0 +1,277 @@
+"abandon.c", line 31: warning: old-fashioned assignment operator
+"abandon.c", line 71: warning: old-fashioned assignment operator
+"abandon.c", line 72: warning: old-fashioned assignment operator
+"adm.c", line 9: warning: old-fashioned initialization: use =
+"adm.c", line 40: warning: old-fashioned initialization: use =
+"adm.c", line 52: warning: old-fashioned initialization: use =
+"adm.c", line 60: warning: old-fashioned initialization: use =
+"adm.c", line 71: warning: old-fashioned initialization: use =
+"adm.c", line 82: warning: old-fashioned initialization: use =
+"adm.c", line 99: warning: old-fashioned initialization: use =
+"adm.c", line 127: warning: old-fashioned initialization: use =
+"adm.c", line 147: warning: old-fashioned initialization: use =
+"adm.c", line 159: warning: old-fashioned initialization: use =
+"attack.c", line 62: warning: old-fashioned assignment operator
+"attack.c", line 66: warning: old-fashioned assignment operator
+"attack.c", line 71: warning: old-fashioned assignment operator
+"attack.c", line 76: warning: old-fashioned assignment operator
+"attack.c", line 79: warning: old-fashioned assignment operator
+"attack.c", line 87: warning: old-fashioned assignment operator
+"attack.c", line 88: warning: old-fashioned assignment operator
+"attack.c", line 132: warning: old-fashioned assignment operator
+"attack.c", line 133: warning: old-fashioned assignment operator
+"computer.c", line 9: warning: old-fashioned initialization: use =
+"computer.c", line 113: warning: old-fashioned assignment operator
+"computer.c", line 124: warning: old-fashioned assignment operator
+"computer.c", line 127: warning: old-fashioned assignment operator
+"computer.c", line 151: warning: illegal member use: systemna
+"computer.c", line 152: warning: old-fashioned assignment operator
+"computer.c", line 197: warning: illegal combination of pointer and integer
+"computer.c", line 198: warning: & before array or function: ignored
+"computer.c", line 199: warning: & before array or function: ignored
+"computer.c", line 221: warning: old-fashioned assignment operator
+"computer.c", line 282: warning: old-fashioned assignment operator
+"computer.c", line 282: warning: old-fashioned assignment operator
+"damage.c", line 19: warning: old-fashioned assignment operator
+"damage.c", line 33: warning: illegal member use: systemna
+"destruct.c", line 49: warning: old-fashioned assignment operator
+"events.c", line 22: warning: old-fashioned assignment operator
+"events.c", line 41: warning: illegal member use: time
+"events.c", line 47: warning: illegal member use: time
+"events.c", line 53: warning: illegal member use: time
+"events.c", line 67: warning: old-fashioned assignment operator
+"events.c", line 90: warning: old-fashioned assignment operator
+"events.c", line 102: warning: illegal member use: time
+"events.c", line 127: warning: illegal combination of pointer and integer
+"events.c", line 169: warning: old-fashioned assignment operator
+"events.c", line 170: warning: illegal combination of pointer and integer
+"events.c", line 179: warning: old-fashioned assignment operator
+"events.c", line 188: warning: old-fashioned assignment operator
+"events.c", line 245: warning: old-fashioned assignment operator
+"events.c", line 246: warning: old-fashioned assignment operator
+"events.c", line 263: warning: & before array or function: ignored
+"events.c", line 263: warning: illegal combination of pointer and integer
+"events.c", line 266: warning: & before array or function: ignored
+"events.c", line 267: warning: & before array or function: ignored
+"events.c", line 268: warning: & before array or function: ignored
+"events.c", line 323: warning: illegal member use: time
+"events.c", line 329: warning: illegal member use: time
+"events.c", line 329: warning: old-fashioned assignment operator
+"events.c", line 330: warning: illegal member use: time
+"events.c", line 331: warning: old-fashioned assignment operator
+"events.c", line 332: warning: old-fashioned assignment operator
+"events.c", line 334: warning: illegal member use: time
+"events.c", line 334: warning: old-fashioned assignment operator
+"externs.c", line 8: warning: old-fashioned initialization: use =
+"externs.c", line 28: warning: old-fashioned initialization: use =
+"externs.c", line 63: warning: old-fashioned initialization: use =
+"extra.c", line 17: warning: illegal combination of pointer and integer
+"getcodi.c", line 15: warning: old-fashioned assignment operator
+"getcodi.c", line 27: warning: old-fashioned assignment operator
+"getcodi.c", line 28: warning: old-fashioned assignment operator
+"getpar.c", line 59: warning: old-fashioned initialization: use =
+"getpar.c", line 139: warning: old-fashioned assignment operator
+"help.c", line 8: warning: old-fashioned initialization: use =
+"help.c", line 31: warning: old-fashioned assignment operator
+"impulse.c", line 60: warning: illegal member use: time
+"impulse.c", line 61: warning: illegal member use: time
+"impulse.c", line 62: warning: old-fashioned assignment operator
+"initquad.c", line 66: warning: old-fashioned assignment operator
+"kill.c", line 13: warning: old-fashioned assignment operator
+"kill.c", line 15: warning: old-fashioned assignment operator
+"kill.c", line 16: warning: old-fashioned assignment operator
+"kill.c", line 17: warning: old-fashioned assignment operator
+"kill.c", line 21: warning: old-fashioned assignment operator
+"kill.c", line 47: warning: old-fashioned assignment operator
+"kill.c", line 65: warning: old-fashioned assignment operator
+"kill.c", line 99: warning: old-fashioned assignment operator
+"kill.c", line 115: warning: old-fashioned assignment operator
+"klmove.c", line 35: warning: old-fashioned assignment operator
+"klmove.c", line 66: warning: old-fashioned assignment operator
+"klmove.c", line 69: warning: old-fashioned assignment operator
+"klmove.c", line 71: warning: old-fashioned assignment operator
+"klmove.c", line 74: warning: old-fashioned assignment operator
+"klmove.c", line 78: warning: old-fashioned assignment operator
+"klmove.c", line 127: warning: old-fashioned assignment operator
+"klmove.c", line 130: warning: old-fashioned assignment operator
+"klmove.c", line 131: warning: old-fashioned assignment operator
+"klmove.c", line 132: warning: old-fashioned assignment operator
+"log.c", line 13: warning: old-fashioned initialization: use =
+"log.c", line 42: warning: illegal combination of pointer and integer
+"main.c", line 77: warning: old-fashioned initialization: use =
+"move.c", line 28: warning: old-fashioned assignment operator
+"move.c", line 31: warning: old-fashioned assignment operator
+"move.c", line 38: warning: old-fashioned assignment operator
+"move.c", line 39: warning: old-fashioned assignment operator
+"move.c", line 59: warning: old-fashioned assignment operator
+"move.c", line 60: warning: old-fashioned assignment operator
+"move.c", line 92: warning: old-fashioned assignment operator
+"move.c", line 99: warning: old-fashioned assignment operator
+"nova.c", line 30: warning: old-fashioned assignment operator
+"nova.c", line 32: warning: old-fashioned assignment operator
+"nova.c", line 33: warning: old-fashioned assignment operator
+"nova.c", line 66: warning: old-fashioned assignment operator
+"nova.c", line 71: warning: old-fashioned assignment operator
+"nova.c", line 74: warning: old-fashioned assignment operator
+"phaser.c", line 8: warning: old-fashioned initialization: use =
+"phaser.c", line 78: warning: old-fashioned assignment operator
+"phaser.c", line 89: warning: old-fashioned assignment operator
+"phaser.c", line 106: warning: old-fashioned assignment operator
+"phaser.c", line 114: warning: old-fashioned assignment operator
+"phaser.c", line 120: warning: old-fashioned assignment operator
+"phaser.c", line 133: warning: old-fashioned assignment operator
+"phaser.c", line 138: warning: old-fashioned assignment operator
+"phaser.c", line 155: warning: old-fashioned assignment operator
+"phaser.c", line 161: warning: old-fashioned assignment operator
+"phaser.c", line 164: warning: old-fashioned assignment operator
+"phaser.c", line 168: warning: old-fashioned assignment operator
+"play.c", line 8: warning: old-fashioned initialization: use =
+"play.c", line 68: warning: old-fashioned initialization: use =
+"play.c", line 69: warning: & before array or function: ignored
+"play.c", line 70: warning: & before array or function: ignored
+"play.c", line 71: warning: & before array or function: ignored
+"play.c", line 72: warning: & before array or function: ignored
+"play.c", line 73: warning: & before array or function: ignored
+"play.c", line 74: warning: & before array or function: ignored
+"play.c", line 75: warning: & before array or function: ignored
+"play.c", line 76: warning: & before array or function: ignored
+"play.c", line 77: warning: & before array or function: ignored
+"play.c", line 78: warning: & before array or function: ignored
+"play.c", line 79: warning: & before array or function: ignored
+"play.c", line 80: warning: & before array or function: ignored
+"play.c", line 81: warning: & before array or function: ignored
+"play.c", line 82: warning: & before array or function: ignored
+"play.c", line 83: warning: & before array or function: ignored
+"play.c", line 84: warning: & before array or function: ignored
+"play.c", line 85: warning: & before array or function: ignored
+"play.c", line 86: warning: & before array or function: ignored
+"play.c", line 87: warning: & before array or function: ignored
+"play.c", line 88: warning: & before array or function: ignored
+"play.c", line 89: warning: & before array or function: ignored
+"play.c", line 90: warning: & before array or function: ignored
+"play.c", line 91: warning: & before array or function: ignored
+"play.c", line 92: warning: & before array or function: ignored
+"play.c", line 93: warning: & before array or function: ignored
+"play.c", line 94: warning: & before array or function: ignored
+"play.c", line 95: warning: & before array or function: ignored
+"play.c", line 106: warning: illegal member use: time
+"printf.c", line 2: warning: old-fashioned initialization: use =
+"printf.c", line 3: warning: old-fashioned initialization: use =
+"printf.c", line 28: warning: illegal pointer combination
+"printf.c", line 36: warning: illegal pointer combination
+"printf.c", line 36: warning: illegal pointer combination
+"printf.c", line 64: warning: illegal combination of pointer and integer
+"printf.c", line 67: warning: old-fashioned assignment operator
+"printf.c", line 70: warning: old-fashioned assignment operator
+"printf.c", line 72: warning: illegal combination of pointer and integer
+"printf.c", line 91: warning: old-fashioned assignment operator
+"printf.c", line 102: warning: old-fashioned assignment operator
+"printf.c", line 118: warning: illegal combination of pointer and integer
+"printf.c", line 161: warning: old-fashioned assignment operator
+"printf.c", line 162: warning: old-fashioned assignment operator
+"printf.c", line 174: warning: old-fashioned assignment operator
+"printf.c", line 174: warning: old-fashioned assignment operator
+"query.c", line 8: warning: old-fashioned initialization: use =
+"query.c", line 16: warning: old-fashioned initialization: use =
+"ram.c", line 39: warning: old-fashioned assignment operator
+"ram.c", line 40: warning: old-fashioned assignment operator
+"report.c", line 40: warning: illegal member use: systemna
+"report.c", line 41: warning: illegal member use: systemna
+"report.c", line 43: warning: illegal member use: systemna
+"report.c", line 45: warning: illegal member use: systemna
+"report.c", line 53: warning: old-fashioned initialization: use =
+Assembler:
+line 1: as: Can't open -
+
+
+Stop.
+
+real     7:43.0
+user     3:02.3
+sys      1:14.6
+"rest.c", line 23: warning: illegal member use: time
+"rest.c", line 25: warning: illegal member use: time
+"rest.c", line 26: warning: illegal member use: time
+"schedule.c", line 29: warning: illegal combination of pointer and integer
+"schedule.c", line 44: warning: old-fashioned assignment operator
+
+Stop.
+
+real       23.0
+user        4.4
+sys         4.1
+"schedule.c", line 29: warning: illegal combination of pointer and integer
+"schedule.c", line 44: warning: old-fashioned assignment operator
+"score.c", line 22: warning: old-fashioned assignment operator
+"score.c", line 26: warning: old-fashioned assignment operator
+"score.c", line 27: warning: old-fashioned assignment operator
+"score.c", line 32: warning: old-fashioned assignment operator
+"score.c", line 37: warning: old-fashioned assignment operator
+"score.c", line 40: warning: old-fashioned assignment operator
+"score.c", line 43: warning: old-fashioned assignment operator
+"score.c", line 46: warning: old-fashioned assignment operator
+"score.c", line 49: warning: old-fashioned assignment operator
+"score.c", line 54: warning: old-fashioned assignment operator
+"score.c", line 57: warning: old-fashioned assignment operator
+"score.c", line 60: warning: old-fashioned assignment operator
+"setup.c", line 8: warning: old-fashioned initialization: use =
+"setup.c", line 18: warning: old-fashioned initialization: use =
+"setup.c", line 102: warning: old-fashioned assignment operator
+
+Stop.
+
+real       42.0
+user       11.4
+sys         7.0
+"setup.c", line 8: warning: old-fashioned initialization: use =
+"setup.c", line 18: warning: old-fashioned initialization: use =
+"setup.c", line 102: warning: old-fashioned assignment operator
+"setup.c", line 151: warning: illegal member use: distress
+"setup.c", line 219: warning: old-fashioned assignment operator
+"setup.c", line 220: warning: old-fashioned assignment operator
+"shield.c", line 8: warning: old-fashioned initialization: use =
+"shield.c", line 69: warning: old-fashioned assignment operator
+"snova.c", line 38: warning: old-fashioned assignment operator
+"snova.c", line 86: warning: old-fashioned assignment operator
+"snova.c", line 90: warning: old-fashioned assignment operator
+"snova.c", line 94: warning: old-fashioned assignment operator
+"ssradio.c", line 18: warning: old-fashioned assignment operator
+"ssradio.c", line 35: warning: old-fashioned assignment operator
+"ssradio.c", line 41: warning: old-fashioned assignment operator
+"torped.c", line 14: warning: old-fashioned assignment operator
+"torped.c", line 16: warning: old-fashioned assignment operator
+"torped.c", line 17: warning: old-fashioned assignment operator
+"torped.c", line 75: warning: old-fashioned assignment operator
+"torped.c", line 87: warning: old-fashioned assignment operator
+"torped.c", line 87: warning: old-fashioned assignment operator
+"torped.c", line 91: warning: old-fashioned assignment operator
+"torped.c", line 98: warning: old-fashioned assignment operator
+"torped.c", line 99: warning: old-fashioned assignment operator
+"torped.c", line 149: warning: old-fashioned assignment operator
+"torped.c", line 166: warning: old-fashioned assignment operator
+"torped.c", line 174: warning: old-fashioned assignment operator
+"torped.c", line 191: warning: old-fashioned assignment operator
+"visual.c", line 8: warning: old-fashioned initialization: use =
+"visual.c", line 55: warning: illegal member use: time
+"warp.c", line 69: warning: old-fashioned assignment operator
+"warp.c", line 90: warning: old-fashioned assignment operator
+"warp.c", line 91: warning: old-fashioned assignment operator
+"warp.c", line 96: warning: illegal member use: time
+"warp.c", line 97: warning: illegal member use: time
+"warp.c", line 98: warning: old-fashioned assignment operator
+"warp.c", line 119: warning: old-fashioned assignment operator
+"warp.c", line 127: warning: illegal combination of pointer and integer
+"warp.c", line 128: warning: old-fashioned assignment operator
+"warp.c", line 129: warning: old-fashioned assignment operator
+"warp.c", line 129: warning: & before array or function: ignored
+"warp.c", line 130: warning: old-fashioned assignment operator
+"warp.c", line 130: warning: & before array or function: ignored
+"warp.c", line 131: warning: old-fashioned assignment operator
+"warp.c", line 131: warning: & before array or function: ignored
+"warp.c", line 132: warning: old-fashioned assignment operator
+
+Stop.
+
+real     2:37.0
+user       55.7
+sys        30.0

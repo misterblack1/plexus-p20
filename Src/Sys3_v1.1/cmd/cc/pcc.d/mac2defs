@@ -1,0 +1,85 @@
+/*	Z8000 Registers */
+
+	/* scratch registers */
+# define R0 0
+# define R1 1
+# define R2 2
+# define R3 3
+# define R4 4
+# define R5 5
+# define R6 6
+# define R7 7
+
+	/* byte registers */
+# define RH0 0
+# define RL0 0
+# define RH1 1
+# define RL1 1
+# define RH2 2
+# define RL2 2
+# define RH3 3
+# define RL3 3
+# define RH4 4
+# define RL4 4
+# define RH5 5
+# define RL5 5
+# define RH6 6
+# define RL6 6
+# define RH7 7
+# define RL7 7
+
+	/* double registers */
+# define RR0 0
+# define RR2 2
+# define RR4 4
+# define RR6 6
+
+	/* quad registers */
+# define RQ0 0
+# define RQ4 4
+
+	/* register variables */
+# define R8 8
+# define R9 9
+# define R10 10
+# define R11 11
+# define R12 12
+# define R13 13
+
+	/* special purpose */
+# define R14 14	/* frame pointer */
+# define SP 15	/* stack pointer */
+
+
+# define BYTEOFF(x) ((x)&01)
+# define wdal(k) (BYTEOFF(k)==0)
+# define BITOOR(x) ((x)/8)  /* bit offset to oreg offset */
+
+# define REGSZ 16
+
+# define TMPREG R14
+
+
+# define STOARG(p)     /* just evaluate the arguments, and be done with it... */
+# define STOFARG(p)
+# define STOSTARG(p)
+# define genfcall(a,b) gencall(a,b)
+
+
+	/* shape for constants between 1 and 16 */
+#define SSCON (SPECIAL+100)
+	/* shape for constants between -128 and 127 */
+# define SCCON (SPECIAL+101)
+	/* shape for constants between 0 and 32767 */
+# define SICON (SPECIAL+102)
+	/* shape for constants between 0 and 255 */
+#define SUCCON (SPECIAL+103)
+	/* shape for single bit ON constants, 16 bit */
+#define SCONSET (SPECIAL+104)
+	/* shape for single bit OFF constants, 16 bit */
+#define SCONRES (SPECIAL+105)
+
+# define MYREADER(p) myreader(p)
+extern int fltused;
+	/* calls can be nested on the PDP-11 */
+# define NESTCALLS

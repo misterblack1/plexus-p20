@@ -1,0 +1,190 @@
+'''\"	OSDD document format (used with mm macros)
+'''\"	@(#)osdd.src	1.2
+.)K \" kill MT macros
+.nr %y 2 \" print Notice by default
+.nr P 1 \" start with page 2 (TOC is p. 1)
+.nr Cl 3 \" put first 3 levels in TOC
+.nr Cp 1 \" put List of Figs on TOC page
+.nr Cs 1 \" indicates text (rather than TOC page)
+.nr Fp 1 \" frame page option retained for TMAS compatibility
+.nr Np 1 \" use numbered paragraphs
+.nr Of 1 \" use dash for figure captions
+.nr Oc 1 \" use Arabic numbers on TOC pages
+.tr ~
+.tc ~
+.hc ^
+.ds <1 " (cont'd)\" for use on continued figure pages
+.ds Sc \" override string (second arg) for .FG
+.ds H1 AAA-BBBBB-CC\" document number
+.ds H2 n\" section number
+.ds H3 n\" issue number
+.ds H4 (date)
+.ds H5 (rating)
+.HM 1 1 A 1 1
+.ds HF 3 1 2 2 1 2
+.ds Lf FIGURES\" title for List of Figures
+.nr Ht 1
+.nr Pt 0
+.nr Hb 5
+.nr Hs 5
+.nr Di 1 \" presume document index is being made separately
+.EF "'Page \\\\nP'''"
+.OF "'''Page \\\\nP'"
+.am )h
+.BS \" must be cleared each page after figure captions printed with BS/BE
+.BE
+..
+.de HX
+.if (\\$1=2):(\\$1=4):(\\$1=5) .ds }0\" make heading levels unnumbered
+..
+.de TP
+.if \\n(Cs=0 \{\
+.tl 'BELL LABORATORIES''\\*(H1'
+.if \w'\\*(H2' .tl '''Section \\*(H2'
+.if \w'\\*(H3' .tl '''Issue \\*(H3'
+.if \\n(Di=0 \{\
+.   tl '''\\*(H4'
+.   tl '''\\*(H5' \}
+.tl ''OPERATIONS SYSTEMS'' \}
+.if \\n(Cs=1 \{\
+.   ie (\\nP%2)=0 \{\
+.      tl '\\*(H1'''
+.      tl 'Section \\*(H2'''
+.      tl 'Issue \\*(H3''' \}
+.   el \{\
+.      tl '''\\*(H1'
+.      tl '''Section \\*(H2'
+.      tl '''Issue \\*(H3' \}
+.sp 3v \}
+.if \\n(Cs=0 .nr Cs 1 
+..
+.de TY
+.nf
+.{a
+.sp 3v
+.cu 1
+.tl 'CONTENTS''Page No.'
+.cu 0
+.fi
+.BS
+.if \\n(Di=1 .nr %y 0
+.if \\n(%y=2 .[A
+.if \\n(%y=1 .[B
+.BE
+..
+.de Tc
+.br
+.BS 1
+.if (\\n(%y)&(\\n(:E) .sp 2v\" if there is already BS/BE space first
+.if \\n(%y=2 .[A
+.if \\n(%y=1 .[B
+.BE
+.di {a
+\!.ce 99
+.nf
+..
+.de Td
+\!.br
+\!.ce0
+.fi
+.br
+.di
+.nr Cs 0
+.TC 7 1 7
+..
+.de [B
+.ce 99
+PRIVATE
+.sp 1v
+The information contained herein
+should not be disclosed to unauthorized
+persons.  It is meant solely for use by
+authorized Bell System employees.
+.ce 0
+..
+.de [A
+.ce
+NOTICE
+.sp 1v
+.ce 2
+Not for use or disclosure outside the
+Bell System except under written agreement.
+..
+.de [F
+.SK
+.rs
+.sp 30v-\\n(nlu
+.ce
+\\$5
+.ce0
+.BS
+.)F \\$3 \\$6 \\$4 "\\*(Tt\\*(<1" \\*(Sc
+.BE
+.nr %c \\$1+1
+.if \\$2-\\$1 .[F \\n(%c \\$2 \\$3 \\$4 "\\$5" \\$6
+..
+'''\"	for compatibility with TMAS, .Fg takes 5 args as follows:
+'''\"	.Fg page-count figure-caption comment unused override
+'''\"	Fp flag = 0 suppresses printing of additional figure pages
+.de Fg
+.SK
+.rs
+.sp 30v-\\n(nlu
+.ce
+\\$3
+.ce0
+.br
+.ds Sc \\$5
+.BS
+.FG "\\$2" \\*(Sc
+.BE
+.ds Tt \\$2
+.ie (\\$1>1)&(\\n(Fp>0) .[F 2 \\$1 Figure \\n(Fg "\\$3" -1
+.el \{\
+.   de [h
+.   nr P +\\$1
+.   rm [h
+\\..
+.   if \\$1>1 \{\
+.   nr %h (\\$1-1)
+.   am )h
+.   [h \\n(%h
+\\.. \} \}
+..
+.de PM
+.ie !\w'\\$1' .nr %y 0
+.el \{\
+.	if '\\$1'N' .nr %y 2
+.	if '\\$1'P' .nr %y 1 \}
+..
+'''\"	This version of BS/BE takes arg, .BS 1, to append to old
+'''\"	BS/BE block. It's used to put figure caption and disclaimer
+'''\"	on same page.  It has problem that if new BS/BE won't fit on
+'''\"	current page then nothing comes out until next page where
+'''\"	standard BS/BE puts old version on current page.
+.de BS
+.ev1
+.)R
+.ie 0\\$1 \{ .rn >D >K
+.   da >K \}
+. el \{\
+.   nr :E 0
+.   di >K \}
+..
+.de BE
+.br
+.di
+.)R
+.ev
+.nr :U \\n(dnu+\\n(:Eu\"how big is new tail block + old if appended to
+.nr :E \\n(dnu\"save current size in case later appended to
+.if (\\n(:Uu+\\n(:Mu)>(\\n(.pu-\\n(nlu-.5v) .SK\"new page if bigger than where we are now
+.ch )n -(\\n(:Mu+\\n(:Uu)\"move footnote diverter trap
+.nr :o +(\\n(:Uu-\\n(:Tu)
+.nr :O +(\\n(:Uu-\\n(:Tu)
+.ch )f -\\n(:ou\"move footer trap
+.nr :m \\n(:Mu+\\n(:Uu\"new place for footer to reside
+.rn >K >D
+.ch >B -(\\n(:Mu+\\n(:Uu-1v) \"plant trap for tail mode expander
+.nr :T \\n(:Uu\"save size of current tail block
+..

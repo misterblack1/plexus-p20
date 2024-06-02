@@ -1,0 +1,74 @@
+sync
+a=`pwd`
+if [ $a != / -a $a != /etc ]
+then
+	echo "shutdown: you must be in the root directory (/) to use shutdown"
+	exit 2
+fi
+grace=${1-60}
+T=/tmp
+trap "rm -f $T/$$; exit 0" 0 1 2 15
+
+echo "\nSHUTDOWN PROGRAM\n"
+date
+echo "\n"
+cd /
+a="`who ^wc -l`"
+if [ $a -gt 1 ]
+then
+	echo "Do you want to send your own message? (y or n):   \c"
+	read b
+	if [ "$b" = "y" ]
+	then
+		echo "Type your message followed by ctrl d....\n"
+		su adm -c /etc/wall
+	else
+		su adm -c /etc/wall <<!
+PLEASE LOG OFF NOW ! ! !
+System maintenance about to begin.
+All processes will be killed in $grace seconds.
+!
+	fi
+	sleep $grace
+fi
+/etc/wall <<!
+SYSTEM BEING BROUGHT DOWN NOW ! ! !
+!
+if [ ${grace} -ne 0 ]
+then
+	sleep 60
+fi
+echo "\nBusy out (push down) the appropriate"
+echo "phone lines for this system.\n"
+echo "Do you want to continue? (y or n):   \c"
+read b
+if [ "$b" = "y" ]
+then
+	/usr/lib/acct/shutacct
+	echo "Process accounting stopped."
+	/etc/errstop
+	echo "Error logging stopped."
+	echo "\nAll currently running processes will now be killed.\n"
+	/etc/init 1
+	/etc/killall
+	sleep 20
+	mount^sed -n -e '/^\/ /d' -e 's/^.* on\(.*\) read.*/umount \1/p' ^ sh -
+	sync
+	ps -eaf
+	echo "\nWill a file save be done at this time?"
+	echo "Type either ( y or n ) :   \c"
+	read b
+	if [ "$b" = "y" ]
+	then
+		echo "fsck will now be executed on files in checklist"
+		rootdev=/dev/`devnm / ^ grep -v swap ^ sed -e 's/ .*//'`
+		fsck -t $T/$$ ${rootdev}
+		fsck -S -t $T/$$ `cat /etc/checklist ^ grep -v "^${rootdev}$"`
+		rm -f $T/$$
+	fi
+	sync;sync;sync
+	echo "\n\nHalt the system when ready."
+	sync;sync;sync;
+else
+	echo "For help, call your system administrator."
+fi

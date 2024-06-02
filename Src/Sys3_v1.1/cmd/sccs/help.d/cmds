@@ -1,0 +1,108 @@
+*
+*	Synopsis of SCCS commands
+*
+-delta
+	  delta [-r<SID>] [-s] [-n] [-g<list>] [-m<mrlist>] [-y<comment>]
+		[-p] file ...
+-get
+	get [-r<SID>] [-c<cutoff>] [-i<list>] [-x<list>] [-a<seq no.>]
+	    [-k] [-e] [-l<p>] [-p] [-m] [-n] [-s] [-b] [-g] [-t] file ...
+-admin
+     admin [-n] [-i<name>] [-r<rel>] [-t<name>] [-f<add-flag<flag-val>>] ...
+           [-d<del-flag>] ... [-a<add-login>] ... [-e<erase-login>] ...
+           [-m<mrlist>] [-y<comment>] [-h] [-z] file ...
+-help
+	help [arg]
+
+(When all else fails execute "help stuck".)
+-what
+	what file ...
+-comb
+	comb [-o] [-s] [-p<SID>] [-c<list>] file ...
+-bdiff
+	bdiff file1 file2 [numarg] [-s]
+-cdc
+	cdc -rSID [-m<mrlist>] [-y<comment>] file ...
+-rmdel
+	rmdel -rSID file ...
+-sccsdiff
+	sccsdiff old-spec new-spec [pr-args] sccsfile ...
+-stuck
+First, if you know the value of the system error number (errno),
+you can either look up a description of it in INTRO(II), or execute
+"help err<number>" (e.g., if the error number is 1 execute "help err1").
+If you don't know the error number, or you don't understand what's going on -
+Try the following, in order:
+1. Make sure the answer isn't in the documentation.
+2. Try to write(I) to anyone logged in as "adm".
+3. Contact your PWB/UNIX counsellor.
+4. File an MR (see System Administrator for instructions).
+-val
+	val -
+	val [-s] [-r<SID>] [-m<name>] [-y<type>] file ...
+-vc
+	vc [-a] [-t] [-c<char>] [-s] [keyword=value ... keyword=value]
+-prs
+	prs [-d<dataspec>] [-r<SID>] [-e] [-l] [-a] file ...
+
+	(do 'help prs_kywds' for description of recognized data keywords)
+
+-prs_kywds
+
+	List of Data Keywords Recognized by the _p_r_s Command
+
+ Data                             SCCS File          Value         Format
+Keyword       Data Item            Section           Type           Type
+
+ :Dt:   Whole delta line         Delta Table  all delta line info    S
+ :DL:   Delta line stats              "         :Li:/:Ld:/:Lu:       S
+ :Li:   Lines ins by delta            "              nnnnn           S
+ :Ld:   Lines del by delta            "              nnnnn           S
+ :Lu:   Lines unc by delta            "              nnnnn           S
+ :DT:   Delta type                    "              D or R          S
+  :I:   SID                           "         :R:.:L:.:B:.:S:      S
+  :R:   Release number                "              nnnn            S
+  :L:   Level number                  "              nnnn            S
+  :B:   Branch number                 "              nnnn            S
+  :S:   Sequence number               "              nnnn            S
+  :D:   Date delta created            "         :Dy:/:Dm:/:Dd:       S
+ :Dy:   Year delta created            "               nn             S
+ :Dm:   Month delta created           "               nn             S
+ :Dd:   Day delta created             "               nn             S
+  :T:   Time delta created            "          :Th::Tm::Ts:        S
+ :Th:   Hour delta created            "               nn             S
+ :Tm:   Minutes delta created         "               nn             S
+ :Ts:   Seconds delta created         "               nn             S
+  :P:   Pgmr who created delta        "             logname          S
+ :DS:   Delta seq number              "              nnnn            S
+ :DP:   Pred delta seq number         "              nnnn            S
+ :DI:   Deltas inc,exc,ignored        "         :Dn:/:Dx:/:Dg:       S
+ :Dn:   Deltas included               "          :DS: :DS: ...       S
+ :Dx:   Deltas excluded               "          :DS: :DS: ...       S
+ :Dg:   Deltas ignored                "          :DS: :DS: ...       S
+ :MR:   MR numbers                    "              text            M
+  :C:   Comments                      "              text            M
+ :UN:   User names               User Names          text            M
+ :FL:   Flag List                   Flags    desc of all flags set   M
+  :Y:   Type flag                     "           module type        S
+ :MF:   MR valid flag                 "            yes or no         S
+ :MP:   MR valid pgm.                 "              text            S
+ :KF:   Kywd err/warn flag            "            yes or no         S
+ :BF:   Branch flag                   "            yes or no         S
+  :J:   Joint edit flag               "            yes or no         S
+ :LK:   Locked releases               "             :R: ...          S
+  :Q:   User defined keyword          "              text            S
+  :M:   Module name flag              "           module name        S
+ :FB:   Floor boundary                "               :R:            S
+ :CB:   Ceiling boundary              "               :R:            S
+ :Ds:   Default SID                   "               :I:            S
+ :ND:   Null delta flag               "            yes or no         S
+ :FD:   Descriptive text          Comments           text            M
+ :BD:   Body                        Body             text            M
+ :GB:   Gotten body                   "              text            M
+  :W:   form of _w_h_a_t(I) str          N/A          :Z::M:\t:I:        S
+  :A:   form of _w_h_a_t(I) str          N/A       :Z::Y: :M: :I::Z:     S
+  :Z:   _w_h_a_t(I) str construct        N/A             @(#)            S
+  :F:   File name                    N/A           file name         S
+ :PN:   Pathname                     N/A           pathname          S
+

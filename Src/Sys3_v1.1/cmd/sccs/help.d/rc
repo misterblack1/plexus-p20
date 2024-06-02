@@ -1,0 +1,65 @@
+*
+*	Messages for SCCS rmdel-cdc commands.
+*
+-1
+"missing r"
+You did not specify the 'r' keyletter when you
+invoked rmdel or cdc. This argument is always required.
+-2
+"file ... does not exist"
+You named a file to be processed and it does not exist.
+-3
+"nonexistent sid"
+You specified an SID, via the r keyletter, which is not
+an SID of the SCCS file.
+-4
+"you are neither owner nor ..."
+You either don't own the file you are trying to process or
+your login-name is not the same as the one that created the delta.
+Only the creator of a delta (or your SCCS administrator, who
+owns the file) can rmdel or cdc a delta.
+-5
+"not a 'leaf' delta"
+You are attempting to remove a delta which is not the
+newest (most recent) delta in its branch of the
+delta tree. Only the latest may be removed.
+-6
+"MRs not allowed"
+Chghist has determined that MR numbers cannot be specified
+for the SCCS file since the file does not have a 'v' flag.
+-7
+"invalid MRs"
+One of the MR numbers you entered in response to a prompt
+by cdc is invalid, as determined by the validation program
+specified in the 'v' flag of the SCCS file.
+-8
+"MRs required"
+Chghist has determined that MR numbers are required for the
+SCCS file it is processing (the file has a 'v' flag), but
+none were supplied.
+-9
+"delta specified has delivered MR"
+The delta your are processing with 'rmdel' or 'cdc'
+contains an MR number entry which has been marked
+'delivered'. You cannot rmdel or cdc such a delta,
+as that would be in violation of a Change Management
+Prime Directive.
+See your SCCS administrator for further information.
+-10
+"bad invocation"
+You invoked 'rmdel' or 'cdc' by some name other than
+(n)rmdel or (n)cdc (you have a link to it).
+The program's execution depends on being invoked by one of these
+names only.
+-11
+"r has no sid"
+You specified the 'r' keyletter but did not specify the SID of the
+delta to be processed. Both are required.
+-12
+"being edited -- sid is in p-file"
+Someone is in the process of making a delta based upon
+the same delta (sid) you specified with the 'r' keyletter.
+This is indicated by the presence of the specified sid in
+an entry of the p-file for the named SCCS file.
+Removal of the delta specified is prohibited because
+its removal would interfere with other work in progress.

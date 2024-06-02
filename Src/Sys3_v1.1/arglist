@@ -1,0 +1,15 @@
+if [ x$1 = x+ ]
+then
+	shift
+	if [ $# -gt 0 ]
+	then
+		NAME=$1
+	fi
+fi
+if [ $# -gt 0 ]
+then
+	shift
+	ARGS=$*
+	echo ${NAME} ARGS=\"${ARGS}\"
+fi
+exit 0

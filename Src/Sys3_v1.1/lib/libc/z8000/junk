@@ -1,0 +1,3 @@
+
+ar rv libc.a `lorder *.o | sed 's/^ *//' |
+		sort | comm -23 - order.out | cat order.in - | tsort`

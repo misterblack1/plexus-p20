@@ -1,0 +1,574 @@
+'''\"	PWB View Graph and Slide Macros - 1.8 of @(#)vmca.src	1.8
+'''\"	Nroff/Troff Version @(#)1.8
+''\"	For Tektronix 4014 scope, use "... troff -rX1 -t..." and pipe into tc.
+''\"	Macro names used: )I )P )V )Z )e )g )j )m )t )z A AD B BR C CE D DF
+''\"	FI HY I NA NF NH NX S SH SP SW Sh SO Sw T TA
+''\"	TI U VH VS VW Vh Vw
+''\"	String names used: )B )C )D )F )N )Y )f ]A ]B ]C ]D
+''\"	Number register names used: )A )E )G )H )J )K )L )M )O )Q )R )S )T
+''\"	)U )W )X )a )b )c )d )i )k )l )n )o )p )q )r )s )u )v
+''\"	)w )x )y ]a ]b ]c ]d ]x X
+''\"	names of the form )? not used: none
+''\"	names of the form ]? USED: ]A ]B ]C ]D ]a ]b ]c ]d ]x
+'\"	FOIL-SIZE DEFINITION MACROS
+'\"	.VS - foil start (V_iew graph:   7 * 7 S_quare)    E-7351 or E-7351-R
+.de VS
+.)j\"			clean-up, a "troff -a" advisory, and a fresh start
+.nr )K 0i\"		left margin bias
+.nr )L 0i\"		cross-hair bias
+.nr )U 8i\"		page length minus 1.5 inches
+.nr )X 18\"		default point size
+.nr )H 0\"		high flag
+.nr )W 0\"		wide flag
+.nr )O 0i\"		35mm slide cut offset
+.nr )M 0\"		35mm slide flag
+.if !\\n(.$ .)V
+.if \\n(.$ .if !\\n(.$-1 .)V "\\$1"
+.if \\n(.$-1 .if !\\n(.$-2 .)V "\\$1" "\\$2"
+.if \\n(.$-2 .)V "\\$1" "\\$2" "\\$3"
+..
+'\"	.Vh - foil start (V_iew graph:   5 wide * 7 h_igh) E-7351-A
+.de Vh
+.)j
+.nr )K 0.9i
+.nr )L 1i
+.nr )U 8i
+.nr )X 14
+.nr )H 1
+.nr )W 0
+.nr )O 0.2i
+.nr )M 0
+.if !\\n(.$ .)V
+.if \\n(.$ .if !\\n(.$-1 .)V "\\$1"
+.if \\n(.$-1 .if !\\n(.$-2 .)V "\\$1" "\\$2"
+.if \\n(.$-2 .)V "\\$1" "\\$2" "\\$3"
+..
+'\"	.Sh - foil start (S_lide [35mm]: 5 wide * 7 h_igh) E-7351-A
+.de Sh
+.)j
+.nr )K 1.1i
+.nr )L 1i
+.nr )U 8i
+.nr )X 14
+.nr )H 1
+.nr )W 0
+.nr )O 0.2i
+.nr )M 1
+.if !\\n(.$ .)V
+.if \\n(.$ .if !\\n(.$-1 .)V "\\$1"
+.if \\n(.$-1 .if !\\n(.$-2 .)V "\\$1" "\\$2"
+.if \\n(.$-2 .)V "\\$1" "\\$2" "\\$3"
+..
+'\"	.Vw - foil start (V_iew graph:   7 w_ide * 5 high) E-7351-B
+.de Vw
+.)j
+.nr )K 0i
+.nr )L 0i
+.nr )U 6i
+.nr )X 14
+.nr )H 0
+.nr )W 1
+.nr )O 0.2i
+.nr )M 0
+.if !\\n(.$ .)V
+.if \\n(.$ .if !\\n(.$-1 .)V "\\$1"
+.if \\n(.$-1 .if !\\n(.$-2 .)V "\\$1" "\\$2"
+.if \\n(.$-2 .)V "\\$1" "\\$2" "\\$3"
+..
+'\"	.Sw - foil start (S_lide [35mm]: 7 w_ide * 5 high) E-7351-B
+.de Sw
+.)j
+.nr )K 0i
+.nr )L 0i
+.nr )U 6i
+.nr )X 14
+.nr )H 0
+.nr )W 1
+.nr )O 0.2i
+.nr )M 1
+.if !\\n(.$ .)V
+.if \\n(.$ .if !\\n(.$-1 .)V "\\$1"
+.if \\n(.$-1 .if !\\n(.$-2 .)V "\\$1" "\\$2"
+.if \\n(.$-2 .)V "\\$1" "\\$2" "\\$3"
+..
+'\"	.VH - foil start (V_iew graph:   7 wide * 9 H_igh) E-8814
+.de VH
+.)j
+.nr )K 0i
+.nr )L 0i
+.nr )U 10i
+.nr )X 18
+.nr )H 1
+.nr )W 0
+.nr )O 0.5i
+.nr )M 0
+.if !\\n(.$ .)V
+.if \\n(.$ .if !\\n(.$-1 .)V "\\$1"
+.if \\n(.$-1 .if !\\n(.$-2 .)V "\\$1" "\\$2"
+.if \\n(.$-2 .)V "\\$1" "\\$2" "\\$3"
+..
+'\"	.SH - foil start (S_lide [35mm]: 7 wide * 9 H_igh) E-8814
+.de SH
+.)j
+.nr )K 0.5i
+.nr )L 0i
+.nr )U 10i
+.nr )X 18
+.nr )H 1
+.nr )W 0
+.nr )O 0.5i
+.nr )M 1
+.if !\\n(.$ .)V
+.if \\n(.$ .if !\\n(.$-1 .)V "\\$1"
+.if \\n(.$-1 .if !\\n(.$-2 .)V "\\$1" "\\$2"
+.if \\n(.$-2 .)V "\\$1" "\\$2" "\\$3"
+..
+'\"	.VW - foil start (V_iew graph:   9 W_ide * 7 high) E-8814
+.de VW
+.)j
+.nr )K 0i\"		(This one produces foils that are
+.nr )L 0i\"		7 * 5.44 inches, and therefore must
+.nr )U 6.44i\"		be enlarged to 9 * 7 before use.)
+.nr )X 14
+.nr )H 0
+.nr )W 1
+.nr )O 0.4i
+.nr )M 0
+.if !\\n(.$ .)V
+.if \\n(.$ .if !\\n(.$-1 .)V "\\$1"
+.if \\n(.$-1 .if !\\n(.$-2 .)V "\\$1" "\\$2"
+.if \\n(.$-2 .)V "\\$1" "\\$2" "\\$3"
+..
+'\"	.SW - foil start (S_lide [35mm]: 9 W_ide * 7 high) E-8814
+.de SW
+.)j
+.nr )K 0i\"		(This one produces foils that are
+.nr )L 0i\"		7 * 5.44 inches, and therefore must
+.nr )U 6.44i\"		be enlarged to 9 * 7 before use.)
+.nr )X 14
+.nr )H 0
+.nr )W 1
+.nr )O 0.4i
+.nr )M 1
+.if !\\n(.$ .)V
+.if \\n(.$ .if !\\n(.$-1 .)V "\\$1"
+.if \\n(.$-1 .if !\\n(.$-2 .)V "\\$1" "\\$2"
+.if \\n(.$-2 .)V "\\$1" "\\$2" "\\$3"
+..
+.de )V\"	common part of foil start macro
+.fc\"			in case tbl left them on
+.wh 0i\"			remove page shortener trap
+.if \\nX .wh -0.5i\"		remove Tek scope trap
+.nr )o 0u
+.if \\n()i .nr )o 10p
+.nr )U +\\n()ou
+.pl \\n()Uu+1.5i\"	set page length
+.if \\nX .if \\n(.pu-\\n()Gu .pl \\n()Gu
+.na
+.fi
+.nh
+.lg 0
+.ta 0.5i 1i 1.5i 2i 2.5i 3i 3.5i 4i 4.5i 5i 5.5i 6i
+.ce 0
+.in 0i
+.ll 7.54i
+.po 0i\"		start off clean
+.lt 7.68i\"		this overflows on purpose
+.if \\n()i .)t "'\(da cut \(da''\(da cut \(da'" 1
+.nr )i 0\"		reset first foil flag
+.)t "'\l'0.38i'''\l'0.38i''" 1\"	put out cut marks
+.sp 0.5v
+.po 0.48i
+.lt 7.06i
+.if \\n(.$-1 .ds )N "\\$2
+.if \\n(.$-2 .ds )Y "\\$3
+.tl @@@\\*()Y@
+.tl @@@\\*()N@
+.if \\n(.$ .tl @@@\\*()F \\$1@
+.if !\\n(.$ .tl @@@\\*()F %@
+.po
+.sp |0.68i+\\n()ou
+.po 0.51i+\\n()Lu+\\n()Ou
+.lt 7.03i-\\n()Lu-\\n()Lu-\\n()Ou-\\n()Ou
+.if \\n()H .)t "'|''|'"
+.po
+.sp |1i+\\n()Ou+\\n()ou
+.if !\\n(.A .)e		\" force to left margin
+.po 0.1i
+.lt 7.54i\"		this overflows on purpose
+.if \\n()W .)t "'_''_'"
+.po
+.sp |1i+\\n()ou
+.if !\\n(.A .)e		\" force to left margin
+.po 0.48i+\\n()Lu
+.lt 7.06i-\\n()Lu-\\n()Lu
+.tl @+@@+@
+.sp -3p
+.if \\n()M .if \\n()W .sp \\n()Ou
+.po
+.nr )J \\n()Uu
+.if \\n()M .if \\n()W .nr )J \\n()Uu-\\n()Ou
+.nr )E \\n()Ju\"		set trap for end of foil
+.wh \\n()Eu )Z\"		plant end trap
+.S \\n()X 6i-\\n()Ku-\\n()Ku
+.I "" A no-space
+.sp .5v\"	so it's independent of .DV
+.nr )n \\n(nlu
+..
+.de )Z\"	end foil
+.wh \\n()Eu\"			remove end trap to avoid infinite loop
+.nr )w 0\"		set overflow flag
+.ev 1
+.)g
+'sp |\\n()Uu
+.if !\\n(.A .)e		\" force to left margin
+.po 0.48i+\\n()Lu
+.lt 7.06i-\\n()Lu-\\n()Lu
+.tl @+@@+@
+.po
+'sp |\\n()Uu-\\n()Ou
+.if !\\n(.A .)e		\" force to left margin
+.po 0.1i
+.lt 7.54i\"		this overflows on purpose
+.if \\n()W .)t "'_''_'"
+.po
+'sp |\\n()Uu+0.32i
+.po 0.51i+\\n()Lu+\\n()Ou
+.lt 7.03i-\\n()Lu-\\n()Lu-\\n()Ou-\\n()Ou
+.if \\n()H .)t "'|''|'"
+.po
+.if !\\n()H 'sp 1v
+'sp 1v
+.ev
+.if \\nX .pl \\n()Gu
+.if \\nX .wh -0.5i )m\"		plant Tek scope overflow flag
+.wh 0i )P\"			shorten page for overflow
+..
+.de )m\" page break for Tek scope
+.bp
+..
+.de )z\"	end of last foil (called by .em)
+.pl \\n(.pu+2i\"	to avoid the .em effect
+.br
+.if \\n()i  \{ .ps 10
+.		lt 6i
+.		tl @@*** No input or no ``foil start'' macro in input.@@ \}
+.if !\\n()i \{ .nr )x \\n(.vu+\\n()Eu-\\n(nlu/\\n(.vu
+.		nr )v \\n()w
+.		sp |\\n(.pu-2.8i\"	force a trap to )Z if no overflow
+.		if \\nX .wh -0.5i\"	remove Tek trap, if any
+.		if \\nX .pl \\n(.pu+2i\" avoid .em effect
+\&\"			force out any garbage
+.		br
+.		)g
+.		po 0i\"		for the last time
+.		ll 6i
+.		ce 0
+.		in 0i
+.		if \\n(.A .sp -1.1v
+.		if \\n(.A .sp 0.1v
+.		if \\n(.A .if \\n()v ==> Approximately \\n()x blank line(s) \
+left to bottom of previous foil.
+.		if \\n(.A .if !\\n()v ==> *** Previous foil full; \
+check for overflow.
+.		sp |\\n(.pu-2i
+.		lt 7.68i\"		this overflows on purpose
+.		)t "'\l'0.38i'''\l'0.38i''" 1\"	put out cut marks
+.		)t "'\(ua cut \(ua''\(ua cut \(ua'" 1 \}
+..
+.de )t\"	for cut marks invisible in "troff -a" mode
+.if !\\n(.A .if \\n(.$-1 .)e
+.if !\\n(.A .tl \\$1
+..
+.de )e\"	force to left margin
+.po 0i\"		this macro gets around a
+.lt 1i\"		typesetter ugly.
+.tl '~'''
+'sp -1v
+.po
+.lt
+..
+.de )P\"	page shortener
+.pl 2i
+.if \\nX .pl \\n()Gu
+..
+.de )j\"	clean-up and defaults
+.br
+.if \\n()i .if \\n(nl \{ .ps 10
+.			  lt 6i
+.			  tl @@*** Text before ``foil start'' macro in input.@@ \}
+.if !\\n()i \{ .nr )x \\n(.vu+\\n()Eu-\\n(nlu/\\n(.vu
+.		nr )v \\n()w
+.		sp |\\n(.pu-0.8i
+\&\"			force out any garbage
+.		br \}
+.)g
+.if !\\n()i \{ .po 0i
+.		ll 6i
+.		ce 0
+.		in 0i
+.		if \\n(.A .sp -1.1v
+.		if \\n(.A .sp 0.1v
+.		if \\n(.A .if \\n()v ==> Approximately \\n()x blank line(s) \
+left to bottom of previous foil.
+.		if \\n(.A .if !\\n()v ==> *** Previous foil full; \
+check for overflow.
+.		br
+.		ll
+.		po \}
+.if \\n(nl .bp
+.nr )w 1\"		reset overflow flag
+..
+.de )g\"	default setter
+.ft \\*()f
+.cs \\*()f
+.ps 8
+.vs 10p
+.ss 16
+.tr ~ 
+..
+'\"	FORMATTING MACROS
+'\"	.T  - large, centered title
+.de T
+.br
+.if \\n(nlu-\\n()nu .sp .5v
+.nr ]a \\n(.s\"		save prevailing current & previous point sizes
+.ps
+.nr ]b \\n(.s
+.ps
+.nr )u \\n(.iu\"	save prevailing indent
+.in 0i
+.ps +4
+.ce
+\&\\$1
+.in \\n()uu\"		restore prevailing indent
+.ps \\n(]b\"		restore prevailing current & previous point sizes
+.ps \\n(]a
+.sp .5v
+.nr )n \\n(nlu
+..
+'\"	.S  - point size, spacing, line length, margins, & indents
+.de S
+.if !\w@\\$1@ .ps\"			if arg1 null, use previous ps;
+.if \w@\\$1@ .if !\\$1+1 .ps \\$1\"	if arg1<0, use as decr. on current ps;
+.if \w@\\$1@ .if \\$1 .nr )y \\n(.s\"	save current ps;
+.if \w@\\$1@ .if \\$1 .nr )y \\$1\"	if arg1>0, use as incr. on current ps,
+'\"						or as new ps;
+.if \w@\\$1@ .if \\$1-99 .nr )y \\n()X\"	if arg1>99, use default ps;
+.if \w@\\$1@ .if \\$1 .ps \\n()y\"	set new ps;
+'\"					if arg1=0, don't change ps.
+.vs \\n(.sp*5u/4u
+.ss 16
+.nr )a 1i+\\n()Ku\"	first level (left margin)
+.nr ]c \\n(.s\"		save prevailing current & previous point sizes
+.ps
+.nr ]d \\n(.s
+.ps
+.if \\n(.s-35 .nr )A \\n(.s-\\n()Q-\\n()Q-\\n()Q-\\n()Q
+.if \\n(.s-19 .if !\\n(.s-35 .nr )A \\n(.s-\\n()Q-\\n()Q
+.if !\\n(.s-19 .nr )A \\n(.s-\\n()Q
+.ps \\n()A
+.nr )b \w@\\*()B~@u\"	second level indent for normal case (large bullet)
+.ps
+.if \\n(.s-35 .nr )A \\n(.s-\\n()R-\\n()R-\\n()R-\\n()R
+.if \\n(.s-19 .if !\\n(.s-35 .nr )A \\n(.s-\\n()R-\\n()R
+.if !\\n(.s-19 .nr )A \\n(.s-\\n()R
+.ps \\n()A
+.nr )c \\n()bu+\w@\\*()C~@u\"	3rd level indent for normal case (dash)
+.ps
+.if \\n(.s-35 .nr )A \\n(.s-\\n()S-\\n()S-\\n()S-\\n()S
+.if \\n(.s-19 .if !\\n(.s-35 .nr )A \\n(.s-\\n()S-\\n()S
+.if !\\n(.s-19 .nr )A \\n(.s-\\n()S
+.ps \\n()A
+.nr )d \\n()cu+\w@\\*()D~@u\"	4th level ind. for normal case (small bullet)
+.ps \\n(]d\"		restore prevailing current & previous point sizes
+.ps \\n(]c
+'\"	TROUBLE if arg2<8u or arg2>7
+.if \\n(.$-1 .nr )u \\$2\"	default for arg2 is inches
+.if \\n(.$-1 .if !\\n()uu-7u .nr )p \\$2i\"	arg2 not dimensioned
+.if \\n(.$-1 .if \\n()uu-7u .nr )p \\$2\"	arg2 dimensioned
+.nr )q \\n()pu-0i\"	change the "0i" to pull in B right margin
+.nr )r \\n()qu-0i\"	change the "0i" to pull in C right margin
+.nr )s \\n()ru-0i\"	change the "0i" to pull in D right margin
+.nr )T \\n(.sp*5u/4u\"	try to protect bottom margin
+.nr )E \\n()Ju-\\n()Tu\"	move up end of foil trap
+.ch )Z \\n()Eu
+..
+'\"	.I  - indent for levels .A, .B, .C, & .D
+.de I
+.if !\w@\\$1@u .nr )k 0i
+.if \w@\\$1@u .if !\\$1 .nr )u 0i-\\$1\"	arg1 default is inches
+.if \w@\\$1@u .if \\$1 .nr )u \\$1\"		TROUBLE if arg1<8u or arg1>7
+.if \w@\\$1@u .if !\\n()uu-7u .nr )k \\$1i\"	arg1 not dimensioned
+.if \w@\\$1@u .if \\n()uu-7u .nr )k \\$1\"	arg1 dimensioned
+.if \\n(.$-1 .A \\$3\"				force to new left margin
+'\"					suppress space if \\$3 not null.
+..
+'\"	.A  - first level (left margin)
+.de A
+.br
+.if !\\n(.$ .if \\n(nlu-\\n()nu .sp \\*(]Au
+.nr )n \\n(nlu
+.po \\n()au
+.in 0u+\\n()ku
+.ll \\n()pu
+.lt \\n()pu
+..
+'\"	.B  - second level (normally large bullet)
+.de B
+.br
+.if \\n(nlu-\\n()nu .sp \\*(]Bu
+.nr )n \\n(nlu
+.in \\n()bu+\\n()ku
+.ll \\n()qu
+.lt \\n()qu
+.nr )l 0
+.nr ]x \\n()bu\"		set standard stub outdent amount
+.if !\\n(.$ .)I \\*()B -\\n()Q
+.if \\n(.$ .if !\\n(.$-1 .)I "\\$1" -0
+.if \\n(.$-1 .if \\$2-99 .)I "\\$1~\|" -\\n()Q
+.if \\n(.$-1 .if !\\$2-99 .nr )l 1
+.if \\n(.$-1 .if !\\$2-99 .)I "\\$1" "\\$2"
+..
+'\"	.C  - third level (normally em dash)
+.de C
+.br
+.if \\n(nlu-\\n()nu .sp \\*(]Cu
+.nr )n \\n(nlu
+.in \\n()cu+\\n()ku
+.ll \\n()ru
+.lt \\n()ru
+.nr )l 0
+.nr ]x \\n()cu-\\n()bu\"	set standard stub outdent amount
+.if !\\n(.$ .)I \\*()C -\\n()R
+.if \\n(.$ .if !\\n(.$-1 .)I "\\$1" -0
+.if \\n(.$-1 .if \\$2-99 .)I "\\$1~\|" -\\n()R
+.if \\n(.$-1 .if !\\$2-99 .nr )l 1
+.if \\n(.$-1 .if !\\$2-99 .)I "\\$1" "\\$2"
+..
+'\"	.D  - fourth level (normally small bullet)
+.de D
+.br
+.if \\n(nlu-\\n()nu .sp \\*(]Du
+.nr )n \\n(nlu
+.in \\n()du+\\n()ku
+.ll \\n()su
+.lt \\n()su
+.nr )l 0
+.nr ]x \\n()du-\\n()cu\"	set standard stub outdent amount
+.if !\\n(.$ .)I \\*()D -\\n()S
+.if \\n(.$ .if !\\n(.$-1 .)I "\\$1" -0
+.if \\n(.$-1 .if \\$2-99 .)I "\\$1~\|" -\\n()S
+.if \\n(.$-1 .if !\\$2-99 .nr )l 1
+.if \\n(.$-1 .if !\\$2-99 .)I "\\$1" "\\$2"
+..
+.de )I\"	common part of level macros
+.nr ]a \\n(.s\"		save prevailing current & previous point sizes
+.ps
+.nr ]b \\n(.s
+.ps
+.if !\\n()l .if \\n(.s-35 .nr )A \\n(.s+\\$2+\\$2+\\$2+\\$2
+.if !\\n()l .if \\n(.s-19 .if !\\n(.s-35 .nr )A \\n(.s+\\$2+\\$2
+.if !\\n()l .if !\\n(.s-19 .nr )A \\n(.s+\\$2
+.if \\n()l .nr )A \\n(.s+\\$2
+.ps \\n()A
+.ti -\w@\\$1~@u
+\&\\$1~\&\c
+.ps \\n(]b\"		restore prevailing current & previous point sizes
+.ps \\n(]a
+..
+'\"	.U  - underline first of two concatenated strings
+.de U
+.if !\w@\\$1@u-.46m \&\\$1\v'.55m'\l'|0\(hy'\v'-.55m'\\$2
+.if \w@\\$1@u-.46m \&\\$1\v'.09m'\l'|0\(ul'\v'-.09m'\\$2
+..
+'\"	.DV - default vertical pre-spacing
+'\"		Only dimensioned args!!
+.de DV
+.if \w@\\$1@ .ds ]A \\$1
+.if \w@\\$2@ .ds ]B \\$2
+.if \w@\\$3@ .ds ]C \\$3
+.if \w@\\$4@ .ds ]D \\$4
+..
+'\"	.DF - default fonts
+.de DF
+.if \\n(.$-1 .ds )f "\\$2
+.if \\n(.$-1 .fp \\$1 \\$2
+.if \\n(.$-1 .ft \\$2
+.if \\n(.$-3 .fp \\$3 \\$4
+.if \\n(.$-5 .fp \\$5 \\$6
+.if \\n(.$-7 .fp \\$7 \\$8
+..
+'\"	UPPER-CASE SYNONYMS FOR TROFF REQUESTS
+'\"	.SP
+.de SP
+.sp \\$1
+..
+'\"	.BR
+.de BR
+.br
+..
+'\"	.TA
+.de TA
+'ta \\$1 \\$2 \\$3 \\$4 \\$5 \\$6 \\$7 \\$8 \\$9
+..
+'\"	.CE
+.de CE
+.ce \\$1
+..
+'\"	.TI
+.de TI
+.ti \\$1
+..
+'\"	.FI
+.de FI
+.fi
+..
+'\"	.NF
+.de NF
+.nf
+..
+'\"	.AD
+.de AD
+'ad \\$1
+..
+'\"	.NA
+.de NA
+'na
+..
+'\"	.HY
+.de HY
+'hy \\$1
+..
+'\"	.NH
+.de NH
+'nh
+..
+'\"	.SO
+.de SO
+'so \\$1
+..
+'\"	.NX
+.de NX
+'nx \\$1
+..
+.ds )F \(bs FOIL
+.if \n(.A .ds )F FOIL
+.ds )N BTL
+.ds )Y \n(mo/\n(dy/\n(yr
+.ds )B \(bu~\|
+.ds )C \(em~\|
+.ds )D \(bu~\|
+.ds ]A .5v\"	level A pre-space
+.ds ]B .5v\"	level B pre-space
+.ds ]C .5v\"	level C pre-space
+.ds ]D 0v\"	level D pre-space
+.nr )G 11i-7.5p\" page length for Tek scope
+.nr )Q 2\"	second level reduction
+.nr )R 2\"	third level reduction
+.nr )S 4\"	fourth level reduction
+.nr )i 1\"	first foil flag
+.nr )w 0\"	previous foil overflow flag (set=0)
+.em )z		\" plant an EOF trap
+.DF 1 G\"	set default font
+'\"	End of view graph & slide macros

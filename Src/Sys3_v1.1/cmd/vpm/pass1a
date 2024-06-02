@@ -1,0 +1,28 @@
+BEGIN {lc=0;
+nv=0;
+FS= "	";
+OFS= "	";
+}
+{
+if(length($0)>0){
+if($1!~/^#/){
+if(NF>1){
+if(NF>2){
+if($2=="BSS"){
+	v[$1]=nv;
+	nv=nv+$3;
+	print OFS $0;
+	next;
+}
+}
+printf "%o	%s\n",lc,$0;
+lc = lc + 2
+next;
+}
+}
+}
+	print OFS $0;
+}
+END{
+sstack = 256 - nv;
+}

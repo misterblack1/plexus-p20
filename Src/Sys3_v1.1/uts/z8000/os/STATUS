@@ -1,0 +1,5 @@
+FILE: /p3/src/uts/z8000/os/STATUS
+
+CCF 03/06/82	Tried to modify os.mk so that it could look into
+		/p3/include sted /usr/include.  Didn't work so i went back.
+

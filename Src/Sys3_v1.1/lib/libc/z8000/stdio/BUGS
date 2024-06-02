@@ -1,0 +1,25 @@
+*.c		- 03/02/82 JSE	Copied over as is from Plexus V7 source
+
+fltunused.s
+fltused.s	- 03/02/82 JSE	Omitted from Plexus R-III src; No P-V7
+				version, although Weco R-III and V7 have
+				identical copies.
+
+digstr.s
+strout.c
+doprnt.c	- 03/05/82 JSE	Omitted from Plexus R-III src; No Weco
+				R-III versions.  Only in Plexus V7.
+				Supplanted by _print.c
+
+getgrent.c
+getgrgid.c
+getgrnam.c
+getpw.c
+getpwent.c
+getpwnam.c
+getpwuid.c	- 03/05/82 JSE	Omitted from Plexus R-III src;
+				Replaced by code in libc/gen in R-III.
+
+_print.h	- 12/09/82 JSE	Changed the static count variable to
+				non-static to place in bss for standalone
+				restart ability.

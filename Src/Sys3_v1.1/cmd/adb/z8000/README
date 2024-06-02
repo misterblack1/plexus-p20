@@ -1,0 +1,28 @@
+This is a new version of adb (circa Aug 24 1982). In incorporates several
+improvements and bug fixes. There are as follows:
+
+	1. Necessary changes to make adb work with overlay kernel. These
+	   changes are ifdef'ed out with the variable "OVKRNL". They are
+	   normally disabled. The file /bin/oadb is the overlay version of
+	   this copy of adb.
+
+	2. <name>:e is an extension of :e . It provides the capability to
+	   break point after a function name that occurs in the run time
+	   stack. Use $c or $C to determine the active functions.
+
+	3. fcpd & fnegd now disassemble properly.
+
+	4. ldar problem fixed.
+
+	5. Priveleged instructions are now disassembled (ei, di, halt, etc.).
+
+	6. There was a problem with $c & $C giving the illusion of too few
+	   procedure paramaters.
+
+	7. A switch has been added to cause the initial default integer base to
+	   be hexadecimal. Use adb -x ~~~~ .
+
+	8. $x should print everything in hex. $o formats have been modified for
+	   large integers (they were colliding).
+
+	9. I/O has been upgraded to System III ioctl().

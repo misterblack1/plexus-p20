@@ -1,0 +1,5 @@
+pr -n dfs.c rfio.c riget.c rmount.c rnami.c rrdwri.c rtext.c \
+ /usr/include/sys/pnetdfs.h /usr/include/sys/mdpncf.h \
+ alloc.c fio.c iget.c main.c nami.c pipe.c slp.c sys1.c sys2.c sys3.c \
+ sys4.c text.c trap.c /usr/include/sys/mount.h /usr/include/sys/inode.h \
+ /usr/include/sys/user.h | rpr >/tmp/dfsall

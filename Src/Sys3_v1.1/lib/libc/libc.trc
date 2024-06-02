@@ -1,0 +1,6 @@
+if vax
+then
+	(cd vax; sh ./libc.rc $*)
+else
+	(cd z8000; sh ./libc.trc $*)
+fi

@@ -1,0 +1,82 @@
+# /etc/rc curstate no.-times-prev-in-curstate prevstat
+TZ=PST8PDT
+export TZ
+(
+case ${1-2} in
+1)
+	uname
+	echo single-user
+	if [ "$2" = 0 ] ; then rm -f /tmp/* /usr/tmp/* /etc/utmp; fi
+	if [ "$2" != 0 ]
+	then
+		: put umounts here
+	fi
+	;;
+2|7)
+	if [ "$2" = 0 -o "$2" = "" -o "$3" = 1 ]
+	then
+	/etc/devnm / | grep -v swap | grep -v root | /etc/setmnt
+	: put mounts here
+	/etc/update
+	rm -f /usr/adm/acct/nite/lock*
+	if [ "$1" = 2 ] ; then
+#		/bin/su - adm -c /usr/lib/acct/startup
+#		echo process accounting started
+#		/usr/lib/errdemon
+#		echo errdemon started
+##		/bin/su - sys -c "/usr/lib/sa/sadd /usr/adm/sa/sa`date +%d` &"
+#		mv /usr/adm/sulog /usr/adm/osulog
+		mv /usr/lib/cronlog /usr/lib/ocronlog
+		> /usr/lib/cronlog
+		/etc/cron
+		echo cron started
+	fi
+	rm -f /usr/spool/lpd/lock
+	rm -f /usr/spool/vpd/lock
+	rm -f /usr/spool/dpd/lock
+#	rm -f /usr/spool/dpd/glock
+	if [ "$1" = 2 ] ; then
+		echo 'initializing ICPs'
+		/etc/dnld -d -f /usr/lib/dnld/icp -o /dev/ic0 -a 4000
+		/etc/dnld -d -f /usr/lib/dnld/icp -o /dev/ic1 -a 4000
+		/etc/dnld -d -f /usr/lib/dnld/icp -o /dev/ic2 -a 4000
+		/etc/dnld -d -f /usr/lib/dnld/icp -o /dev/ic3 -a 4000
+		/etc/openup
+		/usr/lib/lpd
+#		/usr/lib/dpd
+# Place lines that do stty's for /dev/lp here.
+		echo multi-user
+	fi
+	echo type ctrl-d
+	fi
+	;;
+
+8)
+	echo autoboot enabled
+	/etc/fsck
+	/etc/init 2
+	;;
+
+1x)
+	echo "POWER FAIL RC"
+	echo "/etc/rc $*"
+	echo "Check all disks and breakers"
+	uname
+	;;
+2x)
+	echo "POWER FAIL RC"
+	echo "/etc/rc $*"
+	echo "Check all the disks and breakers"
+	uname
+	;;
+*x)
+	echo "POWER FAIL RC"
+	echo "/etc/rc $*"
+	echo "Check all the disks and breakers"
+	uname
+	;;
+*)
+	echo init mode $*
+	;;
+esac
+) < /dev/console > /dev/console 2> /dev/console

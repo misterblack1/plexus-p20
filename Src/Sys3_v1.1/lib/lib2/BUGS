@@ -1,0 +1,80 @@
+Zsrt0.s		08/06/82 JSE	Copied from /usr/src/cmd/standalone/srt0.s
+
+lib2.mk		08/06/82 JSE	Define DEVS for our P/40-P/25
+
+Zdk.c
+Zis.c
+Zkmem.c
+Zmem.s
+Zmt.c
+Zpd.c
+Zpt.c
+Zrm.c
+Zus.c		08/09/82 JSE	Copied from /usr/src/cmd/standalone and
+				changed to reflect the new iob and dtab
+				structures defined in saio.h.  All changes
+				were #ifdef-ed.
+
+Zconf.c		08/09/82 JSE	Duplicated devsw table from the file
+				/usr/src/cmd/standalone/conf.c.
+
+Zinit.c		08/09/82 JSE	Defined and made node for all devices
+				in Zconf.c.
+
+order.in
+order.out	08/09/82 JSE	Copied from /usr/src/lib/libc/z8000.
+
+tty.c		08/10/82 JSE	Wholesale changes to add XON/XOFF
+				processing; adapted from /usr/src/cmd/ \
+				stand/prf.c.
+read.c
+write.c		08/11/82 JSE	Changes for 1K blocking; used #ifdef's.
+
+saio.h		08/11/82 JSE	Changed 512 byte references to 1024.
+
+ustat.c		08/11/82 JSE	Changed 512 byte reference to BLKSIZ; used
+				#ifdef.
+
+Restart		12/7/82 JSE	Restart is a Plexus only feature to
+				restart loaded standalone programs via
+				pm(0x?,0).  To do, the bss section must
+				be cleared on restart and all initialized
+				variables reinitialized.  Most of the latter
+				is done in Zinit.c.  Unfortunately, the
+				Z8000 Compiler (sys3, rel 1.1) puts all static
+				variables (global/local, initialized or
+				uninitialized) in .data.  Thus, all library
+				routines and S.A. commands must reinitialize
+				their own static variables.  Some library
+				routines were changed to make uninitialized
+				static variables global non-static. Thus
+				they become part of .bss.  (see below for
+				the list).  Some static variables were
+				left unchanged because a) they should
+				not be used by S.A. programs, b) the
+				variables are never changed, or c) the
+				S.A. program has a way to reinitialize
+				the static variables.  Those falling into
+				category a) are:
+					crypt.o, getpw.o, execvp.o,
+					ssignal.o, cuserid.o. tzset()
+					of ctime() popen.o tmpnam.o
+				Those falling into category c) are:
+					getpwent.o getgrent.o rand.o
+				Also related to restart is the starting
+				address of bss.  Because the boot prom
+				wipes out data at around 0x8800, using
+				that address as the top of the stack
+				when it does a pm(0x?,0), the bss must
+				start below this address.  Compiling
+				commands -i usually resolves this bug.
+
+ecvt.c
+getopt.c
+malloc.c
+qsort.c
+strtok.c
+filbuf.c	12/7/82 JSE	Copied from libc source and redefined
+				all static variables to be global.  Needed
+				to do restart.  See above.
+

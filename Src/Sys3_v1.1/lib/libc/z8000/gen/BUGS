@@ -1,0 +1,56 @@
+*.c		- 03/01/82 JSE	copied as is from R3 source.
+
+*.s		- 03/01/82 JSE	copied as is from Plexus V7 source.
+
+ldfps.s		- 03/02/82 JSE	Omitted from Plexus R-III because it
+				is PDP11 floating point stuff.  P-V7
+				has no ldfps.s.
+
+cuexit.s
+fakfp.s		- 03/02/82 JSE	Copied as is from Plexus V7 source.
+
+fp.s		- 03/02/82 JSE	Omitted from Plexus R-III because
+				Plexus V7 currently has floating point
+				simulator code within opsys.
+
+tolower.s
+toupper.s	- 03/02/82 JSE	Wrote Z8000 version
+
+tell.c		- 03/05/82 JSE	Omitted from Plexus R-III because it
+				is obsolete and not provided in Weco R-III.
+
+frexp.s
+ldexp.s
+modf.s		- 03/05/82 JSE	Deleted from Plexus R-III because C versions
+				supplant them.  Tested & verified frexp.c.
+
+
+rindex.c
+index.c		- 03/05/82 JSE	Supplanted by strrchr and strchr functions.
+
+mpx.c
+pkon.c		- 03/05/82 JSE	Omitted from Plexus R-III because not
+				in R-III.
+
+stty.c		- 03/05/82 JSE	Omitted.  Supplanted by sys/stty.s syscall.
+
+timezone.c	- 03/05/82 JSE	Omitted.  Subsumed by other ctime(3) functions.
+
+l3.c		- 03/05/82 JSE	Copied Plexus V7 version which has byte
+				swap fix.
+
+abort.s
+cuexit.s
+fakcu.s
+setjmp.s	03/09/82 JSE	Changed all reference of csv to csav.
+
+atof.c		03/18/82 JSE	Modified to ieee spec as done for Plexus V7.
+
+ldexp.c
+frexp.c		04/22/82 JSE	Checked 1st arg for equal to 0.0 and return 0.0
+				if true.  Loops forever otherwise.
+
+cv50to60.c	06/07/82 JSE	Added for those programs that use times
+				system call.
+
+nlist.c		08/20/82 MDP	Modified for overlay kernel a.out structure.

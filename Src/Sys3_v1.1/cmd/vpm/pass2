@@ -1,0 +1,62 @@
+BEGIN {FS = "	";}
+{
+if($1=="#define"){
+if($2=="SSTACK"){
+sstack=$3;
+print $0;
+}
+else s[$2]=$3;
+next;
+}
+if($1=="#var"){
+v[$2]=$3;
+next;
+}
+if(NF>1){
+if($2=="BSS")
+	next;
+if(($2~/JMP/)||($2=="CALL")){
+if(NF>2){
+if(length(s[$3])==0)$3=".." $3
+else{
+$3=s[$3];
+if($3>255){
+i=0;
+while($3>255){
+$3=$3-256;
+i=i+1;
+}
+$2 = $2 "|" i;
+}
+}
+print ".byte",$2 "," $3
+}
+else print ".byte",$2 ",0";
+}
+else
+if(NF>2){
+if($3!~/^[0-9]|^'/){
+if($3~/\+/){
+i=length($3);
+while(substr($3,i,1)!="+")
+	i--;
+name=substr($3,1,i-1);
+rest=substr($3,i+1);
+}
+else{
+name=$3;
+rest="";
+}
+if(length(v[name])==0)$3=".." name
+else{
+$3 = sstack + v[name];
+}
+if(length(rest)>0)
+	$3 = $3 "+" rest;
+}
+print ".byte",$2 "," $3
+next
+}
+else print ".byte",$2 ",0"
+}
+}

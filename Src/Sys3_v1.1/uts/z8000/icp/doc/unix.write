@@ -1,0 +1,72 @@
+
+
+
+
+		In the event of single character writes, a timer is initiated
+	and the actual data transfer to the icp is posponed. If the write
+	buffer fills in this interval, the data is sent and the waiting event
+	is marked so as to be ignored. If the timeout event occures before
+	the buffer fills, whatever data the buffer contains is sent. The
+	following state diagram describes the various actions and possiblities.
+
+
+	 STATE					COMMENT
+
+       -1. Timeout to be ignored	Write buffer filled and data sent
+
+	0. Idle				Nothing going on, normal idle state
+
+	1. Timeout pending		More space is available in write buffer
+
+	2. Initiate another timeout	Timeout was pending and more to be sent
+
+	3. Wait for time out		Prevent delay if many small writes
+
+
+	 EVENT					COMMENT
+
+	A. Small write			Write buffer is not filled.
+
+	B. Large write			Write buffer is filled
+
+	C. Timeout occues		Timer interrupts
+
+	D. Error			Error in write (cpyinb) encountered
+
+
+
+
+
+				E V E N T S
+
+			A		B		C		D
+
+		---------------------------------------------------------------
+		|		|		|		|	      |
+	   -1	|	2	|  -1/write	|	0	|       -1    |
+		|		|		|		|	      |
+	S	---------------------------------------------------------------
+		|		|		|		|	      |
+	T   0	|	1	|   0/write	|    error	|       -1    |
+		|		|		|		|	      |
+	A	---------------------------------------------------------------
+		|		|		|	   *	|	      |
+	T   1	|	2	|  -1/write	|   0/write	|       -1    |
+		|		|		|		|	      |
+	E	---------------------------------------------------------------
+		|		|		|		|	      |
+	S   2	|	2	|  -1/write	|	3	|       -1    |
+		|		|		|		|	      |
+		---------------------------------------------------------------
+	     **	|		|		|	   *	|	      |
+	    3	|	3	|  -1/write	|   0/write	|       -1    |
+		|		|		|		|	      |
+		---------------------------------------------------------------
+
+
+		* buffer cleaned up at return from icp
+
+	       ** this state is currently disabled. It is apparently more
+		  efficient to return to state 1 on a timeout event and
+		  let the buffer fill, than to allow only 2 timeouts before
+		  flushing. (transition 2-C set to 1 instead of 3).

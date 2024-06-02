@@ -1,0 +1,7 @@
+other::1:
+bin::2:root,bin,daemon
+sys::3:root,bin,sys,adm
+adm::4:root,adm,daemon
+mail::6:root
+rje::8:rje,shqer
+guest::100:guest

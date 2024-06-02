@@ -1,0 +1,10 @@
+for i do
+	cc -O -S -c $i.c
+	ed - <<\! $i.s 
+	g/^\.data/s//.text/
+	w
+	q
+!
+	as -o $i.o $i.s
+	rm $i.s
+done

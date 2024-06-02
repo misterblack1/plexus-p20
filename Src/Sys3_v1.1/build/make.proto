@@ -1,0 +1,1652 @@
+/tmp/empty
+20000 2000
+	d--755	0	0				
+   bck	d--755	0	3	
+      $
+   bin	d--775	2	2	
+      STTY	---775	2	2	/bin/STTY			
+      acctcom	---775	2	2	/bin/acctcom			
+      adb	---775	2	2	/bin/adb			
+      ar	---775	2	2	/bin/ar			
+      as	---775	2	2	/bin/as			
+      basename	---775	2	2	/bin/basename			
+      bs	---775	2	2	/bin/bs			
+      cat	---775	2	2	/bin/cat			
+      cc	---775	2	2	/bin/cc			
+      chgrp	---775	2	2	/bin/chgrp			
+      chmod	---775	2	2	/bin/chmod			
+      chown	---775	2	2	/bin/chown			
+      cmp	---775	2	2	/bin/cmp			
+      cp	---775	2	2	/bin/cp			
+      cpio	---775	2	2	/bin/cpio			
+      crypt	---775	2	2	/bin/crypt			
+      date	---775	2	2	/bin/date			
+      dd	---775	2	2	/bin/dd			
+      df	-u-755	0	3	/bin/df			
+      diff	---775	2	2	/bin/diff			
+      dirname	---775	2	2	/bin/dirname			
+      du	---775	2	2	/bin/du			
+      echo	---775	2	2	/bin/echo			
+      ed	---775	2	2	/bin/ed			
+      env	---775	2	2	/bin/env			
+      expr	---775	2	2	/bin/expr			
+      false	---775	2	2	/bin/false			
+      file	---775	2	2	/bin/file			
+      find	---775	2	2	/bin/find			
+      grep	---775	2	2	/bin/grep			
+      kill	---775	2	2	/bin/kill			
+      ld	---775	2	2	/bin/ld			
+      line	---775	2	2	/bin/line			
+      ln	---775	2	2	/bin/ln			
+      ls	---775	2	2	/bin/ls			
+      mail	--g755	2	6	/bin/mail			
+      make	---775	0	1	/bin/make			
+      mesg	---775	2	2	/bin/mesg			
+      mkdir	-u-755	0	3	/bin/mkdir			
+      mv	-u-755	0	3	/bin/mv			
+      newgrp	-u-755	0	3	/bin/newgrp			
+      nice	---775	2	2	/bin/nice			
+      nm	---775	2	2	/bin/nm			
+      nohup	---775	2	2	/bin/nohup			
+      od	---775	2	2	/bin/od			
+      passwd	-ug755	0	3	/bin/passwd			
+      pr	---775	2	2	/bin/pr			
+      ps	--g775	2	3	/bin/ps			
+      pwd	---775	2	2	/bin/pwd			
+      red	---775	2	2	/bin/red			
+      rm	---775	2	2	/bin/rm			
+      rmail	--g755	2	6	/bin/rmail			
+      rmdir	-u-755	0	3	/bin/rmdir			
+      rsh	---775	2	1	/bin/rsh			
+      sed	---775	2	2	/bin/sed			
+      sh	---775	2	1	/bin/sh			
+      size	---775	2	2	/bin/size			
+      sleep	---775	2	2	/bin/sleep			
+      sort	---775	2	2	/bin/sort			
+      strip	---775	2	2	/bin/strip			
+      stty	---775	2	2	/bin/stty			
+      su	-u-755	0	3	/bin/su			
+      sum	---775	2	2	/bin/sum			
+      sync	---775	2	2	/bin/sync			
+      tail	---775	2	2	/bin/tail			
+      tee	---775	2	2	/bin/tee			
+      time	---775	2	2	/bin/time			
+      touch	---775	2	2	/bin/touch			
+      true	---775	2	2	/bin/true			
+      tty	---775	2	2	/bin/tty			
+      uname	---775	2	2	/bin/uname			
+      wc	---775	2	2	/bin/wc			
+      who	---775	2	2	/bin/who			
+      write	---775	2	2	/bin/write			
+      $
+   dev	d--755	0	3	
+      console	c--622	0	3	0	0	
+      dk0	b--400	0	3	0	0	
+      dk1	b--400	0	3	0	1	
+      dk2	b--400	0	3	0	2	
+:	      error	c--444	0	3	20	??	
+      ic0	c--600	3	3	14	0	
+      ic1	c--600	3	3	14	1	
+      ic2	c--600	3	3	14	2	
+      ic3	c--600	3	3	14	3	
+      kmem	c--440	3	3	2	1	
+      liomem	c--440	3	3	2	3	
+      lp	c--622	3	3	16	0	
+      mbiomem	c--440	3	3	2	4	
+      mem	c--440	3	3	2	0	
+      mt0	b--666	0	3	1	0	
+      nrmt0	c--666	0	3	4	4	
+      null	c--666	0	3	2	2	
+      pp0	c--622	3	3	16	0	
+      pp1	c--622	3	3	16	1	
+      pp2	c--622	3	3	16	2	
+      pp3	c--622	3	3	16	3	
+:	      prf	c--400	0	3	??	??	
+      rdk0	c--400	0	3	3	0	
+      rdk1	c--400	0	3	3	1	
+      rdk2	c--400	0	3	3	2	
+      rmt0	c--666	0	3	4	0	
+      swap	b--440	3	3	0	1	
+      tty	c--666	0	3	13	0	
+      tty0	c--622	0	3	15	0	
+      tty1	c--622	0	3	15	1	
+      tty10	c--622	0	3	15	10	
+      tty11	c--622	0	3	15	11	
+      tty12	c--622	0	3	15	12	
+      tty13	c--622	0	3	15	13	
+      tty14	c--622	0	3	15	14	
+      tty15	c--622	0	3	15	15	
+      tty16	c--622	0	3	15	16	
+      tty17	c--622	0	3	15	17	
+      tty18	c--622	0	3	15	18	
+      tty19	c--622	0	3	15	19	
+      tty2	c--622	0	3	15	2	
+      tty20	c--622	0	3	15	20	
+      tty21	c--622	0	3	15	21	
+      tty22	c--622	0	3	15	22	
+      tty23	c--622	0	3	15	23	
+      tty24	c--622	0	3	15	24	
+      tty25	c--622	0	3	15	25	
+      tty26	c--622	0	3	15	26	
+      tty27	c--622	0	3	15	27	
+      tty28	c--622	0	3	15	28	
+      tty29	c--622	0	3	15	29	
+      tty3	c--622	0	3	15	3	
+      tty30	c--622	0	3	15	30	
+      tty31	c--622	0	3	15	31	
+      tty4	c--622	0	3	15	4	
+      tty5	c--622	0	3	15	5	
+      tty6	c--622	0	3	15	6	
+      tty7	c--622	0	3	15	7	
+      tty8	c--622	0	3	15	8	
+      tty9	c--622	0	3	15	9	
+      $
+   etc	d--755	0	3	
+      .profile	---775	2	2	/etc/.profile			
+      bcopy	---775	2	2	/etc/bcopy			
+      checklist	---664	0	3	/etc/checklist			
+      chroot	---775	2	2	/etc/chroot			
+      clri	---775	2	2	/etc/clri			
+      config	---775	2	2	/etc/config			
+      crash	---775	2	2	/etc/crash			
+      cron	---744	0	3	/etc/cron			
+      ddate	---664	2	2	/etc/ddate			
+      devnm	---775	2	2	/etc/devnm			
+      dnld	---755	2	2	/etc/dnld			
+      dump	---775	2	2	/etc/dump			
+      dumpdir	---775	2	2	/etc/dumpdir			
+      eccdaemon	---775	2	2	/etc/eccdaemon			
+      errdead	---775	2	2	/etc/errdead			
+      errstop	---775	2	2	/etc/errstop			
+      filesave.u	---775	2	2	/etc/filesave.u			
+      fsck	---775	2	2	/etc/fsck			
+      fsdb	---775	2	2	/etc/fsdb			
+      getty	---744	0	3	/etc/getty			
+      group	---644	0	3	/etc/group			
+      grpck	---755	0	1	/etc/grpck			
+      init	---775	0	1	/etc/init			
+      inittab	---664	2	2	/etc/inittab			
+      install	---775	2	2	/etc/install			
+      killall	---764	0	3	/etc/killall			
+      labelit	---775	2	2	/etc/labelit			
+      link	---700	0	3	/etc/link			
+      log	d--775	0	3	
+         $
+      login	---775	0	3	/etc/login			
+      master	---644	3	3	/etc/master			
+      mkfs	---775	2	2	/etc/mkfs			
+      mknod	---775	2	2	/etc/mknod			
+      mnttab	---644	0	3	/etc/mnttab			
+      motd	---664	0	3	/etc/motd			
+      mount	---775	2	2	/etc/mount			
+      mvdir	---744	0	3	/etc/mvdir			
+      ncheck	---775	2	2	/etc/ncheck			
+      openup	---775	2	2	/etc/openup			
+      passwd	---644	0	3	/etc/passwd			
+      prfdc	---775	0	1	/etc/prfdc			
+      prfld	---775	0	1	/etc/prfld			
+      prfpr	---775	0	1	/etc/prfpr			
+      prfsnap	---775	0	1	/etc/prfsnap			
+      prfstat	---775	0	1	/etc/prfstat			
+      profile	---664	2	2	/etc/profile			
+      pwck	---755	0	1	/etc/pwck			
+      rc	---744	0	3	/etc/rc			
+      restor	---775	2	2	/etc/restor			
+      setmnt	---775	2	2	/etc/setmnt			
+      shutdown	---775	2	2	/etc/shutdown			
+      sysdef	---775	0	1	/etc/sysdef			
+      sysfix	---775	2	2	/etc/sysfix			
+      tapesave.u	---775	2	2	/etc/tapesave.u			
+      termcap	---644	0	3	/etc/termcap			
+      umount	---775	2	2	/etc/umount			
+      unlink	---700	0	3	/etc/unlink			
+      update	---775	2	2	/etc/update			
+      volcopy	---775	2	2	/etc/volcopy			
+      wall	---775	2	2	/etc/wall			
+      whodo	---775	2	2	/etc/whodo			
+      $
+   guest	d--775	100	100	
+      $
+   lib	d--775	2	2	
+      c2	---775	2	2	/lib/c2			
+      cpp	---775	2	2	/lib/cpp			
+      crt0.o	---664	2	2	/lib/crt0.o			
+      libPW.a	---664	2	2	/lib/libPW.a			
+      libc.a	---664	2	2	/lib/libc.a			
+      libm.a	---664	2	2	/lib/libm.a			
+      mcrt0.o	---664	2	2	/lib/mcrt0.o			
+      $
+   lost+found	d--777	2	2	
+      $
+   mnt	d--755	0	3	
+      $
+   stand	d--775	2	2	
+      boot	---775	2	2	/stand/boot	
+      dconfig	---775	2	2	/stand/dconfig			
+      dd	---775	2	2	/stand/dd			
+      dformat	---775	2	2	/stand/dformat	
+      fbackup	---755	2	2	/stand/fbackup			
+      help	---755	2	2	/stand/help			
+      icheck	---755	2	2	/stand/icheck			
+      mkfs	---755	2	2	/stand/mkfs			
+      od	---775	2	2	/stand/od			
+      restor	---755	2	2	/stand/restor			
+      $
+   sys3	---775	3	3	/sys3	
+   tmp	d--777	0	3	
+      $
+   usr	d--755	0	2	
+      READ.ME	---664	2	2	/usr/READ.ME			
+      adm	d--775	4	4	
+         acct	d--775	4	4	
+            fiscal	d--775	4	4	
+               $
+            nite	d--775	4	4	
+               $
+            sum	d--775	4	4	
+               $
+            $
+         sa	d--775	4	3	
+            $
+         wtmp	---644	4	4	/usr/adm/wtmp			
+         $
+      bin	d--775	2	2	
+         300	---775	2	2	/usr/bin/300			
+         300S	---775	2	2	/usr/bin/300S			
+         300s	---775	2	2	/usr/bin/300s			
+         4014	---775	2	2	/usr/bin/4014			
+         450	---775	2	2	/usr/bin/450			
+         admin	---775	2	2	/usr/bin/admin			
+         arcv	---775	2	2	/usr/bin/arcv			
+         arcv6	---775	2	2	/usr/bin/arcv6			
+         awk	---775	2	2	/usr/bin/awk			
+         banner	---775	2	2	/usr/bin/banner			
+         bc	---775	2	2	/usr/bin/bc			
+         bdiff	---775	2	2	/usr/bin/bdiff			
+         bfs	---775	2	2	/usr/bin/bfs			
+         cal	---775	2	2	/usr/bin/cal			
+         calendar	---775	2	2	/usr/bin/calendar			
+         cb	---775	2	2	/usr/bin/cb			
+         cdc	---775	2	2	/usr/bin/cdc			
+         checkcw	---775	2	2	/usr/bin/checkcw			
+         checkeq	---775	2	2	/usr/bin/checkeq			
+         col	---775	2	2	/usr/bin/col			
+         comb	---775	2	2	/usr/bin/comb			
+         comm	---775	2	2	/usr/bin/comm			
+         copytape	---775	2	2	/usr/bin/copytape			
+         cref	---775	2	2	/usr/bin/cref			
+         csplit	---775	2	2	/usr/bin/csplit			
+         ct	-u-755	0	3	/usr/bin/ct			
+         cu	---775	2	2	/usr/bin/cu			
+         cut	---775	2	2	/usr/bin/cut			
+         cw	---775	2	2	/usr/bin/cw			
+         dc	---775	2	2	/usr/bin/dc			
+         delta	---775	2	2	/usr/bin/delta			
+         deroff	---775	2	2	/usr/bin/deroff			
+         diff3	---775	2	2	/usr/bin/diff3			
+         diffmk	---775	2	2	/usr/bin/diffmk			
+         dircmp	---775	2	2	/usr/bin/dircmp			
+         efl	---775	2	2	/usr/bin/efl			
+         egrep	---775	2	2	/usr/bin/egrep			
+         eqn	---775	2	2	/usr/bin/eqn			
+         errpt	---775	2	2	/usr/bin/errpt			
+         fgrep	---775	2	2	/usr/bin/fgrep			
+         get	---775	2	2	/usr/bin/get			
+         getopt	---775	2	2	/usr/bin/getopt			
+         graph	---775	2	2	/usr/bin/graph			
+         greek	---775	2	2	/usr/bin/greek			
+         help	---775	2	2	/usr/bin/help			
+         hp	---775	2	2	/usr/bin/hp			
+         hyphen	---775	2	2	/usr/bin/hyphen			
+         id	---775	2	2	/usr/bin/id			
+         join	---775	2	2	/usr/bin/join			
+         lex	---775	2	2	/usr/bin/lex			
+         lint	---775	2	2	/usr/bin/lint			
+         logname	---775	2	2	/usr/bin/logname			
+         lorder	---775	2	2	/usr/bin/lorder			
+         lpr	---775	2	1	/usr/bin/lpr			
+         m4	---775	2	2	/usr/bin/m4			
+         man	---775	2	2	/usr/bin/man			
+         mancvt	---775	2	2	/usr/bin/mancvt			
+         mm	---775	2	2	/usr/bin/mm			
+         mmchek	---775	2	2	/usr/bin/mmchek			
+         mmt	---775	2	2	/usr/bin/mmt			
+         mvt	---775	2	2	/usr/bin/mvt			
+         neqn	---775	2	2	/usr/bin/neqn			
+         news	---775	2	2	/usr/bin/news			
+         nl	---775	2	2	/usr/bin/nl			
+         nroff	---775	2	2	/usr/bin/nroff			
+         osdd	---775	2	2	/usr/bin/osdd			
+         pack	---775	2	2	/usr/bin/pack			
+         paste	---775	2	2	/usr/bin/paste			
+         pcat	---775	2	2	/usr/bin/pcat			
+         pcc	---775	2	2	/usr/bin/pcc			
+         prof	---775	2	2	/usr/bin/prof			
+         prs	---775	2	2	/usr/bin/prs			
+         ptx	---775	2	2	/usr/bin/ptx			
+         ratfor	---775	2	2	/usr/bin/ratfor			
+         reform	---775	2	2	/usr/bin/reform			
+         regcmp	---775	2	2	/usr/bin/regcmp			
+         rmchg	---775	2	2	/usr/bin/rmchg			
+         rmdel	---775	2	2	/usr/bin/rmdel			
+         sact	---775	2	2	/usr/bin/sact			
+         sag	---775	2	2	/usr/bin/sag			
+         scc	---775	2	2	/usr/bin/scc			
+         sccsdiff	---775	2	2	/usr/bin/sccsdiff			
+         sdiff	---775	2	2	/usr/bin/sdiff			
+         sno	---775	2	2	/usr/bin/sno			
+         spell	---775	2	2	/usr/bin/spell			
+         spline	---775	2	2	/usr/bin/spline			
+         split	---775	2	2	/usr/bin/split			
+         tabs	---775	2	2	/usr/bin/tabs			
+         tape	---775	2	2	/usr/bin/tape			
+         tar	---775	2	2	/usr/bin/tar			
+         tbl	---775	2	2	/usr/bin/tbl			
+         tc	---775	2	2	/usr/bin/tc			
+         timex	--g775	0	3	/usr/bin/timex			
+         tp	---775	2	2	/usr/bin/tp			
+         tplot	---775	2	2	/usr/bin/tplot			
+         tr	---775	2	2	/usr/bin/tr			
+         troff	---775	2	2	/usr/bin/troff			
+         tsort	---775	2	2	/usr/bin/tsort			
+         typo	---775	2	2	/usr/bin/typo			
+         unget	---775	2	2	/usr/bin/unget			
+         uniq	---775	2	2	/usr/bin/uniq			
+         units	---775	2	2	/usr/bin/units			
+         unpack	---775	2	2	/usr/bin/unpack			
+         uucp	-u-111	5	2	/usr/bin/uucp			
+         uulog	-u-111	5	2	/usr/bin/uulog			
+         uuname	-u-111	5	2	/usr/bin/uuname			
+         uupick	---775	2	2	/usr/bin/uupick			
+         uustat	-u-111	5	2	/usr/bin/uustat			
+         uuto	---775	2	2	/usr/bin/uuto			
+         uux	-u-111	5	2	/usr/bin/uux			
+         val	---775	2	2	/usr/bin/val			
+         vc	---775	2	2	/usr/bin/vc			
+         vpr	---775	2	2	/usr/bin/vpr			
+         what	---775	2	2	/usr/bin/what			
+         xargs	---775	2	2	/usr/bin/xargs			
+         xref	---775	2	2	/usr/bin/xref			
+         yacc	---775	2	2	/usr/bin/yacc			
+         $
+      games	d--775	2	2	
+         .profile	---664	2	1	/usr/games/.profile			
+         arithmetic	---111	2	2	/usr/games/arithmetic			
+         back	---111	2	2	/usr/games/back			
+         bj	---111	2	2	/usr/games/bj			
+         craps	---111	2	2	/usr/games/craps			
+         fish	---111	2	2	/usr/games/fish			
+         fortune	---111	2	2	/usr/games/fortune			
+         hangman	---111	2	2	/usr/games/hangman			
+         lib	d--775	2	2	
+            backrules	---664	2	2	/usr/games/lib/backrules			
+            fortunes	---664	2	2	/usr/games/lib/fortunes			
+            quiz	d--775	2	2	
+               africa	---444	2	2	/usr/games/lib/quiz/africa			
+               airport	---444	2	2	/usr/games/lib/quiz/airport			
+               america	---444	2	2	/usr/games/lib/quiz/america			
+               areas	---444	2	2	/usr/games/lib/quiz/areas			
+               arith	---444	2	2	/usr/games/lib/quiz/arith			
+               asia	---444	2	2	/usr/games/lib/quiz/asia			
+               babies	---444	2	2	/usr/games/lib/quiz/babies			
+               bard	---444	2	2	/usr/games/lib/quiz/bard			
+               chinese	---444	2	2	/usr/games/lib/quiz/chinese			
+               collectives	---444	2	2	/usr/games/lib/quiz/collectives			
+               dept	---444	2	2	/usr/games/lib/quiz/dept			
+               editor	---444	2	2	/usr/games/lib/quiz/editor			
+               elements	---444	2	2	/usr/games/lib/quiz/elements			
+               europe	---444	2	2	/usr/games/lib/quiz/europe			
+               greeklang	---444	2	2	/usr/games/lib/quiz/greeklang			
+               inca	---444	2	2	/usr/games/lib/quiz/inca			
+               index	---444	2	2	/usr/games/lib/quiz/index			
+               latin	---444	2	2	/usr/games/lib/quiz/latin			
+               locomotive	---444	2	2	/usr/games/lib/quiz/locomotive			
+               midearth	---444	2	2	/usr/games/lib/quiz/midearth			
+               misspell	---444	2	2	/usr/games/lib/quiz/misspell			
+               mmacros	---444	2	2	/usr/games/lib/quiz/mmacros			
+               morse	---444	2	2	/usr/games/lib/quiz/morse			
+               mult	---444	2	2	/usr/games/lib/quiz/mult			
+               multitude	---444	2	2	/usr/games/lib/quiz/multitude			
+               murders	---444	2	2	/usr/games/lib/quiz/murders			
+               poetry	---444	2	2	/usr/games/lib/quiz/poetry			
+               posneg	---444	2	2	/usr/games/lib/quiz/posneg			
+               pres	---444	2	2	/usr/games/lib/quiz/pres			
+               province	---444	2	2	/usr/games/lib/quiz/province			
+               roffreq	---444	2	2	/usr/games/lib/quiz/roffreq			
+               seq-easy	---444	2	2	/usr/games/lib/quiz/seq-easy			
+               seq-hard	---444	2	2	/usr/games/lib/quiz/seq-hard			
+               sexes	---444	2	2	/usr/games/lib/quiz/sexes			
+               sov	---444	2	2	/usr/games/lib/quiz/sov			
+               spelling	---444	2	2	/usr/games/lib/quiz/spelling			
+               state	---444	2	2	/usr/games/lib/quiz/state			
+               trek	---444	2	2	/usr/games/lib/quiz/trek			
+               ucc	---444	2	2	/usr/games/lib/quiz/ucc			
+               $
+            $
+         mastermind	---111	2	2	/usr/games/mastermind			
+         mmhow	---644	2	2	/usr/games/mmhow			
+         moo	---111	2	2	/usr/games/moo			
+         number	---111	2	2	/usr/games/number			
+         psych	---111	2	2	/usr/games/psych			
+         quiz	---111	2	2	/usr/games/quiz			
+         random	---111	2	2	/usr/games/random			
+         trk	---111	2	2	/usr/games/trk			
+         ttt	---111	2	2	/usr/games/ttt			
+         ttt.k	---666	2	2	/usr/games/ttt.k			
+         wump	---111	2	2	/usr/games/wump			
+         $
+      include	d--775	2	2	
+         a.out.h	---664	2	2	/usr/include/a.out.h			
+         alarm.h	---664	2	2	/usr/include/alarm.h			
+         ar.h	---664	2	2	/usr/include/ar.h			
+         assert.h	---664	2	2	/usr/include/assert.h			
+         core.h	---664	2	2	/usr/include/core.h			
+         ctype.h	---664	2	2	/usr/include/ctype.h			
+         dumprestor.h	---664	2	2	/usr/include/dumprestor.h			
+         errno.h	---664	2	2	/usr/include/errno.h			
+         execargs.h	---664	2	2	/usr/include/execargs.h			
+         fatal.h	---644	2	2	/usr/include/fatal.h			
+         fcntl.h	---664	2	2	/usr/include/fcntl.h			
+         grp.h	---664	2	2	/usr/include/grp.h			
+         icp	d--775	2	2	
+            ctc.h	---644	2	2	/usr/include/icp/ctc.h			
+            dma.h	---644	2	2	/usr/include/icp/dma.h			
+            icp.h	---644	2	2	/usr/include/icp/icp.h			
+            icpinfo.h	---644	2	2	/usr/include/icp/icpinfo.h			
+            pbsioc.h	---644	2	2	/usr/include/icp/pbsioc.h			
+            pio.h	---644	2	2	/usr/include/icp/pio.h			
+            proc.h	---644	2	2	/usr/include/icp/proc.h			
+            sio.h	---644	2	2	/usr/include/icp/sio.h			
+            sioc.h	---644	2	2	/usr/include/icp/sioc.h			
+            sioccomm.h	---644	2	2	/usr/include/icp/sioccomm.h			
+            sioccsv.h	---644	2	2	/usr/include/icp/sioccsv.h			
+            siocprom.h	---644	2	2	/usr/include/icp/siocprom.h			
+            siocunix.h	---644	2	2	/usr/include/icp/siocunix.h			
+            $
+         macros.h	---644	2	2	/usr/include/macros.h			
+         math.h	---664	2	2	/usr/include/math.h			
+         misc.h	---644	2	2	/usr/include/misc.h			
+         mnttab.h	---664	2	2	/usr/include/mnttab.h			
+         pwd.h	---664	2	2	/usr/include/pwd.h			
+         regexp.h	---664	2	2	/usr/include/regexp.h			
+         rje.h	---644	2	2	/usr/include/rje.h			
+         setjmp.h	---664	2	2	/usr/include/setjmp.h			
+         sgtty.h	---664	2	2	/usr/include/sgtty.h			
+         signal.h	---664	2	2	/usr/include/signal.h			
+         stand.h	---664	2	2	/usr/include/stand.h			
+         stdio.h	---664	2	2	/usr/include/stdio.h			
+         symbol.h	---664	2	2	/usr/include/symbol.h			
+         sys	d--775	2	2	
+            acct.h	---664	2	2	/usr/include/sys/acct.h			
+            buf.h	---664	2	2	/usr/include/sys/buf.h			
+            callo.h	---664	2	2	/usr/include/sys/callo.h			
+            clock.h	---664	2	2	/usr/include/sys/clock.h			
+            conf.h	---664	2	2	/usr/include/sys/conf.h			
+            cons.h	---664	2	2	/usr/include/sys/cons.h			
+            dir.h	---664	2	2	/usr/include/sys/dir.h			
+            disk.h	---644	2	2	/usr/include/sys/disk.h			
+            dqs.h	---644	2	2	/usr/include/sys/dqs.h			
+            ecc.h	---644	2	2	/usr/include/sys/ecc.h			
+            elog.h	---664	2	2	/usr/include/sys/elog.h			
+            erec.h	---664	2	2	/usr/include/sys/erec.h			
+            err.h	---664	2	2	/usr/include/sys/err.h			
+            fblk.h	---664	2	2	/usr/include/sys/fblk.h			
+            file.h	---664	2	2	/usr/include/sys/file.h			
+            filsys.h	---664	2	2	/usr/include/sys/filsys.h			
+            imsc.h	---664	2	2	/usr/include/sys/imsc.h			
+            ino.h	---664	2	2	/usr/include/sys/ino.h			
+            inode.h	---664	2	2	/usr/include/sys/inode.h			
+            io.h	---664	2	2	/usr/include/sys/io.h			
+            iobuf.h	---664	2	2	/usr/include/sys/iobuf.h			
+            ioctl.h	---664	2	2	/usr/include/sys/ioctl.h			
+            is.h	---664	2	2	/usr/include/sys/is.h			
+            map.h	---664	2	2	/usr/include/sys/map.h			
+            maxuser.h	---644	2	2	/usr/include/sys/maxuser.h			
+            maxuser16.h	---644	2	2	/usr/include/sys/maxuser16.h			
+            maxuser32.h	---644	2	2	/usr/include/sys/maxuser32.h			
+            mba.h	---664	2	2	/usr/include/sys/mba.h			
+            mem.h	---664	2	2	/usr/include/sys/mem.h			
+            mount.h	---664	2	2	/usr/include/sys/mount.h			
+            mtpr.h	---664	2	2	/usr/include/sys/mtpr.h			
+            page.h	---664	2	2	/usr/include/sys/page.h			
+            param.h	---664	2	2	/usr/include/sys/param.h			
+            pcb.h	---664	2	2	/usr/include/sys/pcb.h			
+            pcl.h	---644	2	2	/usr/include/sys/pcl.h			
+            pd.h	---644	2	2	/usr/include/sys/pd.h			
+            peri.h	---664	2	2	/usr/include/sys/peri.h			
+            plexus.h	---664	2	2	/usr/include/sys/plexus.h			
+            proc.h	---664	2	2	/usr/include/sys/proc.h			
+            psl.h	---664	2	2	/usr/include/sys/psl.h			
+            reg.h	---664	2	2	/usr/include/sys/reg.h			
+            rm.h	---664	2	2	/usr/include/sys/rm.h			
+            seg.h	---664	2	2	/usr/include/sys/seg.h			
+            space.h	---664	2	2	/usr/include/sys/space.h			
+            st.h	---664	2	2	/usr/include/sys/st.h			
+            stat.h	---664	2	2	/usr/include/sys/stat.h			
+            sysinfo.h	---664	2	2	/usr/include/sys/sysinfo.h			
+            systm.h	---664	2	2	/usr/include/sys/systm.h			
+            text.h	---664	2	2	/usr/include/sys/text.h			
+            times.h	---664	2	2	/usr/include/sys/times.h			
+            trap.h	---664	2	2	/usr/include/sys/trap.h			
+            ttold.h	---664	2	2	/usr/include/sys/ttold.h			
+            tty.h	---664	2	2	/usr/include/sys/tty.h			
+            types.h	---664	2	2	/usr/include/sys/types.h			
+            uba.h	---664	2	2	/usr/include/sys/uba.h			
+            usart.h	---664	2	2	/usr/include/sys/usart.h			
+            user.h	---664	2	2	/usr/include/sys/user.h			
+            utsname.h	---664	2	2	/usr/include/sys/utsname.h			
+            var.h	---664	2	2	/usr/include/sys/var.h			
+            vpm.h	---664	2	2	/usr/include/sys/vpm.h			
+            vpmd.h	---664	2	2	/usr/include/sys/vpmd.h			
+            $
+         syscall.h	---664	2	2	/usr/include/syscall.h			
+         termio.h	---664	2	2	/usr/include/termio.h			
+         time.h	---664	2	2	/usr/include/time.h			
+         tp_defs.h	---664	2	2	/usr/include/tp_defs.h			
+         ustat.h	---664	2	2	/usr/include/ustat.h			
+         utmp.h	---664	2	2	/usr/include/utmp.h			
+         varargs.h	---664	2	2	/usr/include/varargs.h			
+         $
+      lib	d--755	0	3	
+         acct	d--775	4	2	
+            acctcms	---775	4	3	/usr/lib/acct/acctcms			
+            acctcon1	---775	4	4	/usr/lib/acct/acctcon1			
+            acctcon2	---775	4	4	/usr/lib/acct/acctcon2			
+            acctdisk	---775	4	4	/usr/lib/acct/acctdisk			
+            acctdusg	---775	4	4	/usr/lib/acct/acctdusg			
+            acctmerg	---775	4	4	/usr/lib/acct/acctmerg			
+            accton	-u-755	0	2	/usr/lib/acct/accton			
+            acctprc1	---775	4	4	/usr/lib/acct/acctprc1			
+            acctprc2	---775	4	4	/usr/lib/acct/acctprc2			
+            acctwtmp	---775	4	4	/usr/lib/acct/acctwtmp			
+            chargefee	---775	4	4	/usr/lib/acct/chargefee			
+            ckpacct	---775	4	4	/usr/lib/acct/ckpacct			
+            dodisk	---775	4	4	/usr/lib/acct/dodisk			
+            fwtmp	---775	4	4	/usr/lib/acct/fwtmp			
+            lastlogin	---775	4	4	/usr/lib/acct/lastlogin			
+            monacct	---775	4	4	/usr/lib/acct/monacct			
+            nulladm	---775	4	4	/usr/lib/acct/nulladm			
+            prctmp	---775	4	4	/usr/lib/acct/prctmp			
+            prdaily	---775	4	4	/usr/lib/acct/prdaily			
+            prtacct	---775	4	4	/usr/lib/acct/prtacct			
+            remove	---775	4	4	/usr/lib/acct/remove			
+            runacct	---755	4	1	/usr/lib/acct/runacct			
+            sdisk	---775	4	4	/usr/lib/acct/sdisk			
+            shutacct	---775	4	4	/usr/lib/acct/shutacct			
+            startup	---775	4	4	/usr/lib/acct/startup			
+            turnacct	---775	4	4	/usr/lib/acct/turnacct			
+            wtmpfix	---775	4	4	/usr/lib/acct/wtmpfix			
+            $
+         calprog	---775	2	2	/usr/lib/calprog			
+         ccom	---775	2	2	/usr/lib/ccom			
+         cref	d--775	2	2	
+            aign	---664	2	2	/usr/lib/cref/aign			
+            atab	---664	2	2	/usr/lib/cref/atab			
+            cign	---664	2	2	/usr/lib/cref/cign			
+            crpost	---775	2	2	/usr/lib/cref/crpost			
+            ctab	---664	2	2	/usr/lib/cref/ctab			
+            eign	---664	2	2	/usr/lib/cref/eign			
+            etab	---664	2	2	/usr/lib/cref/etab			
+            upost	---775	2	2	/usr/lib/cref/upost			
+            $
+         cronlog	---666	0	3	/usr/lib/cronlog			
+         crontab	---644	0	3	/usr/lib/crontab			
+         diff3prog	---775	2	2	/usr/lib/diff3prog			
+         diffh	---775	2	2	/usr/lib/diffh			
+         dnld	d--775	2	2	
+            icp	---664	2	2	/usr/lib/dnld/icp			
+            icpdmp	---700	0	3	/usr/lib/dnld/icpdmp			
+            $
+         eign	---664	2	2	/usr/lib/eign			
+         errdemon	---775	2	2	/usr/lib/errdemon			
+         font	d--775	2	2	
+            ftB	---775	2	2	/usr/lib/font/ftB			
+            ftBC	---775	2	2	/usr/lib/font/ftBC			
+            ftC	---775	2	2	/usr/lib/font/ftC			
+            ftCE	---775	2	2	/usr/lib/font/ftCE			
+            ftCI	---775	2	2	/usr/lib/font/ftCI			
+            ftCK	---775	2	2	/usr/lib/font/ftCK			
+            ftCS	---775	2	2	/usr/lib/font/ftCS			
+            ftCW	---775	2	2	/usr/lib/font/ftCW			
+            ftFD	---775	2	2	/usr/lib/font/ftFD			
+            ftG	---775	2	2	/usr/lib/font/ftG			
+            ftGI	---775	2	2	/usr/lib/font/ftGI			
+            ftGM	---775	2	2	/usr/lib/font/ftGM			
+            ftGR	---775	2	2	/usr/lib/font/ftGR			
+            ftH	---775	2	2	/usr/lib/font/ftH			
+            ftHI	---775	2	2	/usr/lib/font/ftHI			
+            ftHM	---775	2	2	/usr/lib/font/ftHM			
+            ftI	---775	2	2	/usr/lib/font/ftI			
+            ftL	---775	2	2	/usr/lib/font/ftL			
+            ftLI	---775	2	2	/usr/lib/font/ftLI			
+            ftPA	---775	2	2	/usr/lib/font/ftPA			
+            ftPB	---775	2	2	/usr/lib/font/ftPB			
+            ftPI	---775	2	2	/usr/lib/font/ftPI			
+            ftR	---775	2	2	/usr/lib/font/ftR			
+            ftS	---775	2	2	/usr/lib/font/ftS			
+            ftSB	---775	2	2	/usr/lib/font/ftSB			
+            ftSI	---775	2	2	/usr/lib/font/ftSI			
+            ftSM	---775	2	2	/usr/lib/font/ftSM			
+            ftUD	---775	2	2	/usr/lib/font/ftUD			
+            ftXM	---644	2	2	/usr/lib/font/ftXM			
+            mkfont	---775	2	2	/usr/lib/font/mkfont			
+            $
+         help	d--755	2	2	
+            ad	---644	2	2	/usr/lib/help/ad			
+            bd	---644	2	2	/usr/lib/help/bd			
+            cb	---644	2	2	/usr/lib/help/cb			
+            cm	---644	2	2	/usr/lib/help/cm			
+            cmds	---644	2	2	/usr/lib/help/cmds			
+            co	---644	2	2	/usr/lib/help/co			
+            de	---644	2	2	/usr/lib/help/de			
+            default	---644	2	2	/usr/lib/help/default			
+            ge	---644	2	2	/usr/lib/help/ge			
+            he	---644	2	2	/usr/lib/help/he			
+            prs	---644	2	2	/usr/lib/help/prs			
+            rc	---644	2	2	/usr/lib/help/rc			
+            term	---644	2	2	/usr/lib/help/term			
+            text	---644	2	2	/usr/lib/help/text			
+            un	---644	2	2	/usr/lib/help/un			
+            ut	---644	2	2	/usr/lib/help/ut			
+            vc	---644	2	2	/usr/lib/help/vc			
+            $
+         lex	d--775	2	2	
+            ncform	---644	2	2	/usr/lib/lex/ncform			
+            nrform	---644	2	2	/usr/lib/lex/nrform			
+            $
+         lib.b	---775	2	2	/usr/lib/lib.b			
+         lib2.a	---664	2	2	/usr/lib/lib2.a			
+         lib300.a	---664	2	2	/usr/lib/lib300.a			
+         lib300S.a	---664	2	2	/usr/lib/lib300S.a			
+         lib300s.a	---664	2	2	/usr/lib/lib300s.a			
+         lib4014.a	---664	2	2	/usr/lib/lib4014.a			
+         lib450.a	---664	2	2	/usr/lib/lib450.a			
+         libl.a	---644	2	2	/usr/lib/libl.a			
+         libplot.a	---664	2	2	/usr/lib/libplot.a			
+         libtermlib.a	---644	2	2	/usr/lib/libtermlib.a			
+         libvt0.a	---775	2	2	/usr/lib/libvt0.a			
+         liby.a	---644	2	2	/usr/lib/liby.a			
+         lint1	---775	2	2	/usr/lib/lint1			
+         lint2	---775	2	2	/usr/lib/lint2			
+         llib-lc	---775	2	2	/usr/lib/llib-lc			
+         llib-lc.ln	---775	2	2	/usr/lib/llib-lc.ln			
+         llib-lm	---775	2	2	/usr/lib/llib-lm			
+         llib-lm.ln	---775	2	2	/usr/lib/llib-lm.ln			
+         llib-port	---775	2	2	/usr/lib/llib-port			
+         llib-port.ln	---775	2	2	/usr/lib/llib-port.ln			
+         lpd	-u-755	0	1	/usr/lib/lpd			
+         macros	d--775	2	2	
+            an	---644	2	2	/usr/lib/macros/an			
+            an6	---644	2	2	/usr/lib/macros/an6			
+            cmp.n.d.an	---644	2	2	/usr/lib/macros/cmp.n.d.an			
+            cmp.n.d.m	---644	2	2	/usr/lib/macros/cmp.n.d.m			
+            cmp.n.t.an	---644	2	2	/usr/lib/macros/cmp.n.t.an			
+            cmp.n.t.m	---644	2	2	/usr/lib/macros/cmp.n.t.m			
+            cmp.t.d.an	---644	2	2	/usr/lib/macros/cmp.t.d.an			
+            cmp.t.d.m	---644	2	2	/usr/lib/macros/cmp.t.d.m			
+            cmp.t.t.an	---644	2	2	/usr/lib/macros/cmp.t.t.an			
+            cmp.t.t.m	---644	2	2	/usr/lib/macros/cmp.t.t.m			
+            mmn	---644	2	2	/usr/lib/macros/mmn			
+            mmt	---644	2	2	/usr/lib/macros/mmt			
+            osdd	---644	2	2	/usr/lib/macros/osdd			
+            ucmp.n.an	---644	2	2	/usr/lib/macros/ucmp.n.an			
+            ucmp.n.m	---644	2	2	/usr/lib/macros/ucmp.n.m			
+            ucmp.t.an	---644	2	2	/usr/lib/macros/ucmp.t.an			
+            ucmp.t.m	---644	2	2	/usr/lib/macros/ucmp.t.m			
+            vmca	---644	2	2	/usr/lib/macros/vmca			
+            $
+         makekey	---775	2	2	/usr/lib/makekey			
+         manprog	---775	2	2	/usr/lib/manprog			
+         sa	d--775	4	2	
+            sa1	---775	4	2	/usr/lib/sa/sa1			
+            sadc	---775	0	1	/usr/lib/sa/sadc			
+            sadd	---775	4	2	/usr/lib/sa/sadd			
+            sar	---775	4	2	/usr/lib/sa/sar			
+            sarpt	---775	4	2	/usr/lib/sa/sarpt			
+            $
+         salt	---644	2	2	/usr/lib/salt			
+         spell	d--775	2	2	
+            compress	---775	2	2	/usr/lib/spell/compress			
+            hlista	---644	2	2	/usr/lib/spell/hlista			
+            hlistb	---644	2	2	/usr/lib/spell/hlistb			
+            hstop	---644	2	2	/usr/lib/spell/hstop			
+            spellhist	---666	2	2	/usr/lib/spell/spellhist			
+            spellin	---775	2	2	/usr/lib/spell/spellin			
+            spellout	---775	2	2	/usr/lib/spell/spellout			
+            spellprog	---775	2	2	/usr/lib/spell/spellprog			
+            $
+         sq2006	---644	2	2	/usr/lib/sq2006			
+         suftab	---644	2	2	/usr/lib/suftab			
+         t300	---775	2	2	/usr/lib/t300			
+         t300s	---775	2	2	/usr/lib/t300s			
+         t4014	---775	2	2	/usr/lib/t4014			
+         t450	---775	2	2	/usr/lib/t450			
+         term	d--775	2	2	
+            tab2631	---644	2	2	/usr/lib/term/tab2631			
+            tab2631-c	---644	2	2	/usr/lib/term/tab2631-c			
+            tab2631-e	---644	2	2	/usr/lib/term/tab2631-e			
+            tab300	---644	2	2	/usr/lib/term/tab300			
+            tab300-12	---644	2	2	/usr/lib/term/tab300-12			
+            tab300S	---644	2	2	/usr/lib/term/tab300S			
+            tab300S-12	---644	2	2	/usr/lib/term/tab300S-12			
+            tab300s	---644	2	2	/usr/lib/term/tab300s			
+            tab300s-12	---644	2	2	/usr/lib/term/tab300s-12			
+            tab37	---644	2	2	/usr/lib/term/tab37			
+            tab382	---644	2	2	/usr/lib/term/tab382			
+            tab4000A	---644	2	2	/usr/lib/term/tab4000A			
+            tab450	---644	2	2	/usr/lib/term/tab450			
+            tab450-12	---644	2	2	/usr/lib/term/tab450-12			
+            tab832	---644	2	2	/usr/lib/term/tab832			
+            tabX	---644	2	2	/usr/lib/term/tabX			
+            taba1	---644	2	2	/usr/lib/term/taba1			
+            tablp	---644	2	2	/usr/lib/term/tablp			
+            tabtn300	---644	2	2	/usr/lib/term/tabtn300			
+            $
+         tmac	d--775	2	2	
+            tmac.an	---644	2	2	/usr/lib/tmac/tmac.an			
+            tmac.an6	---644	2	2	/usr/lib/tmac/tmac.an6			
+            tmac.m	---644	2	2	/usr/lib/tmac/tmac.m			
+            tmac.osd	---644	2	2	/usr/lib/tmac/tmac.osd			
+            tmac.s	---644	2	2	/usr/lib/tmac/tmac.s			
+            tmac.scover	---644	2	2	/usr/lib/tmac/tmac.scover			
+            tmac.sdisp	---644	2	2	/usr/lib/tmac/tmac.sdisp			
+            tmac.skeep	---644	2	2	/usr/lib/tmac/tmac.skeep			
+            tmac.srefs	---644	2	2	/usr/lib/tmac/tmac.srefs			
+            tmac.v	---644	2	2	/usr/lib/tmac/tmac.v			
+            $
+         typoprog	---775	2	2	/usr/lib/typoprog			
+         unittab	---664	2	2	/usr/lib/unittab			
+         uucp	d--755	5	2	
+            .OLD	d--777	5	3	
+               $
+            .XQTDIR	d--777	5	3	
+               $
+            L-devices	---644	5	2	/usr/lib/uucp/L-devices			
+            L-dialcodes	---644	5	2	/usr/lib/uucp/L-dialcodes			
+            L.sys	---400	5	2	/usr/lib/uucp/L.sys			
+            L_stat	---644	5	2	/usr/lib/uucp/L_stat			
+            L_sub	---644	5	2	/usr/lib/uucp/L_sub			
+            R_stat	---644	5	2	/usr/lib/uucp/R_stat			
+            R_sub	---644	5	2	/usr/lib/uucp/R_sub			
+            USERFILE	---400	5	2	/usr/lib/uucp/USERFILE			
+            uucico	-u-111	5	2	/usr/lib/uucp/uucico			
+            uuclean	-u-111	5	2	/usr/lib/uucp/uuclean			
+            uudemon.day	---755	5	2	/usr/lib/uucp/uudemon.day			
+            uudemon.hr	---755	5	2	/usr/lib/uucp/uudemon.hr			
+            uudemon.wk	---755	5	2	/usr/lib/uucp/uudemon.wk			
+            uusub	---100	5	2	/usr/lib/uucp/uusub			
+            uuxqt	-u-111	5	2	/usr/lib/uucp/uuxqt			
+            $
+         vpd	---775	2	2	/usr/lib/vpd			
+         vpd.pr	---775	2	2	/usr/lib/vpd.pr			
+         vplot	---775	2	2	/usr/lib/vplot			
+         vpm	d--775	2	2	
+            $
+         w2006	---775	2	2	/usr/lib/w2006			
+         xrefa	---775	2	2	/usr/lib/xrefa			
+         xrefb	---775	2	2	/usr/lib/xrefb			
+         yaccpar	---775	2	2	/usr/lib/yaccpar			
+         $
+      lost+found	d--777	2	2	
+         $
+      mail	d--775	0	6	
+         $
+      man	d--775	2	2	
+         docs	d--777	2	2	
+            Print	---664	2	2	/usr/man/docs/Print			
+            account	---664	2	2	/usr/man/docs/account			
+            adb	---664	2	2	/usr/man/docs/adb			
+            adv_ed	---664	2	2	/usr/man/docs/adv_ed			
+            advice	---664	2	2	/usr/man/docs/advice			
+            as	---664	2	2	/usr/man/docs/as			
+            awk	---664	2	2	/usr/man/docs/awk			
+            bc	---664	2	2	/usr/man/docs/bc			
+            begin	---664	2	2	/usr/man/docs/begin			
+            c_add1	---664	2	2	/usr/man/docs/c_add1			
+            c_env	---664	2	2	/usr/man/docs/c_env			
+            c_lib	---664	2	2	/usr/man/docs/c_lib			
+            c_tour	---664	2	2	/usr/man/docs/c_tour			
+            dc	---664	2	2	/usr/man/docs/dc			
+            ed_tut	---664	2	2	/usr/man/docs/ed_tut			
+            eqn_guide	---664	2	2	/usr/man/docs/eqn_guide			
+            eqn_sys	---664	2	2	/usr/man/docs/eqn_sys			
+            f77	---664	2	2	/usr/man/docs/f77			
+            fsck	d--775	2	2	
+               fsck	---664	2	2	/usr/man/docs/fsck/fsck			
+               fsck.rc	---775	2	2	/usr/man/docs/fsck/fsck.rc			
+               fsck.toc	---664	2	2	/usr/man/docs/fsck/fsck.toc			
+               fsck.toc.mac	---664	2	2	/usr/man/docs/fsck/fsck.toc.mac			
+               $
+            graf_adm	---664	2	2	/usr/man/docs/graf_adm			
+            graf_ged	---664	2	2	/usr/man/docs/graf_ged			
+            graf_over	---664	2	2	/usr/man/docs/graf_over			
+            lint	---664	2	2	/usr/man/docs/lint			
+            m4	---664	2	2	/usr/man/docs/m4			
+            make	---664	2	2	/usr/man/docs/make			
+            mm_card	---664	2	2	/usr/man/docs/mm_card			
+            p_tour	---664	2	2	/usr/man/docs/p_tour			
+            password	---664	2	2	/usr/man/docs/password			
+            ratfor	---664	2	2	/usr/man/docs/ratfor			
+            rje_admin	---664	2	2	/usr/man/docs/rje_admin			
+            rje_guide	---664	2	2	/usr/man/docs/rje_guide			
+            rje_guide_dqs	---664	2	2	/usr/man/docs/rje_guide_dqs			
+            road_map	---664	2	2	/usr/man/docs/road_map			
+            sccs_guide	---664	2	2	/usr/man/docs/sccs_guide			
+            sccs_inter	---664	2	2	/usr/man/docs/sccs_inter			
+            secur	---664	2	2	/usr/man/docs/secur			
+            sed	---664	2	2	/usr/man/docs/sed			
+            setup	---664	2	2	/usr/man/docs/setup			
+            sh_tut	d--775	2	2	
+               README	---664	2	2	/usr/man/docs/sh_tut/README			
+               ex	d--775	2	2	
+                  copypairs	---775	2	2	/usr/man/docs/sh_tut/ex/copypairs			
+                  copyto	---775	2	2	/usr/man/docs/sh_tut/ex/copyto			
+                  distinct1	---775	2	2	/usr/man/docs/sh_tut/ex/distinct1			
+                  draft	---775	2	2	/usr/man/docs/sh_tut/ex/draft			
+                  edfind	---775	2	2	/usr/man/docs/sh_tut/ex/edfind			
+                  edlast	---775	2	2	/usr/man/docs/sh_tut/ex/edlast			
+                  fsplit	---775	2	2	/usr/man/docs/sh_tut/ex/fsplit			
+                  fsplit2	---775	2	2	/usr/man/docs/sh_tut/ex/fsplit2			
+                  initvars	---775	2	2	/usr/man/docs/sh_tut/ex/initvars			
+                  merge	---775	2	2	/usr/man/docs/sh_tut/ex/merge			
+                  mkfiles	---775	2	2	/usr/man/docs/sh_tut/ex/mkfiles			
+                  mmt	---775	2	2	/usr/man/docs/sh_tut/ex/mmt			
+                  null	---775	2	2	/usr/man/docs/sh_tut/ex/null			
+                  phone	---775	2	2	/usr/man/docs/sh_tut/ex/phone			
+                  writemail	---775	2	2	/usr/man/docs/sh_tut/ex/writemail			
+                  $
+               ex1	d--775	2	2	
+                  copypairs	---664	2	2	/usr/man/docs/sh_tut/ex1/copypairs			
+                  copyto	---664	2	2	/usr/man/docs/sh_tut/ex1/copyto			
+                  distinct1	---664	2	2	/usr/man/docs/sh_tut/ex1/distinct1			
+                  draft	---664	2	2	/usr/man/docs/sh_tut/ex1/draft			
+                  edfind	---664	2	2	/usr/man/docs/sh_tut/ex1/edfind			
+                  edlast	---664	2	2	/usr/man/docs/sh_tut/ex1/edlast			
+                  fsplit	---664	2	2	/usr/man/docs/sh_tut/ex1/fsplit			
+                  fsplit2	---664	2	2	/usr/man/docs/sh_tut/ex1/fsplit2			
+                  initvars	---664	2	2	/usr/man/docs/sh_tut/ex1/initvars			
+                  merge	---664	2	2	/usr/man/docs/sh_tut/ex1/merge			
+                  mkfiles	---664	2	2	/usr/man/docs/sh_tut/ex1/mkfiles			
+                  mmt	---664	2	2	/usr/man/docs/sh_tut/ex1/mmt			
+                  null	---664	2	2	/usr/man/docs/sh_tut/ex1/null			
+                  phone	---664	2	2	/usr/man/docs/sh_tut/ex1/phone			
+                  writemail	---664	2	2	/usr/man/docs/sh_tut/ex1/writemail			
+                  $
+               makex	---775	2	2	/usr/man/docs/sh_tut/makex			
+               sc0	---664	2	2	/usr/man/docs/sh_tut/sc0			
+               sc1	---664	2	2	/usr/man/docs/sh_tut/sc1			
+               sc4	---664	2	2	/usr/man/docs/sh_tut/sc4			
+               sc5	---664	2	2	/usr/man/docs/sh_tut/sc5			
+               $
+            shell	---664	2	2	/usr/man/docs/shell			
+            synopsis	---664	2	2	/usr/man/docs/synopsis			
+            tbl	---664	2	2	/usr/man/docs/tbl			
+            troff	d--775	2	2	
+               add1	---664	2	2	/usr/man/docs/troff/add1			
+               m.mac	---664	2	2	/usr/man/docs/troff/m.mac			
+               memo1	---664	2	2	/usr/man/docs/troff/memo1			
+               memo2	---664	2	2	/usr/man/docs/troff/memo2			
+               memo3	---664	2	2	/usr/man/docs/troff/memo3			
+               memo4	---664	2	2	/usr/man/docs/troff/memo4			
+               table1	---664	2	2	/usr/man/docs/troff/table1			
+               table2	---664	2	2	/usr/man/docs/troff/table2			
+               troff.rc	---775	2	2	/usr/man/docs/troff/troff.rc			
+               $
+            troff_tut	---664	2	2	/usr/man/docs/troff_tut			
+            u_impl	---664	2	2	/usr/man/docs/u_impl			
+            u_iosys	---664	2	2	/usr/man/docs/u_iosys			
+            u_prog	---664	2	2	/usr/man/docs/u_prog			
+            unix	---664	2	2	/usr/man/docs/unix			
+            unix_34	---664	2	2	/usr/man/docs/unix_34			
+            uucp_impl	---664	2	2	/usr/man/docs/uucp_impl			
+            uucp_net	---664	2	2	/usr/man/docs/uucp_net			
+            yacc	---664	2	2	/usr/man/docs/yacc			
+            ~CWscript	---664	2	2	/usr/man/docs/~CWscript			
+            ~MS	---664	2	2	/usr/man/docs/~MS			
+            ~u_prog.macs	---664	2	2	/usr/man/docs/~u_prog.macs			
+            $
+         local	d--775	2	2	
+            man1	d--775	2	2	
+               $
+            man2	d--775	2	2	
+               $
+            man3	d--775	2	2	
+               $
+            man4	d--775	2	2	
+               $
+            man5	d--775	2	2	
+               $
+            man6	d--775	2	2	
+               $
+            man7	d--775	2	2	
+               $
+            man8	d--775	2	2	
+               $
+            $
+         man0	d--775	2	2	
+            intro	---664	2	2	/usr/man/man0/intro			
+            ptxin	---664	2	2	/usr/man/man0/ptxin			
+            ptxx	---664	2	2	/usr/man/man0/ptxx			
+            skeleton	---664	2	2	/usr/man/man0/skeleton			
+            toc1	---664	2	2	/usr/man/man0/toc1			
+            toc2	---664	2	2	/usr/man/man0/toc2			
+            toc3	---664	2	2	/usr/man/man0/toc3			
+            toc4	---664	2	2	/usr/man/man0/toc4			
+            toc5	---664	2	2	/usr/man/man0/toc5			
+            toc6	---664	2	2	/usr/man/man0/toc6			
+            toc7	---664	2	2	/usr/man/man0/toc7			
+            toc8	---664	2	2	/usr/man/man0/toc8			
+            tocin	---664	2	2	/usr/man/man0/tocin			
+            $
+         man1	d--775	2	2	
+            300.1	---664	2	2	/usr/man/man1/300.1			
+            300S.1	---664	2	2	/usr/man/man1/300S.1			
+            300s.1	---664	2	2	/usr/man/man1/300s.1			
+            4014.1	---664	2	2	/usr/man/man1/4014.1			
+            450.1	---664	2	2	/usr/man/man1/450.1			
+            acct.1m	---664	2	2	/usr/man/man1/acct.1m			
+            acctcms.1m	---664	2	2	/usr/man/man1/acctcms.1m			
+            acctcom.1	---664	2	2	/usr/man/man1/acctcom.1			
+            acctcon.1m	---664	2	2	/usr/man/man1/acctcon.1m			
+            acctmerg.1m	---664	2	2	/usr/man/man1/acctmerg.1m			
+            acctprc.1m	---664	2	2	/usr/man/man1/acctprc.1m			
+            acctsh.1m	---664	2	2	/usr/man/man1/acctsh.1m			
+            adb.1	---664	2	2	/usr/man/man1/adb.1			
+            admin.1	---664	2	2	/usr/man/man1/admin.1			
+            ar.1	---664	2	2	/usr/man/man1/ar.1			
+            arcv.1	---664	2	2	/usr/man/man1/arcv.1			
+            as.1	---664	2	2	/usr/man/man1/as.1	
+            as.pdp.1	---664	2	2	/usr/man/man1/as.pdp.1			
+            awk.1	---664	2	2	/usr/man/man1/awk.1			
+            banner.1	---664	2	2	/usr/man/man1/banner.1			
+            basename.1	---664	2	2	/usr/man/man1/basename.1			
+            bc.1	---664	2	2	/usr/man/man1/bc.1			
+            bcopy.1m	---664	2	2	/usr/man/man1/bcopy.1m			
+            bdiff.1	---664	2	2	/usr/man/man1/bdiff.1			
+            bfs.1	---664	2	2	/usr/man/man1/bfs.1			
+            bs.1	---664	2	2	/usr/man/man1/bs.1			
+            cal.1	---664	2	2	/usr/man/man1/cal.1			
+            calendar.1	---664	2	2	/usr/man/man1/calendar.1			
+            cat.1	---664	2	2	/usr/man/man1/cat.1			
+            cb.1	---664	2	2	/usr/man/man1/cb.1			
+            cc.1	---664	2	2	/usr/man/man1/cc.1			
+            cd.1	---664	2	2	/usr/man/man1/cd.1			
+            cdc.1	---664	2	2	/usr/man/man1/cdc.1			
+            checkcw.1	---664	2	2	/usr/man/man1/checkcw.1			
+            checkeq.1	---664	2	2	/usr/man/man1/checkeq.1			
+            chgrp.1	---664	2	2	/usr/man/man1/chgrp.1			
+            chmod.1	---664	2	2	/usr/man/man1/chmod.1			
+            chown.1	---664	2	2	/usr/man/man1/chown.1			
+            chroot.1m	---664	2	2	/usr/man/man1/chroot.1m			
+            clri.1m	---664	2	2	/usr/man/man1/clri.1m			
+            cmp.1	---664	2	2	/usr/man/man1/cmp.1			
+            col.1	---664	2	2	/usr/man/man1/col.1			
+            comb.1	---664	2	2	/usr/man/man1/comb.1			
+            comm.1	---664	2	2	/usr/man/man1/comm.1			
+            config.1m	---664	2	2	/usr/man/man1/config.1m			
+            cp.1	---664	2	2	/usr/man/man1/cp.1			
+            cpio.1	---664	2	2	/usr/man/man1/cpio.1			
+            crash.1m	---664	2	2	/usr/man/man1/crash.1m			
+            cref.1	---664	2	2	/usr/man/man1/cref.1			
+            cron.1m	---664	2	2	/usr/man/man1/cron.1m			
+            crypt.1	---664	2	2	/usr/man/man1/crypt.1			
+            csplit.1	---664	2	2	/usr/man/man1/csplit.1			
+            ct.1c	---664	2	2	/usr/man/man1/ct.1c			
+            cu.1c	---664	2	2	/usr/man/man1/cu.1c			
+            cut.1	---664	2	2	/usr/man/man1/cut.1			
+            cw.1	---664	2	2	/usr/man/man1/cw.1			
+            date.1	---664	2	2	/usr/man/man1/date.1			
+            dc.1	---664	2	2	/usr/man/man1/dc.1			
+            dd.1	---664	2	2	/usr/man/man1/dd.1			
+            delta.1	---664	2	2	/usr/man/man1/delta.1			
+            deroff.1	---664	2	2	/usr/man/man1/deroff.1			
+            devnm.1m	---664	2	2	/usr/man/man1/devnm.1m			
+            df.1	---664	2	2	/usr/man/man1/df.1			
+            diff.1	---664	2	2	/usr/man/man1/diff.1			
+            diff3.1	---664	2	2	/usr/man/man1/diff3.1			
+            diffmk.1	---664	2	2	/usr/man/man1/diffmk.1			
+            dircmp.1	---664	2	2	/usr/man/man1/dircmp.1			
+            dirname.1	---664	2	2	/usr/man/man1/dirname.1			
+            dpd.1c	---664	2	2	/usr/man/man1/dpd.1c			
+            dpr.1c	---664	2	2	/usr/man/man1/dpr.1c			
+            du.1	---664	2	2	/usr/man/man1/du.1			
+            dump.1m	---664	2	2	/usr/man/man1/dump.1m			
+            echo.1	---664	2	2	/usr/man/man1/echo.1			
+            ed.1	---664	2	2	/usr/man/man1/ed.1			
+            efl.1	---664	2	2	/usr/man/man1/efl.1			
+            egrep.1	---664	2	2	/usr/man/man1/egrep.1			
+            env.1	---664	2	2	/usr/man/man1/env.1			
+            eqn.1	---664	2	2	/usr/man/man1/eqn.1			
+            erase.1g	---664	2	2	/usr/man/man1/erase.1g			
+            errdead.1m	---664	2	2	/usr/man/man1/errdead.1m			
+            errdemon.1m	---664	2	2	/usr/man/man1/errdemon.1m			
+            errpt.1m	---664	2	2	/usr/man/man1/errpt.1m			
+            errstop.1m	---664	2	2	/usr/man/man1/errstop.1m			
+            expr.1	---664	2	2	/usr/man/man1/expr.1			
+            f77.1	---664	2	2	/usr/man/man1/f77.1			
+            factor.1	---664	2	2	/usr/man/man1/factor.1			
+            false.1	---664	2	2	/usr/man/man1/false.1			
+            fget.1c	---664	2	2	/usr/man/man1/fget.1c			
+            fget.demon.1c	---664	2	2	/usr/man/man1/fget.demon.1c			
+            fget.odemon.1c	---664	2	2	/usr/man/man1/fget.odemon.1c			
+            fgrep.1	---664	2	2	/usr/man/man1/fgrep.1			
+            file.1	---664	2	2	/usr/man/man1/file.1			
+            find.1	---664	2	2	/usr/man/man1/find.1			
+            fsck.1m	---664	2	2	/usr/man/man1/fsck.1m			
+            fscv.1m	---664	2	2	/usr/man/man1/fscv.1m			
+            fsdb.1m	---664	2	2	/usr/man/man1/fsdb.1m			
+            fsend.1c	---664	2	2	/usr/man/man1/fsend.1c			
+            fwtmp.1m	---664	2	2	/usr/man/man1/fwtmp.1m			
+            gath.1c	---664	2	2	/usr/man/man1/gath.1c			
+            gcat.1c	---664	2	2	/usr/man/man1/gcat.1c			
+            gcosmail.1c	---664	2	2	/usr/man/man1/gcosmail.1c			
+            gdev.1g	---664	2	2	/usr/man/man1/gdev.1g			
+            ged.1g	---664	2	2	/usr/man/man1/ged.1g			
+            get.1	---664	2	2	/usr/man/man1/get.1			
+            getopt.1	---664	2	2	/usr/man/man1/getopt.1			
+            graph.1g	---664	2	2	/usr/man/man1/graph.1g			
+            graphics.1g	---664	2	2	/usr/man/man1/graphics.1g			
+            greek.1	---664	2	2	/usr/man/man1/greek.1			
+            grep.1	---664	2	2	/usr/man/man1/grep.1			
+            grpck.1m	---664	2	2	/usr/man/man1/grpck.1m			
+            gutil.1g	---664	2	2	/usr/man/man1/gutil.1g			
+            hardcopy.1g	---664	2	2	/usr/man/man1/hardcopy.1g			
+            help.1	---664	2	2	/usr/man/man1/help.1			
+            hp.1	---664	2	2	/usr/man/man1/hp.1			
+            hpd.1g	---664	2	2	/usr/man/man1/hpd.1g			
+            hyphen.1	---664	2	2	/usr/man/man1/hyphen.1			
+            id.1	---664	2	2	/usr/man/man1/id.1			
+            install.1m	---664	2	2	/usr/man/man1/install.1m			
+            intro.1	---664	2	2	/usr/man/man1/intro.1			
+            join.1	---664	2	2	/usr/man/man1/join.1			
+            kill.1	---664	2	2	/usr/man/man1/kill.1			
+            kun.1	---664	2	2	/usr/man/man1/kun.1			
+            labelit.1m	---664	2	2	/usr/man/man1/labelit.1m			
+            ld.1	---664	2	2	/usr/man/man1/ld.1			
+            lex.1	---664	2	2	/usr/man/man1/lex.1			
+            line.1	---664	2	2	/usr/man/man1/line.1			
+            link.1m	---664	2	2	/usr/man/man1/link.1m			
+            lint.1	---664	2	2	/usr/man/man1/lint.1			
+            ln.1	---664	2	2	/usr/man/man1/ln.1			
+            login.1	---664	2	2	/usr/man/man1/login.1			
+            logname.1	---664	2	2	/usr/man/man1/logname.1			
+            lorder.1	---664	2	2	/usr/man/man1/lorder.1			
+            lpd.1c	---664	2	2	/usr/man/man1/lpd.1c			
+            lpr.1	---664	2	2	/usr/man/man1/lpr.1			
+            ls.1	---664	2	2	/usr/man/man1/ls.1			
+            m4.1	---664	2	2	/usr/man/man1/m4.1			
+            mail.1	---664	2	2	/usr/man/man1/mail.1			
+            make.1	---664	2	2	/usr/man/man1/make.1			
+            man.1	---664	2	2	/usr/man/man1/man.1			
+            mesg.1	---664	2	2	/usr/man/man1/mesg.1			
+            mkdir.1	---664	2	2	/usr/man/man1/mkdir.1			
+            mkfs.1m	---664	2	2	/usr/man/man1/mkfs.1m			
+            mknod.1m	---664	2	2	/usr/man/man1/mknod.1m			
+            mm.1	---664	2	2	/usr/man/man1/mm.1			
+            mmchek.1	---664	2	2	/usr/man/man1/mmchek.1			
+            mmt.1	---664	2	2	/usr/man/man1/mmt.1			
+            mount.1m	---664	2	2	/usr/man/man1/mount.1m			
+            mv.1	---664	2	2	/usr/man/man1/mv.1			
+            mvdir.1m	---664	2	2	/usr/man/man1/mvdir.1m			
+            mvt.1	---664	2	2	/usr/man/man1/mvt.1			
+            ncheck.1m	---664	2	2	/usr/man/man1/ncheck.1m			
+            neqn.1	---664	2	2	/usr/man/man1/neqn.1			
+            newgrp.1	---664	2	2	/usr/man/man1/newgrp.1			
+            news.1	---664	2	2	/usr/man/man1/news.1			
+            nice.1	---664	2	2	/usr/man/man1/nice.1			
+            nl.1	---664	2	2	/usr/man/man1/nl.1			
+            nm.1	---664	2	2	/usr/man/man1/nm.1			
+            nohup.1	---664	2	2	/usr/man/man1/nohup.1			
+            nroff.1	---664	2	2	/usr/man/man1/nroff.1			
+            od.1	---664	2	2	/usr/man/man1/od.1			
+            odpd.1c	---664	2	2	/usr/man/man1/odpd.1c			
+            orjestat.1c	---664	2	2	/usr/man/man1/orjestat.1c			
+            pack.1	---664	2	2	/usr/man/man1/pack.1			
+            passwd.1	---664	2	2	/usr/man/man1/passwd.1			
+            paste.1	---664	2	2	/usr/man/man1/paste.1			
+            pcat.1	---664	2	2	/usr/man/man1/pcat.1			
+            pcc.1	---664	2	2	/usr/man/man1/pcc.1			
+            pr.1	---664	2	2	/usr/man/man1/pr.1			
+            prfdc.1m	---664	2	2	/usr/man/man1/prfdc.1m			
+            prfld.1m	---664	2	2	/usr/man/man1/prfld.1m			
+            prfpr.1m	---664	2	2	/usr/man/man1/prfpr.1m			
+            prfsnap.1m	---664	2	2	/usr/man/man1/prfsnap.1m			
+            prfstat.1m	---664	2	2	/usr/man/man1/prfstat.1m			
+            primes.1	---664	2	2	/usr/man/man1/primes.1			
+            prof.1	---664	2	2	/usr/man/man1/prof.1			
+            profiler.1m	---664	2	2	/usr/man/man1/profiler.1m			
+            prs.1	---664	2	2	/usr/man/man1/prs.1			
+            ps.1	---664	2	2	/usr/man/man1/ps.1			
+            ptx.1	---664	2	2	/usr/man/man1/ptx.1			
+            pwck.1m	---664	2	2	/usr/man/man1/pwck.1m			
+            pwd.1	---664	2	2	/usr/man/man1/pwd.1			
+            ratfor.1	---664	2	2	/usr/man/man1/ratfor.1			
+            reform.1	---664	2	2	/usr/man/man1/reform.1			
+            regcmp.1	---664	2	2	/usr/man/man1/regcmp.1			
+            restor.1m	---664	2	2	/usr/man/man1/restor.1m			
+            rjestat.1c	---664	2	2	/usr/man/man1/rjestat.1c			
+            rm.1	---664	2	2	/usr/man/man1/rm.1			
+            rmail.1	---664	2	2	/usr/man/man1/rmail.1			
+            rmdel.1	---664	2	2	/usr/man/man1/rmdel.1			
+            rmdir.1	---664	2	2	/usr/man/man1/rmdir.1			
+            rsh.1	---664	2	2	/usr/man/man1/rsh.1			
+            runacct.1m	---664	2	2	/usr/man/man1/runacct.1m			
+            sact.1	---664	2	2	/usr/man/man1/sact.1			
+            sag.1m	---664	2	2	/usr/man/man1/sag.1m			
+            scc.1	---664	2	2	/usr/man/man1/scc.1			
+            sccsdiff.1	---664	2	2	/usr/man/man1/sccsdiff.1			
+            sdb.1	---664	2	2	/usr/man/man1/sdb.1			
+            sdiff.1	---664	2	2	/usr/man/man1/sdiff.1			
+            sed.1	---664	2	2	/usr/man/man1/sed.1			
+            send.1c	---664	2	2	/usr/man/man1/send.1c			
+            setmnt.1m	---664	2	2	/usr/man/man1/setmnt.1m			
+            sh.1	---664	2	2	/usr/man/man1/sh.1			
+            shutdown.1m	---664	2	2	/usr/man/man1/shutdown.1m			
+            size.1	---664	2	2	/usr/man/man1/size.1			
+            sleep.1	---664	2	2	/usr/man/man1/sleep.1			
+            sno.1	---664	2	2	/usr/man/man1/sno.1			
+            sort.1	---664	2	2	/usr/man/man1/sort.1			
+            spell.1	---664	2	2	/usr/man/man1/spell.1			
+            spellin.1	---664	2	2	/usr/man/man1/spellin.1			
+            spellout.1	---664	2	2	/usr/man/man1/spellout.1			
+            spline.1g	---664	2	2	/usr/man/man1/spline.1g			
+            split.1	---664	2	2	/usr/man/man1/split.1			
+            st.1m	---664	2	2	/usr/man/man1/st.1m			
+            stat.1g	---664	2	2	/usr/man/man1/stat.1g			
+            strip.1	---664	2	2	/usr/man/man1/strip.1			
+            stty.1	---664	2	2	/usr/man/man1/stty.1			
+            su.1	---664	2	2	/usr/man/man1/su.1			
+            sum.1	---664	2	2	/usr/man/man1/sum.1			
+            sync.1m	---664	2	2	/usr/man/man1/sync.1m			
+            sysdef.1m	---664	2	2	/usr/man/man1/sysdef.1m			
+            tabs.1	---664	2	2	/usr/man/man1/tabs.1			
+            tail.1	---664	2	2	/usr/man/man1/tail.1			
+            tar.1	---664	2	2	/usr/man/man1/tar.1			
+            tbl.1	---664	2	2	/usr/man/man1/tbl.1			
+            tc.1	---664	2	2	/usr/man/man1/tc.1			
+            td.1g	---664	2	2	/usr/man/man1/td.1g			
+            tee.1	---664	2	2	/usr/man/man1/tee.1			
+            tekset.1g	---664	2	2	/usr/man/man1/tekset.1g			
+            test.1	---664	2	2	/usr/man/man1/test.1			
+            time.1	---664	2	2	/usr/man/man1/time.1			
+            timex.1	---664	2	2	/usr/man/man1/timex.1			
+            toc.1g	---664	2	2	/usr/man/man1/toc.1g			
+            touch.1	---664	2	2	/usr/man/man1/touch.1			
+            tp.1	---664	2	2	/usr/man/man1/tp.1			
+            tplot.1g	---664	2	2	/usr/man/man1/tplot.1g			
+            tr.1	---664	2	2	/usr/man/man1/tr.1			
+            troff.1	---664	2	2	/usr/man/man1/troff.1			
+            true.1	---664	2	2	/usr/man/man1/true.1			
+            tsort.1	---664	2	2	/usr/man/man1/tsort.1			
+            tty.1	---664	2	2	/usr/man/man1/tty.1			
+            typo.1	---664	2	2	/usr/man/man1/typo.1			
+            umask.1	---664	2	2	/usr/man/man1/umask.1			
+            umount.1m	---664	2	2	/usr/man/man1/umount.1m			
+            uname.1	---664	2	2	/usr/man/man1/uname.1			
+            unget.1	---664	2	2	/usr/man/man1/unget.1			
+            uniq.1	---664	2	2	/usr/man/man1/uniq.1			
+            units.1	---664	2	2	/usr/man/man1/units.1			
+            unlink.1m	---664	2	2	/usr/man/man1/unlink.1m			
+            unpack.1	---664	2	2	/usr/man/man1/unpack.1			
+            uuclean.1m	---664	2	2	/usr/man/man1/uuclean.1m			
+            uucp.1c	---664	2	2	/usr/man/man1/uucp.1c			
+            uulog.1c	---664	2	2	/usr/man/man1/uulog.1c			
+            uuname.1c	---664	2	2	/usr/man/man1/uuname.1c			
+            uupick.1c	---664	2	2	/usr/man/man1/uupick.1c			
+            uustat.1c	---664	2	2	/usr/man/man1/uustat.1c			
+            uusub.1m	---664	2	2	/usr/man/man1/uusub.1m			
+            uuto.1c	---664	2	2	/usr/man/man1/uuto.1c			
+            uux.1c	---664	2	2	/usr/man/man1/uux.1c			
+            val.1	---664	2	2	/usr/man/man1/val.1			
+            vc.1	---664	2	2	/usr/man/man1/vc.1			
+            vlx.1m	---664	2	2	/usr/man/man1/vlx.1m			
+            volcopy.1m	---664	2	2	/usr/man/man1/volcopy.1m			
+            vpmc.1c	---664	2	2	/usr/man/man1/vpmc.1c			
+            vpmsnap.1c	---664	2	2	/usr/man/man1/vpmsnap.1c			
+            vpmstart.1c	---664	2	2	/usr/man/man1/vpmstart.1c			
+            vpmtrace.1c	---664	2	2	/usr/man/man1/vpmtrace.1c			
+            vpr.1	---664	2	2	/usr/man/man1/vpr.1			
+            wait.1	---664	2	2	/usr/man/man1/wait.1			
+            wall.1m	---664	2	2	/usr/man/man1/wall.1m			
+            wc.1	---664	2	2	/usr/man/man1/wc.1			
+            what.1	---664	2	2	/usr/man/man1/what.1			
+            who.1	---664	2	2	/usr/man/man1/who.1			
+            whodo.1m	---664	2	2	/usr/man/man1/whodo.1m			
+            write.1	---664	2	2	/usr/man/man1/write.1			
+            wtmpfix.1m	---664	2	2	/usr/man/man1/wtmpfix.1m			
+            xargs.1	---664	2	2	/usr/man/man1/xargs.1			
+            xref.1	---664	2	2	/usr/man/man1/xref.1			
+            yacc.1	---664	2	2	/usr/man/man1/yacc.1			
+            $
+         man2	d--775	2	2	
+            access.2	---664	2	2	/usr/man/man2/access.2			
+            acct.2	---664	2	2	/usr/man/man2/acct.2			
+            alarm.2	---664	2	2	/usr/man/man2/alarm.2			
+            brk.2	---664	2	2	/usr/man/man2/brk.2			
+            chdir.2	---664	2	2	/usr/man/man2/chdir.2			
+            chmod.2	---664	2	2	/usr/man/man2/chmod.2			
+            chown.2	---664	2	2	/usr/man/man2/chown.2			
+            chroot.2	---664	2	2	/usr/man/man2/chroot.2			
+            close.2	---664	2	2	/usr/man/man2/close.2			
+            creat.2	---664	2	2	/usr/man/man2/creat.2			
+            dup.2	---664	2	2	/usr/man/man2/dup.2			
+            exec.2	---664	2	2	/usr/man/man2/exec.2			
+            execl.2	---664	2	2	/usr/man/man2/execl.2			
+            execle.2	---664	2	2	/usr/man/man2/execle.2			
+            execlp.2	---664	2	2	/usr/man/man2/execlp.2			
+            execv.2	---664	2	2	/usr/man/man2/execv.2			
+            execve.2	---664	2	2	/usr/man/man2/execve.2			
+            execvp.2	---664	2	2	/usr/man/man2/execvp.2			
+            exit.2	---664	2	2	/usr/man/man2/exit.2			
+            fcntl.2	---664	2	2	/usr/man/man2/fcntl.2			
+            fork.2	---664	2	2	/usr/man/man2/fork.2			
+            fstat.2	---664	2	2	/usr/man/man2/fstat.2			
+            getegid.2	---664	2	2	/usr/man/man2/getegid.2			
+            geteuid.2	---664	2	2	/usr/man/man2/geteuid.2			
+            getgid.2	---664	2	2	/usr/man/man2/getgid.2			
+            getpgrp.2	---664	2	2	/usr/man/man2/getpgrp.2			
+            getpid.2	---664	2	2	/usr/man/man2/getpid.2			
+            getppid.2	---664	2	2	/usr/man/man2/getppid.2			
+            getuid.2	---664	2	2	/usr/man/man2/getuid.2			
+            intro.2	---664	2	2	/usr/man/man2/intro.2			
+            ioctl.2	---664	2	2	/usr/man/man2/ioctl.2			
+            kill.2	---664	2	2	/usr/man/man2/kill.2			
+            link.2	---664	2	2	/usr/man/man2/link.2			
+            lseek.2	---664	2	2	/usr/man/man2/lseek.2			
+            mknod.2	---664	2	2	/usr/man/man2/mknod.2			
+            mount.2	---664	2	2	/usr/man/man2/mount.2			
+            nice.2	---664	2	2	/usr/man/man2/nice.2			
+            open.2	---664	2	2	/usr/man/man2/open.2			
+            pause.2	---664	2	2	/usr/man/man2/pause.2			
+            pipe.2	---664	2	2	/usr/man/man2/pipe.2			
+            profil.2	---664	2	2	/usr/man/man2/profil.2			
+            ptrace.2	---664	2	2	/usr/man/man2/ptrace.2			
+            read.2	---664	2	2	/usr/man/man2/read.2			
+            sbrk.2	---664	2	2	/usr/man/man2/sbrk.2			
+            setgid.2	---664	2	2	/usr/man/man2/setgid.2			
+            setpgrp.2	---664	2	2	/usr/man/man2/setpgrp.2			
+            setuid.2	---664	2	2	/usr/man/man2/setuid.2			
+            signal.2	---664	2	2	/usr/man/man2/signal.2			
+            stat.2	---664	2	2	/usr/man/man2/stat.2			
+            stime.2	---664	2	2	/usr/man/man2/stime.2			
+            sync.2	---664	2	2	/usr/man/man2/sync.2			
+            time.2	---664	2	2	/usr/man/man2/time.2			
+            times.2	---664	2	2	/usr/man/man2/times.2			
+            ulimit.2	---664	2	2	/usr/man/man2/ulimit.2			
+            umask.2	---664	2	2	/usr/man/man2/umask.2			
+            umount.2	---664	2	2	/usr/man/man2/umount.2			
+            uname.2	---664	2	2	/usr/man/man2/uname.2			
+            unlink.2	---664	2	2	/usr/man/man2/unlink.2			
+            ustat.2	---664	2	2	/usr/man/man2/ustat.2			
+            utime.2	---664	2	2	/usr/man/man2/utime.2			
+            wait.2	---664	2	2	/usr/man/man2/wait.2			
+            write.2	---664	2	2	/usr/man/man2/write.2			
+            $
+         man3	d--775	2	2	
+            _tolower.3c	---664	2	2	/usr/man/man3/_tolower.3c			
+            _toupper.3c	---664	2	2	/usr/man/man3/_toupper.3c			
+            a64l.3c	---664	2	2	/usr/man/man3/a64l.3c			
+            abort.3c	---664	2	2	/usr/man/man3/abort.3c			
+            abs.3c	---664	2	2	/usr/man/man3/abs.3c			
+            acos.3m	---664	2	2	/usr/man/man3/acos.3m			
+            asctime.3c	---664	2	2	/usr/man/man3/asctime.3c			
+            asin.3m	---664	2	2	/usr/man/man3/asin.3m			
+            assert.3x	---664	2	2	/usr/man/man3/assert.3x			
+            atan.3m	---664	2	2	/usr/man/man3/atan.3m			
+            atan2.3m	---664	2	2	/usr/man/man3/atan2.3m			
+            atof.3c	---664	2	2	/usr/man/man3/atof.3c			
+            atoi.3c	---664	2	2	/usr/man/man3/atoi.3c			
+            atol.3c	---664	2	2	/usr/man/man3/atol.3c			
+            bessel.3m	---664	2	2	/usr/man/man3/bessel.3m			
+            bsearch.3c	---664	2	2	/usr/man/man3/bsearch.3c			
+            calloc.3c	---664	2	2	/usr/man/man3/calloc.3c			
+            ceil.3m	---664	2	2	/usr/man/man3/ceil.3m			
+            clearerr.3s	---664	2	2	/usr/man/man3/clearerr.3s			
+            conv.3c	---664	2	2	/usr/man/man3/conv.3c			
+            cos.3m	---664	2	2	/usr/man/man3/cos.3m			
+            cosh.3m	---664	2	2	/usr/man/man3/cosh.3m			
+            crypt.3c	---664	2	2	/usr/man/man3/crypt.3c			
+            ctermid.3s	---664	2	2	/usr/man/man3/ctermid.3s			
+            ctime.3c	---664	2	2	/usr/man/man3/ctime.3c			
+            ctype.3c	---664	2	2	/usr/man/man3/ctype.3c			
+            cuserid.3s	---664	2	2	/usr/man/man3/cuserid.3s			
+            ecvt.3c	---664	2	2	/usr/man/man3/ecvt.3c			
+            edata.3c	---664	2	2	/usr/man/man3/edata.3c			
+            encrypt.3c	---664	2	2	/usr/man/man3/encrypt.3c			
+            end.3c	---664	2	2	/usr/man/man3/end.3c			
+            endgrent.3c	---664	2	2	/usr/man/man3/endgrent.3c			
+            endpwent.3c	---664	2	2	/usr/man/man3/endpwent.3c			
+            errno.3c	---664	2	2	/usr/man/man3/errno.3c			
+            etext.3c	---664	2	2	/usr/man/man3/etext.3c			
+            exp.3m	---664	2	2	/usr/man/man3/exp.3m			
+            fabs.3m	---664	2	2	/usr/man/man3/fabs.3m			
+            fclose.3s	---664	2	2	/usr/man/man3/fclose.3s			
+            fcvt.3c	---664	2	2	/usr/man/man3/fcvt.3c			
+            fdopen.3s	---664	2	2	/usr/man/man3/fdopen.3s			
+            feof.3s	---664	2	2	/usr/man/man3/feof.3s			
+            ferror.3s	---664	2	2	/usr/man/man3/ferror.3s			
+            fflush.3s	---664	2	2	/usr/man/man3/fflush.3s			
+            fgetc.3s	---664	2	2	/usr/man/man3/fgetc.3s			
+            fgets.3s	---664	2	2	/usr/man/man3/fgets.3s			
+            fileno.3s	---664	2	2	/usr/man/man3/fileno.3s			
+            floor.3m	---664	2	2	/usr/man/man3/floor.3m			
+            fmod.3m	---664	2	2	/usr/man/man3/fmod.3m			
+            fopen.3s	---664	2	2	/usr/man/man3/fopen.3s			
+            fprintf.3s	---664	2	2	/usr/man/man3/fprintf.3s			
+            fptrap.3x	---664	2	2	/usr/man/man3/fptrap.3x			
+            fputc.3s	---664	2	2	/usr/man/man3/fputc.3s			
+            fputs.3s	---664	2	2	/usr/man/man3/fputs.3s			
+            fread.3s	---664	2	2	/usr/man/man3/fread.3s			
+            free.3c	---664	2	2	/usr/man/man3/free.3c			
+            freopen.3s	---664	2	2	/usr/man/man3/freopen.3s			
+            frexp.3c	---664	2	2	/usr/man/man3/frexp.3c			
+            fscanf.3s	---664	2	2	/usr/man/man3/fscanf.3s			
+            fseek.3s	---664	2	2	/usr/man/man3/fseek.3s			
+            ftell.3s	---664	2	2	/usr/man/man3/ftell.3s			
+            fwrite.3s	---664	2	2	/usr/man/man3/fwrite.3s			
+            gamma.3m	---664	2	2	/usr/man/man3/gamma.3m			
+            getc.3s	---664	2	2	/usr/man/man3/getc.3s			
+            getchar.3s	---664	2	2	/usr/man/man3/getchar.3s			
+            getenv.3c	---664	2	2	/usr/man/man3/getenv.3c			
+            getgrent.3c	---664	2	2	/usr/man/man3/getgrent.3c			
+            getgrgid.3c	---664	2	2	/usr/man/man3/getgrgid.3c			
+            getgrnam.3c	---664	2	2	/usr/man/man3/getgrnam.3c			
+            getlogin.3c	---664	2	2	/usr/man/man3/getlogin.3c			
+            getopt.3c	---664	2	2	/usr/man/man3/getopt.3c			
+            getpass.3c	---664	2	2	/usr/man/man3/getpass.3c			
+            getpw.3c	---664	2	2	/usr/man/man3/getpw.3c			
+            getpwent.3c	---664	2	2	/usr/man/man3/getpwent.3c			
+            getpwnam.3c	---664	2	2	/usr/man/man3/getpwnam.3c			
+            getpwuid.3c	---664	2	2	/usr/man/man3/getpwuid.3c			
+            gets.3s	---664	2	2	/usr/man/man3/gets.3s			
+            getw.3s	---664	2	2	/usr/man/man3/getw.3s			
+            gmtime.3c	---664	2	2	/usr/man/man3/gmtime.3c			
+            gsignal.3c	---664	2	2	/usr/man/man3/gsignal.3c			
+            hypot.3m	---664	2	2	/usr/man/man3/hypot.3m			
+            intro.3	---664	2	2	/usr/man/man3/intro.3			
+            isalnum.3c	---664	2	2	/usr/man/man3/isalnum.3c			
+            isalpha.3c	---664	2	2	/usr/man/man3/isalpha.3c			
+            isascii.3c	---664	2	2	/usr/man/man3/isascii.3c			
+            isatty.3c	---664	2	2	/usr/man/man3/isatty.3c			
+            iscntrl.3c	---664	2	2	/usr/man/man3/iscntrl.3c			
+            isdigit.3c	---664	2	2	/usr/man/man3/isdigit.3c			
+            isgraph.3c	---664	2	2	/usr/man/man3/isgraph.3c			
+            islower.3c	---664	2	2	/usr/man/man3/islower.3c			
+            isprint.3c	---664	2	2	/usr/man/man3/isprint.3c			
+            ispunct.3c	---664	2	2	/usr/man/man3/ispunct.3c			
+            isspace.3c	---664	2	2	/usr/man/man3/isspace.3c			
+            isupper.3c	---664	2	2	/usr/man/man3/isupper.3c			
+            isxdigit.3c	---664	2	2	/usr/man/man3/isxdigit.3c			
+            j0.3m	---664	2	2	/usr/man/man3/j0.3m			
+            j1.3m	---664	2	2	/usr/man/man3/j1.3m			
+            jn.3m	---664	2	2	/usr/man/man3/jn.3m			
+            l3tol.3c	---664	2	2	/usr/man/man3/l3tol.3c			
+            l64a.3c	---664	2	2	/usr/man/man3/l64a.3c			
+            ldexp.3c	---664	2	2	/usr/man/man3/ldexp.3c			
+            localtime.3c	---664	2	2	/usr/man/man3/localtime.3c			
+            log.3m	---664	2	2	/usr/man/man3/log.3m			
+            logname.3x	---664	2	2	/usr/man/man3/logname.3x			
+            longjmp.3c	---664	2	2	/usr/man/man3/longjmp.3c			
+            lsearch.3c	---664	2	2	/usr/man/man3/lsearch.3c			
+            ltol3.3c	---664	2	2	/usr/man/man3/ltol3.3c			
+            malloc.3c	---664	2	2	/usr/man/man3/malloc.3c			
+            mktemp.3c	---664	2	2	/usr/man/man3/mktemp.3c			
+            modf.3c	---664	2	2	/usr/man/man3/modf.3c			
+            monitor.3c	---664	2	2	/usr/man/man3/monitor.3c			
+            nlist.3c	---664	2	2	/usr/man/man3/nlist.3c			
+            pclose.3s	---664	2	2	/usr/man/man3/pclose.3s			
+            perror.3c	---664	2	2	/usr/man/man3/perror.3c			
+            plot.3x	---664	2	2	/usr/man/man3/plot.3x			
+            popen.3s	---664	2	2	/usr/man/man3/popen.3s			
+            pow.3m	---664	2	2	/usr/man/man3/pow.3m			
+            printf.3s	---664	2	2	/usr/man/man3/printf.3s			
+            putc.3s	---664	2	2	/usr/man/man3/putc.3s			
+            putchar.3s	---664	2	2	/usr/man/man3/putchar.3s			
+            putpwent.3c	---664	2	2	/usr/man/man3/putpwent.3c			
+            puts.3s	---664	2	2	/usr/man/man3/puts.3s			
+            putw.3s	---664	2	2	/usr/man/man3/putw.3s			
+            qsort.3c	---664	2	2	/usr/man/man3/qsort.3c			
+            rand.3c	---664	2	2	/usr/man/man3/rand.3c			
+            realloc.3c	---664	2	2	/usr/man/man3/realloc.3c			
+            regcmp.3x	---664	2	2	/usr/man/man3/regcmp.3x			
+            regex.3x	---664	2	2	/usr/man/man3/regex.3x			
+            rewind.3s	---664	2	2	/usr/man/man3/rewind.3s			
+            scanf.3s	---664	2	2	/usr/man/man3/scanf.3s			
+            setbuf.3s	---664	2	2	/usr/man/man3/setbuf.3s			
+            setgrent.3c	---664	2	2	/usr/man/man3/setgrent.3c			
+            setjmp.3c	---664	2	2	/usr/man/man3/setjmp.3c			
+            setkey.3c	---664	2	2	/usr/man/man3/setkey.3c			
+            setpwent.3c	---664	2	2	/usr/man/man3/setpwent.3c			
+            sin.3m	---664	2	2	/usr/man/man3/sin.3m			
+            sinh.3m	---664	2	2	/usr/man/man3/sinh.3m			
+            sleep.3c	---664	2	2	/usr/man/man3/sleep.3c			
+            sprintf.3s	---664	2	2	/usr/man/man3/sprintf.3s			
+            sqrt.3m	---664	2	2	/usr/man/man3/sqrt.3m			
+            srand.3c	---664	2	2	/usr/man/man3/srand.3c			
+            sscanf.3s	---664	2	2	/usr/man/man3/sscanf.3s			
+            ssignal.3c	---664	2	2	/usr/man/man3/ssignal.3c			
+            stdio.3s	---664	2	2	/usr/man/man3/stdio.3s			
+            strcat.3c	---664	2	2	/usr/man/man3/strcat.3c			
+            strchr.3c	---664	2	2	/usr/man/man3/strchr.3c			
+            strcmp.3c	---664	2	2	/usr/man/man3/strcmp.3c			
+            strcpy.3c	---664	2	2	/usr/man/man3/strcpy.3c			
+            strcspn.3c	---664	2	2	/usr/man/man3/strcspn.3c			
+            string.3c	---664	2	2	/usr/man/man3/string.3c			
+            strlen.3c	---664	2	2	/usr/man/man3/strlen.3c			
+            strncat.3c	---664	2	2	/usr/man/man3/strncat.3c			
+            strncmp.3c	---664	2	2	/usr/man/man3/strncmp.3c			
+            strncpy.3c	---664	2	2	/usr/man/man3/strncpy.3c			
+            strpbrk.3c	---664	2	2	/usr/man/man3/strpbrk.3c			
+            strrchr.3c	---664	2	2	/usr/man/man3/strrchr.3c			
+            strspn.3c	---664	2	2	/usr/man/man3/strspn.3c			
+            strtok.3c	---664	2	2	/usr/man/man3/strtok.3c			
+            swab.3c	---664	2	2	/usr/man/man3/swab.3c			
+            sys_errlist.3c	---664	2	2	/usr/man/man3/sys_errlist.3c			
+            sys_nerr.3c	---664	2	2	/usr/man/man3/sys_nerr.3c			
+            system.3s	---664	2	2	/usr/man/man3/system.3s			
+            tan.3m	---664	2	2	/usr/man/man3/tan.3m			
+            tanh.3m	---664	2	2	/usr/man/man3/tanh.3m			
+            tmpfile.3s	---664	2	2	/usr/man/man3/tmpfile.3s			
+            tmpnam.3s	---664	2	2	/usr/man/man3/tmpnam.3s			
+            toascii.3c	---664	2	2	/usr/man/man3/toascii.3c			
+            tolower.3c	---664	2	2	/usr/man/man3/tolower.3c			
+            toupper.3c	---664	2	2	/usr/man/man3/toupper.3c			
+            trig.3m	---664	2	2	/usr/man/man3/trig.3m			
+            ttyname.3c	---664	2	2	/usr/man/man3/ttyname.3c			
+            tzset.3c	---664	2	2	/usr/man/man3/tzset.3c			
+            ungetc.3s	---664	2	2	/usr/man/man3/ungetc.3s			
+            y0.3m	---664	2	2	/usr/man/man3/y0.3m			
+            y1.3m	---664	2	2	/usr/man/man3/y1.3m			
+            yn.3m	---664	2	2	/usr/man/man3/yn.3m			
+            $
+         man4	d--775	2	2	
+            cat.4	---664	2	2	/usr/man/man4/cat.4			
+            dh.4	---664	2	2	/usr/man/man4/dh.4			
+            dj.4	---664	2	2	/usr/man/man4/dj.4			
+            dmc.4	---664	2	2	/usr/man/man4/dmc.4			
+            dn.4	---664	2	2	/usr/man/man4/dn.4			
+            dqs.4	---664	2	2	/usr/man/man4/dqs.4			
+            du.4	---664	2	2	/usr/man/man4/du.4			
+            dz.4	---664	2	2	/usr/man/man4/dz.4			
+            dzk.4	---664	2	2	/usr/man/man4/dzk.4			
+            err.4	---664	2	2	/usr/man/man4/err.4			
+            hp.4	---664	2	2	/usr/man/man4/hp.4			
+            hs.4	---664	2	2	/usr/man/man4/hs.4			
+            ht.4	---664	2	2	/usr/man/man4/ht.4			
+            intro.4	---664	2	2	/usr/man/man4/intro.4			
+            kl.4	---664	2	2	/usr/man/man4/kl.4			
+            kmc.4	---664	2	2	/usr/man/man4/kmc.4			
+            kmem.4	---664	2	2	/usr/man/man4/kmem.4			
+            lp.4	---664	2	2	/usr/man/man4/lp.4			
+            mem.4	---664	2	2	/usr/man/man4/mem.4			
+            null.4	---664	2	2	/usr/man/man4/null.4			
+            pcl.4	---664	2	2	/usr/man/man4/pcl.4			
+            prf.4	---664	2	2	/usr/man/man4/prf.4			
+            rf.4	---664	2	2	/usr/man/man4/rf.4			
+            rk.4	---664	2	2	/usr/man/man4/rk.4			
+            rl.4	---664	2	2	/usr/man/man4/rl.4			
+            rp.4	---664	2	2	/usr/man/man4/rp.4			
+            st.4	---664	2	2	/usr/man/man4/st.4			
+            tm.4	---664	2	2	/usr/man/man4/tm.4			
+            trace.4	---664	2	2	/usr/man/man4/trace.4			
+            tty.4	---664	2	2	/usr/man/man4/tty.4			
+            vp.4	---664	2	2	/usr/man/man4/vp.4			
+            vpm.4	---664	2	2	/usr/man/man4/vpm.4			
+            $
+         man5	d--775	2	2	
+            a.out.5	---664	2	2	/usr/man/man5/a.out.5			
+            acct.5	---664	2	2	/usr/man/man5/acct.5			
+            ar.5	---664	2	2	/usr/man/man5/ar.5			
+            checklist.5	---664	2	2	/usr/man/man5/checklist.5			
+            core.5	---664	2	2	/usr/man/man5/core.5			
+            cpio.5	---664	2	2	/usr/man/man5/cpio.5			
+            dir.5	---664	2	2	/usr/man/man5/dir.5			
+            dump.5	---664	2	2	/usr/man/man5/dump.5			
+            errfile.5	---664	2	2	/usr/man/man5/errfile.5			
+            filesystem.5	---664	2	2	/usr/man/man5/filesystem.5			
+            fs.5	---664	2	2	/usr/man/man5/fs.5			
+            fspec.5	---664	2	2	/usr/man/man5/fspec.5			
+            gps.5	---664	2	2	/usr/man/man5/gps.5			
+            group.5	---664	2	2	/usr/man/man5/group.5			
+            inittab.5	---664	2	2	/usr/man/man5/inittab.5			
+            inode.5	---664	2	2	/usr/man/man5/inode.5			
+            intro.5	---664	2	2	/usr/man/man5/intro.5			
+            master.5	---664	2	2	/usr/man/man5/master.5			
+            mnttab.5	---664	2	2	/usr/man/man5/mnttab.5			
+            passwd.5	---664	2	2	/usr/man/man5/passwd.5			
+            plot.5	---664	2	2	/usr/man/man5/plot.5			
+            pnch.5	---664	2	2	/usr/man/man5/pnch.5			
+            profile.5	---664	2	2	/usr/man/man5/profile.5			
+            sccsfile.5	---664	2	2	/usr/man/man5/sccsfile.5			
+            tp.5	---664	2	2	/usr/man/man5/tp.5			
+            utmp.5	---664	2	2	/usr/man/man5/utmp.5			
+            wtmp.5	---664	2	2	/usr/man/man5/wtmp.5			
+            $
+         man6	d--775	2	2	
+            arithmetic.6	---664	2	2	/usr/man/man6/arithmetic.6			
+            back.6	---664	2	2	/usr/man/man6/back.6			
+            bj.6	---664	2	2	/usr/man/man6/bj.6			
+            chess.6	---664	2	2	/usr/man/man6/chess.6			
+            craps.6	---664	2	2	/usr/man/man6/craps.6			
+            cubic.6	---664	2	2	/usr/man/man6/cubic.6			
+            hangman.6	---664	2	2	/usr/man/man6/hangman.6			
+            intro.6	---664	2	2	/usr/man/man6/intro.6			
+            maze.6	---664	2	2	/usr/man/man6/maze.6			
+            moo.6	---664	2	2	/usr/man/man6/moo.6			
+            quiz.6	---664	2	2	/usr/man/man6/quiz.6			
+            reversi.6	---664	2	2	/usr/man/man6/reversi.6			
+            sky.6	---664	2	2	/usr/man/man6/sky.6			
+            ttt.6	---664	2	2	/usr/man/man6/ttt.6			
+            wump.6	---664	2	2	/usr/man/man6/wump.6			
+            $
+         man7	d--775	2	2	
+            ascii.7	---664	2	2	/usr/man/man7/ascii.7			
+            environ.7	---664	2	2	/usr/man/man7/environ.7			
+            eqnchar.7	---664	2	2	/usr/man/man7/eqnchar.7			
+            fcntl.7	---664	2	2	/usr/man/man7/fcntl.7			
+            greek.7	---664	2	2	/usr/man/man7/greek.7			
+            intro.7	---664	2	2	/usr/man/man7/intro.7			
+            man.7	---664	2	2	/usr/man/man7/man.7			
+            mm.7	---664	2	2	/usr/man/man7/mm.7			
+            mv.7	---664	2	2	/usr/man/man7/mv.7			
+            regexp.7	---664	2	2	/usr/man/man7/regexp.7			
+            stat.7	---664	2	2	/usr/man/man7/stat.7			
+            term.7	---664	2	2	/usr/man/man7/term.7			
+            types.7	---664	2	2	/usr/man/man7/types.7			
+            $
+         man8	d--775	2	2	
+            70boot.8	---664	2	2	/usr/man/man8/70boot.8			
+            crash.8	---664	2	2	/usr/man/man8/crash.8			
+            diskboot.8	---664	2	2	/usr/man/man8/diskboot.8			
+            etp.8	---664	2	2	/usr/man/man8/etp.8			
+            filesave.8	---664	2	2	/usr/man/man8/filesave.8			
+            getty.8	---664	2	2	/usr/man/man8/getty.8			
+            hasp.8	---664	2	2	/usr/man/man8/hasp.8			
+            init.8	---664	2	2	/usr/man/man8/init.8			
+            intro.8	---664	2	2	/usr/man/man8/intro.8			
+            makekey.8	---664	2	2	/usr/man/man8/makekey.8			
+            mk.8	---664	2	2	/usr/man/man8/mk.8			
+            rc.8	---664	2	2	/usr/man/man8/rc.8			
+            rje.8	---664	2	2	/usr/man/man8/rje.8			
+            romboot.8	---664	2	2	/usr/man/man8/romboot.8			
+            rp6fmt.8	---664	2	2	/usr/man/man8/rp6fmt.8			
+            sar.8	---664	2	2	/usr/man/man8/sar.8			
+            tapeboot.8	---664	2	2	/usr/man/man8/tapeboot.8			
+            tapesave.8	---664	2	2	/usr/man/man8/tapesave.8			
+            unixboot.8	---664	2	2	/usr/man/man8/unixboot.8			
+            uvac.8	---664	2	2	/usr/man/man8/uvac.8			
+            vaxops.8	---664	2	2	/usr/man/man8/vaxops.8			
+            $
+         $
+      news	d--777	2	2	
+         $
+      pub	d--775	2	2	
+         ascii	---664	2	2	/usr/pub/ascii			
+         eqnchar	---664	2	2	/usr/pub/eqnchar			
+         greek	---664	2	2	/usr/pub/greek			
+         tabs	---664	2	2	/usr/pub/tabs			
+         $
+      spool	d--777	0	2	
+         lpd	d--777	0	2	
+            $
+         pkg	d--755	0	3	
+            $
+         uucp	d--777	5	2	
+            $
+         uucppublic	d--777	5	2	
+            $
+         vpd	d--755	0	3	
+            $
+         $
+      src	d--775	2	2	
+         :mkuts	---774	2	2	/usr/src/:mkuts			
+         cmd	d--775	2	2	
+            openup.c	---664	2	2	/usr/src/cmd/openup.c			
+            $
+         uts	d--775	2	2	
+            uts.mk	---664	2	2	/usr/src/uts/uts.mk			
+            z8000	d--775	2	2	
+               cf	d--775	2	2	
+                  cf.mk	---664	2	2	/usr/src/uts/z8000/cf/cf.mk			
+                  conf.c	---664	2	2	/usr/src/uts/z8000/cf/conf.c			
+                  linesw.c	---664	2	2	/usr/src/uts/z8000/cf/linesw.c			
+                  low.s	---664	2	2	/usr/src/uts/z8000/cf/low.s			
+                  name.c	---664	2	2	/usr/src/uts/z8000/cf/name.c			
+                  $
+               lib0	---664	2	2	/usr/src/uts/z8000/lib0			
+               lib1	---664	2	2	/usr/src/uts/z8000/lib1			
+               lib2	---664	2	2	/usr/src/uts/z8000/lib2			
+               lib3	---664	2	2	/usr/src/uts/z8000/lib3			
+               locore.o	---664	2	2	/usr/src/uts/z8000/locore.o			
+               $
+            $
+         $
+      tmp	d--777	0	3	
+         $
+      tools	d--775	2	2	
+         .param	---664	2	2	/usr/tools/.param			
+         M.folio	---664	2	2	/usr/tools/M.folio			
+         M.tabs	---664	2	2	/usr/tools/M.tabs			
+         TOOLKIT	---664	2	2	/usr/tools/TOOLKIT			
+         break	---664	2	2	/usr/tools/break			
+         ckcrefs	---775	2	2	/usr/tools/ckcrefs			
+         ckfrefs	---775	2	2	/usr/tools/ckfrefs			
+         cknames	---775	2	2	/usr/tools/cknames			
+         ckso	---775	2	2	/usr/tools/ckso			
+         ckspell	---775	2	2	/usr/tools/ckspell			
+         ignore	---664	2	2	/usr/tools/ignore			
+         list	---775	2	2	/usr/tools/list			
+         mcmp	---664	2	2	/usr/tools/mcmp			
+         mgrep	---775	2	2	/usr/tools/mgrep			
+         mklinks	---775	2	2	/usr/tools/mklinks			
+         mroff	---775	2	2	/usr/tools/mroff			
+         pages	---775	2	2	/usr/tools/pages			
+         pages.c	---664	2	2	/usr/tools/pages.c			
+         pgcnt	---775	2	2	/usr/tools/pgcnt			
+         prnames	---775	2	2	/usr/tools/prnames			
+         prsynops	---775	2	2	/usr/tools/prsynops			
+         sp.ignore	---664	2	2	/usr/tools/sp.ignore			
+         tocrc	---775	2	2	/usr/tools/tocrc			
+      $
+   $
+$

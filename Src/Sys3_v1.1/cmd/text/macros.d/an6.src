@@ -1,0 +1,156 @@
+'''\"	Pwb Manual Entry Macros - Version 6 (@(#)an6.src	1.6)
+'''\"	Nroff/Troff Version	@(#)1.6
+.de TH	\" version 7 title macro.
+.tm wrong version of man entry macros - use -man
+.ab 
+..
+.rn bd Bd
+.rn dt Dt
+.rn it il
+.nr }I 5n
+.nr }P 0 1
+.de }C
+.ev 1
+.po 0
+.lt 7.5i
+.tl @\-@@\-@
+.lt
+.po
+.ev
+..
+.de }E
+.wh -1p }C
+..
+.if t .em }E
+.de i0
+.in \\n(}Iu
+.dt
+..
+.de lp
+.tc
+.i0
+.ta \\$2n
+.in \\$1n
+.ti -\\$2n
+..
+.de s1
+.sp 1v
+.ne 2
+..
+.de s2
+.if t .sp .5v
+.if n .sp 1v
+..
+.de s3
+.if t .sp .5v
+.if n .sp 1v
+.ne 2
+..
+.de }F
+.ev 1
+'ft 1
+'ps 10
+'sp .5i
+.tl @@- % -@@
+'ft
+'ps
+.ev
+'bp
+..
+.de th	\" title macro
+.de }X
+.ev 1
+.if t .}C
+'ft 1
+'ps 10
+'sp .5i
+.tl ''THIS MANUAL ENTRY NEEDS TO BE CONVERTED - SEE mancvt(1) and man(7)''
+.tl @\\$1\|(\|\\$2\|)@PWB/UNIX\| \\$3@\\$1\|(\|\\$2\|)@
+'ps
+'ft
+'sp .5i
+.ev
+\\..
+.wh -1i }F
+.wh 0 }X
+.if \\n+(}P>1 .bp1
+.ft 1
+.ft 1
+.ps 10
+.vs 12p
+.if t .po .5i
+.in \\n(}Iu
+.fi
+.dt\"get back default tabs
+.mc\"turn off any margin characters
+.ad
+.if n .na
+..
+.de sh
+.s1
+.if t .ft 3
+.ps 8
+.ti 0
+\&\\$1
+.if t .ft
+.ps
+.br
+..
+.de it
+.ul
+.ie \\nV>1 _\\$1_
+.el \&\\$1
+..
+.de bd
+.if t .ft 3
+.if n .ul
+.ie \\nV>1 _\\$1_
+.el \&\\$1
+.if t .ft 
+..
+.de bn
+.if t .ft 3
+.if n .ul
+.ie \\nV>1 _\\$1_\t\&\c
+.el \&\\$1\t\&\c
+.if t .ft 
+..
+.de dt
+.if n .ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 80n
+.if t .ta .5i 1i 1.5i 2i 2.5i 3i 3.5i 4i 4.5i 5i 5.5i 6i 6.5i
+..
+'ds v \(bv
+'ds ' \(aa
+'ds > \(->
+'ds X \(mu
+'ds _ _
+'ds - \-
+'ds G \(*G
+'ds g \(ga
+'ds p \(*p
+'ds a \(aa
+'ds b \(*b
+'ds r \(rg
+'ds | \|
+'ds u \(*m
+'\"	-rV1 -> 12-pitch
+.if \nV=1 \{\
+.	po4
+.	ll80
+.	lt80
+.	ev1
+.	ll80
+.	lt80
+.	ev\}
+'\"	-rV2 => Versatec
+.if \nV>1 \{\
+.	ll82
+.	lt82
+.	ev1
+.	ll82
+.	lt82
+.	ev
+.	pl84
+.	rm ul\}
+.hy14
+.uf 2

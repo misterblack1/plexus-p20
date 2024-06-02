@@ -1,0 +1,94 @@
+siopen
+		setabort
+		rsetabort
+		siocfail
+		docmd
+		qsqo
+		clrbufs
+siclose
+		docmd
+		setabort
+		rsetabort
+		qsqo
+		closefail
+		clrbufs
+siread
+		setabort
+		rsetabort
+		docmd
+		qsqo
+siwrite
+		setabort
+		rsetabort
+		docmd
+		qsqo
+		clrbufs
+		cpyinb
+		qsqo
+		siwflsh, 
+		clrbufs
+siioctl
+		setabort
+		rsetabort
+		copyin
+		qsqo
+		copyout
+setabort
+		siabort
+rsetabort
+siabort
+		srchtp
+srchtp
+		soabt
+		scabt
+		srabt
+		swabt
+		spabt
+		siabt
+soabt
+		siclean
+		clrbufs
+		rsetabort
+scabt
+		siclean
+		clrbufs
+		rsetabort
+srabt
+		siclean
+		clrbufs
+		rsetabort
+swabt
+		siclean
+		clrbufs
+		rsetabort
+spabt
+		siclean
+		clrbufs
+		rsetabort
+siabt
+		siclean
+		clrbufs
+		rsetabort
+siclean
+		qsqo
+clrbufs
+docmd
+siocfail
+closefail
+siint0
+		sioci
+siint1
+		sioci
+siint2
+		sioci
+siint3
+		sioci
+siint4
+		sioci
+gochanatn
+		gochanatn
+siinit
+		out_local
+		gochanatn
+siwflsh
+		siwflsh

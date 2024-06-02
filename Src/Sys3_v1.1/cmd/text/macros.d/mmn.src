@@ -1,0 +1,3734 @@
+'''\"	PWB Memorandum Macros - 10.108 of 5/6/80
+'''\"	C NROFF Version	@(#) mmn.src 10.108@(#)
+'\"	*** COMMENTING CONVENTIONS ***
+'\"	'''\"tab ==> prime comment, used in most terse macro summary
+'\"	''\"tab  ==> additional external comments
+'\"	'\"tab   ==> internal comments, not shown to user
+'\"	*** MACRO DOCUMENTATION ***
+'\"	(following for external macros)
+'\"	'''\"tabXX: Description [number of args allowed: n or n:m]
+'\"	''\"tab .XX arguments (with optional arguments in [] )
+'\"	''\"tab further description, comments, notes, etc.
+'\"	(internal macros similar, but prefixed only by single ')
+''\"	*** NAMING CONVENTIONS ***
+''\"	A = upper-case alphabetic; a = lower-case alphabetic;
+''\"	n = digit; X = A, a, or n.
+''\"	EXTERNALLY-KNOWN ITEMS (generally in order of preference)
+''\"	MACROS: AA, A, nA, An
+''\"	STRINGS: An, nA, AA, A (like macros, but necessarily disjoint)
+''\"	REGISTERS: Aa, a, An.
+''\"	INTERNAL ITEMS
+''\"	MACROS:		)X (orignally defined)
+''\"			>X (dynamically created via di, da, de, am)
+''\"				?a (floating displays)
+''\"	STRINGS:	]X (dedicated to specific uses)
+''\"			}X (dynamic; function return; temps (esp }n))
+''\"	REGISTERS:	:X (dedicated)
+''\"			?a (sizes of floating displays)
+''\"			;X (function return; temporaries (esp. ;n))
+''\"			!a (width of floating displays)
+''\"			!A (more dedicated registers)
+'\"	Available Name List
+'\"	macros:
+'\"	)HOPacdegijp03456789
+'\"	(ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
+'\"	>FGHIJMOPQUVZacdefghijklmno
+'\"	strings:
+'\"	]ABDFGHIJKLMOPQRSTUVWXYijklmnopqsu0789
+'\"	}BEFGIJKMNOPQRTUVWXYZacdghijklmnqrsuwx56789
+'\"	registers:
+'\"	:EGK
+'\"	;HLOQVX8
+'\"	!EGHIJMR456789
+'\"	*** INTERNAL STRINGS ***
+'\"	]a: list stack for counter :a
+'\"	]b: list stack for text indent :b
+'\"	]c: list stack for mark indent :c
+'\"	]d: list stack for pad distance/justification :d
+'\"	]e: list stack for type :e
+'\"	]f: list stack for LI-space :f
+'\"	]g: current list mark
+'\"	]h: list stack for mark ]g
+'\"	*** INTERNAL NUMBER REGISTERS ***
+'\"	!A  set if long footnotes already output on this page
+'\"	!B  flag wide display output on this page
+'\"	!F  flag narrow/wide footnotes already on this page
+'\"	:A accumulated amount of space before line :N on this page (.SP)
+'\"	:D flag to indicate inside diversion
+'\"	0 ==> not inside, 1 ==> inside
+'\"	used by .SP to do spacing right
+'\"	:N line number of end of block of blank lines :A long (.SP)
+'\"	:I set to control indenting on paragraphs for Pt 2
+'\"		0 is no indent; 1 is indent
+'\"		also flag to )y (float displays) that am
+'\"		inside header
+'\"	:a current counter for lists
+.nr :a 0 1
+'\"	:b current text indent for lists
+.nr :b 0
+'\"	:c current mark indent for lists
+.nr :c 0
+'\"	:d current pad distance/justification for lists
+.nr :d 0
+'\"	:e current type for lists [0:1]
+'\"	0 ==> simple mark, found in ]g
+'\"	1 ==> autonumber/letter
+.nr :e 0
+'\"	:f current LI-space for lists
+.nr :f 0
+'\"	:g current level for lists = [0:6]
+.nr :g 0 1
+'\"	:h flag for default adjustment mode
+'\"	0 ==> .na,  1 ==> .ad (used by .SA and thus .)R )
+.nr :h 1\" default = adjust???
+'\"	:u flag to controlling page increment & main section increment in )h
+'\"	set by .H 1: = 0 if no section/page increment needed, = 1 if needed
+.nr :u 0
+'\"	!X register is extra top of page margin
+.nr !X 0
+'\"	;p flag controls floating displays cause a break when output on the current
+'\"	page.  ;p == 1 means they cause a break;  ;p == 0 means no.  set by
+'\"	WC macro.
+.nr ;p 1	\" floating break mode is default
+'\"	!0 flag if there are any figures (Fg may reset to 0 for .H 1)
+.nr !0 0
+'\"	!1 flag if there are any tables (Tb may reset to 0 for .H 1)
+.nr !1 0
+'\"	!2 flag if there are any equations (Ec may reset to 0 for .H 1)
+.nr !2 0
+'\"	!3 flag if there are any exhibits (Ex may reset to 0 for .H 1)
+.nr !3 0
+.nr !N 0  \" copy-to flag; no copy-to's encountered yet
+'\"	*** TEMPORARY REGISTERS ***
+'\"	;0: .H, .HU, .LI, .SK
+'\"	;1: .LI, .H, .HU, .)F
+'\"	;2: .MT and .AF normally zero but set to 1 to suppress headings
+'\"	also temp in .H
+'\"	;3: .)I. .H.
+'\"	;4: .SP
+'\"	*** TEMPORARY STRINGS ***
+'\"	}0: .H, .)F
+'\"	}1: .H
+'\"	}2: .H, .MT, .AF
+'\"	following allows for override of Bell Laboratories by .AF
+.ds }2 Bell Laboratories
+'\"	}3: .)I return value; .H
+'\"	*** TEMPORARY MACROS ***
+'\"	>A: .H
+'''\"	*** EXTERNALLY AVAILABLE STRINGS ***
+'''\"	Notation: [n] means n arguments; [n:m] means n to m args
+'''\"	- : Minus sign (for nroff/troff compatibility)
+.ds - \-
+'''\"	An: Addressee's name for page header
+.ds An
+'''\"	BU: Bullet (for nroff/troff compatibility)
+.ds BU \(bu
+'''\"	EM: Dash (for nroff/troff compatibility)
+.ds EM "\ --\ \"
+'''\"	F : footnote numberer
+.ds F \u\\n+(:p\d\" in the text.\*F
+'''\"	DT: current date (unless overriden by .ND) in Month dy, 19yr
+'''\"	HF: Heading Fonts: gives fonts for levels 1-7 of .H & .HU
+'''\"	default: 3 3 2 2 2 2 2
+'''\"	i.e.:    B B I I I I I
+.ds HF 3 3 2 2 2 2 2
+'''\"	Lf: title for List of Figures
+.ds Lf LIST OF FIGURES
+'''\"	Lt: title for List of Tables
+.ds Lt LIST OF TABLES
+'''\"	Lx: title for list of Exhibits
+.ds Lx LIST OF EXHIBITS
+'''\"	Le: title for List of Equations
+.ds Le LIST OF EQUATIONS
+'''\"	RE: SCCS Release.Level of memomacs
+.ds RE 10.108
+'''\"	Rf: reference numberer
+.ds Rf \u[\\n+(:R]\d\" in the text.\*(Rf
+'''\"	Rp: title for references page
+.ds Rp References
+'''\"	Tm: Trademark indicator
+.ds Tm \uTM\d
+'''\"	*** EXTERNALLY-KNOWN NUMBER REGISTERS ***
+'''\"	Notation: [n:m] means x st n <= x <= m
+'''\"	Au: add'l author info after 'from' [0:1] default 1
+.nr Au 1
+'''\"	C : type of copy [0:3] default 0 (original)
+''\"	0 original; 1 Official;2 Date;3 Draft
+''\"	settable via -rCn
+'''\"	Cp: Separate pages for List of Figs, etc., default 0
+''\"	= 0 ==> Use separate pages
+''\"	= 1 ==> Put on T of C page
+.nr Cp 0
+'''\"	Cl: Contents level [0:3], default = 2
+''\"	if heading level <= Cl, it is saved for table of contents,
+''\"	0 ==> none, 1 ==> .H 1 only, etc.
+.nr Cl 2
+'''\"	D : debug flag, settable to debug mode via -rD1 [0:1], default = 0
+''\"	0 ==> stop on any error, 1 ==> continue, even if garbage output
+'''\"	Ej: page Ejection flag for headings, default = 0
+''\"	Eject if heading level <= Ej.
+''\"	0 ==> no Eject, 1 ==> .bp for level 1 headings, 2 ==> .bp
+''\"	for levels 1 & 2.
+'\"	nr Ej 0
+'''\"	Ds: display space flag
+.nr Ds 1v
+'''\"	Ec:equation counter
+.nr Ec 0 1
+'''\"	Eq: equation label flag, default 0 means labels on right
+.nr Eq 0
+'''\"	Ex: exhibit counter, initially 0.
+.nr Ex 0 1
+'''\"	De: Eject after each floating display is output [0:1] default 0
+''\"	0 => no eject;  <> 0  => eject
+.nr De 0
+'''\"	Df: Floating Display Format Specifier [0:7] default 5
+''\"	The following flags may be added together to set a combination of
+''\"	conditions.  The flags are:
+''\"	  1: put one display on the current page if it fits
+''\"	  2: put one on the top of each page (only if any are queued)
+''\"	  4: put as many as will fit at the top of the page (always at least
+''\"		one, if any are in the queue)
+''\"	Note: if both 2 and 4 are selected, the result is as if only 4 were
+''\"	specified.  If neither 2 or 4 are set, no floating displays will be
+''\"	output at the top of the page.  Similarly, if 1 is not set, no
+''\"	floating displays are output on the current page.
+.nr Df 5
+'''\"	Fg: Figure counter, initially 0.
+.nr Fg 0 1
+'''\"	Fs: amount of spacing between footnote entries; default 1
+.nr Fs 1
+'''\"	H1-H7: heading counters: controlled by .H and .HU
+'''\"	H1: 1st level heading counter, initially 0
+''\"	incremented by .H 1
+.nr H1 0 1
+'''\"	H2: 2nd level heading counter
+.nr H2 0 1
+'''\"	H3: 3rd level heading counter
+.nr H3 0 1
+'''\"	H4: 4th level heading counter
+.nr H4 0 1
+'''\"	H5: 5th level heading counter
+.nr H5 0 1
+'''\"	H6: 6th level heading counter
+.nr H6 0 1
+'''\"	H7: 7th level heading counter
+.nr H7 0 1
+'''\"	Hb: Break level for headings [0:7], default=2
+''\"	If heading level <= Hb, break occurs after it, else run-in text.
+''\"	Break always occurs after .H 1 heading.
+.nr Hb 2
+'''\"	Hc: heading centering level, [0:7], default = 0
+''\"	if level <= Hc & (level <= Hs | level <= Hb), center heading
+'\"	nr Hc 0
+'''\"	Hi: heading temporary indent (following .H) [0:2], default = 1
+''\"	when registers Hb and sl create a break or space after a heading
+''\"	(.H and .HU), Hi controls the indent of next line.
+''\"	= 0 ==> 0 indent (left margin)
+''\"	= 1 ==> indent to right as much as paragraph (like .P 1)
+''\"	= 2 ==> indent to line up with text part of preceding heading
+.nr Hi 1
+'''\"	Hs: space level for headings [0:7], default = 2
+''\"	if head-level <= Hs, a space is output following the heading.
+''\"	SEE ALSO: register Hb; .H, .HU.
+.nr Hs 2
+'''\"	Ht: Heading type of numbering (multiple or single)
+'''\"	= 0 ==> multiple (1.1.1 etc), = 1 ==> single (as in outline)
+'\"	nr Ht 0
+'''\"	Hu: level at which HU considered to be [1:7], default = 2
+''\"	This value is used for Bold, Italic, break, space determination,
+''\"	and also causes incrementation of counter (H1-H7) as appropriate.
+''\"	SEE ALSO: registers Bl, Hb, H1-H7, Il, sl; .HU, .H
+.nr Hu 2
+'''\"	Hy: control hyphenation in body
+''\"	0 - no hyphenation (default)
+''\"	1 - hyphenate
+.nr Hy 0
+'''\"	Le: list indicator for equations; default 0
+''\"	= 0 ==> no list generated after TOC
+''\"	= 1 ==> list generated
+.nr Le 0
+'''\"	Lf: list indicator for figures; default 1
+''\"	= 0 ==> no list generated after TOC
+''\"	= 1 ==> list generated
+.nr Lf 1
+'''\"	Li: standard list indent (for .AL), default = 6.
+.nr Li 6
+'''\"	Ls: list level for no LB/LI/LE space; default 6
+'\"	there is no spacing for either LB, for LI, or for LE even if requested
+'\"	if the list depth is greater than Ls value
+.nr Ls 6
+'''\"	Lt: list indicator for tables; default 1
+''\"	= 0 ==> no list generated after TOC
+''\"	= 1 ==> list generated
+.nr Lt 1
+'''\"	Lx: list indicator for exhibits; default 1
+''\"	= 0 ==> no list generated after TOC
+''\"	= 1 ==> list generated
+.nr Lx 1
+'''\"	Np: flag for numbered paragraphs, default 0
+''\"	= 0 ==> unnumbered paragraphs
+''\"	= 1 ==> paragraphs numbered in first-level headings
+.nr Np 0
+'''\"	Oc: Arabic TOC page numbering for OSDD, default 0
+''\"	= 0 ==> Roman numbering for TOC
+''\"	= 1 ==> Arabic numbering for TOC
+.nr Oc 0
+'''\"	Of: figure caption punctuation, default 0
+''\"	= 0 ==> use period
+''\"	= 1 ==> use dash
+.nr Of 0
+'''\"	P1: counter for paragraph numbers
+.nr P1 0 1
+.af P1 01
+'''\"	Pi: std paragraph indent, default 5
+.nr Pi 5
+'''\"	Ps: amount of paragraph spacing, default 1
+.nr Ps 1
+'''\"	Pt: default paragraph type [0:2], initial value = 0
+''\"	= 0 ==> left-justified is default for .P macro
+''\"	= 1 ==> indented first line for .P macro
+''\"	= 2 ==> indent .P except after .H, .DE, .LE
+.nr Pt 0
+'''\"	Pv: put PRIVATE at top of page [0:2], default 0
+''\"	= 0 ==> not on any pages
+''\"	= 1 ==> on first page only
+''\"	= 2 ==> on every page
+.nr Pv 0
+'''\"	Rf: reference count for CS
+.nr Rf 0
+'''\"	Si: standard indent for displays (default 5)
+.nr Si 5
+'''\"	Tb: Table counter, initially = 0
+.nr Tb 0 1
+'''\"	*** EXTERNALLY-AVAILABLE MACROS ***
+'''\"	RD: promt and read from standard input.
+''\"	.RD prompt diversion string
+''\"	This macro prints the prompt message on the standard error
+''\"	channel (an ascii bel if prompt is empty), and then reads text from
+''\"	the terminal, using the rd request.  All the input is captured in
+''\"	the diversion named on the macro line, and the first line (up to the
+''\"	first newline) is captured in the string named on the macro line.
+.de RD
+'fl	\" flush partial line first
+.di }w		\" diversion to capture text
+.rd \\$1	\" get the input
+.br
+.di
+.ie \w@\\$3@ \{\
+'\"		set string only if asked for
+.	di }x
+.	ds \\$3 "\\*(}w
+.	br
+.	di
+'	br \}
+.if \w@\\$2@ .rn }w \\$2	\" set diversion only if asked for
+.rm }w }x
+..
+'''\"	B : Boldface [0:6]
+'''\"	.B ["Bold-arg" [prevailing-arg]] (up to six args)
+''\"	If bold-arg is present, it is made Boldface,
+''\"	and then the font reverts to the prevailing font.
+''\"	If no argument is given, the font is changed to Bold
+''\"	until explicitly changed again.
+''\"	If the second argument is given, it is concatenated to the
+''\"	first one, and return to prevailing font.
+''\"	Up to six arguments are allowed, they will alternate in font.
+''\"	SEE ALSO: I, R, .IB, .BI, .RI, .IR, .RB, .BR.
+.de B
+.ie \\n(.$ .nr ;G \\n(.f
+.el .ft 3
+.if \\n(.$ .if !\\n(.$-2 \&\f3\\$1\fP\\$2
+.if \\n(.$-2 \{.ds }i
+.		if @\\n(.f@2@ .ds }i \^
+.		ds }I \&\f3\\$1\fP\\$2\\*(}i
+'br \}
+.if \\n(.$-2 .if !\\n(.$-4 \\*(}I\f3\\$3\fP\\$4
+.if \\n(.$-4 .if !\\n(.$-6 \\*(}I\f3\\$3\fP\\$4\\*(}i\f3\\$5\fP\\$6
+.if \\n(.$ .ft \\n(;G
+..
+'''\"	I : Italic font [0:6]
+'''\"	.I [ "italic-arg" [prevailing-arg]] (up to six args)
+''\"	If italic-arg is given, it is made Italic (TROFF) or underlined
+''\"	(NROFF), and then font reverts to prevailing.
+''\"	If the argument is omitted, font is changed to Italic (underlined)
+''\"	until explicitly changed.
+''\"	If the second argument is given, it is concatenated to the
+''\"	first one, with one-half narrow blank, and return to prevailing font.
+''\"	Up to six arguments are allowed, arguments will alternate in font.
+''\"	SEE ALSO: .B, .R, .IR, .RI, .IB, .BI, .RB, .BR.
+.de I
+.ie \\n(.$ .nr ;G \\n(.f
+.el .ft 2
+.if \\n(.$ .if !\\n(.$-1 \&\f2\\$1
+.if \\n(.$-1 \{.ds }i \^
+.		if @\\n(.f@2@ .ds }i
+.		ds }I \&
+.		if \w@\\$1@ .ds }I \&\f2\\$1\fP\\*(}i
+'br \}
+.if \\n(.$-1 .if !\\n(.$-3 \\*(}I\\$2\f2\\$3
+.if \\n(.$-3 .if !\\n(.$-5 \\*(}I\\$2\f2\\$3\fP\\*(}i\\$4\f2\\$5
+.if \\n(.$-5 \\*(}I\\$2\f2\\$3\fP\\*(}i\\$4\f2\\$5\fP\\*(}i\\$6
+.if \\n(.$ .ft \\n(;G
+..
+'''\"	RI : Alternate Roman and Italic [1:6]
+.de RI
+.nr ;G \\n(.f
+.}S 1 2 \& "\\$1" "\\$2" "\\$3" "\\$4" "\\$5" "\\$6"
+..
+'''\"	RB : Alternate Roman and Bold [1:6]
+.de RB
+.nr ;G \\n(.f
+.}S 1 3 \& "\\$1" "\\$2" "\\$3" "\\$4" "\\$5" "\\$6"
+..
+'''\"	IR : Alternate Italic and Roman [1:6]
+.de IR
+.nr ;G \\n(.f
+.}S 2 1 \& "\\$1" "\\$2" "\\$3" "\\$4" "\\$5" "\\$6"
+..
+'''\"	IB : Alternate Italic and Bold [1:6]
+.de IB
+.nr ;G \\n(.f
+.}S 2 3 \& "\\$1" "\\$2" "\\$3" "\\$4" "\\$5" "\\$6"
+..
+'''\"	BR : Alternate Bold and Roman [1:6]
+.de BR
+.nr ;G \\n(.f
+.}S 3 1 \& "\\$1" "\\$2" "\\$3" "\\$4" "\\$5" "\\$6"
+..
+'''\"	BI : Alternate Bold and Italic [1:6]
+.de BI
+.nr ;G \\n(.f
+.}S 3 2 \& "\\$1" "\\$2" "\\$3" "\\$4" "\\$5" "\\$6"
+..
+'''\"	}S : Common part of double-font macros [4:9]
+.de }S
+.ds }i
+.if @\\$1@2@ .if !@\\$5@@ .ds }i\^
+.ie !@\\$4@@ .}S \\$2 \\$1 "\\$3\f\\$1\\$4\\*(}i" "\\$5" "\\$6" "\\$7" "\\$8" "\\$9"
+.el \\$3
+.ft \\n(;G
+..
+'''\"	SM : If 1 or 2 args, reduce arg1's point size by 1; append arg2 [1:3]
+'''\"	If 3 args, reduce arg2's point size by 1; prepend arg1 & append arg3.
+.de SM
+.ie \\n(.$-2 \&\\$1\s-1\\$2\s0\\$3
+.el \&\s-1\\$1\s0\\$2
+..
+'''\"	R : Roman font [0]
+'''\"	.R
+''\"	Make the current font be Roman.
+''\"	NOTE: this is intended as the closing bracket for I and B, as in:
+''\"	.I or .B
+''\"	one or more lines of text
+''\"	.R
+.de R
+.ft 1
+.ul0
+..
+.de EQ
+'''\"	EQ: begin equation display [0:1]
+''\"	.EQ [label]
+.ds ]E \\$1
+.di >E\"when inside display, begin NESTED DIVERSION
+..
+'''\"	EN: end equation display [0]
+'''\"	.EN
+.de EN
+\!.br
+.br
+.di\"end diversion into >E
+.rm >E
+.lt \\n(.lu
+.pc
+.if \w@\\*(10\\*(}E@ \{\
+.ie !\\n(Eq \{\
+.    ie \\n(:Y>0 \{.if \\n(:Y<\w@\\*(10@ .nr :Y \w@\\*(10@\"if centered block
+\!\\*(10\h'\\\\n(.lu-\w@\\*(10\\*(]E@u-\\\\n(.iu'\\*(]E
+.    br \}
+.    el .ie \\n(:B=2 .tl \(ts\(ts\\*(10\(ts\\*(]E\(ts\"if centered
+.    el .ie \\n(:B=1 .tl \(ts\h'\\n(Sin'\\*(10\(ts\(ts\\*(]E\(ts\"if indented
+.    el .if \\n(:B=0 .tl \(ts\\*(10\(ts\(ts\\*(]E\(ts\"if left-blocked
+'    br  \}		\" end block output only if strings 10 or ]E have width
+.el \{\
+.    ie \\n(:Y>0 \{.if \\n(:Y<\w@\\*(10@ .nr :Y \w@\\*(10@\"if centered block
+\!\\\\h'-\\\\n(.iu'\\*(]E\\\\h'\\\\n(.iu-\\w@\\*(]E@u'\\*(10
+.    br \}
+.    el .ie \\n(:B=2 .tl \(ts\\*(]E\(ts\\*(10\(ts\(ts\"if centered
+.    el .ie \\n(:B=1 .tl \(ts\h'\\n(Sin'\\*(]E\(ts\(ts\\*(10\(ts\"if indented
+.    el .if \\n(:B=0 .tl \(ts\\*(]E\(ts\(ts\\*(10\(ts\"if left-blocked
+'    br  \} \}		\" end block output only if strings 10 or ]E have width
+.pc %
+.lt
+.rm ]E 10
+.rr :E
+..
+'''\"	HC: Set hyphenatication character everywhere [0:1]
+''\"	.HC [hyphen-character]
+'\"	sets hyphen character in all 3 enivornments
+.de HC
+.ev 0
+.hc \\$1
+.ev
+.ev 1
+.hc \\$1
+.ev
+.ev 2
+.hc \\$1
+.ev
+..
+'''\"	H : Heading, numbered [1:3]
+'''\"	.H level ["heading"] [\*F]
+''\"	level = subordination value [1:7], 1 = most major, 7 = most minor
+''\"	1 space is output before heading (level = [2:7])
+''\"	1 more space is added for level=1, unless register Ej=1,
+''\"		a .bp occurs to get to next page
+''\"	a .bp occurs in any case if level <= Ej
+''\"	heading is Bold, Italic, or Roman depending on value of level-th
+''\"	item in string HF.  null is considered 1 (Roman).
+''\"	if level <= Hc & (level <= Hb | level <= Hs), heading is centered
+''\"	if level <= Hb, a break occurs after the heading
+''\"	if level <= Hs, a space occurs after it.
+''\"	if there is break or space, temporary indent is done according to Hi
+''\"	a .ne is done before the heading to keep it together. its value is:
+''\"		(size of heading)+1	if run-in text used
+''\"		(size of heading)+2	if break, but no space
+''\"		(size of heading)+3	if space after heading
+''\"	SEE ALSO: Hb, Ej, H1-H7, Hi, Hu, Hs; HF; .HU.
+'\"	NOTE: a (secret) entry of .H 0 "heading" is used to implement .HU.
+'\"	;0 used as temp
+'\"	;1 is level, either from arg1, or from Hu.
+'\"	;2 is temp (width of numbering + blanks)
+'\"	;3 is temp (from .)I)
+'\"	}0, }1, }2, }3 used as local temp strings
+'\"	>A is created and removed
+'\"	:S is flag for sect-page numbering
+.de H
+'\"	error checks
+.if \\n(:F .)D "H:missing FE"
+.if \\n(:y .)D "H:missing DE"
+.if !\\n(.$ .)D "H:missing arg"
+'\"	;0 set to 1 on any error
+.nr ;0 0
+.if \\$1-7 .nr ;0 1
+.if \w@\\$1@-\w'0'u .nr ;0 1
+.if \\n(;0 .)D "H:bad arg:\\$1"
+'\"	make sure all List Control items cleared
+'\"	Also, reset the world
+.LC 0
+.br
+.)R
+'\"	derive level in ;1, to control most decisions on format
+.nr ;1 0\\$1
+.if !0\\$1 .nr ;1 \\n(Hu \" for unnumbered heading
+.if !\\n(;1 .)D "H:bad arg:\\$1"\" .H a title
+'\"	clear lower-level counters
+.if 2-\\n(;1 .nr H2 0 1
+.if 3-\\n(;1 .nr H3 0 1
+.if 4-\\n(;1 .nr H4 0 1
+.if 5-\\n(;1 .nr H5 0 1
+.if 6-\\n(;1 .nr H6 0 1
+.if 7-\\n(;1 .nr H7 0 1
+.if 2-\\n(;1 \{.if \\n(:S .)w\"flush floating keeps if .H 1 & sec-page
+.if \\n(:C .nr :p 0 1 \}\" reset fn ctr if .H 1 and :C set
+'\"	do pre-spacing & fix increment of current-level counter
+.SP
+.nr :u 0
+.if \\n(;1-1 .nr H\\n(;1 +1 \"all but 1st-level
+.if !\\n(;1-1 \{.nr :u 1 \"in case we cross page
+.SP 2 \}\"total of 2 space, at least, if 1st level
+.if \\n(;1-1 .if (\\n(Ej+1-\\n(;1)&(\\n(nl-\\n(:J) \{ .if \\n(;C .nr ;C 2	\" force back to 1st column
+.				     bp \}
+.if !\\n(;1-1 \{.if (\\n(Ej+\\n(:S)&(\\n(nl-\\n(:J) \{ .if \\n(;C .nr ;C 2	\" force back to 1st col
+.				      bp  \}	\" :S ==> Ej
+.if !\\n(:u-1 .nr H1 +1 \"bump if not done by )h
+.if (\\n(:u=1)&(\\n(:S=1) .nr P 1 \}\" and for sec-page, restart to 1
+.nr :u 0
+'\"	'	additional pre-space if space or break
+'\"	.if !\\n(;1-\\n(Hs .SP 1\"if level <=Hs
+'\"	.if !\\n(;1-\\n(Hb .SP 1\"if level <=Hb
+'\"	all constant pre-space done. now accumulate number, if any
+.ds }0 \\n(H1.
+.if 0\\$1-1 .as }0 \\n(H2
+.if 0\\$1-2 .as }0 .\\n(H3
+.if 0\\$1-3 .as }0 .\\n(H4
+.if 0\\$1-4 .as }0 .\\n(H5
+.if 0\\$1-5 .as }0 .\\n(H6
+.if 0\\$1-6 .as }0 .\\n(H7
+.if \\n(Ht \{  .)I \\n(;1 \\n(H1 \\n(H2 \\n(H3 \\n(H4 \\n(H5 \\n(H6 \\n(H7
+.	ds }0 \\*(}3.
+'	br  \}
+.as }0 \ \ \"spaces between number and heading
+.if !0\\$1 .ds }0 \"clear if unnumbered heading
+'\"	at this pt, }0 is number blank blank, and $2 (if any) is heading
+'\"	now set ;0 = 0 (run-in), = 1 (break only), = 2 (space)
+.nr ;0 0
+.if !\\n(;1-\\n(Hb .nr ;0 1
+.if !\\n(;1-\\n(Hs .nr ;0 2
+'\"	following defines for non-run-in and run-in text
+.ds }2
+.if !\\n(;0 .if \w@\\$2@ .ds }2 "  \" 2 adjustable blanks
+'\"	set up ;3 to be increment for later .ne, so that HX can change
+.nr ;3 2v
+'\"	call user exit macro (if any exists) to override numbering
+.HX \\n(;1 0\\$1 "\\$2\\$3"
+'\" for double line indent reset counter if first or second level
+.if \\$1<3 .nr pN 0 1
+.af pN 01
+'\"	for numbered paragraphs reset counter if first level heading
+.if (\\$1=1)&(\\n(Np=1) .nr P1 0
+'\"	figure out number of lines for .ne
+.di >A
+\&\\*(}0\\$2\\$3\\*(}2
+.br
+.di
+.rm >A
+.if \\n(;0-1 .nr ;3 +1v\"add some for post-space
+.ne \\n(;3u+\\n(dnu+\\n(;0v
+'\"	call user exit macro (if any exists) to reset indents
+.HY \\n(;1 0\\$1 "\\$2\\$3"
+'\"	finally put out the heading
+.if \\n(;0 .na			\" don't change adjust if run-in heading
+.)I \\n(;1 \\*(HF\" get font, }3 = 1/null (R), 2 (I), 3 (B)
+.nr ;3 1
+.nr ;3 \\*(}3-1 \"Roman now = 0; Bold/Italic >0
+'\"	number (if any) appears in Roman (not underlined)
+.nr ;2 \w@\\*(}0@
+.if \\n(;0 \{.in+\\n(;2u
+.ti-\\n(;2u \}
+.nr ;2 \\n(.i\"save current indent for use with Hi = 2
+.if !\\n(;1-\\n(Hc .if \\n(;0 .ce
+\\*(}0\&\c
+'\"	figure out whether cu, ul or none.
+.ds }1 cu
+.if \nU .ds }1 ul
+.if \w@\\*(}0\\$2@-\\n(.l .ds }1 ul
+'\"	even though only $2 is to be underlined,
+'\"	}0 is already in the word buffer
+.if \w@\\*(}0\\$2@u>166m .ds }1 ul\" word buffer size limitation
+.if !\\n(;3 .ds }1
+'\"	cu only if: 1. heading fits on 1 line and
+'\"	2. U == 0 and 3. level asks for  Italic.
+'\"	ul if 4. is true, but any of others false.
+.nr ;s \\n(.f	\" save current font
+.if \\n(;3=2 .ds }1 "ft 3	\" use bold overstrike
+'\\*(}1
+.ie \\n(;0 \{\
+\&\\$2\\$3
+'    in
+'    br \}
+.el \{\&\\$2\&\c
+\&\\$3\\*(}2\&\c
+'    br \}
+.if \\n(;3=2 .ft \\n(;s	\" restore font
+.if (\\n(;1<=\\n(Cl)&(\w@\\$2@>0) .)E \\$1 "\\$2"\"save entry for TOC
+'na
+.if \\n(:h 'ad
+.if \\n(;0 .br
+.if \\n(;0-1 .SP
+'\"	do .ti only if Hi and Pt are both 1
+.if \\n(;0*\\n(Hi*\\n(Pt .if !\\n(Hi-1+\\n(Pt-1 .ti+\\n(Pin
+.if 0\\$1*\\n(;0 .if \\n(Hi-1 .ti\\n(;2u
+.nr :I 1\"force indent on following .P
+.nr !D \\n(nl		\" mark current position for .P
+.nr !Z \\n(.k		\" mark on-line position for .P
+.if (0\\$1=1)&(\\nN=5) \{\
+.	nr Fg 0
+.	nr Tb 0
+.	nr Ec 0
+.	nr Ex 0 \}
+.HZ \\n(;1 0\\$1 "\\$2\\$3"
+.ft 1
+..
+'''\"	HM: Heading Marker styles [0:7]
+'''\"	.HM [arg1 ... arg7]
+''\"	args are as .af args: 1,a,A,i,I
+''\"	provide default in case of omitted args
+.de HM
+.af H1 \\$1 1
+.af H2 \\$2 1
+.af H3 \\$3 1
+.af H4 \\$4 1
+.af H5 \\$5 1
+.af H6 \\$6 1
+.af H7 \\$7 1
+..
+'''\"	HU: Heading, unnumbered [1:2]
+'''\"	.HU "heading" [\*F]
+''\"	SEE ALSO: register Hu, bl, br, Il, sl, H1-H7; .H
+.de HU
+.if !\\n(.$ .)D "HU:missing arg"
+.H 0 "\\$1" "\\$2"
+..
+'''\"	HX: Heading user exit X [3]
+'''\"	.HX level-1 level-2 "heading"
+''\"	called by .H after number string built, just before heading
+''\"	size computed and put out.
+''\"	level-1	[1:7]	heading level, given in .H, or by Hu
+''\"	level-2 [0:7]	same as level-1 for .H, = 0 for .HU
+''\"	"heading"	heading given to .H or .HU, may be null
+''\"	useful items (changeable by user):
+''\"	}0	has string of accumulated numbers, followed by 2 blanks
+''\"	}2	string to separate number and heading, normally 2 blanks
+''\"	also: may want to do .ne dependent on level, add extra pre-space,
+''\"	change indent (maybe?)
+'\"	.de HX
+'\"	..
+'''\"	HY: Heading user exit Y [3]
+'''\"	.HY level-1 level-2 "heading"
+''\"	arguments same as .HX but called after heading
+''\"	size computed, could be used to reset indents
+'\"	.de HY
+'\"	..
+'''\"	HZ: Heading user exit Z [3]
+'''\"	.HZ level-1 level-2 "heading"
+'''\"	arguments same as .HX, but called at very end of .H
+''\"	could be used to reset counters (figures, tables, footnotes, etc)
+'\"	.de HZ
+'\"	..
+'''\"	LOWEST LEVEL LISTING MACROS - LB,LC,LE,LI.
+'''\"	LB: List Begin (and define parameters) [4:7]
+'''\"	.LB text-indent mark-indent pad type [mark [LI-space [LB-space]]]
+''\"	text-indent = [0:?] = relative indent of text from current indent
+''\"	normal = [1:2] (simple mark) or [4:5] (a.\ \ text, 10.\ \ text)
+''\"	mark-indent = [0:?] = relative indent of beginning of
+''\"	mark from current indent.  only used when left-justifying (pad = 0).
+''\"	pad = [1:?] = position difference between right character of
+''\"	right-justified mark and left character of text. normal = [1:3]
+''\"	    = 0 ==> left justify mark
+''\"	type = [0:6] notes type of marking desired
+''\"	     = 0 ==> simple mark character(s)
+''\"	     = 1 ==> auto number/letter, form x.
+''\"	     = 2 ==> auto number/letter, form x)
+''\"	     = 3 ==> auto number/letter, form (x)
+''\"	     = 4 ==> auto number/letter, form [x]
+''\"	     = 5 ==> auto number/letter, form <x>
+''\"	     = 6 ==> auto number/letter, form {x}
+''\"	mark = actual mark character (if type = 0)
+''\"	     = beginning value for auto-marking (if type = 1) = 1,a,A,i,I
+''\"		Defaults to null (type = 0) or 1 (type > 0)
+''\"	LI-space = [0:1] = number of blank lines to precede .LI
+''\"		If = 1, LB-space would normally be 0.
+''\"		defaults to 1 if omitted.
+''\"	LB-space = [0:1] = number of blank lines to preced .LB
+''\"		if omitted, 0 assumed
+.de LB
+.if 4-\\n(.$ .)D "LB:missing arg(s)"
+'\"	.)L \\$1u*1.5n \\$2u*1.5n \\$3n "\\$4" "\\$5" "\\$6" "\\$7"
+.)L 0\\$1n 0\\$2n 0\\$3n "\\$4" "\\$5" "\\$6" "\\$7"
+..
+'\"	)L: actual LB as in nroff version
+'\"	args already have proper dimension
+.de )L
+.if \\n(:g>5 .)D "LB:too many nested lists"\"if :g now 6
+.if \\n(:g .)A \"push status
+.if !\\n+(:g-1 .ds ]b \\n(.i\"save current indent at outer level
+.nr :b \\n(.iu+0\\$1u \"text indent
+.nr :c \\n(.iu+0\\$2u \"mark indent
+.nr :d 0\\$3 \"pad
+.nr :e 0\\$4 \"type
+.nr :f 0\\$6 \"LI-space
+.if !\w@\\$6@ .nr :f 1
+.ds ]g \\$5
+'\"	take care of omitted case
+.if !\w@\\$5@ \{.ds ]g \&
+.	if \\n(:e .ds ]g 1
+'	br  \}
+.nr :a 0 1
+.if 0\\$4 .af :a \\$5 1\"in case $5 is null
+.if (\\n(:g<=\\n(Ls)&(0\\$7) .SP
+.fi
+.in\\n(:bu
+.ti\\n(:bu\"preserve against .ti of .H
+..
+'''\"	LC: List Status Clear (to specified level) [1]
+'''\"	.LC nmbr
+''\"	nmbr = [0:?]
+''\"	List status information is popped, and the list level decremented
+''\"	until = nmbr.  Thus, .LC 0 makes sure list information cleared.
+.de LC
+.if \\n(:g-0\\$1 .)B\"which decrements :g
+.if \\n(:g-0\\$1 .LC 0\\$1\"only if more levels to pop
+..
+'''\"	LE: List End (at current level) [0:1]
+'''\"	.LE [1]
+''\"	Terminates list at current level (i.e., pops 1 level)
+''\"	If the optional argument 1 given, a blank line is output.
+.de LE
+.if (\\n(:I>1)&(\\n(nl-\\n(:J) .nr :I 0\" no indent on following .P unless just past )h
+.if \\n(:I<2 .nr :I 0
+.ie \\n(:g<1 .)D "LE:mismatched"
+.el .)B
+.if (\\n(:g<=\\n(Ls)&(\\n(.$>0) .SP
+.nr :J \\n(nl
+..
+'''\"	LI: List Item [0:2]
+'''\"	.LI ["mark" [1]]
+''\"	The list item is output according to parameters set by the last
+''\"	previous .LB at same level.
+''\"	If no arguments given, the mark used is that established by the .LB.
+''\"	If "mark" is given alone, it is used in place of the default.
+''\"	If the "1" option used, the "mark" is used as a prefix to the default.
+.de LI 
+.if !\\n(:g .)D "LI:no lists active" 
+.if (\\n(:g<=\\n(Ls)&(\\n(:f>0) .SP
+.in\\n(:bu
+'\"	if doing space and not inside diversion, then use need
+.if (\\n(:f>0)&(\\n(:D<1) .ne2v
+.ds }0 \\*(]g
+.if \\n(:e .ds }0 \\n+(:a.
+.if \\n(:e-1 .ds }0 \\n(:a)
+.if \\n(:e-2 .ds }0 (\\n(:a)
+.if \\n(:e-3 .ds }0 [\\n(:a]
+.if \\n(:e-4 .ds }0 <\\n(:a>
+.if \\n(:e-5 .ds }0 {\\n(:a}
+.if \\n(.$-1 .ds }0 \\$1\ \\*(}0
+.if \\n(.$=1 .ds }0 \\$1
+.nr ;0 \w@\\*(}0@
+.nr ;1 \\n(:c
+.if \\n(:d .nr ;1 \\n(:bu-\\n(:du-\\n(;0u
+.if !\\n(;1 .nr ;1 0
+.nr ;0 \\n(:bu-\\n(;1u-\\n(;0u
+.ti\\n(;1u
+.if !\\n(;0 .nr ;0 \w@ @u\"want at least one blank
+'\"	if zero-width mark, do hanging indent instead
+.if \w@\\*(}0@ \&\\*(}0\h@\\n(;0u@\&\c
+..
+'''\"	INTERMEDIATE LIST START MACROS: AL, BL, DL, ML, VL.
+'''\"	AL: Begin Auto-Incremented List [0:2]
+'''\"	.AL [type [text-indent]]
+''\"	type (if present) is: 1, a, A, i, or I  indicating how list is to
+''\"	be lettered/numbered.
+''\"	text-indent gives indentation from current margin to text: 4 is
+''\"	appropriate for lettered lists (or numbered lists going only to 9),
+''\"	while 5 is better for numbered lists going higher than 9.
+''\"	if text-indent only is omitted, it is assumed to be Li.
+''\"	if type if omitted, it is assumed to be 1.
+.de AL
+.nr !D 0		\" clear header mark (for .P)
+.if !@\\$1@@ .if !@\\$1@1@ .if !@\\$1@a@ .if !@\\$1@A@ .if !@\\$1@I@ .if !@\\$1@i@ .)D "AL:bad arg:\\$1"
+.if \\n(.$<3 \{.ie \w@\\$2@=0 .)L \\n(Lin 0 2n 1 "\\$1" 
+.el .LB 0\\$2 0 2 1 "\\$1" \}
+.if \\n(.$>2 \{.ie \w@\\$2@=0 .)L \\n(Lin 0 2n 1 "\\$1" 0 1
+.el .LB 0\\$2 0 2 1 "\\$1" 0 1 \} 
+..
+'''\"	BL: Begin Bullet List [0:1]
+'''\"	.BL [text-indent]
+'''\"	(followed by 1 or more .LI which generate bullet items)
+.de BL
+.nr ;0 \\n(Pi
+.if (\\n(.$>0)&(\w@\\$1@>0) .nr ;0 0\\$1
+.ie \\n(.$<2 .LB \\n(;0 0 1 0 \\*(BU
+.el .LB \\n(;0 0 1 0 \\*(BU 0 1
+.rr ;0
+..
+'''\"	DL: Begin Dashed List [0:1]
+'''\"	.DL [text-indent]
+'''\"	(followed by 1 or more .LI which generate dashed items)
+.de DL
+.nr ;0 \\n(Pi
+.if (\\n(.$>0)&(\w@\\$1@>0) .nr ;0 0\\$1
+.ie \\n(.$<2 .LB \\n(;0 0 1 0 \(em
+.el .LB \\n(;0 0 1 0 \(em 0 1
+.rr ;0
+..
+'''\"	ML: Begin Marked List [1:2]
+'''\"	.ML mark [text-indent]
+''\"	similar to Bullet List or Dashed List, but with arbitrary mark
+.de ML
+.if \\n(.$<1 .)D "ML:missing arg"
+.nr ;0 \w@\\$1@u/3u/\\n(.su+1u\" get size in n's
+.ie \\n(.$<2 .LB \\n(;0 0 1 0 "\\$1"
+.el .if \\n(.$=2 .LB 0\\$2 0 1 0 "\\$1"
+.if \\n(.$>2 \{.if !\w@\\$2@ .LB \\n(;0 0 1 0 "\\$1" 0 1
+.	if \w@\\$2@ .LB 0\\$2 0 1 0 "\\$1" 0 1 \}
+..
+'''\"	RL: Begin Reference List [0:1]
+'''\"	.RL [text-indent]
+''\"	makes auto-numbered list with square brackets.
+''\"	text-indent defaults to 6 if omitted.
+.de RL
+.nr ;0 6
+.if (\\n(.$>0)&(\w@\\$1@>0).nr ;0 0\\$1
+.ie \\n(.$<2 .LB \\n(;0 0 2 4 
+.el .LB \\n(;0 0 2 4 1 0 1
+.rr ;0
+..
+'''\"	VL: Begin Variable-item List [1:2]
+'''\"	.VL text-indent [mark-indent]
+''\"	followed by: .LI item
+''\"	text-ident gives distance to text
+''\"	mark-indent gives indent from current margin to mark, default = 0
+.de VL
+.if \\n(.$<1 .)D "VL:missing arg"
+.ie \\n(.$<3 .LB 0\\$1 0\\$2 0 0
+.el .LB 0\\$1 0\\$2 0 0 \& 0 1
+..
+'''\"	P : Paragraph [0:1]
+'''\"	.P [type]
+''\"	if no argument is present, the default paragraph style is used.
+''\"	type = 0 ==> use left-justified paragraph
+''\"	type = 1 ==> use indented paragraph
+''\"	the default is set by the register Pt (same 0:1 meanings)
+''\"	the Np register controls numbering of paragraphs
+'\"	if Pt = 2, then indent when :I >= 1 or when
+'\"		:I = 0 and nl != :J (spot marked by things
+'\"		that say "don't indent")
+.de P
+.if !((\\n(!D=\\n(nl)&(\\n(!Z=\\n(.k)&(\\n(Np=0)) \{\
+'\"					\" a .P after a .H is a no-op unless numbered paragraphs
+.br
+.nr ;1 \\n(:J\"save place where "no-indent" last marked
+.nr ;2 \\n(nl\"save place where now
+.SP \\n(Psu*1
+.if !\\n(:D .ne 2
+.ie !\\n(;1-\\n(:J .nr ;2 \\n(;2-\\n(:J
+.el .nr ;2 \\n(nl-\\n(:J
+.nr :J \\n(;2
+.if \\n(.$>0&(0\\$1) .ti+\\n(Pin
+.if \\n(.$=0 \{\
+.	if \\n(Pt=1 .ti+\\n(Pin
+.	if \\n(Pt>1&(\\n(:I) .ti+\\n(Pin
+.	if \\n(Pt>1&(\\n(:I=0)&(\\n(:J>0) .ti+\\n(Pin \}
+.if \\n(Np \{\
+\\n(H1.\\n+(P1\ \ \c
+'br \}
+.nr :I 1 \}		\"force indent on following .P (for Pt 2)
+.nr :u 0
+..
+'''\"	nP: double-line indented paragraph (from ASC)
+'''\"	.nP
+'\"	uses pN as paragraph number counter (set in .H)
+.de nP
+.P 0
+
+.br
+.sp -\\n(.L
+.de mP
+'ti 6n
+.rm mP
+.wh \\n(.du+\\n(.L
+\\..
+.wh \\n(.du+\\n(.L mP
+\\n(H2.\\n+(pN\h'|6n'\\c
+..
+'''\"	S : set point size and vertical spacing
+'''\"	.S [arg1] [arg2] [0:2]
+'\"	:P and !P current point size and vertical spacing respectively
+'\"	:Q and !Q previous point size and vertical spacing respectively
+'\"	first argument is selectable point size
+'\"	second argument is selectable vertical spacing
+'\"	D=default, P=previous, C=current
+.de S
+.if !\\n(:Q .nr :Q \\nS
+.if !\\n(.$ .nr ;0 \\n(:Q
+.if \\(.$ .if !\w@\\$1@ \{\
+.	nr ;J 2
+.	nr ;0 \\n(:P \}
+.if \w@\\$1@ \{\
+.   ie @\\$1@D@ \{\
+.	nr ;J 1
+.	nr ;0 \\nS \}
+.   el \{\
+.	ie @\\$1@C@ \{\
+.	    nr ;J 2
+.	    nr ;0 \\n(:P \}
+.	el \{\
+.	    ie @\\$1@P@ \{\
+.		nr ;J 3
+.		nr ;0 \\n(:Q \}
+.	    el \{.if !\\n(;J \{\
+.		nr ;0 \\n(:P
+.		nr ;0 \\$1 \}\}\}\}\}
+.if 0\\$1-99 .nr ;0 \\nS
+.if !\\n(;0 .)D "S:bad arg \\$1"
+.nr :Q \\n(:P
+.nr :P \\n(;0
+.ps \\n(:Pp
+.nr ;J 0
+.if !\\n(!Q .nr !Q \\nS+2
+.if !\\(.$-1 \{\
+.   ie \\$1 \{\
+.	nr ;K 1
+.	nr ;7 \\n(.s+2 \}
+.   el \{\
+.	nr ;K 3
+.	nr ;7 \\n(!Q \}\}
+.if \\(.$-1 .if !\w@\\$2@ \{\
+.	nr ;K 2
+.	nr ;7 \\n(!P \}
+.if \w@\\$2@ \{\
+.   ie @\\$2@D@ \{\
+.	nr ;K 1
+.	nr ;7 \\n(.s+2 \}
+.   el \{\
+.	ie @\\$2@C@ \{\
+.	    nr ;K 2
+.	    nr ;7 \\n(!P \}
+.	el \{\
+.	    ie @\\$2@P@ \{\
+.		nr ;K 3
+.		nr ;7 \\n(!Q \}
+.	    el \{.if !\\n(;J \{\
+.		nr ;7 \\n(!P
+.		nr ;7 \\$2 \}\}\}\}\}
+.if 0\\$2-99 .nr ;7 \\n(.s+2
+.if !\\n(;7 .)D "S:bad arg \\$2"
+.nr !Q \\n(!P
+.nr !P \\n(;7
+.vs \\n(!Pp
+.nr ;K 0
+..
+'''\"	pn: set page number
+'''\"	REDEFINES pn REQUEST
+'\"	fake out the function of the pn request so that
+'\"	the P register tracks w/ the % register when .pn used
+.rn pn ]N
+.de pn
+.nr :Z 1\"set flag that .pn invoked
+.]N \\$1\"call real .pn request
+..
+'''\"	SA: Set Adjustment default [0:1]
+'''\"	.SA [arg]
+''\"	.SA 0	sets default & current adjustment to no adjust (.na)
+''\"	.SA 1	sets default & current adjustment to adjust (.ad)
+''\"	.SA	sets adjustment to current default value
+'\"	SEE ALSO: nr :h, macro )R
+.de SA
+.if \\n(.$ \{.if \\$1-1 .)D "SA:bad arg:\\$1"
+.	nr :h 0\\$1 \}
+'na
+.if \\n(:h 'ad
+..
+'''\"	SK: skip pages
+'''\"	.SK [arg]
+'\"	skip arg pages
+'\"	if arg omitted, to top of a page
+.de SK
+.br
+.bp
+.nr ;0 0\\$1-1
+.if \\n(;0+1 .rs
+.if \\n(;0+1 .SK \\n(;0
+..
+'''\"	OP: odd page
+'''\"	.OP
+'\"	ensure top of odd page
+.de OP
+.SK
+.if !\\nP%2 .SK 1
+..
+'''\"	SP: SPace 1 or more lines [0:1]
+'''\"	.SP [lines]  defaults to 1 if omitted, must be positive
+''\"	multiple .SP calls cooperate in producing only maximum requested
+''\"	spacing.
+''\"	uses ;4 as temp.
+''\"	:A expected to be # of accumulate blank lines
+''\"	:N = nl at end of last blank output
+'\"	when in a diversion, use .d (rather than nl) for position
+'\"	-mm diversion => :D set
+'\"	tbl diversion => .z is non-null
+'\"		careful--SP might occur at the same
+'\"		position BUT in a different named diversion
+'\"		(hence, the use of the string }D)
+'\"	bug: still might be possible, if the same named diversion
+'\"	is used, that a .SP might occur in the same vertical place.
+'\"	very unlikely for
+'\"		a) -mm will zero ;D and ;E whenever :D is cleared
+'\"		b) tbl generates unique names
+.de SP
+.br
+.ie \\n(:D .)S \\$1\" -mm diversion
+.el .ie !'\\n(.z'' .)S \\$1\" tbl T{...}T diversion
+.el \{.rr ;D ;E\"no diversion;remove the SP-in-diversion registers
+.	rm ;E
+.	nr ;4 1v
+.	if \\n(.$ .nr ;4 \\$1v
+.	if !(\\n(nl=\\n(:N) .nr :A 0\" different place for sure
+.	nr ;4 -\\n(:Au\" remove previous accumulation, if any
+'\"	space and recompute accumulation 
+.	if \\n(;4 \{.sp\\n(;4u
+.		nr :A +\\n(;4u \}
+.	nr :N \\n(nl \}
+..
+.de )S\"space ala SP but within a diversion
+.br
+.if !'\\n(.z'\\*(}D' .rr ;D ;E
+.nr ;4 1v
+.if \\n(.$ .nr ;4 \\$1v
+.if !(\\n(.d=\\n(;D) .nr ;E 0\" different place for sure
+.nr ;4 -\\n(;Eu\" remove previous accumulation, if any
+.if \\n(;4 \{.sp\\n(;4u
+.	nr ;E +\\n(;4u \}
+.nr ;D \\n(.d
+.ds }D \\n(.z
+..
+.de TS
+''\"	Multi-page tables--carry headings over multiple pages
+'\"	tbl-generated macros/registers that must be utilized:
+'\"		macros:		T#
+'\"		registers:	T. #T
+'\"	(code gleaned from -ms and from tbl output)
+'\"	macros used:
+'\"	.t	diversion containing the top-of-table titles
+'\"		and line drawing info
+'\"	T#	tbl-defined macro that draws the bottom portion
+'\"		of boxed tables
+'\"	>u	macro into which footer is hidden while T# works
+'\"	registers used:
+'\"	;h	flag that header has printed >t
+'\"	;f	flag that footer has printed T#
+'\"	;I	temp storage for indent value
+'\"	;A	flag that .TS H being used
+'\"	;B	flag that .TH encountered
+'''\"	TS: begin table display [0:1]
+'''\"	.TS [H]
+.if (\\n(:D=0)&(\\n(Ds>0) .SP\"space according to Ds if NOT being diverted 
+.if @\\$1@H@ \{.br\"divert tbl-gen'd text up to TH call
+.	di >t
+.	nr ;A 1 \}
+..
+'''\"	TH: end .TS H
+''\"	.TH [N]
+''\"	the [N] option specifies that the header should be output only
+''\"	if it is the first header on the page
+.de TH\"close off .TS H diversion
+.if \\n(.du>0.5v \{.nr T. 0
+.	T# 0 \}
+.br
+.di
+.nr ;I \\n(.i
+.nr ;B 1
+.if \\n(;T .if !@\\$1@N@ .nr ;T 0
+.in 0			\" this might trip )h
+.mk #a
+.mk #b
+.mk #c
+.mk #d
+.mk #e
+.mk #f
+.if \\n(;T=0 \{\
+.	>t			\" output the header
+.	nr ;T 1	\}		\" mark header output
+.in \\n(;Iu
+.mk #T
+..
+'''\"	TE: end table display [0]
+'''\"	.TE
+.de TE
+.if (\\n(:D=0)&(\\n(Ds>0) .SP\"space according to Ds if NOT being diverted 
+.if (\\n(;A>0)&(\\n(;B=0) \{.br
+.	di
+.	)D "TE: used TS H but no TH" \}
+.rr ;A ;B ;h ;D ;E
+'\"	remove tbl-generated strings/macros/registers
+.rm a+ b+ c+ d+ e+ f+ g+ h+ i+ j+ k+ l+ n+ m+
+.rr 32 33 34 35 36 37 38 40 79 80 81 82
+.rr a| b| c| d| e| f| g| h| i| j| k| l| m|
+.rr a- b- c- d- e- f- g- h- i- j- k- l- m-
+..
+'\"	INNER UTILITY MACROS
+'\"	)A: stack push for list macros; called by .LB
+'\"	prepends each parameter to front of stack string
+.de )A
+.af :a 1
+.ds ]a \\n(:a \\*(]a
+.ds ]b \\n(:b \\*(]b
+.ds ]c \\n(:c \\*(]c
+.ds ]d \\n(:d \\*(]d
+.ds ]e \\n(:e \\*(]e
+.ds ]f \\n(:f \\*(]f
+.ds ]h \\*(]g \\*(]h
+..
+'\"	)B: list status stack pop of 1 level: called by .LC
+'\"	expects :g > 0
+.de )B
+.br
+.nr :g -1
+.)C nr :a ]a \\*(]a
+.)C nr :b ]b \\*(]b
+'in \\n(:bu
+'ti \\n(:bu
+.)C nr :c ]c \\*(]c
+.)C nr :d ]d \\*(]d
+.)C nr :e ]e \\*(]e
+.)C nr :f ]f \\*(]f
+.)C ds ]g ]h \\*(]h
+.af :a 1
+.if \\n(:e .af :a \\*(]g
+..
+'\"	)C: stack shift operation, called from .)B
+'\"	.)C command current-name stack-name stack-args...
+.de )C
+.\\$1 \\$2 \\$4
+.ds \\$3 \\$5 \\$6 \\$7 \\$8 \\$9
+..
+'\"	)D: print error message and possibly terminate
+'\"	.)D "message"
+.de )D
+'di
+.nr :D 0
+.ie \\n(.P>0 \{\\"if page is being printed
+.fl
+********************
+.br
+ERROR:input line \\n(.c:\\$1
+.br
+********************
+\}
+.el \{\
+.tm ********************
+.tm ERROR:input line \\n(.c:\\$1
+.tm ********************
+\}
+.if !\\nD .ab \&
+..
+'''\"	EC:equation caption lines
+'''\"	.EC ["title" ["override" [flag]]]
+'\"	args like FG or TB
+'\"	uses Ec as counter
+.de EC
+.nr !2 1
+.ie \\nN=5 .)F Equation 2 \\n+(Ec "\\$1" "\\n(H1-" 0
+.el .)F Equation 2 \\n+(Ec "\\$1" "\\$2" 0\\$3
+..
+'''\"	EX: Exhibit Title Line(s)
+'''\"	.EX ["title" ["override" [flag]]]
+''\"	args like FG or TB
+''\"	uses Ex as counter
+.de EX
+.nr !3 1
+.ie \\nN=5 .)F Exhibit 3 \\n+(Ex "\\$1" "\\n(H1-" 0
+.el .)F Exhibit 3 \\n+(Ex "\\$1" "\\$2" 0\\$3
+..
+'''\"	FG: Figure Title Line(s)
+'''\"	.FG ["title" ["override" [flag]]]
+''\"	issues figure title and saves for TOC
+''\"	normally gives: Figure n -  title
+''\"	if title omitted, so are preceding - and blanks
+''\"	override is string which can modify normal numbering (using Fg)
+''\"	and works according to flag:
+''\"	flag: omitted or 0 ==> override used as prefix,
+''\"	= 1 ==> suffix, = 2 ==> replaces Fg
+''\"	!0 flag set for List of Figs, Fg may be reset to 0 by .H 1
+''\"	SEE ALSO: .TB, .)F
+.de FG
+.nr !0 1
+.ie \\nN=5 .)F Figure 0 \\n+(Fg "\\$1" "\\n(H1-" 0
+.el .)F Figure 0 \\n+(Fg "\\$1" "\\$2" 0\\$3
+..
+'''\"	TB: Table Title Line(s)
+'''\"	.TB ["title" ["override" [flag]]]
+''\"	issues table title and saves for TOC
+''\"	all args same as for .FG
+''\"	uses counter Tb.
+''\"	SEE ALSO: .FG, .)F.
+.de TB
+.nr !1 1
+.ie \\nN=5 .)F TABLE 1 \\n+(Tb "\\$1" "\\n(H1-" 0
+.el .)F TABLE 1 \\n+(Tb "\\$1" "\\$2" 0\\$3
+..
+'\"	)F: Figure/Table/Equation/Exhibit line inner macro (for .FG, .TB, .EC, EX)
+'\"	.)F name type counter "title" "override" flag
+'\"	name = Figure or Table or Equation or Exhibit
+'\"	type = 0 (Figure) or 1 (Table)  or 2 (equation) or 3 (exhibit) for TOC saving
+'\"	counter = already-incremented value of counter (Fg or Tb or Ec or Ex)
+'\"	"title", "override", and flag as in FG/TB
+'\"	flag = 0/null ==> prefix for override, 1 ==> suffix, 2 ==> replacement
+'\"	uses temps: regs ;0 & ;1, string }0.
+'\"	NOTE: needs more work (for TOC); also maybe option for spacing &
+'\"	always indenting rather than current centering/indent choice.
+.de )F
+.nr ;0 \w@\\$5@
+.nr ;1 0
+.nr ;1 0\\$6
+.ds }0 \\$3
+.if \\n(;0 .ds }0 \\$5\\$3
+.if \\n(;1*\\n(;0 .ds }0 \\$3\\$5
+.if \\n(;1-1*\\n(;0 .ds }0 \\$5
+.ds }0 \\$1\ \\*(}0
+.ie (\w@\\$4@)&(\\n(Of=0) .as }0 .\ \ \" if actual title, add some space
+.el .if \\n(Of .as }0 " -\ \" use dash rather than period for OSDD
+'\"	}0 is now entire string before title: name number [ - ]
+.nr ;0 \w@\\*(}0@
+.ll \\nWu
+.nr ;1 \\n(.lu-\\n(;0u-\w@\\$4@u+1u
+'\"	;1 <= 0 ==> cannot center title, > 0 ==> can do so.
+'\"	don't mess if display already centered (:B=2)
+.if (\\n(:B<2)&(\\n(;1>0)  \{\
+.	in 0 \" center with respect to left margin
+.	ce  \}
+.if !\\n(;1 \{\
+.	if !\\n(.u  .nr ;U 1  \" set flag that no-fill was on
+.	if \\n(:B=2 .ce 0
+.	fi
+.	in \\n(;0u
+.	ti-\\n(;0u \}
+\f3\\*(}0\fP\\$4
+.ll
+.in
+.if \\n(:B=2 .ce 9999
+.if \\n(;U \{\
+.	nf
+.	nr ;U 0 \}
+'\"	code here to save for TOC, using }0, \\$2, \\$4
+.if (\\n(Lf=1&(\\$2=0)):(\\n(Lt=1&(\\$2=1)):\
+(\\n(Le=1&(\\$2=2)):(\\n(Lx=1&(\\$2=3)) \{\
+.	ds }3
+.	if \\n(:S .ds }3 \\n(H1
+.ie \\n(:y=1 \{\
+\!.am >L \" if display make page# transparent
+\!.if \\$2=\\\\\\\\$1 .)T 1 1 "\\*(}0" "\\$4" \\\\nP \\*(}3
+\!\\\\..
+'br \}
+.el \{\
+.	am >L
+.	if \\$2=\\\\$1 .)T 1 1 "\\*(}0" "\\$4" \\nP \\*(}3
+\\.. \} \}
+..
+'\"	)I: index into list of items
+'\"	.)I index item1 ... item8
+'\"	sets }3 to value of item(index); items cannot contain normal blanks
+'\"	if less items than index, }3 is set to null
+.de )I
+.nr ;3 0\\$1+1
+.ds }3 \\$\\n(;3
+..
+'\"	)E: accumulate 1 entry for TOC
+'\"	.)E rlevel "heading"
+'\"	expects:
+'\"	;1 = dlevel = [1:7], = rlevel except when rlevel = 0
+'\"	}0 = string of digits/letters, followed by 2 blanks (normally)
+'\"	uses as temps: }3
+'\"	SEE ALSO: .H, .TC
+.de )E
+.ds }3
+.if \\n(:S .ds }3 \\n(H1
+.am >C
+.)T \\n(;1 \\$1 "\\*(}0" "\\$2" \\nP \\*(}3
+\\..
+..
+'\"	)T: version 1: obtain maximum sizes for various section counters
+'\"	.)T dlevel rlevel mark "heading" page [section]
+'\"	(called from within .>C, set up by .)E )
+'\"	sets H1 -- H7 to maximum widths of marks at that level
+'\"	sets :a to max width of page number (incl. section)
+'\"	TEMPS: ;0, }3
+.de )T
+.nr ;0 \w@\\$5@
+.if \w@\\$6@ .nr ;0 +\w'-'u+\w@\\$6@u
+.if \\n(;0-\\n(:a .nr :a \\n(;0
+.)I \\$1 \\n(H1 \\n(H2 \\n(H3 \\n(H4 \\n(H5 \\n(H6 \\n(H7
+.if \w@\\$3@-\\*(}3 .nr H\\$1 \w@\\$3@
+..
+'\"	)U: (actually version 2 of )T) expand 1 TOC entry
+'\"	.)U dlevel rlevel mark "heading" page [section]
+'\"	dlevel = [1:7]
+'\"	rlevel = [0:7], 0 ==> .HU, ignore mark
+'\"	mark = string of digits/letters, followed by 2 blanks (normally)
+'\"	"heading" is always present (no entries for title-less sections)
+'\"	page is page number, may be restarted at 1 in some cases
+'\"	section is present if :S > 0
+'\"	expects:
+'\"	:a = max size of page, or size of section-page (not counting -)
+'\"	:b,:c,:d,:f set to args 1-4 (or defaults) of .TC
+'\"	}0, }1, and }2 set as described in .TC
+.de )U
+.if !0\\$1-\\n(:b .sp\\n(:c
+.)I \\$1 \\*(}0
+.nr ;0 \\*(}3
+.)I \\$1 \\*(Ci
+.nr ;1 \\*(}3
+.)I \\$1 \\*(}2
+.nr ;2 \\*(}3
+'\"	;0 = width of mark
+'\"	;1 = offset to begin of mark
+'\"	;2 = offset to text
+.ds }3 \\$5
+.if \\n(.$-5 .ds }3 \\$6\-\\$5
+.nr :e \\n(:au-\w@\\*(}3@u+2n
+.ds }3 \h@\\n(:eu@\\*(}3
+'\"	}3 is complete [section-]page string
+.ds }y
+.nr ;0 -\w@\\$3@
+.if \\n(;0 .as }y \h@\\n(;0u@
+.if 2-0\\$1 .as }y "\\$3
+.if 0\\$1-1 .ds }y "\\$3\\*(}y
+.if !0\\$2 .ds }y
+'\"	}y = mark string, with blanks (if necessary) prepended for level 1
+'\"	is null for .HU heading
+.ll \\nWu-\\n(:au-3n
+.in \\n(;2u
+.if !0\\$2 .in\\n(;1u
+.ti \\n(;1u
+.fi
+.di >A
+.if !0\\$1-\\n(:d .if !\\n(:f \\*(}y\\$4\\a\\*(}3
+.if !0\\$1-\\n(:d .if \\n(:f \\*(}y\\$4\\t\\*(}3
+.if 0\\$1-\\n(:d \\*(}y\\$4\\*(}3
+.br\"force out partial line while diverting
+\!.br\"force out partial line when laying out diversion
+.di
+.br
+.ll \\nWu
+.ne \\n(dnu
+.ta \\nWu-\\n(:au-2n
+.nf		\" don't re-fill
+.in0
+.na
+.>A
+..
+'\"	)Z: set-up for list output
+'\"	.)Z "list heading" type
+'\"	"list heading" is the title of the particular
+'\"	list (i.e., figure, exhibit, table, or equation)
+'\"	type = [0:3], 0 ==> figure, 1 ==> table,
+'\"	2 ==> equation, 3 ==> exhibit
+.de )Z
+.in 0
+'\"	Cp controls separate page or TOC printing for lists
+.ie !\\n(Cp \{\
+.	SK
+.	rs
+.	sp 3v
+.	ce 1 \}
+.el .sp 2v
+\\$1
+.sp 1v
+.nr :a 0
+.nr H1 0
+.af H1 1
+.>L \\$2
+.rn )T )V
+.rn )U )T
+.ds }0 \\n(H1
+.ds Ci 0
+.ds }2 \\n(H1
+.>L \\$2
+.rn )T )U
+.rn )V )T
+..
+'''\"	TC: Generate Table of Contents
+'''\"	.TC [slevel] [spacing] [tlevel] [tab] [head1 ... head5]
+''\"	slevel gives max level number to have spacing between
+''\"	spacing is number of spaces.
+''\"	tlevel is max level which tabs over to right margin for page
+''\"	tab = 0 (default) ==> leaders, >0 ==> tabs
+.de TC
+.LC 0\"clean out lists
+.if \\n(:F .FE\"close dangling footnote
+.if \\n(:y .DE \" end dangling DS
+.if \\n(!N .NE \" end up dangling notation
+.)N	\" flush stored NS/NE
+.)w\" flush floating keeps
+.if \\n(;R .RP 0 1 \" produce references page
+.)R
+'\"	may need more, like messing with headers
+.rm )E )F DE DF DS FD FE FG FS H HU TB
+'\"	clear out top titles
+.if !\\nP-1 .if \\nN .if !\\nN-1 .rn }t }b\"only if N = 1
+.if !\\nP-1 .if \\nN .if !\\nN-1 .nr N 0 
+.rm }t }e }o
+.rs
+.if \\n(;C .nr ;C 2		\" force back to the first column
+.bp
+.ie \\n(Oc .nr P 1 \" use Page 1 for osdd contents otherwise Roman
+.el \{\
+.	rm }f }p
+.	nr ;g 1 1
+.	af ;g i
+.	ds }b ''- \\\\n(;g -''
+.	am )b
+.	nr ;g +1
+\\..
+'\"	3 lines above set up for roman page numbering, using ;g as counter
+'	br \}
+.nr N 0
+.rs
+.if !\\n(.$-4 .TX\"user exit if no more than 4 args
+.if \\n(;C .ll \\n(:Lu		\" do CONTENTS in wide
+''\"	TY is defined to put out CONTENTS so user may redefine to
+''\"	suppress CONTENTS (also serves as TX replacement)
+.if !\\n(.$-4 .TY\"user exit (without CONTENTS) if no more than 4 args
+.ce99
+.if \\n(.$-4 \\$5
+.if \\n(.$-5 \\$6
+.if \\n(.$-6 \\$7
+.if \\n(.$-7 \\$8
+.if \\n(.$-8 \\$9
+.if \\n(.$-4 .sp
+.ce 0
+.sp
+.if \\n(;C .ll \\n(:lu		\" return to narrow
+.nr ;m \\n(.hu+2v		\" return position for 2C
+.nr :b 1
+.if \w@\\$1@ .nr :b 0\\$1
+.nr :c 1
+.if \w@\\$2@ .nr :c 0\\$2
+.nr :d 2
+.if \w@\\$3@ .nr :d 0\\$3
+.nr :f 0
+.if \w@\\$4@ .nr :f 0\\$4
+'\"	:b = level for spacing, :c = number of spaces.
+'\"	:d = max level to tab to right margin
+'\"	:f = tab flag (0 ==> leader, 1 ==> tab)
+'\"	set up to find max sizes of things
+.nr H1 0
+.af H1 1
+.nr H2 0
+.af H2 1
+.nr H3 0
+.af H3 1
+.nr H4 0
+.af H4 1
+.nr H5 0
+.af H5 1
+.nr H6 0
+.af H6 1
+.nr H7 0
+.af H7 1
+.nr :a 0
+'\"	H1 -H7 will have max widths; :a max width of [section] page
+.>C
+.rn )T )V
+.rn )U )T
+'\"	set up }0, }1, and }2 as useful arrays:
+'\"	}0 = sizes of individual marks
+'\"	}1 = offsets to beginning of marks
+'\"	}2 = offsets to text parts
+.ds }0 \\n(H1 \\n(H2 \\n(H3 \\n(H4 \\n(H5 \\n(H6 \\n(H7
+.nr H2 +\\n(H1
+.nr H3 +\\n(H2
+.nr H4 +\\n(H3
+.nr H5 +\\n(H4
+.nr H6 +\\n(H5
+.nr H7 +\\n(H6
+.if !\w'\\*(Ci' .ds Ci 0 \\n(H1 \\n(H2 \\n(H3 \\n(H4 \\n(H5 \\n(H6
+.ds }2 \\n(H1 \\n(H2 \\n(H3 \\n(H4 \\n(H5 \\n(H6 \\n(H7
+'\"	more set up here for lists
+.>C
+.rm >C HX
+.rn )T )U
+.rn )V )T
+.if (\\n(Lf=1)&(\\n(!0>0) .)Z "\\*(Lf" 0
+.if (\\n(Lt=1)&(\\n(!1>0) .)Z "\\*(Lt" 1
+.if (\\n(Lx=1)&(\\n(!3>0) .)Z "\\*(Lx" 3
+.if (\\n(Le=1)&(\\n(!2>0) .)Z "\\*(Le" 2
+.)R
+..
+'''\"	.TY prints out CONTENTS or can be redefined by user
+.de TY
+.ce
+CONTENTS
+..
+'''\"	Subject/Date/From and Signature
+'\"	NB: certain portions of this are needed only____
+'\"	at the beginning of the document.  
+'\"	Therefore, certain macros/strings/registers are
+'\"	used here and subsequently reused by other functions.
+'\"	Reused names are so noted.
+'\"	list of signatures are diverted and held until .SG macro
+'\"	>v text of signature list
+'\"	:V size of signature list
+'\"	;x size/flag for TM number	REUSED
+'\"	;y flag indicating title diversion	REUSED
+'\"	>z text of FROM diversion	REUSED
+'\"	;z size of FROM diversion	REUSED
+'\"	}z diverted text of title	REUSED
+'\"	>8 holder for TM number 	REUSED
+'\"	:9 size of diverted title text	REUSED
+'\"	:1 temp loc'n of prevailing indent	REUSED
+'\"	:2 mark location	REUSED
+'\"	:3 indent for Abstract REUSED
+'\"	;n flag to suppress Bell Laboratories, etc. 
+'\"	}2 Bell Laboratories or other company name. 
+'''\"	TL: title of memo [0:2]
+'''\"	.TL [ [case] [file case] ]
+'''\"	{text of title}
+''\"	gather in charging case(s), filing case(s),
+''\"	and lines of the title for the top of a memo page
+.de TL
+.nr :D 2 \"s/d/f flag & flag for other diversions
+.nr ;c 2
+.nr ;z 0 \" zero size of author info diversion
+.nr :V 0 \" zero size of signature diversion
+.nr :1 \\n(.i \" save prevailing indent
+.if \\nC=4 .ls 1	\" for DRAFT single space memorandum header
+.ds >1 \\$1
+.ds >2 \\$2
+'nr ;y 1
+'ll \\nWu-34n
+'nh
+'na
+'fi
+'if \\nE 'ft 3
+'di >T
+..
+'''\"	AU: author info [6:9]
+'''\"	.AU name initials [loc] [dept] [ext] [room] [[arg] ...]
+'\"	optional args will appear, one line per each, following FROM
+'\"	first arg (name) and second arg (initials) will be utilized in .SG
+.de AU
+.nr :D 1 \"s/d/f flag
+.nr ;c 1
+.if !\\n(;y 'nf
+.if \\n(;y .>9 \" terminate .TL diversion
+.rm TL\" free up space
+.ll \\nWu
+'\"	build next author info for memo style
+.da >z
+'if \\nE 'ft 3
+.if (\\n(;z>0)&(\\n(Au>0) .sp \" space if not first author
+\\$1
+.if \\n(Au>0 \{.if \w@\\$3@ .ie @\\$3@HP@ HP\ \&\c
+.		el \\$3\ \&\c
+.	if \w@\\$4@ \\$4
+.	if \w@\\$3@ .if !\w@\\$4@ \&
+.	if \w@\\$6@ \\$6\ \&\c
+.	if \w@\\$5@ x\\$5
+.	if \w@\\$6@ .if !\w@\\$5@ \&
+'	br  \}
+.if \\n(.$-6 \\$7
+.if \\n(.$-7 \\$8
+.if \\n(.$-8 \\$9
+.br
+'if \\nE 'ft
+.di
+.nr ;z +\\n(dn
+.nr dn 0
+'\"	info for TM cover sheet
+.am >A
+.ie \\nE \{\
+\f3\\$1\\\\t\\$3\ \\$6\\\\t\\$5\fP\" >A, inside MT into >S, then CS
+'br \}
+.el \{\
+\\$1\\\\t\\$3\ \\$6\\\\t\\$5\" >A, inside MT into >S, then CS
+'br \}
+\\..
+'\"	build signature & reference portion
+'in \\n(:1u
+.if !\\n(:V .ds }v \\$3-\\$4-\\$2
+.if \\n(:V .as }v /\\$2
+.da >v
+'if \\nE 'ft 3
+.sp 3
+\\$1
+.br
+'if \\nE 'ft
+.di
+.nr :V +\\n(dnu
+.nr dn 0
+'\"	released paper author info
+.ds }L \\$3\"get location string
+.if '\\$3'HOH' .ds }L HO\"change to 2-char name for HOH
+.if '\\$3'HOH' .nr :H 1
+.if '\\$3'HP' .ds }L }A\"used for HP
+.am >4
+.sp1
+\\$1
+.if \\\\n(:2 .sp
+.if \\\\n(:2 \\*(}2
+.if \\\\n(:2 .if \\n(:H \\\\*(}H
+.if \\\\n(:2 \\\\*(\\*(}L
+.ds }z \\\\*(\\*(}L
+\\..
+..
+'\"	.>9
+'\"	terminate .TL diversion and add case numbers if necessary
+'\"	REUSED
+.de >9
+.br
+.di
+.di }z
+.>T
+'\"	if both charge and file case were given
+.if (\w'\\*(>1')&(\w'\\*(>2') \{\
+.	ie '\\*(>1'\\*(>2' \{\
+.		br
+Charge and Filing Case \\*(>1
+.		br \}
+.	el \{\
+.		br
+Charge Case \\*(>1
+.		br
+File Case \\*(>2
+.		br \} \}
+.if (\w'\\*(>1'=0):(\w'\\*(>2'=0) \{\
+.	ie \w'\\*(>1' \{\
+- Case\ \\*(>1
+.			br \}
+.	el .ie \w'\\*(>2' \{\
+- Case\ \\*(>2
+.			br \}
+.		el .br \}
+.di
+'if \\nE 'ft 1
+.nr :9 \\n(dn \" size of diverted title info
+.nr dn 0
+.nr ;y 0
+'nf \" process rest of heading info in no-fill
+.rm >9
+..
+'''\"	AT: author title [0:9]
+'''\"	.AT "line1" [line2-9]
+''\"	author title lines appear after signer's name
+.de AT
+.da >v
+'if \\nE 'ft 3
+.if \\n(.$-0 \\$1
+.if \\n(.$-1 \\$2
+.if \\n(.$-2 \\$3
+.if \\n(.$-3 \\$4
+.if \\n(.$-4 \\$5
+.if \\n(.$-5 \\$6
+.if \\n(.$-6 \\$7
+.if \\n(.$-7 \\$8
+.if \\n(.$-8 \\$9
+.br
+'if \\nE 'ft
+.di
+.nr :V +\\n(dnu
+.nr dn 0
+..
+'''\"	OK: provide other keywords [1:9]
+'''\"	.OK kw1 kw2 ... kw9
+.de OK
+.nr :D 1 \"s/d/f flag
+.nr ;c 1
+.de >7
+.if \\n(.$-0 \\$1
+.if \\n(.$-1 \\$2
+.if \\n(.$-2 \\$3
+.if \\n(.$-3 \\$4
+.if \\n(.$-4 \\$5
+.if \\n(.$-5 \\$6
+.if \\n(.$-6 \\$7
+.if \\n(.$-7 \\$8
+.if \\n(.$-8 \\$9
+\\..
+.rm OK
+..
+'''\"	TM: get TM numbers [1:9]
+'''\"	.TM number
+.de TM
+.nr :D 1 \"s/d/f flag
+.nr ;c 1
+.de >8
+.if \\nE .ft 3
+.if \\n(.$-0 \\$1
+.if \\n(.$-1 \\$2
+.if \\n(.$-2 \\$3
+.if \\n(.$-3 \\$4
+.if \\n(.$-4 \\$5
+.if \\n(.$-5 \\$6
+.if \\n(.$-6 \\$7
+.if \\n(.$-7 \\$8
+.if \\n(.$-8 \\$9
+.if \\nE .ft
+\\..
+.nr ;x \\n(.$+1 \" size of TM line(s) plus a space
+.rm TM
+..
+'''\"	AS: abstract start [0:2]
+'''\"	.AS [flag] [indent]
+'\"	begin abstract indicating dump now & later (0 or null)
+'\"	or dump later only (1)
+'\"	indent and .ll shrink 2nd arg; deflt 5
+'\"	>3 stored abstract text
+'\"	:t flag
+'\"	;3 size of >3
+'\"	:3 register containing indent amount (passed to MT)
+'\"	:t ;1 :3 REUSED
+.de AS
+.nr :D 2 \"s/d/f flag & flag for other diversions
+.nr ;c 2
+.if \\n(;y .>9\"defense against missing .AU
+.rm TL\"free up space
+.nr :t 0\\$1 \" set flag for abstract type
+.if !(\\n(:t=2) .nr :t 1	\" make :t positive for footnote on p.1 check
+.if \\n(:t=1 .nr ;5 \\n(:s \" save value of footnote flag --AS/AE footnotes don't go in
+.nr :3 0	\" no indent by default
+.if \\n(.$-1 .nr :3 0\\$2n \" get optional indent
+.nr ;N \\n(:1  \" save indent for copy-to list
+'in \\n(:1u
+'fi
+.SA
+'nh
+'if \\n(Hy 'hy 14
+.di >3
+.ll 0u-2u*\\n(:3u+\\nWu\" really mean \\nW-(2*\\n(:3)
+.ce
+.ul
+ABSTRACT
+.SP 3
+.ns
+.rm AS
+.nr :I 1\"indent any following .P's
+..
+'''\"	AE: abstract end [0]
+'''\"	.AE
+.de AE
+.br
+.di
+'nf
+'nh
+.nr ;3 \\n(dn
+.nr ;6 \\n(;3 \"save unperturbed copy for .NE
+.ll \\nWu
+'in \\n(:1u
+.if \\n(:t=1 .nr :s \\n(;5 \" restore value of :s
+.rm AE
+..
+'''\"	MT: specify type of memo [0:2]
+'''\"	.MT [type] [1]   or  .MT [type] [addressee name]
+''\"	indicate type of memo; if no arg, get Memo for File
+'\"	dump subj, date, from info as well
+'\"	second arg (except MT=4) means use addressee name in header
+'\"	expects ;n and }2 to be set appropriately (by default or .AF)
+.de MT
+.nr :D 0 \"clear s/d/f flag
+.nr ;c 0
+.if !\\n(;y 'nf
+.if \\n(;y .>9 \" defense against missing .AU
+.rm TL TM OK AS AE AF AU\"free up needed space
+.ll \\nWu
+.rn TP >Y \" move TP so not there for )h
+.in \\n(:1u\" causes )h to be tripped
+.rn >Y TP
+.rn )K >Y\"disguise )K in case of long abstract
+.ie \\nE .nr :W \\nWu-\w'\f3September 33, 1999\fP'+3n\"indent for date for SG
+.el .nr :W \\nWu-\w'September 33, 1999'+3n\"indent for date for SG
+'\"	call >6 for memo style
+'\"	call >5 for released paper style
+'\"	both of these disappear after either is used!
+'\"	note that they use :2
+'\"	second arg (except MT=4) adds addressee name to page header
+'\"	must check width of $1 because .if !0\\$1=4 doesn't work for string
+.ie \w@\\$1@u<2n .if !0\\$1=4 .if \\n(.$=2 .ds An \\$2
+.el .if \\n(.$=2 .ds An \\$2
+.if !\\n(.$ .>6
+.if \\n(.$ .if \w@\\$1@u-\w'0'u .>6 "\\$1"
+.if \\n(.$ .nr ;y 0\\$1
+.if \\n(.$ .if !\\n(;y .>6 ""
+.if \\n(.$ .if \\n(;y-4 .>x 
+.if \\n(.$ .if \\n(;y-3 .>5 "\\$2"
+.if \\n(.$ .if \\n(;y-2 .>6 "ENGINEER'S NOTES"
+.if \\n(.$ .if \\n(;y-1 .>6 "PROGRAMMER'S NOTES"
+.if \\n(.$ .if \\n(;y .>6 "MEMORANDUM FOR FILE"
+.)R
+.ta .8i 1.6i 2.4i 3.2i 4i 4.8i 5.6i 6.4i 7.2i 8i 8.8i 9.6i
+.ns
+.if \\nC=4 .ls 2	\" double space for DRAFT
+.>Y\" kill macros/strings; zero registers
+.nr ;M 1 \"indicate to .NS that .MT has been called
+.rm >Y MT
+..
+'\"	>x: print external letter
+.de >x
+.rm >6 >5 )Y )X
+.ta \\n(:Wu-6n
+.br
+.rs
+.sp 1
+.ie \\n(Pv \{\
+.	ce
+.	ul
+PRIVATE
+.	sp \}
+.el .sp 2
+.ie \\nA=2 \{\
+\t\(bs
+.sp .5i
+.if \w@\\*(}2@ \t\s16\f3\\*(}2\fP\s0
+'br \}
+.el \{\
+.sp |4v
+.}z
+.br \}
+.rs
+.mk :2
+.sp |12v
+.in \\n(:Wu
+.ie \\nE \{\
+\f3\\*(DT\fP
+'br \}
+.el \{\
+\\*(DT
+'br \}
+.if \\n(:2u-\\n(nlu .sp |\\n(:2u
+.sp 2v
+.rm >x
+..
+'\"	>6: dump out memorandum style
+.de >6 
+.rm >5 >x )Y
+.di ]t  \" heading will be saved in ]t
+.if \\n(;n \{\
+.	nr ;W \\nWu
+.	nr W 6.5i
+.	ll \\nWu
+.	lt \\nWu \}
+.ta \\n(:Wu-6n
+.br 
+.rs 
+.sp 1
+.ie \\n(Pv \{\
+.	ce
+.	ul
+PRIVATE
+.	sp \}
+.el .sp 2
+.if \\nA=2 \{\
+\t\(bs
+.sp .5i \}
+.ie \w@\\*(}2@ \t\s16\f3\\*(}2\fP\s0
+.el .sp2
+.sp 3
+.if \\n(;n .sp\"pre-printed form
+.mk :2
+.if !\\n(;n \{\s8subject:\s0
+.	rt \\n(:2u
+.	in \w'\s8subject:\s0'u+1n \}
+.}z
+.br
+.rt \\n(:2u
+.in \\n(:Wu
+.if \\n(;n .in 0n-8n*\\nWu/35n+\\nWu-100u
+.if !\\n(;n \{.ps 8
+.	ti -6n
+date:
+.	ps
+.	rt \\n(:2u \}
+.ie \\nE \{\
+\f3\\*(DT\fP
+'br \}
+.el \{\
+\\*(DT
+'br \}
+.sp
+.if !\\n(;n \{.mk :2
+.	ps 8
+.	ti -6n
+from:
+.	ps
+.	rt \\n(:2u \}
+.if \\nE .ft 3
+.>z
+.if \\nE .ft
+.in \\n(:1u
+.in \\n(:1u
+.if \\n(;x \{.sp
+.	mk :2
+.	in \\n(:Wu
+.	if \\n(;n .in 0n-8n*\\nWu/35n+\\nWu-100u
+.	if \\nE .ft 3
+TM 
+.	rt \\n(:2u
+'	in +\w'TM 'u
+'	if \\nE 'ft
+.	>8
+.	in \\n(:1u \}
+.br
+.if \\n(:9u-\\n(;zu-2v-\\n(;xv .sp \\n(:9u-\\n(;zu-2v-\\n(;xv
+.sp 3
+.di
+.rs \" make sure spaces get out at top of first page
+'''\"	".AS 2" makes memo-style cover sheet with abstract
+.ie \\n(;3 \{\
+.	ie \\n(:t=2 \{\
+.		af !S \\gP \" save format of P register
+.		af P i
+.		]t  \"put out heading
+.		in +\\n(:3u
+.		>3  \"put out abstract 
+.		sp 3
+.		)N  \"put out copy to
+.		in -\\n(:3u
+.		wh 0  \"disable page-top trap
+.		bp
+.		nr P 1  \"necessary for tbl of cntnts
+.		af P \\g(!S \" restore format of P register
+.		]t  \"put out heading
+.		wh 0 )h  \"re-enable page top trap
+.		rm CS \}  \"can't have both kinds of cover sheet
+.	el .]t  \" just put out heading (no abstract)
+'	br \}
+.el .]t  \"no abstract just put out heading
+.if \\n(;n \{\
+.	nr W \\n(;Wu
+.	ll \\nWu
+.	lt \\nWu \}
+.ns
+.ne 10
+.ce
+.cu
+.ie !\\n(.$ MEMORANDUM FOR FILE
+.el .if \w@\\$1@ \\$1
+.SP 3 \" no effect if $1 is null (due to .ns above)
+.ce 0
+.cu 0
+.if !\\n(:t=2 .)X\"build memo style cover sheet
+.rm )X >6
+..
+'\"	>5: dump released paper style
+.de >5
+.rm >6 >x )X
+.br
+.rs
+.sp 1
+.ie \\n(Pv \{\
+.	ce
+.	ul
+PRIVATE
+.	sp \}
+.el .sp 2
+.in 0
+.ds }H "Crawford Hill Laboratory
+.ds }A "South Plainfield, New Jersey 07080\"
+.ds PY "Piscataway, New Jersey 08854\"
+.ds MH "Murray Hill, New Jersey 07974\"
+.ds WH "Whippany, New Jersey 07981\"
+.ds HO "Holmdel, New Jersey 07733\"
+.ds RR "Piscataway, New Jersey 08854\"
+'\".ds AL Allentown, PA 18103\"CONFLICT w/ AL macro!!
+.ds AK Norcross, GA 30071
+.ds CP Piscataway, NJ 08854
+.ds CH Chester, NJ 07930
+.ds CB Columbus, OH 43213
+.ds DR Denver, CO 80234
+.ds IN Indianapolis, IN 46206
+.ds IH Naperville, IL 60566
+.ds MV North Andover, MA 01845
+.ds RD Reading, PA 19604
+.ds WB West Long Branch, New Jersey 07764
+.ds WV Warren, NJ 07060
+'''.ll \\nWu-20n
+.ll \\nWu
+.fi
+.na
+.nh
+.di >6
+.>T
+.br
+.di
+.ll \\nWu
+.nf
+.ce 1000
+.ul 1000
+.>6
+.nr :2 0
+.if \w@\\$1@ .nr :2 1
+.ul 0
+.>4
+.br\"required!!
+.if !\\n(:2 .sp
+.if !\\n(:2 \\*(}2
+.if !\\n(:2 .if \\n(:H \\*(}H
+.if !\\n(:2 \\*(}z
+.ce 0
+.sp 
+.ns
+.)Y\"build RP style cover sheet
+.rm )Y >6 PY MH WH HO RR }H WB
+'\".rm AL
+.rm AK CP CH CB DR IN IH MV RD WV SG )N )M
+.de NS
+.br
+.di
+.di >Y
+\\..
+.de NE
+.br
+.di
+\\..
+.rm >5
+..
+'\"	)K: kill S/D/F stuff
+'\"	throw away unneeded macros/strings
+'\"	zero unneeded registers
+.de )K
+.if \\n(:D .ie !\\n(:t=2 .)D "check TL, AU, AS, AE, MT sequence"
+.	el .)D "check TL, AU, AS, AE, NS, NE, MT sequence"
+.rm )X )Y >T >x >z >1 >2 >3 >4 >5 >6 >7 >8 >9 }2 }z
+.rr ;x  ;y  ;z  :D  :1  :2  :3  :9  ;0  ;1  ;n  ;3 
+.rm TL AU TM AF AS AE OK
+.rm )K
+..
+'\"	)X: build part of memo style cover sheet
+'\"	some things currently known; other things must
+'\"	be computed when >S called (in CS)
+.de )X
+.di >S
+\!.nr O 0\"get back default .po
+\!.po 0
+\!.nr W 6.5i\"get back default .ll
+\!.ll 6.5i
+\!.lt 6.5i
+\!.ll +.45i
+\!.lt +.45i
+\!.sp 2
+\!.tl 'Bell Laboratories''Cover Sheet for Technical Memorandum'
+\!\l@\\\\n(.lu@
+\!.br
+\!.fi
+\!The information contained herein is for the use of
+\!employees of Bell Laboratories
+\!and is not for publication
+\!(see GEI 13.9-3)\\\\p
+\!.nf
+\!.sp -.5v
+\!\l@\\\\n(.lu@
+\!.ll
+\!.lt
+\!.nf
+\!.sp 2
+\!.mk ;2
+\s9Title:\s0
+\!.rt -1
+\!.in \w'\s9Title:\s0'u+1n
+.>T
+.rm >T
+\!.in0
+\!.sp
+\s9Other\ Keywords:\s0
+\!.rt -1
+\!.in \w'\s9Other Keywords:\s0'u+1n
+.if \\nE .ft 3
+.>7
+.rm >7
+.if \\nE .ft
+\!.br
+\!.mk ;0
+\!.rt \\\\n(;2u
+\!.in \\\\nWu-1.4i
+\!.ti -6n
+\s9Date:\s0
+\!.rt -1
+.ie \\nE \{\
+\f3\\*(DT\fP
+'br \}
+.el \{\
+\\*(DT
+'br \}
+\!.sp
+\!.in \\\\nWu-1.4i
+\!.ti -6n
+\s9TM:\s0
+\!.rt -1
+.>8
+\!.in 0
+\!.br
+\!.if \\\\n(;0u-\\\\n(nlu .sp \\\\n(;0u-\\\\n(nlu
+\!.sp 2
+\!.ta 2i 3.2i
+\!.mk ;0
+\!.ul
+Author(s)\\tLocation\\tExtension
+.>A
+.rm >A
+\!.mk ;1
+\!.rt \\\\n(;0u
+.br
+.di
+''\"	go through TERRIBLE convolutions to get the case numbers
+''\"	in >1 and >2 into vertically stacked lists w/o commas
+''\"	biggest problem was that in contructing a macro call line
+''\"	within a diversion, a blank didn't stay as a blank
+.nf
+.de >7
+.di >A
+.tr ,+
+.tr |.
+.ie \\nE \{\
+|ds\ >8\ \f3\\\\$1+\\\\$2+\\\\$3+\\\\$4+\\\\$5+\\\\$6+\\\\$7+\\\\$8+\\\\$9\fP
+'br \}
+.el \{\
+|ds\ >8\ \\\\$1+\\\\$2+\\\\$3+\\\\$4+\\\\$5+\\\\$6+\\\\$7+\\\\$8+\\\\$9
+'br \}
+.br
+\!.br
+.tr ,,++||
+.di
+\\..
+.>7 \\*(>1
+.>A
+.rn >8 >1
+.>7 \\*(>2
+.>A
+.rn >8 >2
+.di >7
+.tr |.
+.tr +
+|>A\ \\*(>1
+|rn\ >T\ >1
+|>A\ \\*(>2
+|rn\ >T\ >2
+.br
+.tr ||++
+.di
+.de >A
+.de >T
+.if \\\\n(.$ \\\\$1
+.if \\\\n(.$-1 \\\\$2
+.if \\\\n(.$-2 \\\\$3
+.if \\\\n(.$-3 \\\\$4
+.if \\\\n(.$-4 \\\\$5
+.if \\\\n(.$-5 \\\\$6
+.if \\\\n(.$-6 \\\\$7
+.if \\\\n(.$-7 \\\\$8
+.if \\\\n(.$-8 \\\\$9
+\\\\..
+\\..
+.>7
+.rm >A >7 >T
+.da >S
+\!.ll +.45i
+\!.in \\\\nWu-5n
+\!.ti \\\\nWu-1.4i-6n
+\!.mk ;0
+\s9Charging\\\\ Case:\s0
+.br
+\!.br
+\!.rt -1
+\!.if \\nE .ft 3
+.>1
+\!.if \\nE .ft
+.rm>1
+.br
+\!.br
+\!.if \\\\n(nl=\\\\n(;0 .sp1v\"since >1 must have been empty
+\!.ti \\\\nWu-1.4i-6n
+\s9Filing\\\\ Case:\s0
+.br
+\!.br
+\!.rt -1
+\!.if \\nE .ft 3
+.>2
+\!.if \\nE .ft
+.rm>2
+.br
+\!.ll
+\!.br
+\!.if \\\\n(;1u-\\\\n(nlu .sp \\\\n(;1u-\\\\n(nlu
+\!.sp 3
+\!.in 0
+\!.ll \\\\nWu
+\!.in +\\n(:3u
+\!.po +(6.95i-\\\\n(!Wu)/2u
+.>3
+\!.in -\\n(:3u
+\!.po
+\!.nr ;0 0\" TM style cover sheet
+.br
+.di
+.di >b
+.nf
+.na
+.>c
+.br
+.di
+.if \\n(dn \{\
+.nr ;c \\n(.pu-\\n(:mu-\\n(dnu
+.da >S
+\!.ie \\n(;cu-\\\\n(nlu .sp \\n(;cu-\\\\n(nlu-2v
+\!.el .sp 1v
+.nr ;c 0
+\l'60p'
+.>c
+.di
+'br \}
+..
+'\"	)Y: build part of cover sheet for released paper
+'\"	some things currently known; other things must
+'\"	be computed when >S called (in CS)
+.de )Y
+.di >S
+\!.sp 5
+\!.in 0
+\!.ce 1000
+\!.ul 1000
+.>6
+\!.ul 0
+\!.sp .5v
+.>4
+\!.br\"required!!
+\!.if \\n(:2=0 .sp.5v
+\!.if \\n(:2=0 \\*(}2
+\!.if \\n(:2=0 .if \\n(:H \\*(}H
+\!.if \\n(:2=0 \\*(}z
+\!.ce 0
+\!.sp 
+\!.in 0
+\!.in +\\n(:3u
+.>3
+\!.in -\\n(:3u
+\!.nr ;0 1\"release paper cover sheet
+.di
+'\"	Now calculate height of footnotes and attach to cover sheet.
+.di >b
+.nf
+.na
+.>c
+.br
+.di
+.if \\n(dn \{\
+.nr ;c \\n(.pu-\\n(:mu-\\n(dnu
+.da >S
+\!.ie \\n(;c-\\\\n(nlu .sp \\n(;cu-\\\\n(nlu-2v
+\!.el .sp 1v
+.nr ;c 0
+\l'60p'
+.>c
+.di
+'br \}
+..
+'''\"	CS: generate cover sheet [0:6]
+'''\"	.CS [pages] [other] [total] [figs] [tbls] [refs]
+.de CS
+.LC 0\"clean out lists
+.if \\n(:F .FE\"close dangling footnote
+.if \\n(:y .DE \" end dangling DS
+.if \\n(!N .NE \" end up dangling notation
+.)N	\" flush stored NS/NE
+.)w \" flush floating keeps
+.if \\n(;R .RP 0 1 \" produce references page
+'\"	kill off any page titles
+.if !\\nP-1 .if \\nN .if !\\nN-1 .rn }t }b\"only if N = 1
+.if !\\nP-1 .if \\nN .if !\\nN-1 .nr N 0 
+.rm }t }e }o
+.wh 0 \" toss off header trap
+.br
+.rs
+.bp
+.rm }b }f }p
+.rn )f >z \" save footer def'n
+.rn >B >s	\" save bottom block expander while moving it out
+.ch )n 15.1i \" move away footnote diverter
+.ch )b 15.2i \" move away bottom
+.de )f \" temp footer
+.)D "CS:cover sheet too long"
+\\..
+.ch )f -\\n(:Mu	\" put footer to default-may have been moved by BS/BE
+.)R
+.ll \\nWu
+.in 0
+.br
+.nr !O \\nO	\" save offset to restore for later .TC
+.nr !W \\nW	\" save width to restore for later .TC
+.rs
+'\"	do previous part of cover sheet
+.nf
+.>S
+.rm )f \" kill temp footer
+.ch )f 15.0i \" move away footer trap
+.sp \\n(.pu-\\n(nlu-7.5v
+'\"	TM or Released Paper?
+.ie \\n(;0 .sp 7.5
+.el \{ .nr ;1 \\n(.lu+.45i
+\l@\\n(;1u\(ul@
+.	ta 1.7i 3.3i
+.	ie \\n(.$ \{ .ds ]1 \\$1
+.		ie \w'\\$1' .nr !T +0\\$1
+.		el .nr !T \\nP \}
+.	el .nr !T \\nP
+.	if \\n(.$-1 \{ .ds ]2 \\$2
+.		nr !T +0\\$2 \}
+.	if \\n(.$-2 .ds ]3 \\$3
+.	if \\n(.$-3 .ds ]4 \\$4
+.	if \\n(.$-4 .ds ]5 \\$5
+.	if \\n(.$-5 .ds ]6 \\$6
+.	if !\w'\\*(]1' .ds ]1 \\nP
+.	if !\w'\\*(]2' .ds ]2 0
+.	if !\w'\\*(]3' .ds ]3 \\n(!T
+.	if !\w'\\*(]4' .ds ]4 \\n(Fg
+.	if !\w'\\*(]5' .ds ]5 \\n(Tb
+.	if !\w'\\*(]6' .ds ]6 \\n(Rf
+.	sp .5v
+\s9Pages Text:\ \s0\\*(]1\t\s9Other:\ \s0\\*(]2\t\s9Total:\ \s0\\*(]3
+.	sp 1v
+\s9No. Figures:\ \s0\\*(]4\t\s9No. Tables:\ \s0\\*(]5\t\s9No. Refs.:\ \s0\\*(]6
+.	sp .5v
+\l@\\n(;1u\(ul@
+'	br \}
+.lt +1n
+.if !\\n(;0 .tl 'E-1932-U(3-76)'SEE REVERSE SIDE FOR DISTRIBUTION LIST''
+.lt -1n
+.nr O \\n(!O	\" restore offset
+.nr W \\n(!W	\" restore width
+.po \\nOu
+.ll \\nWu
+.lt \\nWu
+'\"	put back traps
+.wh 0 )h
+.ch )n -\\n(:mu
+.rn >z )f \" regular footer def'n
+.rn >s >B	\" put back bottom block expander
+.ch )f -\\n(:mu
+.ch )b -\\n(:ru
+.)R \" reset normal world
+.ta .8i 1.6i 2.4i 3.2i 4i 4.8i 5.6i 6.4i 7.2i 8i 8.8i 9.6i
+'\"	clean up
+.rr ;0 ;1  ;2 
+.rm >S
+..
+'''\"	FC: generate formal closing [0:1]
+'''\"	.FC [arg]
+''\"	.FC   (no arg) uses "Yours very truly," as closing
+''\"	.FC x    uses x as formal closing
+.de FC
+.)w	\" force out any floating keeps
+.in 0
+.nf
+.ls 1
+.in (\\n(.lu/2u)	\" start closing at center of page
+.rs
+.ne \\n(:Vu+3v+.5p	\" need .SG room + 2 lines
+.sp
+.ie \\n(.$ \\$1
+.el Yours very truly,
+.in
+.fi
+..
+'''\"	SG: generate signature line(s) [0:2]
+'''\"	.SG [arg] [1]
+''\"	.SG	(no arg) causes signature, but no reference data
+''\"	.SG ""	causes signature, followed by reference data
+''\"	.SG x	causes x to be added to reference data as typist's initials
+''\"	if 2nd arg, then ref data aligned with first joint author
+.de SG
+'\"	error checks
+.if !\\n(:V .)D "SG:no authors"
+.if \\n(:F .)D "SG:missing FE"
+.if \\n(:y .)D "SG:missing DE"
+.LC 0 \" clean out any lists
+.)w		\" force out any floating keeps
+.)R \" reset things
+.in 0
+.nf
+.ls 1
+.in (\\n(.lu/2u)
+.ne \\n(:Vu+1v+.5p
+.rs
+.mk
+.>v
+.in
+.if \w@\\$1@ .as }v -\\$1
+.if \\n(.$-1 .rt \" go to top of sig. if 2nd arg
+.if \\n(.$-1 .sp 3
+.if\\n(.$ .if !\\n(.$-1 .rt -1
+.if\\n(.$ \\*(}v
+.rm >v
+.fi
+..
+'''\"	NS: notation after .SG [0:1]
+'''\"	.NS [arg]
+'	null,0 - 9 => various notations
+'	string => copy (string) to
+.de NS
+.if \\n(!N .di \"close diversion if multiple NS
+.if \\n(;M .br \"break only if following .MT
+.)R \" just in case
+.nr :D 1  \" indicate nofill, open diversion
+.ds }4 "Copy to\" default notation
+.nr ;0 0\\$1
+.if \w@\\$1@u-\w'\0\0'u .nr ;0 10\"arg value not over two digits
+.if \\n(;0 .ds }4 "Copy (with att.) to\"
+.if \\n(;0-1 .ds }4 "Copy (without att.) to\"
+.if \\n(;0-2 .ds }4 "Att.\"
+.if \\n(;0-3 .ds }4 "Atts.\"
+.if \\n(;0-4 .ds }4 "Enc.\"
+.if \\n(;0-5 .ds }4 "Encs.\"
+.if \\n(;0-6 .ds }4 "U.S.C.\"
+.if \\n(;0-7 .ds }4 "Letter to\"
+.if \\n(;0-8 .ds }4 "Memorandum to\"
+.if \\n(;0-9 .ds }4 "Copy (\\$1) to\"
+'in \\n(;N  \" indent the same amount as the abstract
+.if !\\n(!N .ds }5 \\*(}4  \"save initial copy-to string
+.if \\n(!N  .da }C  \"if not initial copy-to, continue }C
+.if !\\n(!N  .di }C  \" if initial copy-to, open }C
+.if \\n(!N .sp
+\!.ds }4 \\*(}4\"req'd for >Z macro inside )M
+\\*(}4
+.nf
+.nr !N 1  \"indicate presence of at least 1 NS
+..
+''\"	)N: put out copy-to list(s)
+.de )N
+.br
+.rr !N	\"indicate completion of a copy-to list
+.di ]v		\" temp div to find size of copy to lst
+.}C
+.br
+.di
+.rm ]v
+.nr ;0 \\n(dn	\" size of list
+.if \\n(;0 .)M	\" output notations, if any
+..
+''\"	)M - dump a notation list
+.de )M
+.nf
+.sp
+.ne 2v		\" minimum size
+.if \\n(.tu<=2v \{\
+\&\\*(}5
+See next page
+'br \}
+.nr !U \\n(;0>=\\n(.tu	\" will list be continued?
+.if \\n(!U \{\
+.	ds ]w Continued next page\"	for footer
+.	ds ]x \\*(}4\ \-\ contd.\"	for header
+.	ch )f -(\\n(:ou+1v) \}	\" move footer up
+.}C			\" output copy to list
+.if \\n(!U \{\
+.	rm ]w ]x		\" remove strings
+.	ch )f -\\n(:ou \}	\" put back footer
+.rm }C
+..
+'''\"	NE: notation end
+'''\"	.NE
+.de NE
+.br
+.if \\n(!N .di
+.if \\n(;M .)N  \"if post-MT, put out list immediately
+.)R \" reset normal world
+..
+'''\"	AV: generate approval line
+'''\"	.AV "name"
+.de AV
+.ne 6v
+.in 0
+.nf
+.sp
+APPROVED:
+.sp 2
+'\"	Draw 3 inch line then .3 inch space then 1.5 inch line
+\l'3i'\h'.3i\l'1.5i'
+'\" Arg is approver's name under 3" line then Date under 1.5" line
+\\$1\h'|4i-(\w'Da'u)'Date
+.in
+.fi
+..
+'''\"	ND: set new date [0:1]
+'''\"	.ND date
+.de ND
+.if !\\n(.$ .)D "ND:missing arg"
+.ds DT "\\$1
+..
+'''\"	AF: Override Format of Bell Laboratories, Subject/Date/From
+'''\"	.AF ["company"]
+''\"	.AF "company" replaces BTL by company
+''\"	.AF "" suppresses BTL only (so stamp) can be used
+'\"	exists only to set ;n and }2 for .MT
+.de AF
+.if !\\n(.$ \{\
+.	nr ;n 1
+.	nr O 1i
+.	po \\nOu
+.	nr W 5.8i
+.	ev 0
+.	ll \\nWu
+.	lt \\nWu
+.	ev
+.	ev 1
+.	ll \\nWu
+.	lt \\nWu
+.	ev
+.	ev 2
+.	ll \\nWu
+.	lt \\nWu
+.	ev
+'	br \}
+.ds }2 "\\$1
+..
+'\"	Header, Footer, Bottom of page and Footnotes
+'\"	header/bottom of page use .ev 2
+'\"	footnotes done in .ev 1
+'\"	;x flag set in .em to help flush any remaining footnotes
+'\"	:o place that footer trap is moved at end of a footnote
+'\"	:q size of diverted partial footnote
+'\"	:m trap for partial footnote diverter and initial footer trap locn
+'\"	:r bottom of page trap
+'\"	:s counter of existing footnotes
+'\"	:u flag set by .H to increment H1 (and p)
+'\"	;y amount of space left on page when footer called TEMP
+'\"	;z amt of space before expanding footnote TEMP
+'\"	>x partial footnote text diverted here
+'\"	>w entire footnote text diverted here
+'\"	}y string used in line drawing func TEMP
+'\"	!C test if PX outputs text     TEMP
+'\"	.)h
+'\"	header macro
+.de )h
+'ev 0
+'nh
+'if \\n(Hy 'hy 14
+'ev
+'ev 2
+.)R
+.nr P +1
+.if \\n(:Z \{.nr P \\n%
+.	rr :Z \}
+'\"		following may occur when new page is because of .H 1
+.if \\n(:u*\\n(:S .nr P 1 \" new section, restart to 1
+.if \\n(:u \{.nr H1 +1 \" section needs increment
+.            nr :u 2 \}\" show )h incremented it, so .H knows
+'sp \\n(!X		\" extra spacing for top of page
+.TP\" user-redefinable macro
+.br\"force a break in header environment
+.)R
+'ev
+.nr :I 2\"force indent on following .P & set flag for )y
+.nr :J \\n(nl\"mark spot for )y
+'ns
+'if \\n(:q .)l \" reprocess any leftover partial footnotes
+'nr :q 0
+.mk ;r
+.mk ;m
+.nr !B 0			\" display width flag (set by )z)
+.if \\n(;d=0&\\n(:z>0 \{\
+'\"		\" then process floating keeps
+'	ie \\n(Df>3  \{  ')z	\"option 4: output at least one
+'		          )s \}	\"	    but as many as will fit
+'	el 'if \\n(Df>1 ')z \}	\"option 2: output one keep only
+.nr !C \\n(.h			\" save postition
+.PX \"user-definable page exit
+'ns\"in case PX is non-empty
+.if !((\\n(!C=\\n(.h)&(\\n(!B=0)) .mk ;m  \" set only if PX or wide display
+'\"	print top part of multi-page table--see )1 macro
+.nr ;T 0			\" mark no table header output yet
+.if \\n(;A>0 \{.nr ;h \\n(.i
+.	in0
+.	>t
+.	nr ;T 1			\" mark header (>t) output
+.	in \\n(;hu	\}
+.mk #T
+.nr :J \\n(nl\"mark spot for .P indent check
+.if !@\\*(]x@@ \\*(]x	\" output message for NS/NE continued
+..
+'\"	.)f
+'\"	footer macro
+.de )f
+.if !@\\*(]w@@ \\*(]w	\" output message for NS/NE continued
+.nr !D 0		\" clear header position (for .P)
+'\"	following cancels effect of .SP lying around
+.nr :N 0
+'nr dn 0
+'\"	print bottom part of boxed multi-page table
+.rn )f >u\"hide footer
+.if \\n(;A>0 \{.nr T. 1
+.	if \\n(;f=0 .T# 1
+'	br \}
+.nr ;f 1
+.rn >u )f\"restore footer
+'\"	compute amount of room left on the page
+'nr ;y \\n(.pu-\\n(nlu-\\n(:mu-1v
+'\"	if footnotes and there is room left, call footnote expander
+'if \\n(:s \{'ie \\n(;y-4v .)o
+'\"	if footnotes and no room left, save entire footnote text
+'            el .)m \}
+'nr :s 0
+'nr :o \\n(:mu
+'nr :O \\n(:mu
+.ie \\n(;C=0 \{\
+'\"		\" new page if not multi-column
+.	if \\n(;e \&\c\" if end of input - leave a partial
+'	bp  \}		\"and start a new page
+.el .ie \\n(;C=2 .)2	\"end second column
+.    el .)1 		\"end first
+.rr ;f
+.ie @\\*(]w@@ 'ch )f -\\n(:ou	\" reset footer trap location if not contd NS/NE
+.el 'ch )f -(\\n(:ou+1v)	\" up one line if contd NS/NE
+..
+'''\"	page headings
+'\"	}t string containing top title info
+'\"	}e string containing even top title info
+'\"	}o string containing odd top title info
+'\"	}b string containing bottom title info
+'''\"	PH: set page header [1]
+'''\"	.PH arg
+.de PH
+.ds }t "\\$1\"
+..
+'''\"	EH: set even page header [1]
+'''\"	.EH arg
+''\"	appears below .PH line
+.de EH
+.ds }e "\\$1\"
+..
+'''\"	OH: set odd page header [1]
+'''\"	.OH arg
+''\"	appears below .PH line
+.de OH
+.ds }o "\\$1\"
+..
+'''\"	PF: set page footer [1]
+'''\"	.PF arg
+.de PF
+.ds }b "\\$1\"
+..
+'''\"	EF: set even page footer [1]
+'''\"	.EF arg
+''\"	appears above .PF line
+.de EF
+.ds }f "\\$1\"
+..
+'''\"	OF: set odd page footer [1]
+'''\"	.OF arg
+''\"	appears above PF line
+.de OF
+.ds }p "\\$1\"
+..
+'''\"	TP: user redefinable top of page macro [0]
+'''\"	.TP
+''\"	page titles (for top of page)
+.de TP
+'sp
+.)K\" kill S/D/F macros when no .MT
+.af ;P \\gP	\" save format
+.af P 1		\" normal format for next line
+.nr ;P \\nP	\" must use different name for P (see .PH)
+.af P \\g(;P	\" restore format to P
+.af ;P 1	\" and make the value register normal format
+.ie \\n(Pv \{\
+.	ie (\\n(Pv=1)&(\\n(;P>1) 'sp 2
+.	el \{\
+.		ce
+.		ul
+PRIVATE
+.		sp \} \}
+.el 'sp 2
+.if !\\n(;P-1 .if \\nN 'sp
+.if !\\n(;P-1 .if \\n(:S .tl \\*(}t
+.if !\\n(;P-1 .if !\\nN .tl \\*(}t
+.if \\n(;P-1 .ie \w'\\*(An' .tl '\\*(An - \\nP'''
+.	el .tl \\*(}t
+'if !\\n(;P%2 'tl \\*(}e
+'if \\n(;P%2 'tl \\*(}o
+'sp 2
+..
+'''\"	PX: page heading exit
+'''\"	user-definable macro
+'\"	.de PX
+'\"	..
+'''\"	.de PM [N:P:BP:BR:]
+'\"	Disclosure notice macro.
+.de PM
+.if @\\$1@@ .nr !K 0
+.if \w@\\$1@ \{\
+.   ie @\\$1@P@ .nr !K 1
+.   el .ie @\\$1@BP@ .nr !K 3
+.	el .ie @\\$1@BR@ .nr !K 4
+.	   el .nr !K 2 \}
+.nr :U 5v	\" size of disclosure message
+.)G		\" reserve bottom space
+..
+'\"	.)b
+'\"	bottom of page titles
+.de )b
+'ev 2
+.ie \\n(!K=1 \{\
+.	tl @@\fBPRIVATE\fR@@
+.	tl @@This information should not be disclosed to unauthorized persons.@@
+.	tl @@It is meant solely for use by authorized Bell System employees.@@ \}
+.el .ie \\n(!K=3 \{\
+.	tl @@\fBBELL LABORATORIES PROPRIETARY\fR@@
+.	tl @@Not for use or disclosure outside Bell Laboratories except by@@
+.	tl @@written approval of the director of the distributing organization.@@ \}
+.el .ie \\n(!K=4 \{\
+.	tl @@\fBBELL LABORATORIES RESTRICTED\fR@@
+.	tl @@The information herein is meant solely for use by authorized@@
+.	tl @@Bell Laboratories employees and is not to be disclosed to others.@@ \}
+.el .if \\n(!K=2 \{\
+.	tl @@\fBNOTICE\fR@@
+.	tl @@Not for use or disclosure outside the@@
+.	tl @@Bell System except under written agreement.@@ \}
+.if \\n(!K .tl @@@@
+.)R
+.af ;P \\gP	\" save page number format
+.af P 1
+.nr ;P \\nP	\" must use different name for P (see .PH)
+.af P \\g(;P	\" return format
+.af ;P 1	\" make value usable
+.ie !\\n(;P%2 .tl \\*(}f
+.el .tl \\*(}p
+.ie \\n(;P=1 \{\
+.   ie \\nN=1 .tl \\*(}t
+.   el .tl \\*(}b \}
+.el .tl \\*(}b
+.if \\nC .tl \\*(]C
+.)R
+'ev
+..
+'\"	)2: end second column
+.de )2
+.po \\nOu \" reset page offset
+.nr ;C 1 \"set col indicator
+.if \\n(;e \&\c\"  always leave a partial line over page breaks when EOI
+'bp \" force next page
+..
+'\"	)1: end first column
+.de )1
+.rt \\n(;mu
+.po +\\n(;ou \"advance page offset
+.nr ;C 2 \"set col indicator
+.nr :I 2\"force indent on following .P & set flag for )y
+.nr :J \\n(nl\"mark spot for )y
+'ns
+'if \\n(:q .)l \" reprocess any leftover partial footnotes
+'nr :q 0
+'if \\n(;d=0&\\n(:z>0 \{\
+'\"				\" process floating keeps
+'	ie \\n(Df>3 \{  ')z	\" option 4 (as many as will fit)
+'			 )s \}	\"     (and at least one)
+'	el 'if \\n(Df>1 ')z \}	\" option 2: only one
+'\"	print top part of multi-page table--see )h macro
+.nr ;T 0			\" mark header not output on this page yet
+.if \\n(;A>0 \{.nr ;h \\n(.i
+.	in0
+.	>t
+.	nr ;T 1			\" mark table header (>t) is output
+.	in \\n(;hu	\}
+.mk #T
+.nr :J \\n(nl\"mark spot for .P indent check
+..
+'\"	;l new line length for each column
+'\"	;o page offset for 2nd column
+'\"	;C column indicator
+'\"	;m marked place (where 2nd col returns to)
+.de 2C \" begin 2 column stuff
+.if \\n(;C=0 \{\
+'\"			\" a .2C after a .2C is a no-op
+.br
+.)R
+.nr ;C 1
+.if !\\n(.$ .nr ;l \\n(.lu*8u/17u \" new line length
+.if !\\n(.$ .nr ;o \\n(.lu*9u/17u \" 2nd col page offset
+.if \\n(.$ .nr ;l \\$1u*1.3n
+.if \\n(.$ .nr ;o \\nWu-\\n(;lu
+.ev 1
+.ll \\n(;lu
+.lt \\n(;lu
+.ev
+.ll \\n(;lu
+.lt \\n(;lu
+.nr :L \\nW\"save line length
+.nr W \\n(.lu
+.SP
+.ns
+.mk ;m \}
+..
+.de 1C
+.if \\n(;C \{\
+'\"			\" 1C no-ops if not in 2C mode
+.br
+.if \\n(;C>1 .sp |\\n(.hu	\" move below high water mark on this page
+.po \\nOu			\" reset page offset
+.)R
+.nr W \\n(:Lu
+.rr ;L ;C
+.ev1
+.ll \\nWu
+.lt \\nWu
+.ev
+.ll \\nWu
+.lt \\nWu
+.SP
+.ns \}
+..
+'''\"	WC:  Width and Output Control for displays/footnotes in 1C/2C
+'''\"	.WC [arg1] [arg2] ... [arg9]
+'''\"	where each of argi is either N, [-]WD, [-]WF, [-]FF, [-]FB.
+''\"	N - set defaults (;a=;b=;j=0, ;p=1)
+''\"	WD - set wide display mode (;a=1) - all displays wide
+''\"	WF - set wide footnote mode (;b=1) - all footnotes wide
+''\"	FF - set footnotes follow mode (;j=1) - footnotes follow prev on page
+''\"	FB - set floaters break mode (;p=1) - fl keeps cause break on current page
+''\"	an optional '-' preceeding any of the latter 3 arguments willc clear
+''\"	the specified flag.
+''\"	this macro sets the internal flags from the command mnemonics
+.de WC
+.if \\n(.$ \{\
+.	ie @\\$1@N@ \{ .nr ;a 0
+.			nr ;b 0
+.			nr ;j 0
+.			nr ;p 1 \}	\" set defaults
+.	el .ie @\\$1@WD@ .nr ;a 1	\" set wide display mode
+.	el .ie @\\$1@WF@ .nr ;b 1	\" set wide footnotes mode
+.	el .ie @\\$1@FF@ .nr ;j 1	\" set footnotes follow mode
+.	el .ie @\\$1@FB@ .nr ;p 1	\" set floaters cause break
+.	el .ie @\\$1@-WD@ .nr ;a 0	\" clear wide display mode
+.	el .ie @\\$1@-WF@ .nr ;b 0	\" clear wide footnote mode
+.	el .ie @\\$1@-FF@ .nr ;j 0	\" clear footnotes follow mode
+.	el .ie @\\$1@-FB@ .nr ;p 0	\" clear floaters cause break flag
+.	el ')D "WC: unknown option"
+.	if \\n(.$>1 .WC \\$2 \\$3 \\$4 \\$5 \\$6 \\$7 \\$8 \\$9
+'	br  \}
+..
+.de >W
+''\"	go to temporary wide mode for footnote or display
+.if \\n(;C \{\
+.	ev 1		\" change only footnote/keep environment
+.	ll \\n(:Lu
+.	lt \\n(:Lu	\" set long length
+.	ev
+.	nr W \\n(:Lu	\" set width register
+.	nr ;W 1 \}	\" mark temporary wide mode
+..
+.de >N
+''\"	go to temporary narrow mode for footnote or display
+.if (\\n(;l>0)&(\\n(;C=0) \{\
+.	ev 1		\" change only footnote/keep environment
+.	ll \\n(;lu	\" set short length (calculated by 2C)
+.	lt \\n(;lu
+.	ev
+.	nr W \\n(;lu
+.	nr ;W 2 \}	\" mark temporary narrow mode
+..
+.de >R
+''\"	return from temporary wide or narrow mode
+.ie \\n(;W=1 .nr W \\n(;lu	\" change back to narrow
+.el .if \\n(;W=2 .nr W \\n(;Lu	\" back to wide
+.if \\n(;W \{\
+.	ev 1
+.	ll \\nWu		\" reset line lengths
+.	lt \\nWu
+.	ev
+.	nr ;W 0 \}		\" clear temp mode flag
+..
+.de )Q
+'\"	called in second column to not overprint a long footnote
+'\"	(called as a substitute to )f)
+.ch )Q 200v	\" move away
+.rs
+'sp 70		\" space over already printed footnotes
+..
+'''\"	BS: bottom start [0]
+'''\"	.BS
+''\"	define a block of text to appear on
+''\"	the bottom of a page between the footnotes and
+''\"	the page footer
+.de BS
+.ev1
+.)R
+.di >K
+..
+'''\"	BE: bottom end [0]
+'''\"	.BE
+''\"	end bottom block
+.de BE
+.br
+.di
+.)R
+.ev
+.nr :U \\n(dnu\"how big is new tail block
+.)W		\" set bottom to size of :U
+.rn >K >D
+.nr :T \\n(:Uu\"save size of current tail block
+..
+.de )W		\" set bottom traps to a new bottom position
+.if (\\n(:Uu+\\n(:Mu)>(\\n(.pu-\\n(nlu-.5v) .SK\"new page if bigger than where we are now
+.ch )n -(\\n(:Mu+\\n(:Uu)\"move footnote diverter trap
+.nr :o +(\\n(:Uu-\\n(:Tu)
+.nr :O +(\\n(:Uu-\\n(:Tu)
+.ch )f -\\n(:ou\"move footer trap
+.nr :m \\n(:Mu+\\n(:Uu\"new place for footer to reside
+.ch >B -(\\n(:Mu+\\n(:Uu+\\n(!Y-1v) \"plant trap for tail mode expander
+..
+'\"	>B: bottom expander
+'\"	layout block of text collected by BS/BE
+.de >B
+.ev2
+.)R
+.nf
+.>D
+.)R
+.ev
+..
+'''\"	VM - Vertical Margin control
+'\"	.VM t b  where t and b are the number of extra lines for top and bottom
+.de VM
+.ie 0\\$1>=0 .nr !X 0\\$1	\" legal value
+.el .nr !X 0			\" illegal value
+.ie 0\\$2>=0 .nr ;n 0\\$2	\" legal
+.el .nr ;n 0
+.if !@\\$2@@ \{\
+.	nr :U \\n(;nv	\" new bottom size (extra)
+.	ie !\\n(!K .nr :M \\n(!V	\" real bottom of page
+.	el      .nr :M \\n(!V+5v	\" for disclosure
+.	)G \}		\" reserve new bottom
+..
+''\"	)G - reserve new bottom margin - size is in :U
+.de )G
+.nr !Y \\n(:T	\" save :T
+.nr :T 0
+.)W		\" move traps, etc.
+.nr :M \\n(:m	\" new 'real' bottom for BS/BE
+.ch )b -(\\n(:mu-2v)	\" move footer headings too
+.nr :T \\n(!Y	\" restore :T
+.rr !Y
+..
+'''\"	FS: footnote text start [0:1]
+'''\"	.FS [flag]
+''\"	optional flag used as footnote label;
+''\"	if no argument, lay out a number derived from the
+''\"	\*F that appears in the text which auto increment 
+''\"	a number register
+'\"	set hyphenation and adjust according to :i and :j
+'\"	set }y to the "label" -- either the argument
+'\"		or the footnote numberer
+'\"	if no indent, layout the label
+'\"	if indent, determine the width of the standard indent (;z)
+'\"		and the width of the label
+'\"		indent by the standard amount
+'\"		if the label is to be left justified, undent the
+'\"			std amount; layout either the label
+'\"			and enough space to make up the std
+'\"			amt or the label (if it is bigger than the 
+'\"			amt); layout the label
+'\"		if the label is to be right justified,
+'\"			undent by the minimum of the std amt
+'\"			and the width of the label
+'\"			layout the label
+'\"	!A  -  used to inhibit the output of footnotes in the second
+'\"		column.
+.de FS
+'nr :s +1 \" incr counter of existing footnotes
+.if \\n(:F .)D "FS:missing FE"\"error if existing footnote
+.if \\n(:F .FE\"end prior footnote
+.if \\n(:y .)D "FS:missing DE"\"error if existing keep
+.if \\n(:y .DE\"end prior keep
+.nr :F 1\"indicate FS begun
+.if !\\n(!F \{\
+.	ie \\n(;C .nr !F 2	\" narrow
+.	el .nr !F 1 \}		\" go wide
+.ie (\\n(;C>0)&((\\n(;b=1):((\\n(;j=1)&(\\n(!F=1))) \{\
+.	nr !F 1
+.	>W \}		\" go wide
+.el .if ((\\n(;C=0)&(\\n(;j=1)&(\\n(!F=2)) .>N	\" go narrow
+'ev 1
+'di >b
+.nr :D 1
+.)R
+'nh
+'if \\n(:i 'hy 14
+'ad
+'if \\n(:j 'na
+'sp \\n(Fs
+'if \\n(.$ 'ds }y \\$1\ \"
+'if !\\n(.$ 'ds }y \\*(]y.\ \"
+'if \\n(:k \\*(}y\&\c
+'if !\\n(:k 'nr ;v \w@\0\0.\ @
+'if !\\n(:k 'nr ;u \w@\\*(}y@
+'if !\\n(:k 'in +\\n(;vu
+'if !\\n(:k 'if !\\n(:l 'ti -\\n(;vu
+'if !\\n(:k 'if !\\n(:l 'if !\\n(;u-\\n(;v \\*(}y\h@\\n(;vu-\\n(;uu@\&\c\"}y now free
+'if !\\n(:k 'if !\\n(:l 'if \\n(;u-\\n(;v \\*(}y\&\c
+'if !\\n(:k 'if \\n(:l 'if \\n(;v-\\n(;u 'ti -\\n(;uu
+'if !\\n(:k 'if \\n(:l 'if !\\n(;v-\\n(;u 'ti -\\n(;vu
+'if !\\n(:k 'if \\n(:l \\*(}y\&\c
+..
+'\"	.FE - Footnote end
+.de FE
+.if !\\n(:F .)D "FE:no FS active"
+.br
+'di
+.nr :D 0
+.if \\n(;c .nr :D \\n(;c
+'in
+'nf
+'na
+'\"	Does this footnote go on the cover sheet?
+.if !\\n% \{\
+'	da >c
+.	>b
+\!.	br
+'	di
+'	br \}
+'\"	Does this footnote go on  the bottom of the page?
+.if !((\\n%=0)*(\\n(:D=2)*(\\n(:t=1)) \{\
+'	da >y
+.	>b
+\!.	br
+'	di
+'	br \}
+.rm>b
+.)R
+'ev
+.nr :F 0\"indicate footnote ended
+.>R		\" if in temporary width mode - revert back to normal
+'\"	If footnote on bottom of page, set spacing and traps.
+'if !((\\n%=0)*(\\n(:D=2)*(\\n(:t=1)) \{\
+'\"	add a space if this is the first footnote
+.if !((\\n(!A=1):((\\n(;C=2)&(\\n(!F=1))) \{\
+'\"			\" no footnotes now if they are wide in 2nd col,
+'\"			\" or there are already wide ones on this page.
+'	if !\\n(:s-1 'nr dn +4v	\" leave space for 2 blank lines and rule
+'	nr :o +\\n(dnu
+'	nr :O +\\n(dnu
+.	nr dn 0
+'\"	Move up footer trap, but not above current position on page,
+'	if !\\n(.pu-\\n(nlu-.5v-\\n(:ou 'nr :o \\n(.pu-\\n(nlu-.5v
+'\"	or below :m!
+'	if !\\n(:ou-\\n(:mu 'nr :o \\n(:mu
+'	ch )f -\\n(:ou \" move footer trap
+'	br \}\}
+..
+'\"	.)o
+'\"	footnote expander, called via footer
+.de )o
+'\"	if first column and wide footnotes - prepare for the second column
+.ie (\\n(!F=1)&(\\n(;C=1) \{\
+.	nr !A 1 \}	\" mark wide footnotes output
+.el .nr !A 0		\" else wont overprint footnotes
+'ev 1
+.)R
+'nf
+'\"	leave 2 blank lines after text
+'sp 2
+.ti 0
+'\"	layout partial rule if new footnote
+'\"	layout full line length rule if continued footnote
+.if !\\n(:n \l'72p'
+.if \\n(:n \l@\\n(.lu@
+'nr :n 0
+.br
+.if \\n(!A .wh (\\n(nlu-2v) )Q	\" set trap for later if footnotes in danger
+'nr ;Z 1	\" signal )n to expect text
+'nr dn 0
+'\"	dump accumulated footnote text
+'\"	long text may spring )n trap so the remaining partial
+'\"	text may go into >x
+.>y
+.br
+'di
+.if \\n(dn=1v .nr dn 0	\" ignore if only the blank line
+'nr ;Z 0	\" clear footnotes being output flag
+.if !\\n(;C=1 \{\
+.	rr !A		\" if page over - clr long footnote flag
+.	if \\n(dn=0 .rr !F \}	\" clr footnote width if no partial
+'rm >y
+'nr :q \\n(dnu
+'nr dn 0
+'nr :s 0 \" zero counter of existing footnotes
+.)R
+'ev
+..
+'\"	.)n
+'\"	partial footnote text diverter
+'\"	called via trap planted at -\n(:m
+'\"	since the default footer trap is also at -n(:m,
+'\"	this macro actually invoked when the footer trap
+'\"	has been moved up due to footnote processing
+.de )n
+'if \\n(;Z   \{\
+'	di >x	  \" only if footnotes (set by )o)
+'	sp \\n(Fs  \}
+..
+'\"	.)m
+'\"	called from footer when the size of the footnote text
+'\"	is greater than room left on the page
+'\"	saves all the accumulated footnote text into >w
+.de )m
+'ev 1
+.)R
+.nf
+'di >w
+.>y
+.br
+'di
+'rm >y
+'nr :q \\n(dn
+'nr dn 0
+'nr :s 0
+'if \\n(:q 'nr :n 1
+.if !\\n(;C=1 .rr !A	\" if page over - clr long footnotes flag
+.)R
+'ev
+..
+'\"	.)l
+'\"	reprocess any leftover partial footnotes and any
+'\"	entire footnotes
+'\"	called from .)h
+.de )l
+'nr :s 1
+.nr :n 1
+'di
+'ev 1
+'di >b
+.)R
+'nh
+'nf
+.>x
+.>w
+.nr :F 1\"pretend to be .FS
+.FE
+'rm >x
+'rm >w
+..
+'''\"	FD: set footnote default formatting [0:2]
+'''\"	.FD [arg] [1] 		0 <= arg <= 11
+''\"	arg=1 ==> hyphenate footnotes
+''\"	arg=2 ==> don't adjust footnotes
+''\"	arg=4 ==> footnotes flush left, no indent
+''\"	arg=8 ==> footnotes indented, stub flush right
+'\"			(or any combination <_ 11 decimal).
+'\"		 arg=0, arg >11, or arg null ==> reset all defaults 
+'\"	defaults: no hyphenate, adjust, indent, no stub right
+'\"	nroff defaults via .FD 10 (or plain .FD)
+'\"	if 2nd arg, arrange that .H 1's reset fn ctr (set :C)
+.de FD
+'\"	set defaults
+'nr :i 0 \" hyphenate flag
+'nr :j 0 \" no adjust flag
+'nr :k 0 \" no-indent flag (on means no indent)
+'nr :l 0 \" stub right flag
+'nr ;z 0\"
+'\"	no args or null 1st arg => set nroff default of .FD 10
+'if !\\n(.$ 'nr ;z 10 \" nroff version only
+'if \\n(.$ 'if !\w@\\$1@ 'nr ;z 10 \" nroff version only
+'if \\n(.$ 'nr ;z \\$1\"
+'if \\n(;z-11 'nr ;z 0\"
+'if \\n(;z-7 'nr :l 1\"
+'if \\n(;z-7 'nr ;z -8\"
+'if \\n(;z-3 'nr :k 1\"
+'if \\n(;z-3 'nr ;z -4\"
+'if \\n(;z-1 'nr :j 1\"
+'if \\n(;z-1 'nr ;z -2\"
+'if \\n(;z 'nr :i 1\"
+'if \\n(.$-1 .nr :C 1\"set flag for .H 1
+..
+'\"	Display mechanism
+'\"	?a text of stored floating keep (where a is a-z)
+'\"	?a size of stored floating keep (where a is a-z)
+'\"	!a width of stored floating keeps (where a is a-z)
+'\"	>0 store for initally diverted text
+'\"	:0 size of initially diverted text
+'\"	:z counter of floating keeps 
+'\"	:y flag indicating Display in progress
+'\"	:x index of floating keep most recently expanded
+'\"	:w index of floating keep most recently diverted
+'\"	:v copy of value of :z (used in .)x)
+'\"	:t register to pass fixed/float info to DE
+'\"	;z size of next to-be-expanded floating keep TEMP
+'''\"	DS: start fixed display [0:2]
+'''\"	.DS [arg1] [arg2]
+''\"	arg1: no indent (0 or L), indent (1 or I), center (2 or C),
+''\"		center block (3 or CB)
+''\"	arg2: no fill (0 or N), fill (1 or F)
+.de DS
+.nr :t 0
+.)J "\\$1" "\\$2" "\\$3"
+..
+'''\"	DF: start floating display [0:2]
+'''\"	.DF [arg1] [arg2]
+''\"	arg1: no indent (0 or L), indent (1 or I), center (2 or C),
+''\"		center block (3 or CB)
+''\"	arg2: no fill (0 or N), fill (1 or F)
+.de DF
+.nr :t 1
+.)J "\\$1" "\\$2" "\\$3"
+..
+'\"	)J: real display start
+'\"	take args from either DS or DF
+'\"	:t set to indicate float (1) or fixed (0)
+'\"	add 2 if centered
+.de )J
+.nr ;i \\n(.i		\" save prevailing indent
+.nr ;q \\n(.u		\" save prevailing fill/no-fill mode
+'di
+.if \\n(:D>1 \{.ie \\n(:t=0  .)D "DS:illegal inside TL or AS"
+.	el  .)D "DF:illegal inside TL or AS" \}
+.if \\n(:F \{.ie \\n(:t=0 .)D "DS:missing FE"
+.	el .)D "DF:missing FE"
+.	FE \}		\"close it
+.if \\n(:y \{.ie \\n(:t=0 .)D "DS:missing DE"
+.	el .)D "DF:missing DE"
+.	DE \}		\" end the prev. DS
+.nr :y 1		\" set flag indicating Display
+.if (\\n(;C>0)&(\\n(;a=1) .>W	\" go wide
+.ev 1			\" switch to keep/footnote environment
+.)R			\" reset all things
+'di >0
+.nr :D 1
+.nr ;z 0+0\\$1
+.if @\\$1@L@ .nr ;z 0	\"left-blocked
+.if @\\$1@I@ .nr ;z 1	\"indented
+.if @\\$1@C@ .nr ;z 2	\"center each line
+.if @\\$1@CB@ .nr ;z 3	\"center as a block
+.if \\n(;z>3 .nr ;z 3
+.nr :B \\n(;z		\"set flag for type of display
+'\"	shorten line length only if .DS 0 or .DS 1
+.if \\n(:t=0 .if \\n(;z<2 .ll -\\n(;iu
+.if \\n(;z=1 .in +\\n(Sin
+.if \\n(;z=2 \{.ce 9999
+.	nr :t +2 \}	\"centering flag
+.if \\n(:B=3 \{.nr :Y 1	\"initialize width-of-block register
+.	nr :t +2
+.	nr :X \\n(.i	\"save existing indent
+.	di >X \}	\"begin second diversion
+.nr ;z 0+0\\$2
+.if @\\$2@N@ .nr ;z 0	\"No-fill mode
+.if @\\$2@F@ .nr ;z 1	\"fill mode
+.nf
+.if \\n(;z .fi
+.ll -0\\$3n
+..
+'\"	.)z
+'\"	expand one floating keep here & now
+'\"	dump it in keep/footnote env
+.de )z
+.nr ;w \\n(:x+1%26+1	\" get name of next queue element
+.if !((\\n(;C=2)&(\\n(!\\n(;w=1)) \{\
+'\"			\" inhibit if wide display in 2nd col
+'nr ;d 1	\" inhibit header's output of floating keeps
+.ev 1		\" footnote/keep environment
+.SP
+.)R		\" reset all
+'nf
+'rs
+.nr :x \\n(:x+1%26 	\" index of next in queue [0:25]
+.?\\n(;w		\" lay out one keep
+.rm ?\\n(;w !\\n(;w	\" remove size regs
+.if \\n(!\\n(;w=1 .nr !B 1	\" mark wide display
+.)R
+.if \\n(De \{\
+.	if \\n(;e \&\c\"   eject - but leave a partial on EOI
+.	bp
+.	nr !B 0 \}	\" clear wide column display flag
+.ie \\n(:I>1 \{\
+'\"		\" no indent on following .P
+.	if \\n(nl>\\n(:J .nr :I 0 \}  \" unless just past )h
+.el .nr :I 0
+.SP
+.nr :J \\n(nl
+.ev
+'nr :z -1	\" decrement queue count
+'nr ;d 0 \}
+..
+'\"	.)y
+'\"	expand floating keep only if it will fit on this page
+.de )y
+'\"	get name of next floating display queue entry
+'if \\n(:z \{\
+'	nr ;w \\n(:x+1%26+1	\"get index of next in queue
+'	nr ;z \\n(?\\n(;w	\"get length of next queue element
+'\"	- if there is room to expand the display - do so,  then do a break
+'\"	unless called from the header (:I=2) (and watch for the case
+'\"	of header, then text, then a DF that fits).
+'\"	the same test logic is used in )r.  The if conditional consists
+'\"	of thee major parts: (1) the test on :I tests whether we just
+'\"	finished a header, (2) the next test tests whether the display will
+'\"	fit on this page (distance to the next trap), and (3) is a multiple
+'\"	test - it takes the value true when the display is too large to
+'\"	fit on any one page, and we have used less than half of the current
+'\"	page (meaning that the display can be output now).
+.	if (\\n(:I=2):(\\n(;z<\\n(.t):\
+((\\n(;z>(\\n(.p-\\n(;r-\\n(:m))&(\\n(nl<(\\n(.p-\\n(;r-\\n(:o/2u+\\n(;r))) \{\
+'		ie \\n(:I<2  .if \\n(;p .br	\" break only if FB mode
+'		el .if \\n(:Ju<\\n(nlu  .if \\n(;p .br
+'		)z  \}\}	\" output a DF
+..
+'\"	.)x
+'\"	expand one floating keep here if it fits
+'\"	else onto next page
+'\"	called only via .)w
+.de )x
+'nr :v \\n(:z		\" count of keeps in queue
+')y			\" attempt to output one
+'if \\n(:v=\\n(:z \{\
+'	nr ;d 1		\" don't let )h do the work
+'	if \\n(;e \&\c\"   if no keep was output -
+'	SP \\n(.tu+1v	\" then start a new page
+'	nr ;d 0	
+'	)z  \}		\" and force output of one floating keep
+..
+'\"	.)w
+'\"	expand all floating keeps
+'\"	must be called via .em-called macro
+'\"	should be called by other macros which cause
+'\"		major breaks i.e. certain level headings
+.de )w
+'if \\n(:z \{\
+'	)x	\" output the next
+'	)w  \}	\" and do all
+..
+'\"	.)u
+'\"	process floating keep for the current page
+'\"	the action to be performed is controlled by the user-accessible
+'\"	registers De and Df, which cause, respectively, a page eject after
+'\"	each display, and specify the number of displays on each page.
+.de )u
+'if \\n+(:z>25 ')D "DF: too many displays"
+'nr :w \\n(:w+1%26	\" form the next queue element name
+'nr ;w \\n(:w+1		\" get the index name [a:z]
+'rn >0 ?\\n(;w		\" put the display into the queue
+.nr !\\n(;w 1		\" mark full column width
+.if (\\n(;C>0)&(\\n(;a=0) .nr !\\n(;w 2	\" unless narrow
+.nr ?\\n(;w \\n(:0	\" put the size of text into parallel nr queue
+'\"	\" if single DF and desired on current page, and not wide in two
+'\"	\" columns, then try to fit  it in.
+'if !((\\n(;C>0)&(\\n(!\\n(;w=1)) 'if (\\n(:z=1)&((\\n(Df%2=1):(\\n(Df>5)) ')y
+..
+'\"	.)s
+'\"	output as many floating keeps as will fit on this page
+.de )s
+'nr :v \\n(:z		\" mark the number of keeps now on queue
+'nr ;Y \\n(:I		\" save
+'nr :I 2		\" from the header
+')y			\" try to output one
+'ie \\n(:v>\\n(:z  ')s	\" and put them out while they fit
+'el 'nr :I \\n(;Y	\" reset
+..
+'\"	.)t
+'\"	process a static display.  If it is longer than one page and less
+'\"	than half of the current page has been used, or the display will
+'\"	fit on this page, output is begun immediately.  Otherwise, a new
+'\"	page is begun (which may cause output of a floating keep via )h)
+'\"	and the static display is output then.  If )h has output a floating
+'\"	keep, then the tests for available space must be made again.
+.de )t
+.br
+.nr !L \\n(.L		\" save curr line spacing
+.ls 1			\" ls 1 for output
+.)r			\" perform page/display length tests and leave setup
+.ti \\n(.iu		\" preserve against .ti of .H
+.nf
+.if \\n(:t>1 .in -\\n(;iu  \" go to zero indent for centering
+.rs
+.nr ;d 1		\" prevent )h from outputting a floating keep
+.>0			\" expand display
+.)R
+.nr ;d 0
+.ie \\n(:I>1 \{\
+.	if \\n(nl>\\n(:J .nr :I 0 \}  \" mark indent flag
+.el .nr :I 0
+.ls \\n(!L		\" restore line spacing
+.in \\n(;iu		\" restore prevailing indent
+.if !\\n(;q .nf		\" restore no-fill if necessary
+.if \\n(Ds .SP
+.nr :J \\n(nl
+..
+'\"	.)r
+'\"	Control page orientation  of static displays.
+'\"	Static displays are output as soon after their definition as
+'\"	feasible.  The following rules are used:
+'\"	  1. if the display will fit on the current page, output it there.
+'\"	  2. if the display won't fit on any page, and we have used less than
+'\"		half of the current page, then output the display on the
+'\"		current page.
+'\"	  3. skip to the next page.  If this causes a floating display (or
+'\"		more than one) to be output, then start again with rule
+'\"		1, otherwise, just output the display.
+.de )r
+.if \\n(Ds  .SP	\" initial spacing
+'\"	The following if condition tests: (1) if the display is too large to
+'\"	fit on the current page and either (2) it will fit on an unused page
+'\"	or (3) we have already used more than half of the current page. (the
+'\"	three conditions are grouped in the form 1 & (2 : 3)). If this
+'\"	total condition is true, then a page is ejected and the display output
+'\"	on the next page.  (see )y for a similar construction).
+.if (\\n(:0>=\\n(.t)&((\\n(:0<(\\n(.p-\\n(;r-\\n(:m)):\
+(\\n(nl>(\\n(.p-\\n(;r-\\n(:o/2u+\\n(;r))) \{\
+'\"		\" conditions not met - force a new page
+.	if \\n(;e \&\c\" save a partial
+.	ne \\n(.tu+1v	\" spring the trap
+.	if \\n(:I<2 .)r \}  \" verify room if a floating keep was output
+..
+'''\"	DE: display end
+'''\"	.DE
+'\"	:t=0=>fixed; :t=1=>float; +2 for centering
+.de DE
+.if !\\n(:y .)D "DE:no DS or DF active"
+.if \\n(:B=3 \{.br
+.	di		\"if centered block, end diversion into >X
+.	if \\n(dl>\\n(:Y .nr :Y \\n(dl
+.	if \\n(:Y<\\n(.l .in (\\n(.lu-\\n(:Yu)/2u \"indent by half of white-space
+.	nf
+.	>X
+.	fi
+.	rm >X
+.	in \\n(:Xu
+.	rr :X \}
+.ce 0
+.br
+'di
+.rr :D ;D ;E :B
+.)R			\" reset all things
+.ll \\nWu		\"including line length
+.ev
+'nr :0 \\n(dn		\" get size of keep 
+'nr dn 0
+.nr ;x \\n(:t
+.if \\n(:t-1 .nr ;x -2
+.>R			\" revert from possible temp width
+.if !\\n(;x .)t		\" process fixed style 
+.if \\n(;x .)u		\" process floating keep
+.nr :y 0		\" flag indicating DE
+..
+'\"	.)R
+'\"	reset all things
+.de )R
+'fi
+'na\"	reset default adjustment (see .SA)
+.if \\n(:h 'ad
+'nh
+'if \\n(Hy 'hy 14
+'in 0
+'ti 0
+..
+'''\"	RS: reference text start [0:1]
+'''\"	.RS [stringname]
+''\"	optional stringname used to store number for later reference
+''\"	preceding \*(Rf in text generates new number from :R 
+''\"	]r is string version of :r -- ;R flag indicates
+''\"	that there are references which have not been printed on
+''\"	references page yet (set to 2 by .RS and to 1 by .RF)
+.de RS
+.if \\n(;R=2 .)D "RS:missing RF"\"error if existing reference
+.nr ;R 2 \" indicate a reference exists and is currently in progress
+.nr Rf +1 \" total reference count for CS
+.if \\n(.$ .ds \\$1 \u[\\n(:R]\d
+.ev 1
+.)R
+.in \w@\0\0.\ @u
+.ti -\w@\\*(]r.\ @u
+.nr :D 1
+.da >r
+\!.ne 2
+\\*(]r.\ \&\c
+..
+'''\"	RF: reference text finish
+'''\"	.RF
+''\"	completes reference text diversion - set ;R to 1 that reference ready
+.de RF
+.if !(\\n(;R=2) .)D "RF: no RS active"
+.nr ;R 1
+.br
+\!.sp
+.di
+.in
+.nr :D 0
+.ev
+..
+'''\"	RP: lays out references page [0:2]
+'''\"	.RP [arg1] [arg2]
+''\"	called by TC, CS, and )q or explicitly by user
+''\"	first arg 0 means restart numbering
+''\"	second arg 0 means do a .SK following references page
+.de RP
+.if \\n(;R=2 .)D "RP: missing RF"
+.if \\n(;R \{\
+.nr ;R 0 \" turn off references flag
+.if !(0\\$1) .nr :R 0 1 \" restart counter
+.)R
+.ie \\n(;e .SK
+.el \{\
+\&\c
+.bp \" can't use .SK when called from )q
+'br \}
+.ce 1
+.ul
+\\*(Rp
+.sp 3v
+.nf
+.>r
+.br
+.rm >r
+.)R
+.if !(0\\$2) .SK
+'br \}
+..
+'\"	.)q
+'\"	called via .em request
+'\"	set flag for footnotes and flush keep/releases
+.de )q
+.br\"force out partial line
+.LC 0\"clean out lists
+.nr ;e 1	\" flag that the end of input text (EOI) has been reached
+.if \\n(:F .FE\"close dangling footnote
+.if \\n(:y .DE \" end dangling DS
+.if \\n(!N .NE \" end up dangling notation
+.)N	\" flush stored NS/NE
+.nr ;x 0 \" flag for footnotes
+.if \\n(;R .RP 0 1 \" produce references page
+\&\c
+.if (\\n(;C>0)&(\\n(:z>0) 'bp	\" new page for keeps in 2C
+.)w \" flush floating keeps
+\&
+'\"	if footnotes remain and there is no room 
+'\"	on this page, or if diverted footnote text
+'\"	remains, be sure to begin another page
+'nr :0 \\n(.pu+1v-\\n(nlu-\\n(:Ou
+'if \\n(:s 'if (\\n(:0<=0):((\\n(;C=2)&(\\n(!F=1)) 'nr ;x 1
+'if \\n(:q 'nr ;x 1
+'\"	if ;x set, force out footnotes
+'if \\n(;x \&\c
+'if \\n(;x 'bp
+'if \\n(;x \&
+.nr ;e 0	\" prevent extra pages
+..
+'\"	REQUIRED INITIALIZATIONS
+'\"	initialize various regs
+.nr :r 6v \" bottom of page
+.nr :m 8v \" initial footer place and partial footnote diverter trap
+.nr :n 0 \" flag for continuation footnote rule
+.nr :p 0 1 \" in-text footnote numberer
+.nr :o 0 \" register for footer trap location (set via .FE)
+.nr :z 0 1 \" counter for floating keeps in progress
+.nr :y 0 \" flag indicating Display in progress
+.nr :x 0 \" index for name of expanded floating keep
+.af ;w a	\" number to letter converter register
+.nr :w 0 \" index for name of diverted floating keep
+.nr :F 0\" flag indicating FS in progress
+.nr :R 0 1 \" in-text reference numberer
+.ds ]r \\n(:R
+.ds ]y \\n(:p
+'\"			INITIAL SET UP
+'wh 0 )h
+.nr :o \n(:mu \" initial footer trap location on a page
+.nr :O \n(:mu \" high water mark of :o (needed by )q)
+'wh -\n(:mu )f
+'ch )f 15i
+'wh -\n(:mu )n \" trap for partial footnote diverter
+'ch )f -\n(:mu
+'wh -\n(:ru )b
+.nr :M \n(:mu
+.nr !V \n(:mu		\" save real bottom (VM)
+.wh -(\n(:Mu-1v) >B\"initial trap for bottom expander
+'\".FD 10\"initial footnote defaults
+'\"Setting the registers as if .FD 10 were involked
+'nr :i 0
+'nr :j 1
+'nr :k 0
+'nr :l 1
+'nr ;z 0
+.SA 0\"initial adjustment default
+'''>S>NOCOMPACT<<name>>
+.if @\*(]Z@MM DEFINED@ \{\
+.	tm ERROR: MM package read twice
+.	ab 	\}
+.ds ]Z MM DEFINED
+'\"	***INTERNAL NUMBER REGISTERS***
+'\"	*** SET=UPS FOR CERTAIN DEVICES
+'\"	parms set here may be explicitly overriden
+'\"	by options on command line
+'\"	-rT1: gsi at 12 pitch
+'\"	-rT2: versatec printer
+.if \nT=1 \{.if \nW=0 .nr W 80\"GSI at 12-pitch
+.   if \nO=0 .nr O 3 \}
+.if \nT=2 \{.nr L 84\"Versatec printer
+.   ds BU o
+.   rm ul
+.   rm cu \}
+'''\"	E : emboldening for s/d/f etc.
+''\"	0=no bold (default for nroff)
+''\"	1=bold (default for troff)
+.if !\w'\gE' .nr E 0
+'''\"	L : length of page
+''\"	settable via -rLn
+.ie \nL .nr L \nLv
+.el .nr L 11i
+.pl \nLu
+'''\"	N : numbering style [0:3] default = 0; set via -rNn
+''\"	0/1 normal; 2/3 sect-page; if 1 or 3 special footer for P=1
+'''\"	O : initial page offset, normally = 0, but can be overridden from
+''\"	command line (via -rOvalue)
+.ie \w'\gO' .nr O \nOn
+.el .ie \nA .nr O 1i
+.el .nr O .75i
+.po\nOu
+'''\"	P : Page number (internally managed), initially = 0
+''\"	if :S = 0, same as %, but reset to 1 by each .H 1 when :S = 1
+.if \nP .nr P -1
+.nr P \nP 1
+'''\"	S : default point size, initially 10
+.if !\nS .nr S 10
+'''\"	U : Underline headings (0 ==> cu when possible, 1 ==> ul)
+'''\"	W : Width of page (line length and length of title)
+''\"	settable via -rWn from command line
+.ie \nW .nr W \nWn
+.el .ie \nA .nr W 5.8i
+.el .nr W 6.0i
+'\"	W will be used in environment initializations later in file
+'\"		REQUIRED INITIALIZATIONS
+'\"	load date into DT string
+.if \n(mo-0 .ds DT January
+.if \n(mo-1 .ds DT February
+.if \n(mo-2 .ds DT March
+.if \n(mo-3 .ds DT April
+.if \n(mo-4 .ds DT May
+.if \n(mo-5 .ds DT June
+.if \n(mo-6 .ds DT July
+.if \n(mo-7 .ds DT August
+.if \n(mo-8 .ds DT September
+.if \n(mo-9 .ds DT October
+.if \n(mo-10 .ds DT November
+.if \n(mo-11 .ds DT December
+.as DT " \n(dy, 19\n(yr
+'\"			INITIALIZE ALL THREE ENVIRONMENTS
+.S D D\"set up point size
+'ev 0
+.)R
+.ll \nWu
+.lt \nWu
+'ev
+'ev 1
+.)R
+.ll \nWu
+.lt \nWu
+'ev
+'ev 2
+.)R
+.ll \nWu
+.lt \nWu
+'ev
+'\"		INITIAL SET UP
+.PH "''- \\\\nP -''
+'\"	set up type of copy
+.if \nC=3 \{.ds ]C @@D\ R\ A\ F\ T@@
+.	PF "''\\\\*(DT'' \}	\" set footer when DRAFT
+.if \nC=4 \{.ds ]C @@D\ R\ A\ F\ T@@
+.	PF "''\\\\*(DT''  \" set footer when DRAFT
+.	ls 2	\" double-spacing
+.	nr Pt 1	\" indent paragraphs
+.	nr Pi 10 \}	\" use 10 space indent
+.if \nC=2 .ds ]C ''DATE FILE COPY''
+.if \nC=1 .ds ]C ''OFFICIAL FILE COPY''
+'\"	set defaults for sect-page numbering scheme
+.if (\nN=3):(\nN=5) \{.nr :S 1
+.	PF "''\\\\n(H1-\\\\nP''"
+.	PH \}
+.if \nN=4 \{.PH\"inhibit default page numbering
+.	nr N 0 \}
+.if \nD .PH "'\\*(RE line # \\\\n(.c'- \\\\nP -''
+.if \nA=1 \{ .nr ;n 1\" for use with preprinted forms
+.	ds }2
+'	br \}
+'em )q	\" end macro
+'''>E>NOCOMPACT<<name>>
+'\"	accents are at end of file so that grave accent string doesn't 
+'\"	mess up commenting conventions
+'\"	NROFF ACCENTS (` ' ^ ~ cedilla and 2 umlauts)
+'\" Used precisely like the TROFF accents, q.v.
+'\" All the strings below contain backspaces.
+'\" The two umlauts don't work too well in column 1, because
+'\" they (like neqn) try to backspace over it.
+'\" The two umlauts don't work at all through various filters, such
+'\" 300, 450, etc.  They really only work with the -T300, -T330s, and
+'\" -T300s options of NROFF.
+'\" For terminals without partial line motions, use " for umlauts.
+'\" The whole thing is VERY dependent on each individual terminal,
+'\" and the "play" in each individual platen or forms tractor.
+'\"	Grave accent -- [aeou]\*`
+.ds ' '
+'\"	Acute accent -- [aeou]\*'
+.ds ` `
+'\"	Circumflex -- [aeou]\*^
+.ds ^ ^
+'\"	Tilde -- n\*~ (But watch out for ".tr ~")
+.ds ~ ~
+'\"	Cedilla -- c\*,
+.ds , ,
+'\"	Lower-case umlaut -- [aeou]\*:
+.ds : \v@-1.15n@\h@-0.2n@.\h@0.4n@.\h@0.8n@\v@1.15n@
+'\"	Upper-case umlaut -- [AEOU]\*;
+.ds ; \v@-1.35n@\h@-0.2n@.\h@0.4n@.\h@0.8n@\v@1.35n@

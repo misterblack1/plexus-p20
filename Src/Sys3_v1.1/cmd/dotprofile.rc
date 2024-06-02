@@ -1,0 +1,3 @@
+cp dotprofile.sh .profile
+/etc/install -f /etc .profile
+rm -f .profile

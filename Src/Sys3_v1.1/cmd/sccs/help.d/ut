@@ -1,0 +1,60 @@
+*
+*	Messages for PWB utilities.
+*
+-1
+"directory `...' nonexistent"
+-2
+"directory `...' unwritable"
+The effective user (probably you) doesn't have write permission in
+the directory.  Do a "ls -ld ..." to check the modes.
+-3
+"no file"
+The system's table of open files is full,
+and temporarily no more opens
+can be accepted.
+If this error recurs, report it to your local UNIX support group.
+-4
+"`...' nonexistent"
+The file does not exist.  Check for typos.
+-5
+"`...' unreadable"
+The file probably exists, but the effective user doesn't have read permission.
+It is also possible that one or more directories in the path aren't executable.
+-6
+"`...' unwritable"
+The file exists, but the effective user doesn't have write permission.
+It is also possible that one or more directories in the path aren't executable.
+-7
+"`...' unreadable or unwritable"
+The file exists, but the effective user either doesn't
+have read permission, or write permission, or both.
+It is also possible that one or more directories in the path aren't executable.
+-8
+"write error"
+The file which caused the write error is as large
+as a file can be (currently 1M bytes).
+-9
+"out of space"
+There's no more dynamic memory left.
+Better go to "help stuck".
+-10
+"no space!"
+The file system (on which the file which caused the error is being written)
+is out of space.  Very serious!!  Contact someone in
+your local UNIX Support Group immediately!
+Also, if you can remove any files please do so.
+-11
+"errno = ..., function = `...'"
+An unusual and unexpected error occured.
+Try "help stuck".
+-12
+"SIGNAL: ..."
+This error is most likely due to an intermittent hardware error.
+You should report this to your local UNIX support group
+immediately, since others may be getting the same error and it is useful
+to discover a pattern if one exists.  After reporting it, if you rerun
+the command it will probably not recur.  If it won't go away contact
+your PWB counsellor (a program bug can also generate this error).
+
+(If required, a core dump will be produced if the file "dump.core" exists
+in the current directory.)

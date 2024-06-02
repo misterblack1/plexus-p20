@@ -1,0 +1,123 @@
+			MAKE DIRECTIONS
+
+PREMAKE WORK
+
+	You may redirect the output of all commands.  You may
+	spin off most commands EXCEPT where noted.
+		cd /p3/usr/src/build 
+		sh preparemake 1
+	Build a bootable /sys3 on /p3; system should work on machine
+	you plan to do make.
+		dd if=/dev/rdk20 of=/dev/rmt0 bs=32b 
+	Copy man directory separately.  You may do this after starting
+	the make to save time.
+		cd /r3/usr
+		tar cvfb /dev/rmt0 20 man
+	fbackup the "dd tape" into /dev/dkA (must have 30000?-1024 blocks)
+	and the tar tape into /usr/src.
+	Boot /dev/dkA
+		/etc/fsck /dev/dkA
+	You need about 1200 free blocks on this system; make sure you have it.
+	OPTIONAL (to get space)
+		/etc/mkfs /dev/dkS 20000
+		/etc/mount /dev/dkS /fS
+		copy all source in /usr/src to /fS rm -rf /usr/src
+		mkdir /usr/src
+		/etc/umount /dev/dkS /usr/src
+	Make sure you have periodic syncs: go to state 7 or spawn /etc/update.
+
+START THE MAKE
+
+	The makeeverything takes up to 5 arguments.
+	The first is the file system on which the make will occur.
+	The second is the version of the system.
+	The third is the release of the system.
+	The makeeverything shell file will optionally strip commands
+	if the 4th argument is "strip".  Otherwise, it will not.
+	If the 5th argument is present, makeeverything will clean and
+	clobber the commands.
+		cd /usr/src/build
+		sh -x makeeverything / "" 0.2 nostrip clean > make.out 2>&1 &
+
+VERIFY THE MAKE
+
+	When make is done (12+ hours later), compare results with a
+	"standard" results file:
+		cd /usr/src/build
+		bdiff make.out makeresults
+	If make.out showed few or no unexpected errors, place the
+	make.out file in /p3/usr/src/build/makeresults.
+
+	Optionally, find all files modified prior to the beginning
+	of the make.  This reveals files which were not made.
+
+MAKE THE RELEASE FILE SYSTEM AND CONFIGURE FOR 16 OR 32 USERS 
+	
+	Build the release file system from which release tapes are made on
+	/dev/dkB.  If you put source on /dev/dkS and you use dkS as
+	the release file system, you must copy /usr/src/build to /dev/dkA
+	and you may want to copy all of source to /dev/dkA.
+	Do not spin off makebase.
+	
+	To build a system for X number of users (X = 16 or 32), type
+
+		/etc/umount /dev/dkB
+		cd /usr/src/build
+		makebase /fB /dev/dkB X		(NO SPIN OFF)
+	
+	If you have just made a 32 user system, you may build
+	a 16 user system and save some time by adding a 4th argumen
+	to makebase to inhibit the mkfs.
+
+		/etc/umount /dev/dkB
+		cd /usr/src/build
+		makebase /fB /dev/dkB 16 nomkfs		(NO SPIN OFF)
+
+	Makebase unmounts /dev/dkB and prints any error messages
+	produced by the unmount.  It waits for a y/n response and
+	then spins off a process that does most of the work.
+	
+
+MAKE THE RELEASE TAPE
+
+	Make the release tape for manufacturing.  
+	The first argument is the file system and the second is
+	the disk device on which the system to be copied resides.
+	mount "release tape"
+	Warning: Do not spin off makereltape
+		cd /usr/src/build
+		sh makereltape /fB /dev/dkB          (NO SPIN OFF)
+
+RESTARTING THE MAKE
+
+	If the make is stopped somewhere in the middle, you can restart
+	it with a command, a library, or uts.  To do so, do:
+		1. Clean and clobber the command, library or whatever
+		   was running when the make stopped.
+		2. Type
+			cd /usr/src/build
+			[cmd=<command>] [lib=<library>] [uts=<uts#>] \
+				sh -x makeeverything / "" 1.0 nostrip \
+				> make1.out 2>&1 &
+
+		   where "<command>" should be a file or directory 
+		   in /usr/src/cmd directory, "<library>" should be 
+		   one of the directories in /usr/src/lib, and <uts#>
+		   should be 16 or 32.  You should give only one of them
+		   as an argument.  You may give a 5th argument
+		   to clean and clobber if you wish.  For example,
+
+			cmd=ld sh -x makeeverything ...
+
+		   would restart the make with the loader, ld.  The 
+		   libraries, uts, and all commands preceding ld would
+		   not be made because they have already been made.
+		   Other examples,
+
+			cmd=wc.c sh -x makeverything ...
+
+			lib=libplot sh -x makeeverything ...
+
+			uts=16 sh -x makeeverything ...
+		
+		   Note that the first example specifies wc.c, not wc.

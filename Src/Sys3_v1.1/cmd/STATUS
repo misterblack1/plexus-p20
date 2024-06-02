@@ -1,0 +1,13 @@
+FILE: /p3/src/cmd/STATUS
+
+CCF 03/07/82	diff -- compiled ok, installed in /usr/bin
+CCF 03/07/82	make -- compiled ok (make -f make.mk GETU= MARKFILE=),
+			installed in /usr/bin
+CCF 03/07/82	xref -- needed a file (divide.c) to replace .s file.  When
+			added, compiled and linked ok, installed in /usr/lib,
+			/usr/bin
+CCF 05/05/82	fsdb -- modified (~10 places) where BSIZE was tied to 512
+			via constants in the source code.  Also changed
+			it so that /dev/dk?? is used and PLEXUS SYS3 is
+			mentioned instead of 11/70 UNIX.
+

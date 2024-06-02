@@ -1,0 +1,11 @@
+: this is used by ":mkcmd"
+	SRC=${SRC-/usr/src}
+	LSRC=${LSRC-/usr/lsrc}
+	BIN=${BIN-/bin}
+	UBIN=${UBIN-/usr/bin}
+	ETC=${ETC-/etc}
+	LBIN=${LBIN-/usr/lbin}
+	INCLUDE=${INCLUDE-/usr/include}
+	LIB=${LIB-""}
+	LINTLIB=${LINTLIB-/usr/lib/libl.a}
+	YACCLIB=${YACCLIB-/usr/lib/liby.a}

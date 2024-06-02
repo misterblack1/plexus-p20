@@ -1,0 +1,14 @@
+: make UNIX/TS libraries and initial systems
+if test -z "$1"; then USERS=32; else USERS=$1; VER=.$USERS; fi;
+if test -z "$2"; then ROOT=/; else ROOT=$2; fi;
+
+# ---->  DON'T CHANGE SYS, VER, OR REL <----
+
+SYS=${SYS-sys3}
+VER=${VER-""}
+REL=${REL-1.1}
+NODE=${NODE-sys3}
+
+	cd $ROOT/usr/src/uts/z8000/cf
+	make -f cf.mk install SYS=$SYS NODE=$NODE REL=$REL \
+		ROOT=$ROOT VER=$VER USERS=$USERS CC=/bin/ncc CPP=/lib/ncpp
