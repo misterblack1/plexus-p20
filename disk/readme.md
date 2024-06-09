@@ -1,6 +1,6 @@
 # Plexus P/20 Hard Drive related files
 
-The Plexus P/15 and P/20 interface to all storage devices via on board SCSI.
+The Plexus P/15 and P/20 interfaces to all storage devices via on board SCSI.
 
 - The motherboard SCSI controller ID is 03.
 - The OMTI 5200 SCSI interposer is SCSI ID 00.
