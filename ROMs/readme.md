@@ -2,4 +2,6 @@
 
 The system has two pairs of ROM chips on the main motherboard. (High and low byte for the 16bit databus)
 
-U15 and U17 (Originally I had them called U17 and U19, but this was wrong. So U17 became U15 and U19 became U17)
+All of the motherboard ROMs are used by the DMA processor (top 68010 on the motherboard) to boot the system. 
+
+The locations on the maimboard are U15 and U17 (Originally incorrectly identified as U17 and U19. U17 became U15 and U19 became U17, the correct locations on the mainboard.)
