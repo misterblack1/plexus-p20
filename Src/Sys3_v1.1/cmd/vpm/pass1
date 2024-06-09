@@ -1,0 +1,37 @@
+BEGIN {lc=0;
+ nv=0;
+FS= "	";
+OFS= "	";
+}
+{
+if(length($0)==0)next;
+if($1~/^#/)next;
+if($1~/:$/){
+	print "#define",substr($1,1,length($1)-1),lc;
+	if(NF==1)next;
+}
+if(NF>1){
+if(NF>2){
+if($2=="BSS"){
+	print "#var",$1,nv;
+	v[$1]=nv;
+	nv=nv+$3;
+	next;
+}
+if(!(($2~/JMP/)||($2=="CALL"))){
+if($3!~/^[0-9]|^'|\+/){
+if(length(v[$3])==0){
+print "#var",$3,nv;
+v[$3] = nv;
+nv = nv + 1;
+}
+}
+}
+}
+lc = lc + 2
+}
+}
+END{
+sstack = 256 - nv;
+print "#define","SSTACK",sstack;
+}

@@ -1,0 +1,24 @@
+math.h		03/26/82 JSE	Added declaration of modf() and frexp()
+				and redefined HUGE to reflect precision
+				and range ieee doubles.
+				Changes were done for V7.
+
+syscall.h	03/03/82 JSE	Created from P-V7 syscall.h.  Added entries
+				for ULIMIT, FCNTL and UNAME.  Removed FTIME,
+				PHYS, MPX, and LOCK entries.
+				Tentatively removed FCTNL define.
+
+sys.s		03/03/82 JSE	Removed from Plexus R-III.  I think syscall.h
+				supplants it.
+
+syscall.h	03/04/82 JSE	Renamed UNAME syscall to PWBSYS.
+
+plexus.h	03/08/82 JSE	Copied /usr/include/sys/plexus.h as is.
+
+plexus.h	03/15/82 JSE	Linked /p3/usr/include/sys/plexus with
+				/p3/usr/include/plexus.h
+
+dumprestor.h	04/30/82 JSE	Changed NTREC from 20 to 10 because dump
+				is too big to run otherwise; also, dump/restor
+				do tape i/o in chunks of NTREC*BSIZE bytes and
+				we increased BSIZE from 512 to 1024.

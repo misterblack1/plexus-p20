@@ -1,0 +1,7 @@
+: Does not currently compile with -O
+UBIN=${UBIN-/usr/bin}
+CFLAGS=
+LDFLAGS=${LDFLAGS-"-n -s"}
+cc $CFLAGS $LDFLAGS sdiff.c -o sdiff
+/etc/install -n $UBIN sdiff
+rm -f sdiff sdiff.o

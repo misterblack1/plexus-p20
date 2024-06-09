@@ -1,0 +1,7 @@
+libplot.mk
+plot/plot.mk
+t300/t300.mk
+t300s/t300s.mk
+t4014/t4014.mk
+t450/t450.mk
+vt0/vt0.mk	03/12/82 JSE	Added INCLUDE and ULIB variables.

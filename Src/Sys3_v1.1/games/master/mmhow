@@ -1,0 +1,35 @@
+This program plays the game of "mastermind". The playing field
+is a number of slots, in which a number of colored pegs can be
+placed. I will start by placing a peg in each slot, and you will
+then have to guess what color peg I have in each slot. You will
+then place a peg in each slot, and I will have to guess what color
+peg is in each slot. You get one point for each guess I have to
+make, and I get one point for each guess you have to make.
+
+A guess consists of a possible sequence of colored pegs. The
+guesser's opponent then answers with two numbers: the number of
+pegs in the guess that exactly match the corresponding pegs in
+the configuration, and the number of pegs in the guess that match
+in color but not in position. For example, let's say we are playing
+with five slots, and the following situation occurs:
+
+        my configuration:   red   red   yellow   blue   brown
+        your guess:         blue  red   green    red    red
+
+The two numbers would then be 1 and 2. The 1 is because we each
+have a red peg in the second slot. In addition, your blue matches
+my blue, though the position is wrong, and one of your reds matches
+my red in the first slot. Only two of your reds match because
+I only have two reds in my configuration.
+
+You will have a chance to decide before we start on how many slots
+and how many colors you want to use.
+
+When you enter a guess, type the names of the colors, separated
+by spaces. When I make a guess, answer me with two digits, possibly
+separated by spaces.
+
+Any time it is your turn to enter a guess, you can ask me what
+happened by typing "review" instead of your guess.
+
+Good luck!

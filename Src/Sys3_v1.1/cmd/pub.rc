@@ -1,0 +1,15 @@
+cp ascii.pub ascii
+/etc/install -f /usr/pub ascii
+rm -f ascii
+
+cp eqnchar.pub eqnchar
+/etc/install -f /usr/pub eqnchar
+rm -f eqnchar
+
+cp greek.pub greek
+/etc/install -f /usr/pub greek
+rm -f greek
+
+cp tabs.pub tabs
+/etc/install -f /usr/pub tabs
+rm -f tabs

@@ -1,0 +1,73 @@
+/*	Plexus - Sys3 - August 1982	*/
+
+static char pmacdefs[] = "@(#)macdefs	1.1";
+
+# define makecc(val,i)  lastcon = i ? (lastcon<<8)|(val&0xff) : val  
+
+# define  ARGINIT 32 
+# define  AUTOINIT 96 
+# define  SZCHAR 8
+# define  SZINT 16
+# define  SZFLOAT 32
+# define  SZDOUBLE 64
+# define  SZLONG 32
+# define  SZSHORT 16
+# define SZPOINT 16
+# define ALCHAR 8
+# define ALINT 16
+# define ALFLOAT 16
+# define ALDOUBLE 16
+# define ALLONG 16
+# define ALSHORT 16
+# define ALPOINT 16
+# define ALSTRUCT 16
+# define  ALSTACK 16 
+
+/*	size in which constants are converted */
+/*	should be long if feasable */
+
+# define CONSZ long
+# define CONFMT "%ld"
+
+/*	size in which offsets are kept
+/*	should be large enough to cover address space in bits
+*/
+
+# define OFFSZ long
+
+/* 	character set macro */
+
+# define  CCTRANS(x) x
+
+/* register cookie for stack pointer */
+
+# define  STKREG 14
+# define ARGREG 14
+
+/*	maximum and minimum register variables */
+
+# define MAXRVAR 13
+# define MINRVAR 8
+
+	/* various standard pieces of code are used */
+# define STDPRTREE
+# define LABFMT "L%d"
+
+/* definition indicates automatics and/or temporaries
+   are on a negative growing stack */
+
+# define BACKAUTO
+# define BACKTEMP
+
+/* specify direction of bits in field to be right to left */
+/* #define RTOLBITS */
+
+# ifndef FORT
+# define ONEPASS
+# endif
+
+# ifndef FORT
+# define EXIT dexit
+# endif
+
+# define ENUMSIZE(high,low) INT

@@ -1,0 +1,17 @@
+*
+*	Diagnostic messages for the 'prs' command
+*
+-1
+"nonexistent sid"
+You specified an SID, via the r keyletter, which is not
+an SID of the SCCS file.
+-2
+"curdir failed"
+Try the command again.  If the situation repeats, notify your
+Source Code Administrator or PWB/UNIX Project Administrator
+for further assistence.
+-3
+"cannot change directory"
+Try the command again.  If the situation repeats, notify your
+Source Code Administrator or PWB/UNIX Project Administrator
+for further assistence.

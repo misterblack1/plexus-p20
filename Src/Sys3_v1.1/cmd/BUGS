@@ -1,0 +1,424 @@
+bs		02/28/82 CCF	bs.c needs FIFO files to compile
+
+*.rc		03/11/82 JSE	fixed to use $INCLUDE, $UBIN 
+				$CFLAGS and $LDFLAGS variables.
+
+install.sh	03/12/82 JSE	Renamed stock version to r.install.sh and
+				added LOOKDIR and DESTDIR shell variables
+				to local copy.
+
+awk		03/18/82 JSE	Uses fcntl; will not work under V7.
+				Compiled and installed in /p3/usr/bin.
+
+arcv6		03/18/82 JSE	Copied Plexus-V7 version.
+
+init.mk
+login.mk
+sysfix.mk	03/18/82 JSE	Added CFLAGS = -O. Was part of LDFLAGS.
+
+sum.c
+cu.c		03/19/82 JSE	Added #define void int.  Should be removed
+				when new compiler added.
+
+getty.c		03/19/82 JSE	Requires change to read console switch
+				registers.  Will install later.
+
+ncheck.mk	03/22/82 JSE	Preceded if statement with - to ignore errors.
+
+sysfix.mk	03/22/82 JSE	Commented out a line to work.  Try again
+				with R-III make and sh.
+
+
+date.c		03/22/82 JSE	Changed array declaration of month and
+				days to have 2nd subscript of 4.  Original
+				had 3.
+
+bs/bs.mk
+cref/cref.mk
+dc/dc.mk
+ed/ed.mk
+efl/efl.mk	03/22/82 JSE	Added INCLUDE, CFLAG and LDFLAGS where
+				appropriate, commented out "set +e; if"
+				constructs where appropriate.  Restore
+				latter when new shell done.
+
+ld.mk
+cp.mk
+ld.mk
+mv.mk
+lint/lint.mk
+cref/cref.mk
+ed/ed.mk	03/22/82 JSE	Uses explicit references to object
+				that may require attention if object
+				is ever copied to other than root.
+
+crash
+config		03/22/82 JSE	Will require change/thought. Postpone.
+
+ed/ed.mk	03/23/82 JSE	Added -DPWB to cc of ed.c.  Turns on
+				fspec(5) capability.  Would not compile
+				otherwise.  Probably should be disabled
+				completely: it enlarges ed a bit.
+
+dc		03/23/82 JSE	Compiled & installed w/o optimizing code:
+				compiler optimizer ran "out of space".
+
+efl/efl.mk	03/23/82 JSE	Added $(IFLAG) to the ld of efl.  It runs
+				out of text space otherwise.
+				Due to space overflow, cannot compile
+				code with optimizer.  Unfortunately this
+				causes a text space overflow.  Do later
+				with new compiler or when time allows selective
+				cc -O of efl source files.
+f77/pdp11/Makefile
+		03/23/82 JSE	commented out a set +e if" command.  Restore
+				when R-III make and shell are installed.
+
+lex/lex.mk
+m4/m4.mk	03/23/82	Removed -n and -s arguments to cc. With lex,
+				commented out the itest command.  Restore
+				when R-III make/if/shell are available.
+				Also lex, changed install to /etc/install.
+
+make/make.mk	03/23/82	Set MARKFILE =  to null
+
+profiler/profiler.mk
+		03/23/82 JSE	Added $LDFLAG.  References /etc/ in some
+				cp and chmod commands. Added rm -f *.o.
+
+profiler/pdp11/prfld.c
+		03/23/82 JSE	Added UNIXNAME.  Also, may have same byte
+				swap problem ld has.
+
+sa/sa.mk	03/23/82 JSE	Added LDFLAGS.
+
+sed/sed/mk	03/23/82 JSE	removed -n -s args to cc
+
+sh/sh.mk	03/23/82 JSE	Has explicit references to /bin in some
+				mv, ln commands.
+
+sccs/sccs.mk	03/24/82 JSE	Added $LDFLAGS.  Makes explicit reference
+				to /usr/bin and /usr/lib/help via make var.
+
+sno/sno.mk	03/24/82 JSE	Removed -s flag from cc.
+
+spell/spell.mk	03/24/82 JSE	Added LDFLAGS; changed @if statements to
+				-if because make aborts otherwise. Refers
+				to several object directories via chgrp,
+				chmod and mkdir commands.
+
+text/text.mk
+text/*/*.mk	03/24/82 JSE	For the various make files I added LDFLAGS
+				and SL variables where appropriate so that
+				their values are propagated to all make files
+				when they are called by text.mk, the driver
+				make file. I also changed all refernces of
+				the kind "@if" to "-if" because make conks
+				out always on the former.  Could be a return
+				code problem with if.  Finally, text.mk
+				uses object and source directories in cp,
+				chgrp, and mkdir commands.
+
+text/macros.d/macrunch
+		03/25/82 JSE	A shell file with comments beginning with
+				#.  Replaced with : .
+
+tp/tp.mk
+tplot/tplot.mk	03/25/82 JSE	removed -s flag from cc
+
+typo/typo.mk	03/25/82 JSE	removed -s flag from cc, changed "@if"
+				to "-if", added LDFLAGS.
+				Has /usr and /usr/src/cmd hardwired.
+
+uucp/uucp.mk	03/25/82 JSE	Has /bin and other destination dirs hardwired.
+
+uucp/ulock.c	03/25/82 JSE	Two routines used time() sys call. One declared
+				it as a long time(); the other did not;  cc
+				said time() was redefined: I added declaration
+				to the routine missing it.
+
+yacc/yacc.mk	03/25/82 JSE	changed "@if" to "-if"; removed -s flag to cc.
+
+MM macros	03/26/82 JSE	Did not "compile": required R-III nroff which
+				requires R-III include files (termio.h,ioctl.h).
+
+st
+rp6fmt.c
+kunb.c
+kun.c
+kasb
+kas		03/29/82 JSE	Not to be released in Plexus R-III.
+
+vpm
+sdb
+gcos
+gath
+fscv
+f77
+efl
+crash
+config		03/26/82 JSE	Did not attempt to compile & install:
+				not required for 1.0.
+
+as		03/26/82 JSE	Will use V7 as.
+
+cc		03/26/82 JSE	Did not attempt to compile: CCF will do.
+
+adb		03/29/82 JSE	Did not attempt.  Massive changes, do later.
+
+ld/ld		03/29/82 JSE	Put same changes in that were done to
+				Plexus V7 version, viz., variables used
+				for sizes of text, data, & bss were made
+				unsigned; beginning of data differed
+				because of page size differences; stamp
+				variables were made unsigned.
+				R-III version is ignorant of SYMDEF
+				symbol table.
+
+ld.z8000.c	03/29/82 JSE	Named our version of ld to ld.z8000.c
+				(modified ld.pdp.c); chged ld.mk accordingly.
+
+
+sdiff.c		03/19/82 JSE	The V7 compiler optimizer generates bad
+				assembly code for this.  Problem can be
+				isolated to cmdin() routines.  I suspect
+				a bug in optimizer.  Compiled & installed
+				w/o -O switch.
+
+lint/lerror.h
+lint/lerror2.c
+lint/lerror.c	03/22/82 JSE	Compiling with V7 cc, the structure elements
+				of crecord conflicted with those of hrecord,
+				Also, c2record.number conflicted with like
+				named element of crecord and hrecord.
+				Changed references as follows:
+				 crecord.* to crecord.*X 
+				 c2record.number to c2record.numberY
+				Restore when new compiler available.
+				There are other conflicts.  Tentatively shelve.
+
+ls.c		03/31/82 CCF	Fixed bug in gstat routine.
+
+ps.c		03/31/82 JSE	Modified ps.c per V7 changes: 1) to use
+				UNIXNAME, 2) to compute execution time based
+				on 50 HZ clock, 3) to examine /dev/kmem rather
+				than /dev/mem for value of kernal variables.
+		04/17/82 JSE	Changed to use /dev/mem for user process data.
+
+dump.c		03/31/82 JSE	modified per V7 changes: 1) changed default 
+				tape & disk to /dev/rmt0 & /dev/dk1, 2) changed
+				a hard-wired 512 to BSIZE, 3) added tape error
+				message, 4) check for BIGBLK in bread.
+
+restor.c	03/31/82 JSE	modifed per V7 changes: 1) changed default
+				tape to /dev/rmt0, 2) added standalone message.
+
+clri.c		04/01/82 JSE	Copied Plexus V7 version with BIGBLK changes.
+
+fgrep.c		04/01/82 JSE	Added bstart variable to cfail() routine as
+				done in V7 addenda.  The fix was not incor-
+				porated in R-III.
+
+ncheck.c	04/01/82 JSE	Changed HSIZE variable for BIGBLK's per Plexus
+				V7 change.
+
+time.c		04/01/82 JSE	Per Plexus V7, converted times from 50 to 60 
+				Hz. for printout.  Added <sys/times.h> to
+				reference cv50to60() declarartion.
+
+stty.c		04/02/82 JSE	Per Plexus V7, defined "exta" to be 19200
+				and added printf's for "extb" speed.
+
+getty.c		04/02/82 JSE	Added table entry for "extb" speed so that
+				it recogizes 'b' for the type argument.
+
+tar.c		04/02/82 JSE	Per Plexus V7, changed default drive to 0 and
+				fixed bug whereby tar did not close special
+				files that it opens.
+
+fsck.c		04/02/82 CCF	Added line so that it knows that lseek returns
+				a long value.  Fails miserably under sys unless
+				this is done.
+
+mount.c		04/02/82 CCF	Changed 512 to BSIZE so that s_fname would be
+				accessed correctly.
+
+awk/proc.c	04/05/82 JSE	Added exit(0) at end of main() per
+				V7 addenda; ommitted from R-III
+
+awk/run.c	04/05/82 JSE	Added following from V7 addenda; they were
+				omitted from R-III, probably erroneously.
+				1) format routine did not handle "%%" correctly
+				2) added code to assign() routine to allow a
+				   variable to be a string and number.  see
+				   EXPLAIN file in awk directory.
+
+awk/tran.c	04/05/82 JSE	Added unsigned to s variable in hash() routine
+				per V7 addenda: omitted from R-III.
+
+install.sh	04/14/82 JSE	Added 0 arg to non error  exits for -f flag.  
+
+inittab.etc	04/18/82 CCF	For console entry: chg arg to getty from 4 to 
+				'b'.
+
+mail.mk		04/20/82 JSE	Added to link rmail to mail in the make.
+
+login.c		04/20/82 JSE	Defined PWB so that login sets LOGNAME.
+
+ps			JSE	Will not work with -c option.
+
+sa/timex.c	04/21/82 JSE	Changed "/unix" to UNIXNAME reference.
+				Converted times from 50 cycle/sec to 60.
+
+fsdb.c		05/05/82 CCF	modified (~10 places) where BSIZE
+				was tied to 512 via constants in the source
+				code.  Also changed it so that /dev/dk??
+				is used and PLEXUS SYS3 is mentioned instead
+				of 11/70 UNIX.
+
+profiler.etc	05/05/82 JSE	Exported TERM per environ(7)
+
+crontab.etc	05/05/82 JSE	Removed sa and accounting stuff.
+
+errstop.sh	05/05/82 JSE	Changed /unix to /sys3.
+
+rc.etc		05/05/82 JSE	Changed TZ to Pacific Time.
+				Added commands to clean up /tmp and /usr/tmp,
+				added openup.
+		06/09/82 JSE	Added dnld of sioc's
+		06/10/82 JSE	Added /etc/update.
+
+openup.c	05/05/82 JSE	Added as is from V7
+
+inittab.etc	05/05/82 JSE	Changed TZ to Pacific time
+				Added entry to stty ixon for console, state 1.
+				Added state 8.
+
+init.c		05/06/82 JSE	Added check of "autoboot" switch and goes into
+				state 8 when 0x8;  
+
+
+sh/xec.c	05/12/82 JSE	Added cv50to60()
+
+gath/lib/librje.mk
+		05/13/82 JSE	Added clobber entry
+
+vlx
+fscv
+rp6fmt.c
+rp6fmt.mk
+sdb
+st (/etc/stcntrl, /etc/stload)
+kas
+kasb
+kun.c
+kunb.c		05/18/82 JSE	Removed: not applicable to our system.
+
+sdiff.rc	05/18/82 JSE	Created because sdiff will not compile
+				with -O option using V7 compiler.
+
+places.etc	05/18/82 JSE	Added a "source" version of /etc/places.
+
+strip.c		05/20/82 JSE	Fixed byte-swap bug which caused strip
+				to screw up relocation bits for archives.
+				Only symptom: ld reported local symbol botch.
+
+vax.sh		05/20/82 JSE	Added for make. Same as false
+
+text/roff.d/fonts.d/fonts.mk
+		05/20/82 JSE	Added install of mkfonts to /usr/lib/font
+				Removed -o mkfont from line of make.
+
+ddate.etc	05/21/82 JSE	Added as source for /etc/ddate
+
+du.c
+ls.c
+sum.c		05/21/82 JSE	Fixed to report 1024 byte blocks.
+
+.profile.etc	05/25/82 JSE	Created from scratch.
+
+acct/acctdef.h	05/25/82 JSE	Changed #define of SECS for 50 HZ clock.
+		05/27/82 JSE	Changed #define of KCORE for 2048 click size.
+
+acct/acctdusg.c	05/25/82 JSE	Changed to calculate 1024 byte blocks.
+
+acct/acctcom.c	05/25/82 JSE	Changed for 50 HZ clock.
+
+acct		05/27/82 JSE	Examined code for 50HZ clock and 2048
+				byte size clicks and changed accordingly.
+
+cc.mk		06/03/82 JSE	Added ln /bin/cc /bin/pcc
+
+dumpdir		06/03/82 JSE	Added V7 version
+
+typo/salt	06/04/82 JSE	Swapped bytes of first 1516 bytes thus
+				fixing a byte-swap problem of typo which
+				reads the file into a buffer and accesses
+				the bytes as words.
+
+
+				incorrectly mapped a 4 byte value to a long.
+
+bs/atof.c	06/07/82 JSE	Changed initialization of variable "big"
+				ala libc/gen/atof.c.
+				
+update.c	06/10/82 JSE	Added from V7.
+
+master.sh	06/10/82 JSE	Added source image of /etc/master.
+
+sysdef.c	06/10/82 JSE	Added UNIXMAKE and <sys/plexus.h>.
+
+prof.c		06/11/82 JSE	Included <sys/param.h> for the HZ define
+				because clock ticks are 1/50th sec.
+
+uucp/uucp.mk	06/18/82 JSE	Changed so "install" does "new" stuff
+
+cc/cc.sh	06/19/82 JSE	Removed -X options (this is a new ld
+				option).
+
+acct/lib/pnpsplit.c
+		06/23/82 JSE	Added routine to read /usr/lib/acct/holidays
+				file; fixed bug whereby a time span given
+				via arguments to pnpsplit() ignored the 
+				1st non prime time period if the time span
+				began in nonprime, spanned all of prime, and
+				ended in nonprime.
+acct/holidays.sh
+acct/acct.mk
+		06/23/82 JSE	Added holidays.sh as prototype for holidays,
+				year, and prime/nonprime time definition.
+				Added installation instructions to acct.mk.
+		
+shutdown.etc	06/24/82 JSE	Moved init 1 to before killall.
+
+awk/awk.mk	06/26/82 JSE	Removed -O from CFLAGS because an optimizer
+				bug introduces an error. RESTORE WHEN
+				BUG FIXED.
+
+stty.c		06/29/82 JSE	Redefined "sane" option to have 8 char per
+				bit.  Stock had 7.
+
+rc.etc		07/07/82 JSE	Deleted all reference to dzkload.
+
+text/macros.d/tmac.s
+text/macros.d/tmac.scover
+text/macros.d/tmac.sdisp
+text/macros.d/tmac.skeep
+text/macros.d/tmac.sref
+		07/07/82 JSE	Added from V7.  Not part of SYSIII.  These
+				are the MS macros.
+		
+**************** YET TO DO *************************
+
+cu.c			 JSE	Plexus V7 uses TANDEM mode.
+
+mkfs.c			 JSE	May need changes for standalone stuff ala V7.
+
+profiling		 JSE	May require changes for 50 HZ clock ala V7.
+
+usr/lib/llib-lm	
+usr/lib/lint1
+usr/lib/lint2
+usr/bin/lint		JSE	All V7 stuff for now. (llib-lc & llib-port are
+				R-III).
+

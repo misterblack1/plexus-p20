@@ -1,0 +1,2 @@
+pr -n dfs.c rfio.c riget.c rmount.c rnami.c rrdwri.c rsys.c rtext.c \
+ /usr/include/sys/pnetdfs.h /usr/include/sys/mdpncf.h | rpr | lpr

@@ -1,0 +1,5 @@
+dh.c: sioopen(). Changed default open mode of line so that characters are
+		 echoed. This should be changed back at a later time.
+		 5/26/82 Changed open modes back to stock sys3.
+tty.c:ttioctl(). Changed compatibility mode from v6 to v7. This is so v7
+		 software has a much better chance of running properly.

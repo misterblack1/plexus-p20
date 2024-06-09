@@ -1,0 +1,35 @@
+cerror.s
+mcount.s	- 03/02/82 JSE	Copied as is from Plexus V7 source.
+
+aldiv.s
+almul.s
+alrem.s
+ldiv.s
+lmul.s
+lrem.s		- 03/02/82 JSE	Omitted from Plexus R-III because
+				they do functions the Z8000 can do.
+				Not provided in Plexus V7 source.
+
+csav.s		- 03/02/82 JSE	Copied from Plexus V7 version of csv.s
+				and modified it to remove cret* code
+				and to rename csv* variables to csav*.
+
+cret.s		- 03/02/82 JSE	Extracted cret* code from Plexus V7
+				source for csv.s and put in cret.s.
+
+cerror.s	- 03/04/82 JSE	Replaced jp to cerror with a pop r14,*r15
+				and ret.
+
+auldiv.s
+aulrem.s
+udiv.s
+uldiv.s
+ulrem.s		- 03/05/82 JSE	Omitted from Plexus R-III.
+
+switch.s	- 03/05/82 JSE	Copied as is from Plexus V7 source.
+
+csav.s		- 03/17/82 JSE	Renamed SIGSEG signal to SIGSEGV.
+
+csv.s
+csav.s		- 05/12/82 JSE	Added csv, csv[1-5] definitions to csav.
+				Removed csv.s

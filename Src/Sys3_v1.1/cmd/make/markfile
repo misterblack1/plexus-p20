@@ -1,0 +1,21 @@
+:	@(#)markfile	3.12
+s.defs	3.3
+s.doname.c	3.6
+s.dosys.c	3.4
+s.dyndep.c	3.5
+s.gram.y	3.6
+s.ident.c	3.1
+s.lex.c	3.1
+s.main.c	3.5
+s.make.mk	3.5
+s.make.tm	3.2
+s.misc.c	3.5
+s.prtmem.c	3.4
+s.test.mk	3.4
+s.test.mk0	3.1
+s.test.mk1	3.1
+s.test.mk2	3.1
+s.test.mk3	3.1
+s.pwbrules.c	3.1
+s.rules.c	3.1
+s.files.c	3.6

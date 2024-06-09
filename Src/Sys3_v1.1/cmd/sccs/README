@@ -1,0 +1,44 @@
+     The following files are associated with the SCCS package in system 3.
+
+	admin ----- crate and administer SCCS files.
+	cdc ------- change the delta commentary of an SCCS delta.
+	comb ------ combine SCCS deltas.
+	delta ----- make a delta (change) to an SCCS file.
+	get ------- get a version of an SCCS file.
+	prs ------- print an SCCS file.
+	rmdel ----- remove a delta from an SCCS file.
+	sact ------ print current SCCS file editing activity
+	sccsdiff -- compare two versions of an SCCS file
+	unget ----- undo a previous get of an SCCS file.
+	val ------- validate SCCS file.
+	what ------ identify SCCS files.
+
+     The following difficulties were encountered. (version 7)
+
+          1. There is a new function available in libc: tzset() which
+             is not found in Version 7. See ctime(3) for details.
+
+          2. SCCS uses the libPW.a library from PWB unix. There is, however,
+             no documentation of this library in the System 3 manual.
+
+          3. Three include files were found to be different between System 3
+             and Version 7. They are "fatal.h, macros.h, and misc.h".
+
+     Solutions (sic).
+
+          1. Included ctime(3) from system 3 and included it directly in the
+             build of SCCS functions. (not done for system 3 releases).
+
+          2. Built libPW from source. There are two routines that gave trouble:
+             move.c and alloca.s. Both are routines optimized for the PDP-11.
+             Simple and expedient measures were taken i.e. Move.c was written
+             as a trivial function. Alloca() usage was programed arround by
+             adding a local array of the proper type.
+
+          3. The three different or missing include files were copied to the
+             work area. (not done for system 3 releases).
+
+
+	  4. Changed make file so that ld does not strip object. Added
+	     -I/p3/usr/include.
+

@@ -1,0 +1,371 @@
+ _isintr
+ _rmintr
+ _pdintr
+ _siint0
+ _siint1
+ _siint2
+ _siint3
+ _siint4
+   _main
+   _trap
+_sysdebu
+  _clock
+  _usint
+ _dkopen
+_nulldev
+_dkstrat
+ _mtopen
+_mtclose
+_mtstrat
+ _pdopen
+_pdstrat
+ _ptopen
+_ptclose
+_ptstrat
+ _isopen
+_isstrat
+ _rmopen
+_rmclose
+_rmstrat
+ _usopen
+_usclose
+ _usread
+_uswrite
+_usioctl
+  _nodev
+ _mmread
+_mmwrite
+ _dkread
+_dkwrite
+ _mtread
+_mtwrite
+_mtioctl
+ _pdread
+_pdwrite
+ _ptread
+_ptwrite
+_ptioctl
+ _isread
+_iswrite
+ _rmread
+_rmwrite
+_rmioctl
+ _syopen
+ _syread
+_sywrite
+_syioctl
+ _icopen
+_icclose
+ _icread
+_icwrite
+ _spopen
+_spclose
+ _spread
+_spwrite
+_spioctl
+ _ppopen
+_ppclose
+ _ppread
+_ppwrite
+_ppioctl
+_erropen
+_errclos
+_errread
+ _dkinit
+ _mtinit
+ _pdinit
+ _ptinit
+ _isinit
+ _rminit
+ _siinit
+ _ttopen
+_ttclose
+ _ttread
+_ttwrite
+   _ttin
+  _ttout
+_startup
+_clkstar
+  _cinit
+  _binit
+_errinit
+  _iinit
+ _gettod
+   _iget
+_newproc
+ _expand
+_estabur
+  _sched
+  _bread
+  _panic
+_getablk
+ _brelse
+ _clkset
+ _printf
+_psignal
+  _issig
+   _psig
+ _qswtch
+_logecce
+ _backup
+   _grow
+ _prtecc
+_logstra
+  _nosys
+_nullsys
+  _rexit
+   _fork
+   _read
+  _write
+   _open
+  _close
+   _wait
+  _creat
+   _link
+ _unlink
+   _exec
+  _chdir
+  _gtime
+  _mknod
+  _chmod
+  _chown
+ _sbreak
+   _stat
+   _seek
+ _getpid
+ _smount
+_sumount
+ _setuid
+ _getuid
+  _stime
+ _ptrace
+  _alarm
+  _fstat
+  _pause
+  _utime
+   _stty
+   _gtty
+_saccess
+   _nice
+   _sync
+   _kill
+_setpgrp
+    _dup
+   _pipe
+  _times
+ _profil
+_locking
+ _setgid
+ _getgid
+   _ssig
+_sysacct
+  _ioctl
+  _fcntl
+ _utssys
+  _exece
+  _umask
+ _chroot
+  _ugrow
+ _ulimit
+_gethead
+ _malloc
+_bdwrite
+ _getblk
+_getxfil
+   _iput
+_setregs
+  _mfree
+  _uchar
+  _namei
+ _access
+  _readi
+_checkur
+  _xfree
+ _xalloc
+ _closef
+  _bcopy
+   _exit
+ _signal
+  _plock
+   _acct
+ _setrun
+_freepro
+   _fsig
+  _sleep
+   _rdwr
+   _getf
+ _locked
+ _writei
+  _prele
+  _copen
+_maknode
+ _falloc
+ _itrunc
+  _openi
+  _suser
+   _wdir
+  _stat1
+ _iupdat
+_ufalloc
+_getmdev
+_xumount
+ _update
+ _binval
+_logtchg
+ _puttod
+  _xrele
+_chdirec
+  _owner
+_compres
+  _alloc
+  _getfs
+_badbloc
+ _wakeup
+  _prdev
+  _delay
+   _free
+ _bwrite
+ _ialloc
+  _ifree
+ _bflush
+_timeout
+_geteslo
+_freeslo
+_geterec
+_puterec
+_logstar
+_fmtberr
+_logberr
+ _unlock
+ _closep
+  _openp
+_lockadd
+_lockfre
+_deadloc
+_lockall
+_mbtoseg
+_segtomb
+_sysphys
+_sendsig
+_mapallo
+_mapfree
+_procdup
+   _bmap
+  _schar
+_putchar
+ _printn
+ _deverr
+ _breada
+ _pimove
+   _stop
+  _swtch
+_procxmt
+   _core
+  _setrq
+ _swapin
+  _xswap
+  _xlock
+_xunlock
+   _swap
+  _sureg
+  _passc
+  _cpass
+_dbgprin
+ _puthex
+  _delbp
+   _gets
+ _gethex
+    _eol
+_xdispla
+_dbggetc
+_dbgputc
+_checkab
+_getchar
+_dbgwait
+_waitcha
+  _dbgpn
+ _xccdec
+_xexpand
+_xuntext
+ _tdread
+_tdwrite
+ _dysize
+  _iread
+  _tloop
+ _iowait
+ _incore
+_geterro
+_bawrite
+_notavai
+ _iodone
+ _physio
+ _physck
+_ttyflus
+ _ttxput
+_tttimeo
+_ttrstrt
+_ttioctl
+_ttywait
+_ttiocom
+ _ttinit
+  _canon
+ _siopen
+_siclose
+ _siread
+_siwrite
+_icioctl
+   _isgo
+_def_isd
+_iswaitd
+_isstart
+_def_pdd
+_seek_di
+_pdwaitd
+_rw_disk
+   _pdgo
+_pdstart
+_pddevba
+_pdbadof
+_pdblkof
+_pdnblkb
+_ptcomma
+_ptstart
+ _ptintr
+   _ptgo
+   _rmgo
+_rcomman
+_rmstart
+ _rmphys
+_selftes
+_setabor
+_siocfai
+  _docmd
+_rsetabo
+_smalloc
+   _qsqo
+_clrbufs
+ _smfree
+_siwflsh
+_siioctl
+_siabort
+ _srchtp
+  _soabt
+  _scabt
+  _srabt
+  _swabt
+  _spabt
+  _siabt
+_siclean
+_closefa
+  _sioci
+_gochana
+  _dqsqo
+ _sstart
+_sycheck
+ _usproc
+_usparam
+ _usmctl
+ _usrint
+ _usxint
+ _usmint
+  _isclr

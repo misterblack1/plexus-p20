@@ -1,0 +1,5 @@
+25aug81		kaka.c
+Added this file so that pas-s one would load with out undefs. 
+
+10feb82		makefile, lint.sh
+Created a source file for /bin/lint and put it in makefile.

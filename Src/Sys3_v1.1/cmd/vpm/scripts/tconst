@@ -1,0 +1,4 @@
+define(CTI,5)
+define(CTRR,8)
+define(CTREJ,8)
+define(IERR,5)

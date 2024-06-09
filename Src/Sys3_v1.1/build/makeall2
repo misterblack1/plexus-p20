@@ -1,0 +1,119 @@
+:	"[cmd=<command>] [lib=<library>] [uts=<uts#>] [games=<game>] \
+:		[STRIP=<true>] makeall2" 
+:
+:	Makeall2 makes the headers, libraries, uts, commands, games,
+:	and kludges in that order.  It makes everything if cmd, lib,
+:	games and uts are null.  If any of them are non-null,
+:	it starts with the named make entity, e.g., lib=libplot,
+:	and continues from there.
+:	"<command>" should be a file or directory in /usr/src/cmd directory.
+:	"<library>" should be one of the directories in /usr/src/lib.
+:	"<uts#>" should be 16 or 32
+:	"<game>" should be a file or directory in /usr/src/games.
+
+set -x
+allnull='if test -z "$lib" -a -z "$uts" -a -z "$cmd" -a -z "$kludge" \
+-a -z "$games"; then echo true; else echo false ; fi'
+
+if test `eval "$allnull"` = "false"; then echo "====== RESTART\n\n"; fi
+
+if test -z "$STRIP" ; then echo "===== NOSTRIP"; else echo "===== STRIP";fi
+
+:	=== HEADER FILES ===
+if test `eval "$allnull"` = true; then 
+	sh /usr/src/:mkhead \*
+fi
+
+:	=== LIBRARIES ===
+:	Keep liblist is alphanumeric order
+echo "====== LIBRARIES"
+liblist="libPW libc libl libm libplot liby libterm"
+if test -n "$lib"; then 
+	sh /usr/src/:mklib `echo " " $liblist " " ^ sed "s/.* $lib / $lib /"`
+	lib=
+elif test `eval "$allnull"` = true; then
+	sh /usr/src/:mklib `echo $liblist`
+fi
+
+:	Keep utslist in alphanumeric order
+echo "======= UTS"
+echo COPYING OVER CCOM
+utslist="16 32"
+if test -n "$uts"; then
+	mv /usr/lib/ccom /usr/lib/ccom.sav
+	cp /usr/src/build/kludges/ccom.uts /usr/lib/ccom
+	chmod 755 /usr/lib/ccom
+	for i in `echo " " $utslist " " ^ sed "s/.* $uts / $uts /"` ; do
+		echo "====== UTS $i"
+		REL=$REL VER=$VER sh /usr/src/:mkuts $i 
+		uts=
+	done
+	mv /usr/lib/ccom.sav /usr/lib/ccom
+elif test `eval "$allnull"` = true; then
+	for i in `echo "$utslist"` ; do
+		mv /usr/lib/ccom /usr/lib/ccom.sav
+		cp /usr/src/build/kludges/ccom.uts /usr/lib/ccom
+		chmod 755 /usr/lib/ccom
+		echo "====== UTS $i"
+		REL=$REL VER=$VER sh /usr/src/:mkuts $i 
+	done
+	mv /usr/lib/ccom.sav /usr/lib/ccom
+fi
+	
+echo "======= COMMANDS"
+cd /usr/src	;: :mkcmd expects current dir to be /usr/src
+set +x
+cmdlist=`ls cmd`
+cmdlist=`echo places as cc ld yacc $cmdlist`
+if test -n "$cmd"; then
+	cmdlist=`echo " " $cmdlist " " ^ sed "s/.* $cmd / $cmd /"`
+	cmd=
+elif test `eval "$allnull"` = false; then
+	cmdlist=
+fi
+set -x
+if test -n "$STRIP" -a -n "$cmdlist"; then
+	LDFLAGS='-n -s' sh :mkcmd $cmdlist
+elif test -n "$cmdlist"; then
+	sh :mkcmd $cmdlist
+fi
+
+:	=== GAMES ===
+echo "====== games"
+cd /usr/src
+gameslist=`ls games`
+if test -n "$games"; then 
+	sh :mkgames `echo " " $gameslist " " ^ \
+		sed "s/.* $games / $games /"`
+	games=
+elif test `eval "$allnull"` = true; then
+	sh :mkgames `echo $gameslist`
+fi
+:	=== KLUDGES ===
+:	The following cannot be made via above mechanism
+
+echo "====== kludges"
+set -x
+cd /usr/src/cmd
+
+rm -f /bin/STTY
+ln /bin/stty /bin/STTY
+
+cp passwd.etc  /etc/passwd
+chmod 644 /etc/passwd; chown root /etc/passwd; chgrp bin /etc/passwd
+
+cp filesave.u.sh filesave.u
+/etc/install -n /etc filesave.u /etc
+
+cp tapesave.u.sh tapesave.u
+/etc/install -n /etc tapesave.u /etc
+
+cd /usr/src/cmd/dc
+cc -i dc.c -o dc
+/etc/install -n /usr/bin dc
+
+ln /usr/bin/300s /usr/bin/300S
+
+sync
+
+echo STAND NOT BEING MADE

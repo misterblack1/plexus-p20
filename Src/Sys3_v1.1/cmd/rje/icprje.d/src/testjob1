@@ -1,0 +1,23 @@
+//plx001   job (6270,r484),rje1,class=x
+//*    usr=(rje1,job)
+/*password plexus
+//iebgener exec pgm=iebgener
+//sysprint dd dummy
+//sysin dd dummy
+//sysut2 dd sysout=a
+//sysut1 dd *
+~-f
+
+
+
+This job tests the IBM link.
+
+% ls -l /
+~!ls -l /
+
+The test has apparently been successful!
+
+
+
+/*
+//

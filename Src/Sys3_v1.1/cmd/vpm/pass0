@@ -1,0 +1,40 @@
+BEGIN {lc=0;
+nw=0;
+FS = "	";
+}
+{
+if(length($0)==0)next
+if($1~/:/){
+	nw = nw + 1;
+	waitlist[nw] = substr($1,1,length($1)-1);
+}
+if(NF>1){
+if(nw>0){
+if($2=="JMP")
+	prev1 = $3;
+else{
+prev1 = waitlist[nw];
+nw = nw - 1;
+print prev1 ":";
+prev2="";
+prev3="";
+}
+while(nw>0){
+print "#define",waitlist[nw],prev1 > "sas_tempb";
+nw = nw - 1;
+}
+}
+if(($2=="MOV")&&(prev3==$3)&&(prev2=="MOVM"||prev2=="INC")){
+print "/* redundant MOV omitted */";
+next;
+}
+if(prev2=="JMP"||prev2=="RETURN"||prev2=="RETURNI"||prev2=="HALT"||prev2=="HALTI"){
+print "/* unreachable code deleted */";
+next;
+}
+print $0;
+prev2=$2;
+prev3=$3;
+lc = lc + 2;
+}
+}

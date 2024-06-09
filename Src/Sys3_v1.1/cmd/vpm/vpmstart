@@ -1,0 +1,15 @@
+: usage: vpmstart device n [filen]
+if
+test -z "$2" -o -n "$4"
+then
+echo "vpmstart: arg count"
+else
+if
+test -n "$3"
+then
+filen="$3"
+else
+filen="a.out"
+fi
+dnld -d -f "$filen" -o "$1" -a 4000
+fi

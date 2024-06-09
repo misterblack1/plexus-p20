@@ -1,0 +1,20 @@
+1:co:c:/bin/env HOME=/ TZ=PST8PDT LOGNAME=root PATH=/bin:/etc:/usr/bin /bin/sh</dev/console>/dev/console 2>&1
+1:xx::/etc/getty console ! 0 
+2:co:c:/etc/getty console b
+2:00:c:/etc/getty tty0 b
+2:01:c:/etc/getty tty1 b
+2:02:c:/etc/getty tty2 b
+2:03:c:/etc/getty tty3 b
+2:04:c:/etc/getty tty4 b
+2:05:c:/etc/getty tty5 b
+2:06:c:/etc/getty tty6 b
+2:07:c:/etc/getty tty7 b
+2:08:c:/etc/getty tty8 b
+2:09:c:/etc/getty tty9 b
+2:10:c:/etc/getty tty10 b
+2:11:c:/etc/getty tty11 b
+2:12:c:/etc/getty tty12 b
+2:13:c:/etc/getty tty13 b
+2:14:c:/etc/getty tty14 b
+7:co:c:/etc/getty console b
+8:au::/etc/init 1

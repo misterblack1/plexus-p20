@@ -1,0 +1,41 @@
+: This shell script makes a release tape 
+: 'sh makereltape FS DISK'
+: FS is the name of the file system, e.g., /f3, and DISK is the disk
+: device, e.g., /dev/dk3, from which the tape is made.
+:
+FS=$1
+if test -z "$FS"; then echo missing file system>/dev/tty; exit 1;fi
+DISK=$2
+if test -z "$DISK"; then echo missing disk device>/dev/tty; exit 1;fi
+
+if test ! -d $FS/bin; then
+	if /etc/mount $DISK $FS > /dev/tty 2>&1; then
+		echo "DO YOU WANT TO CONTINUE (y/n)" >/dev/tty
+		read answer
+		if test "$answer" != y; then exit 1; fi
+	fi
+fi
+tape rew
+dd if=$FS/stand/help of=/dev/nrmt0 conv=sync bs=1024
+dd if=$FS/stand/boot of=/dev/nrmt0 conv=sync bs=512
+dd if=$FS/sys3 of=/dev/nrmt0 conv=sync bs=1024
+dd if=$FS/stand/dformat of=/dev/nrmt0 conv=sync bs=1024
+dd if=$FS/stand/mkfs of=/dev/nrmt0 conv=sync bs=1024
+dd if=$FS/stand/restor of=/dev/nrmt0 conv=sync bs=1024
+dd if=$FS/stand/icheck of=/dev/nrmt0 conv=sync bs=1024
+dd if=$FS/stand/dd of=/dev/nrmt0 conv=sync bs=1024
+dd if=$FS/stand/fbackup of=/dev/nrmt0 conv=sync bs=1024
+dd if=$FS/stand/od of=/dev/nrmt0 conv=sync bs=1024
+dd if=$FS/stand/dconfig of=/dev/nrmt0 conv=sync bs=1024
+for i in 1 2 3 4 5 6 7 8 9; do
+dd if=$FS/stand/help of=/dev/nrmt0 conv=sync count=1 bs=1024
+done
+
+/etc/umount $DISK
+dump 0uf /dev/nrmt0 $DISK <<!
+y
+!
+for i in 1 2 3 ; do
+dd if=/stand/help of=/dev/nrmt0 conv=sync count=1 bs=10240
+done
+dd if=/stand/help of=/dev/rmt0 conv=sync count=1 bs=10240

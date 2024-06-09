@@ -1,0 +1,92 @@
+-1
+"missing -r argument"
+You must specify an SID when you are
+listed more than once in the p-file.
+-2
+"login name or SID specified not in p-file"
+Either your login name, or the SID you specified, is not
+listed in the p-file.
+You probably forgot to do a get -e, or supplied the wrong SID.
+-3
+"invalid sid in p-file"
+Get your local source code administrator to fix
+up the p-file.
+-4
+"diff failed"
+The program delta uses to determine what changed failed, 
+and the delta is not made.
+Contact SCCS support personnel for further assistance.
+-5
+"internal error in delta/enter()"
+Report this to your local SCCS support personnel immediately.
+-6
+"internal error in delta/enter()"
+Report this to your local SCCS support personnel immediately.
+-7
+"internal error in delta/enter()"
+Report this to your local SCCS support personnel immediately.
+-8
+"MRs not allowed"
+You specified MRs, but the file being processed
+doesn't allow them.
+-9
+"invalid MRs"
+The MR validation program returned a non-zero
+status to delta.  This indicates that one or more
+of the MRs specified are invalid.
+-10
+"MRs required"
+No MRs were specified, but the file being processed
+requires them.
+-11
+"cannot fork, try again"
+Delta could not fork to invoke the program it uses to determine
+what has changed in the SCCS file.
+This is a system problem which may go away, so try again.
+If it doesn't, report it to the system support group.
+-12
+"cannot execute ..."
+The named program, used by delta to determine what changed
+in the SCCS file, could not be executed.
+It may be unexecutable, or it may have been removed.
+Contact SCCS support personnel for further assistance.
+-13
+"... failed, re-trying, segmentation = ..."
+The named program, used by delta to determine what has changed in
+the SCCS file, has failed.  The most likely cause is that the files
+to be compared by the named program are being segmented into chunks
+which are too large.  Therefore, delta re-tries with smaller chunks.
+(However, the smallest chunk it will try is 500 lines.  If this fails,
+it gives up hope and terminates processing of the SCCS file.)
+Do a "help de17" for more information.
+-14
+"leading SOH char in line ... of file ... not allowed"
+The ASCII character SOH (binary 001) is in the first position
+of a line.  This character is not allowed in the first position
+for any line of text in an SCCS file.  However, it may be used
+if it is escaped.
+-15
+"ambiguous `r' keyletter value"
+Which delta (SID) do you want to make?
+Look at the p-file, pick one, and specify
+it with the `-r' keyletter.
+-16
+When delta reads arguments from the standard input it will
+not prompt for comments or MRs, so these values must be
+supplied with the file argument.
+-17
+Because of the segmentation problem which is caused by limited system
+work space, the SCCS file that delta created may occupy an inordinate
+amount of file space.  To reduce the size of the SCCS file, the user
+may want to remove the delta just created and retry when the system is
+more lightly loaded (and hopefully more work space is available).
+If no subsequent delta has been made, the procedure for doing this
+would be:
+	1. get -k s.file
+	2. rmdel -rSID s.file
+	3. get -e -g s.file
+	4. delta s.file
+
+where, of course, SID and file are specified appropriately.  Also
+steps 1 and 3 may require that you specify a SID, depending on your
+situation.

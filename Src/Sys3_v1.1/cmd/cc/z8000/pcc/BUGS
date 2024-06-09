@@ -1,0 +1,30 @@
+#	"@(#)BUGS	1.1"
+try doing long/unsigned_short
+	fixed:	extends for div based on resultant type
+
+wants a dummy .globl for static procedures
+	fixed: puts null .globl
+
+register i;i++;
+	this causes 'ld r7,r13'
+	if 'i' is on the stack it doesn't happen, the production
+	"26-" removes it.  "26-" doesn't account for registers.
+	i'm afraid to make the fix and include regs.  must try the
+	stock compiler and see what is does.
+
+char *foo();
+main(){
+	0 > foo(); /* since foo is a pointer it can never be true 
+			the compiler therefor doesn't call foo.  I
+			suppose it should for the side effects of the
+			call?? */
+
+fix putting longs into temps
+	long a[100];
+	f(){
+	long r;
+	int i;
+
+		a[f()] = a[f()] + a[f()];
+
+	}

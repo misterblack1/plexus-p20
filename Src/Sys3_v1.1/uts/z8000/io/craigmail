@@ -1,0 +1,13 @@
+In the 1.1 release document we tell the user to position to file 21
+on a cartridge by reading:
+	for i in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20; do
+		dd if=/dev/rmt0 bs=60b of=/dev/null
+	done
+However, i think that, when you are reading a file from cartridge, that
+if you try to read more blocks than are in the file (or remain unread
+after you have done one or more reads), the cartridge driver will read
+data from the NEXT file.  I experienced this on an old SYS3 1.1 prerelease
+version and I suspect it is the same for the most current 1.1 release.
+Can you confirm this?  If true, we must be sure that the above method
+of positioning to file 21 will work!!
+						JSE

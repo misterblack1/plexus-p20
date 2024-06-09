@@ -1,0 +1,152 @@
+struct  tmpfaddr	{	/* /tmp file address for strings and macros */
+	filep	b;	/* block number [1:NBLIST] */
+	int	o;	/* in block offset [0:127] */
+			};
+
+struct  d	{
+	struct	tmpfaddr op;
+	int	dnl,dimac,ditrap,ditf,alss,blss,nls,mkline,maxl,hnl,curd;
+		};
+
+
+struct  s	{
+	int	nargs;
+	struct s *pframe;
+	struct tmpfaddr pip;
+	int	macbcnt;
+	int	ppendt;
+	int	pCH0;
+	int	*pRP;
+	int	*pAP;
+	int	*pCP;
+	int	pch;
+	int	pcstkl;
+		};
+
+
+struct names	{	/* name table structure */
+	int ename;
+	union	{
+	    int (*f)();		/* function call (request) */
+	    unsigned val;	/* value (macro address) */
+		} vv
+	};
+
+struct datablock	{	/* nroff/troff data area (for compaction) */
+	int Dr[NN+1];
+	struct names Dnametab[NM+1];
+	int Dnlist[NTRAP], Dmlist[NTRAP];
+	int Dvlist[NN], Dinc[NN], Dfmt[NN];
+	char Dtrtab[256];
+	unsigned Dblist[NBLIST+1];
+		};
+
+struct dnames	{	/* name table structure - for defines in ni.c */
+	int ename;
+/*	union	{	*/
+	    int (*xf)();	/* function call (request) */
+/*	    unsigned val;	/* value (macro address) */
+/*		} vv	*/
+	};
+
+struct ddatablock	{	/* nroff/troff data area (for compaction) */
+	int Dr[NN+1];
+	struct dnames xDnametab[NM+1];
+	int Dnlist[NTRAP], Dmlist[NTRAP];
+	int Dvlist[NN], Dinc[NN], Dfmt[NN];
+	char Dtrtab[256];
+	unsigned Dblist[NBLIST+1];
+		};
+
+struct envblock	{	/* head of saved environment data block */
+	int Eics;
+	int Eic;
+	int Eicf;
+	int Echbits;
+	int Enmbits;
+	int Eapts;
+	int Eapts1;
+	int Epts;
+	int Epts1;
+	int Efont;
+	int Efont1;
+	int Esps;
+#ifndef NROFF
+	int Espacesz;
+	int Espbits;
+#endif
+	int Elss;
+	int Elss1;
+	int Els;
+	int Els1;
+	int Ell;
+	int Ell1;
+	int Elt;
+	int Elt1;
+	int Ead;
+	int Enms;
+	int Endf;
+	int Efi;
+	int Ecc;
+	int Ec2;
+	int Eohc;
+	int Ehyf;
+	int Ehyoff;
+	int Eun1;
+	int Etabc;
+	int Edotc;
+	int Eadsp;
+	int Eadrem;
+	int Elastl;
+	int Enel;
+	int Eadmod;
+	int *Ewordp;
+	int Espflg;
+	int *Elinep;
+	int *Ewdend;
+	int *Ewdstart;
+	int Ewne;
+	int Ene;
+	int Enc;
+	int Enb;
+	int Elnmod;
+	int Enwd;
+	int Enn;
+	int Eni;
+	int Eul;
+	int Ecu;
+	int Ece;
+	int Ein;
+	int Ein1;
+	int Eun;
+	int Ewch;
+	int Ependt;
+	int *Ependw;
+	int Ependnf;
+	int Espread;
+	int Eit;
+	int Eitmac;
+	int Elnsize;
+	int *Ehyptr[NHYP];
+	int Etabtab[NTAB];
+	int Eline[LNSIZE];
+	int Eword[WDSIZE];
+		};	/* end of saved environment block */
+
+
+
+#define Habs(i)	(((int)i < 0) ? -i : i)	/* abs func for v_* */
+
+#define v_pn	vlist[abs(HASH(PAIR('%',0),NN))]
+#define v_nl	vlist[abs(HASH(PAIR('n','l'),NN))]
+#define v_yr	vlist[abs(HASH(PAIR('y','r'),NN))]
+#define v_hp	vlist[abs(HASH(PAIR('h','p'),NN))]
+#define v_ct	vlist[abs(HASH(PAIR('c','t'),NN))]
+#define v_dn	vlist[abs(HASH(PAIR('d','n'),NN))]
+#define v_mo	vlist[abs(HASH(PAIR('m','o'),NN))]
+#define v_dy	vlist[abs(HASH(PAIR('d','y'),NN))]
+#define v_dw	vlist[abs(HASH(PAIR('d','w'),NN))]
+#define v_ln	vlist[abs(HASH(PAIR('l','n'),NN))]
+#define v_dl	vlist[abs(HASH(PAIR('d','l'),NN))]
+#define v_st	vlist[abs(HASH(PAIR('s','t'),NN))]
+#define v_sb	vlist[abs(HASH(PAIR('s','b'),NN))]

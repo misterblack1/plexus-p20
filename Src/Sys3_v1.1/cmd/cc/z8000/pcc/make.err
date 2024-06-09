@@ -1,0 +1,7 @@
+"order.c", line 384: warning: statement not reached
+"order.c", line 392: warning: statement not reached
+"order.c", line 415: warning: statement not reached
+"order.c", line 422: warning: statement not reached
+"order.c", line 742: warning: illegal combination of pointer and integer, op =
+"../mip/common", line 241: warning: illegal member use: in
+"../mip/common", line 241: warning: illegal member use: opst

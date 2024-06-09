@@ -1,0 +1,68 @@
+:	Create the math library as /lib/libm.a
+:	[optional] -o or -n     for compiler other than cc
+
+trap "rm -f *.o a.out; exit" 0 2 3 15
+
+LIB=${LIB-/lib}
+echo $LIB/libm.a
+echo
+
+rm -f *.o a.out
+
+c=cc
+
+case $1 in
+
+	-o )	c=occ
+		shift
+		;;
+
+	-n )	c=ncc
+		shift
+		;;
+
+esac
+
+echo "Compiler $c"
+echo
+
+$c -O -c *.c
+if [ ! $? = 0 ]
+then
+	echo "Compiler failure"
+	rm -f *.o
+	exit
+fi
+echo
+echo loader loop
+for xx in *.o
+do
+	ld -rx $xx
+	if [ $? -gt 1 ]
+	then
+		echo "$xx: Loader failure"
+		rm *.o a.out
+		exit
+	fi
+	mv a.out $xx
+	chmod 0664 $xx
+done
+
+echo
+echo make library
+echo
+
+ar rv libm.a `lorder *.o|tsort`
+if [ ! $? = 0 ]
+then
+	echo "Archive failure"
+	rm -f *.o
+	exit
+fi
+
+echo
+mv libm.a $LIB
+chmod 0664 $LIB/libm.a
+chown bin $LIB/libm.a
+chgrp bin $LIB/libm.a
+rm *.o

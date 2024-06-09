@@ -1,0 +1,36 @@
+1:co:c:/bin/env HOME=/ TZ=PST8PDT LOGNAME=root PATH=/bin:/etc:/usr/bin /bin/sh</dev/console>/dev/console 2>&1
+1:xx::/etc/getty console ! 0 
+2:co:c:/etc/getty console b
+2:00:c:/etc/getty tty0 b
+2:01:c:/etc/getty tty1 b
+2:02:c:/etc/getty tty2 b
+2:03:c:/etc/getty tty3 b
+2:04:c:/etc/getty tty4 b
+2:05:c:/etc/getty tty5 b
+2:06:c:/etc/getty tty6 b
+2:07:c:/etc/getty tty7 b
+2:08:c:/etc/getty tty8 b
+2:09:c:/etc/getty tty9 b
+2:10:c:/etc/getty tty10 b
+2:11:c:/etc/getty tty11 b
+2:12:c:/etc/getty tty12 b
+2:13:c:/etc/getty tty13 b
+2:14:c:/etc/getty tty14 b
+2:15:c:/etc/getty tty15 b
+2:16:c:/etc/getty tty16 b
+2:17:c:/etc/getty tty17 b
+2:18:c:/etc/getty tty18 b
+2:19:c:/etc/getty tty19 b
+2:20:c:/etc/getty tty20 b
+2:21:c:/etc/getty tty21 b
+2:22:c:/etc/getty tty22 b
+2:23:c:/etc/getty tty23 b
+2:24:c:/etc/getty tty24 b
+2:25:c:/etc/getty tty25 b
+2:26:c:/etc/getty tty26 b
+2:27:c:/etc/getty tty27 b
+2:28:c:/etc/getty tty28 b
+2:29:c:/etc/getty tty29 b
+2:30:c:/etc/getty tty30 b
+7:co:c:/etc/getty console b
+8:au::/etc/init 1

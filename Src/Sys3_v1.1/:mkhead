@@ -1,0 +1,44 @@
+wd=`pwd`
+cd ${SRC-/usr/src}/head
+trap "rm -f usrlist headlist;cd $wd;exit" 0 1 2 3 15
+if [ "$1" ]
+then
+	args=`echo $* | sed -e 's;sys\.[^ ]*;;g'`
+else
+	args=`ls | sed -e 's;sys\.[^ ]*;;g'`
+	ls . > headlist
+	ls /usr/include > usrlist
+	rem=`comm -23 usrlist headlist | tr -s "\012" " "`
+	echo "Removing:\n$rem"
+	(cd /usr/include; rm -f $rem)
+fi
+index=0
+echo "Copying:"
+echo "sys.s \c"
+if vax
+then	cp sys.vax /usr/include/sys.s
+else	cp sys.pdp /usr/include/sys.s
+fi
+for i in $args
+do
+	if [ -d $i ]
+	then
+		if test $index -gt 6
+		then echo
+		     index=0
+		else index=`expr $index + 1`
+		fi
+		echo "(directory $i) \c"
+		cp $i/* /usr/include/$i
+	else
+		echo "$i \c"
+		if test $index -gt 6
+		then echo
+		     index=0
+		else index=`expr $index + 1`
+		fi
+		cp $i /usr/include
+		chgrp bin /usr/include/$i
+	fi
+done
+echo

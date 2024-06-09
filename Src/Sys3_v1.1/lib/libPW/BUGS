@@ -1,0 +1,11 @@
+z8000/alloca.s	03/10/82 JSE	Rewrote and tested for Z8000. Added check 
+				for SAFETYZONELEN and call to UGROW.
+
+z8000/move.c	03/11/82 JSE	Simplified to work with any machine.
+
+z8000/libPW.mk	03/12/82 JSE	Added INCLUDE and ULIB make variables.
+				Changed make of .s files to work for us.
+
+z8000/alloca.s	03/17/82 JSE	Renamed SIGSEG signal number to SIGSEGV.
+		04/22/82 JSE	Fixed to keep unused word on top of stack
+				when allocating space.

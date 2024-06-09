@@ -1,0 +1,7 @@
+	The following files have been altered to remove all references to
+	"alloca" (defined in libPW.a). This kludge should and will be
+	removed in a later date. It has been include here for NCC 1982.
+
+		dodelt.c
+		pf_ab.c
+

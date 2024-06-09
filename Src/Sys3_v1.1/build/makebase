@@ -1,0 +1,73 @@
+
+:
+: Mkfs a release file system and  set up /dev entries, inittab,
+: and sys3 with 16 or 32 users.
+:
+: 	makebase src-file-system target-file-system device numuser nomkfs
+:
+: numuser must be 16 or 32.  nomkfs causes makebase
+: to skip the mkfs step.  Do not skip mkfs step if you are
+: building a 32 user system after having built a 16 user system.
+:
+: Ex.
+:	makebase /f18 /f17 /dev/dk17 32
+:	makebase / /f4 /dev/dk4 16 nomkfs
+:
+
+FS=${FS-"$2"}
+BUILDDEV=${BUILDDEV-"$3"}
+NUMUSER=${NUMUSER-"$4"}
+NOMKFS=${NOMKFS-"$5"}
+SRC=${SRC-"$1"}
+
+if test -z "$BUILDDEV" -o -z "$FS" -o -z "$NUMUSER" ; then
+	echo missing arguments
+	exit 1
+fi
+/etc/umount $BUILDDEV >/dev/null 2>&1
+a=`/etc/mount ^ egrep " $BUILDDEV "`
+if test -n "$a";  then
+	echo "$BUILDDEV is mounted"
+	exit 1
+fi
+:
+: build the basic file system
+:
+set -x
+if test -z "$NOMKFS"; then
+	cp make.proto empty $SRC/tmp
+	if chroot $SRC /etc/mkfs $BUILDDEV /tmp/make.proto
+		then echo successful mkfs
+		else echo mkfs had errors 
+	fi
+	rm -f $SRC/tmp/*
+fi
+/etc/mount $BUILDDEV $FS
+cp $SRC/usr/src/cmd/ddate.sh $FS/etc/ddate
+> $FS/usr/adm/wtmp
+cp /usr/src/build/kludges/uts.mk $FS/usr/src/uts/uts.mk
+cp /usr/src/build/kludges/:mkuts $FS/usr/src/:mkuts
+cp /usr/src/build/kludges/cc.uts $FS/bin/cc.uts
+chmod 775 $FS/bin/cc.uts
+cp /usr/src/build/kludges/ccom.uts $FS/usr/lib/ccom.uts
+chmod 775 $FS/usr/lib/ccom.uts
+
+if test "$NUMUSER" = 16; then
+	rm -f $FS/dev/tty1[6-9] $FS/dev/tty2? $FS/dev/tty3? $FS/dev/lp
+	ln $FS/dev/tty15 $FS/dev/lp
+	cp $SRC/etc/inittab16 $FS/etc/inittab
+	cp $SRC/sys3.16 $FS/sys3
+	rm -f $FS/usr/include/sys/maxuser*.h
+	cp $SRC/usr/include/sys/maxuser16.h $FS/usr/include/sys/maxuser16.h
+	ln $FS/usr/include/sys/maxuser16.h $FS/usr/include/sys/maxuser.h
+elif test "$NUMUSER" = 32; then
+	if test ! -c $FS/dev/tty30; then echo MUST DO A MKFS>/dev/tty;exit;fi
+	cp $SRC/etc/inittab32 $FS/etc/inittab
+	cp $SRC/sys3.32 $FS/sys3
+	rm -f $FS/usr/include/sys/maxuser*.h
+	cp $SRC/usr/include/sys/maxuser32.h $FS/usr/include/sys/maxuser32.h
+	ln $FS/usr/include/sys/maxuser32.h $FS/usr/include/sys/maxuser.h
+else
+	echo "ILLEGAL NUMBER OF USERS" 
+	exit 1
+fi

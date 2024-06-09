@@ -1,0 +1,23 @@
+:mkcmd		03/11/82 JSE	Added comments. Removed /bin/pdp11
+				/bin/vax references.  Added INCLUDE
+				and LIB shell variables and passed
+				them on to all *.mk and *.rc files
+				:mkcmd calls.  Not all of the *.mk
+				and *.rc files use them, however.
+				Fixed bug in make of
+				directory-commands having to do with -f
+				option.
+				Added YACCLIB, LINLIB, LIB, LDFLAGS
+				variables.  Fixed so that ldflags can
+				be set for all commands with LDFILE
+				overriding it for only those commands
+				listed in it.  Before, an unlisted file
+				resulted in ldflags being set to null.
+				Added ETC and file.etc capability.
+
+ldflags		03/18/82 JSE	Added init, sysfix. Removed echo.
+				Removed -f flag from units, spline, pack.
+				Added ncheck to list.
+
+:mkuts		05/18/82 JSE	Defined default values for the variables,
+				REL, VER, SYS, NODE, and ROOT.

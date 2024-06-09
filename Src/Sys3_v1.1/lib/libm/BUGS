@@ -1,0 +1,2 @@
+libm.rc		03/12/82 JSE	Added INCLUDE and LIB shell variables.
+				Compiled and installed.

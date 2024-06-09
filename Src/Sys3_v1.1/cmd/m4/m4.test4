@@ -1,0 +1,8 @@
+aaaaa
+divert(1)
+1111111
+divert
+divert(-1)
+undivert
+divert
+zzzzz

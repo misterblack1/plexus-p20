@@ -1,0 +1,11 @@
+root::0:1:0000-Admin(0000):/:
+daemon::1:1:0000-Admin(0000):/:
+bin::2:2:0000-Admin(0000):/bin:
+sys::3:3:0000-Admin(0000):/usr/src:
+adm::4:4:0000-Admin(0000):/usr/adm:
+uucp::5:1:0000-uucp(0000):/usr/lib/uucp:
+games::6:1:0000-games(6270):/usr/games:/bin/rsh
+sync::7:1:0000-Admin(0000):/:/bin/sync
+rje::8:8:0000-rje(0000):/usr/rje:
+shqer::9:8:0000-rje(0000):/usr/rje:
+guest::100:100::/guest:

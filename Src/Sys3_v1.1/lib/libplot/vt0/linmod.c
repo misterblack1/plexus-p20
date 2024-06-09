@@ -1,0 +1,4 @@
+linemod(s)
+char *s;
+{
+}

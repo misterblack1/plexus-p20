@@ -1,0 +1,37 @@
+#include "icp/dma.h"
+//startdma - start the dma output to a sio channel
+	.text
+	.globl	_startdma
+_startdma:
+~~startdma:
+#ifdef COUNT
+	inc	_profile+0x1a,$1
+#endif
+	ld	r7,2(r15)	//r7 = unit
+	ld	r0,r7		//save unit #
+	add	r7,r7		//r7 = word offset into table
+	ld	r6,_pdmac(r7)
+	ld	r5,_pdmaa(r7)
+	ld	r4,_pdmax(r7)
+
+	xor	r3,r3		//r3 = 0
+	ldk	r2,$CBPFF
+	or	r2,r6
+	out	*r2,r3		//clear byte pointer in dma
+
+	ld	r2,4(r15)	//r2 = address of data buffer
+	outb	*r5,rl2
+	outb	*r5,rh2		//set address of buffer
+
+	ld	r2,6(r15)	//r2 = # of char to be sent
+	outb	*r4,rl2
+	outb	*r4,rh2		//set address of buffer
+
+	and	r0,$MCHAN
+	or	r0,$RESETMSK	//r0 = "RESETMSK" | "MCHAN" & unit
+	or	r6,$WSMRB
+	out	*r6,r0		//start the dma
+
+	ret
+
+	.data

@@ -1,0 +1,5 @@
+divert(1)
+should see 11111 then 22222
+1111111
+divert(2)
+2222222

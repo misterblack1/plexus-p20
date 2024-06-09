@@ -1,0 +1,151 @@
+.globl    _getc, _putc                                    
+.globl    _cfreelist                                    
+                                    
+_getc:                                    
+    mov    r2,-(sp)        ;save r2 on stack                          
+    mov    4(sp),r2        ;get argument into r2                          
+    mov    PS,-(sp)        ;save PS on stack                          
+    spl    6
+    dec    (r2)+           ;(clist char count)-1 & point to "link to 1st cblock"
+    blt    2f              ;if result < 0, then list was empty
+    mov    (r2),r1         ;r1 <- "pointer to the 1st cblock"
+    tst    (r1)+           ;skip over pointer in cblock
+    movb   (r1),r0         ;r0 <- index of first char in cblock
+    incb   (r1)            ;increment index of first char in cblock
+    cmpb   (r1)+,(r1)+     ;compare index of 1st char against index of last char
+    beq    3f              ;if equal then first cblock now empty
+    add    r1,r0           ;r1 was adress of base of data array in cblock
+    movb   (r0),r0         ;get character from cblock
+    bic    $!377,r0        ;   and remove any sign extension
+1:                                    
+    mov    (sp)+,PS                                    
+    mov    (sp)+,r2        ;Clean up stack and registers and return
+    rts    pc                                    
+2:                         ;list was empty
+    inc    -(r2)           ;reset count to 0 in clist
+    mov    $-1,r0          ;returned char is -1
+    br     1b                                    
+3:                         ;current cblock is now empty
+    add    r1,r0           ;r1 was adress of base of data array in cblock
+    movb   (r0),r0         ;get character from cblock
+    bic    $!377,r0        ;   and remove any sign extension
+    tst    -(r1)           ;r1 points to fisrt char in data array
+    mov    -(r1),(r2)+     ;(dec pointer to point at link address) put link into
+                           ;    clist pointer to first cblock
+    bne    4f              ;if pointer was 0, then this was last cblock in chain
+    clr    (r2)            ;  so clear "pointer to last cblock" in clist
+4:                                    
+    mov    _cfreelist,(r1) ;link newly freed cblock into list of
+    mov    r1,_cfreelist   ;  free cblocks
+    br     1b                                    
+                                    
+_putc:
+    mov    r2,-(sp)        ;save r2 on stack
+    mov    6(sp),r2        ;get second argument (&clist) in r2
+    mov    PS,-(sp)        ;save PS on stack                            
+    spl    6                                    
+    mov    4(r2),r1        ;r1 = ptr->c_cl (last cblock in clist)
+    beq    3f              ;if ptr->c_cl == 0, then clist empty
+1:
+    add    $3,r1           ;r1 = &ptr->c_cl->c_last
+    movb   (r1),r0         ;r0 = ptr->c_cl->c_last
+    cmp    r0,_cfreelist+2 ;compare index last char with max allowed
+    bge    6f
+    inc    (r2)            ;space in cblock. Increment char count
+    incb   (r1)+           ;increment index of last char in cblock
+    add    r1,r0           ;r0 = &ptr->c_cl->c_data[ptr->c_cl->c_clast]
+    movb   6(sp),(r0)      ;move 1st arg into cblock
+    clr    r0              ;return 0 status (everything ok)
+2:
+    mov    (sp)+,PS        ;clean up stack and return
+    mov    (sp)+,r2
+    rts    pc
+3:                         ;clist is empty (no cblocks)
+    mov    _cfreelist,r1   ;r1 = address of next free cblock
+    beq    5f              ;if no more free cblocks, then quit
+    mov    r1,2(r2)        ;clist first cblock = pointer to free cblock
+4:                         ;  then adjust pointer to last cblock
+    mov    (r1),_cfreelist ;take free cblock from list of free cblocks
+    clr    (r1)            ;ptr->c_cl->c_next = 0 (this cblock is last cblock)
+    clr    2(r1)           ;ptr->c_cl->c_first/c_last = 0 (empty cblock)
+    mov    r1,4(r2)        ;make this cblock the new last cblock in the clist
+    br     1b              ;  ptr->c_cl = cfreelist.c_next
+5:
+    mov    $-1,r0          ;problems, problems, problems. Quit
+    br     2b              ;-1 status means error.
+6:                         ;space in cblock exhausted. Get a new cblock
+    mov    r1,r0           ;save &ptr->c_cl+3 in r0
+    mov    _cfreelist,r1   ;r1 = cfreelist.c_next = address next free cblock
+    beq    5b              ;if 0 then no more free cblocks. Return with error.
+    mov    r1,-3(r0)       ;ptr->c_cl->c_next = cfreelist.c_next
+    br     4b              ;now adjust ptr->c_cl and add char to cblock
+
+.globl     _getcf, _putcf
+_getcf:
+    mov    PS,-(sp)        ;save PS on stack
+    spl    6
+    mov    _cfreelist,r0   ;r0 = cfreelist.c_next = &cblock (free)
+    beq    1f              ;if 0 then there are no free cblocks, just quit
+    mov    (r0),_cfreelist ;cfreelist.c_next <= &cfreelist.c_next->c_next
+    clr    (r0)            ;clear allocated cblock link
+    mov    _cfreelist+2,r1 ;set cblock c_first/c_last indicies from chead table
+    swab   r1              ;they are backwards in register, so straight"em out
+    mov    r1,2(r0)        ;finally place the indicies in the cblock
+1:
+    mov    (sp)+,PS        ;cleanup stack and return
+    rts    pc
+
+_putcf:
+    mov    2(sp),r0        ;r0 = argument = &cblock
+    mov    PS,-(sp)        ;save PS on stack
+    spl    6
+    mov    _cfreelist,(r0) ;place newly freed cblock at beginning of cfreelist
+    mov    r0,_cfreelist
+    mov    (sp)+,PS        ;restore stack and return
+    rts    pc
+
+.globl     _getcb, _putcb
+_getcb:
+    mov    r2,-(sp)      ;save r2 on stack
+    mov    4(sp),r2      ;move argument into r2; address of clist variable
+    mov    PS,-(sp)      ;save status register on stack
+    spl    6             ;diable interrupts from dh
+    mov    2(r2),r0      ;get pointer to first cblock from clist variable
+    beq    1f            ;If its NULL, then return 0 & return
+    tst    (r0)+         ;skip over "link to next cblock" in the first block
+    movb   (r0)+,r1      ;r1 <- index of first character in cblock
+    movb   (r0),r0       ;r0 <- index of last character in cblock
+    sub    r1,r0         ;r0 <- # of characters in block (+1?)
+    sub    r0,(r2)+      ;adjust character count in clist
+    mov    (r2),r0       ;r0 (returned value) <- first cblock
+    mov    (r0),(r2)+    ;move link pointer from cblock into clist
+    bne    1f            ;If this was not the last cblock, then return
+    clr    (r2)          ;   else clear the end cblock pointer. (list now emty)
+1:
+    mov    (sp)+,PS      ;Restore stack and registers
+    mov    (sp)+,r2
+    rts    pc
+
+_putcb:
+    mov    r2,-(sp)      ;save r2 on stack
+    mov    4(sp),r0      ;r0 = first argument = &cblock
+    mov    6(sp),r2      ;r2 = second argument = &clist
+    mov    PS,-(sp)      ;save PS on stack
+    spl    6
+    mov    4(r2),r1      ;r1 = ptr->c_cl = &ptr->c_cl->c_next
+    bne    1f            ;if (ptr->c_cl == 0) then (clist empty ?)
+    mov    r0,2(r2)      ;   ptr->c_ch = &cblock  (adjust head link)
+    br     2f
+1:
+    mov    r0,(r1)       ;else ptr->c_cl->c_next = &cblock (append end of Q)
+2:
+    mov    r0,4(r2)      ;ptr->c_cl = &cblock (clist has new tail)
+    clr    (r0)+         ;ground new last cblock (ptr->c_cl->c_next = 0)
+    movb   (r0)+,r1
+    movb   (r0),r0
+    sub    r1,r0         ;r0 = #char in cblock
+    add    r0,(r2)       ;adjust # char in clist by new bytes in new cblock
+    clr    r0            ;return status is ok (0)
+    mov    (sp)+,PS      ;restore stack and return
+    mov    (sp)+,r2
+    rts    pc

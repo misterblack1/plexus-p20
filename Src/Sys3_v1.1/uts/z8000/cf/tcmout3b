@@ -1,0 +1,3 @@
+_us_cnt:  sovly 2 sovalue 0 new 13d4 have 13d4 ld:../olib2(us.o): Multiply defined
+_mode2:  sovly 2 sovalue 0 new 13d6 have 13d6 ../olib2(us.o): Multiply defined
+_diagspe:  sovly 2 sovalue 0 new 13f6 have 13f6 ../olib2(us.o): Multiply defined

@@ -1,0 +1,19 @@
+cpio -i
+du -i
+dump -i
+fgrep -i
+find -i
+fsck -i
+init
+mkfs -i
+ncheck -i
+nm -i
+openup
+pack
+pcat -i
+restor -i
+spline -i
+sysfix
+units -i
+unpack -i
+volcopy -i

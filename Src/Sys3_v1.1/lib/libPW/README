@@ -1,0 +1,5 @@
+	The following PWB library routines were altered to remove all
+	references to "alloca".
+
+	xcreat.c
+	xmsg.c

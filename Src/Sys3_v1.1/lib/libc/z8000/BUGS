@@ -1,0 +1,18 @@
+order.in	03/09/82 JSE	renamed frexp11.o,modf11.o,ldexp11.o to
+				Plexus versions (frexp.o,modf11.o,ldexp11.o).
+
+order.out	03/09/82 JSE	removed all lines with fltused.o
+
+order.in
+order.out
+libc.rc		04/21/82 JSE	Removed all reference to _fprint.o within
+				order.in and order.out.  Also
+				placed _print.o after _fprint.o in libc.a. 
+				_print.o does the formatting for printf but
+				does no f.p. output (%e %f %g).  
+				_fprint.o, also in libc.a, is same but
+				 has the f.p. stuff.
+
+gen/mktemp.c	08/24/82 CCF	If the file name wasn't terminated by an X,
+				it blew away the NULL at the end.  Fixed
+				so that it puts an X at the end.

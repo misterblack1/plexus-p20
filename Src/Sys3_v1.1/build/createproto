@@ -1,0 +1,19 @@
+:
+:	preparemake rel-no
+:	EX
+:		preparemake 1
+if test -z "$1"; then echo "missing args: preparemake <rel-no.>"; exit 1; fi
+cd /p3/release
+proto.release $1
+cd /p3/usr/src/build
+mv make.proto make.protold
+cp /p3/release/make.proto make.proto
+ed - make.proto <<!
+0a
+empty
+20000 2000
+.
+w
+q
+!
+echo DONE

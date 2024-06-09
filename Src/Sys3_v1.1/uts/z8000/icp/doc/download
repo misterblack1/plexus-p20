@@ -1,0 +1,58 @@
+1.1	DOWN LOAD SOFTWARE
+
+	The download software is responsible for handling the establishment
+of the ICP resident software. Ancillary to this, it also may be used to read
+parts of the icp memoroy, to read/write characters from/to tty 0, and to 
+load the pc register. For further information see siocprom.h & icp/prom/main.c.
+
+	The following files are used during the execution of the down load
+software (I will occasionally refer to this as the prom software):
+
+	UNIX	ic.c		interface between cdevsw table and si.c
+		si.c		communication and file transport software
+
+	ICP	prom/l.s	interrupt vector
+		prom/mch.s	assembly code support
+		prom/main.c	initializing code/command decoding
+		prom/mb.c	communication software (protocol)
+		prom/prf.c	printf for output to port 0 (formating)
+		prom/sio.c	sio serial io handler
+		prom/trap.c	trap handler for various ugly conditions.
+
+
+1.1.1 INITIALIZATION.
+
+	Our story begins in siinit (si.c). This is where the initialization of
+the control data structures in the unix kernel occurs. There are three main 
+data areas: (1) a per icp communication area (2) a per icp control data
+structure {sctl[0-4]} and (3) a shared dynamic buffer pool {siocbuf}.
+	The unix driver does not write data into the icp memory. Instead it
+sends a request to the ICP telling it where the data resides in memory. The
+ICP itself performs the data transfer over the multibus. It then gives control
+back to the requesting process once the transfer has been completed. Commands
+are issued by constructing control blocks in the per icp communication area.
+
+1.1.1.1 Per ICP Communication Area
+
+	This is a block of memory extending from 0xf800 through 0xfd00. It
+is divided into 5 256 byte chunks, one for each icp, each of which is further
+divided into three control areas.
+
+	0xf800	-	ICP 0	(PBASE0)
+	0xf900	-	ICP 1	(PBASE1)
+	0xfa00	-	ICP 2	(PBASE2)
+	0xfb00	-	ICP 3	(PBASE3)
+	0xfc00	-	ICP 4	(PBASE4)
+	
+The three control fields are:
+
+	1. sioc prom control block	( 16 bytes wide)
+	2. command or reply from icp	( 30 bytes wide)
+	3. command to icp from kernel	(210 bytes wide)
+
+	The sioc prom control block appears to be used exclusively by the
+down load software to open, close, read, or write to the icp. Its structure
+is defined by icp/siocprom.h.
+	The reply/command from icp control block is set by the icp. It is
+processed by sioci() (icpmisc.c) which handles the icp interrupts. Its
+structure depends on the message type and is defined in icp/pbsioc.h

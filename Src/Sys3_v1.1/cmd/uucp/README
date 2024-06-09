@@ -1,0 +1,105 @@
+						November 10, 1979
+	The distributed uucp sources fit BOTH PDP/11's and VAXs.
+A substantial number of minor changes were made to ``uucp''
+by Dave Nowitz and Her-daw Che during May thru November, 1979.
+Most of the changes are relatively benign. See the file CHANGES
+for a list of what has been done.
+In particular, a command called 'uustat' is included to
+provide the uucp status inquiry and job control.
+Another command 'uusub' is also provided to monitor
+the uucp 'subnetwork'.
+You can turn these features on or off via switches
+'UUSTAT' and 'UUSUB' defined in 'uucp.h'.
+For more detail, see "Uustat - A UUCp Status Inquiry Program",
+3624-791031.01MF by Her-daw Che.
+
+
+			PWB 1.2 SYSTEMS
+        There is a new stockroom category, called ``pwbuucp'', (made March 21)
+which gives additional information regarding installing uucp on PWB 1.2 
+systems.  This information is by courtesy of Brian Redman.
+
+		***	UUCP ADMINISTRATORS LIST         ***
+	We are in the process of compiling an up to date Uucp Administrators
+List. This list will be used to keep users abreast of new updates, releases,
+password & phone number changes ... etc., via uucp, of course. Please mail
+the following information to pwba!lat:      
+1) Administrator's name
+2) Mailing address and phone number
+3) System name(s) & description
+e.g.  mhtsa      Unix Support Group 11/70a .
+4) Your login name (for mail)
+			GENERAL  INSTRUCTIONS
+	UUCP installators should read the two papers (by Dave Nowitz)
+distributed with the uucp sources.
+Before running "uucp", you should change the define for "MYNAME"
+in "uucp.h" to whoever you are, and recompile.
+As delivered, "uucp" thinks that it is running on the ``mhtsa'' system.
+        Since all ACUs are not created equal, the last character which must
+be sent to the ACU may differ on your system.  The value "ACULAST" in
+"uucp.h" should be modified if necessary.
+        To run successfully you will need to provide working
+versions of the following files:
+  L-devices     entries for call-units and hard-wired connections
+  L-dialcodes   decodes abbreviations occurring in L.sys
+  L.sys         pertinent details about other systems that you
+                may call, as the result of prior agreement.
+  USERFILE      user accessibility information
+
+The information in these files is specific to each installation.
+The versions supplied are arbitrarily modified versions of files
+used on the mhtsa machine, and are provided only as examples.
+
+        As delivered, "uucp" is set up to use the following
+directories (contrary to some documentation):
+
+        /usr/src/cmd/uucp       source files
+        /usr/lib/uucp           executable programs and data files
+        /usr/spool/uucp         work-in-progress
+        /usr/lib/uucp/.XQTDIR      work area for "uuxqt"
+        /usr/spool/uucppublic   uucp public directory
+
+
+NOTE - some recent changes have moved some of the directories.
+The names appear in uucp.h and the "uucp.mk" file.
+(SPOOL, XQTDIR, PUBDIR, INSDIR, THISDIR)
+The login directory for the uucp login(s) should be the PUBDIR
+directory.
+
+	Note also that there is an array called "Cmds" in the file
+"uuxqt.c" which names the commands which may be executed at
+the request of a remote user, via "uux". You will most probably
+wish to modify the initialization of this array, to reflect the
+commands you are willing to allow on your system.
+
+	The ``mail'' command has been modified, so that it may
+only be used to send mail, when it is invoked under a name beginning
+with 'r'. (In the receive mode, it can be used to invoke a shell,
+thus creating a potential security hole.)
+When sending mail to a remote site, ``mail'' invokes the ``rmail''
+command at the remote site. Hence you should create an ``rmail''
+command by linking to ``/bin/mail", and ensure that ``Cmds''
+contains an entry for ``rmail'', but not ``mail''.
+
+        Note that other systems which may contact you via "uucp"
+will have to login using information that you supply. When UNIX/TS and
+UNIX/RT are delivered there is a user "uucp" (with no initial password) 
+whose default shell is (and must be) "/usr/lib/uucp/uucico". If you
+wish to use "uucp" to contact other systems you will need to
+obtain username and password information from them in advance and
+to store this in "L.sys".  Since the file "L.sys" contains
+sensitive information about how to access other systems which are
+willing to converse with you, it is important that the "L.sys"
+file be properly protected. You will find that ensuring a high
+level of protection is not a trivial task. As a minimum you will
+need to set correctly the permissions on the file itself, its
+parent directory and every executable "set-uid-to-root" file in
+your whole system ... and then ensure that the root password is
+secure ... as a bare minimum.
+
+        The programs "uuclean" and "uulog" are provided for
+housekeeping.  These should be run frequently, e.g. by "cron".
+Prototypes of procedures that may be run by "cron" are provided
+here as the files "uudemon.*".  Note also that "uudemon.hr"
+starts up "uucico" to initiate transfers that have been delayed
+for some reason, or to poll passive systems for work.

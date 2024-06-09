@@ -1,0 +1,21 @@
+ULIB=${ULIB-/p3/usr/lib}
+cc -O -c lib/*.c
+rm -f libl.a
+ar rv libl.a *.o
+rm -f *.o
+
+cp libl.a $ULIB
+chown bin $ULIB/libl.a
+chgrp bin $ULIB/libl.a
+chmod 644 $ULIB/libl.a
+rm -f libl.a
+
+cp lib/ncform $ULIB/lex/ncform
+chown bin $ULIB/lex/ncform
+chgrp bin $ULIB/lex/ncform
+chmod 644 $ULIB/lex/ncform
+
+cp lib/nrform $ULIB/lex/nrform
+chown bin $ULIB/lex/nrform
+chgrp bin $ULIB/lex/nrform
+chmod 644 $ULIB/lex/nrform

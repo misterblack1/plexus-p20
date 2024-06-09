@@ -1,0 +1,78 @@
+			Tips for installing csh
+
+Note: there are several versions of csh at Berkeley.  The official, current,
+csh (which will be sent out as csh on the 4bsd vax distribution) uses the
+process control features of 4bsd and isn't conditionally compiled, so
+there isn't much point in distributing it on 2bsd.  There are 2 or 3 versions
+of csh which should run on about any system, however.  The is the original
+csh (which went out on 2.0bsd), a slightly modified version with several
+new features that went out on 3bsd, a newer version of that which went
+out on 2.6bsd, and this version, which is part of 2.7bsd but was officially
+the csh of the Cory pdp-11 distribution.  (Confused?)  Anyway, this csh
+has the newgrp bug fixed (newgrp and exec would ignore interrupts in the
+resulting shell.)  Ignore the VMUNIX code, that applies to 3bsd vaxen.
+
+If you have anything other than a v7 pdp-11 or 32v vax, be careful
+compiling csh.  Here are some common problems and the solutions:
+
+Assembler: the makefile tries to tell the assembler that it's OK for
+globals to be undefined (the -u flag.)  On a vax, this flag is -, as
+it is on v6.  This affects sh.init.c and strings.c, both of which are
+handled specially to make text shared.  Since the makefile will ignore
+errors in the assembler, don't just look at the tail of the errors
+from make, CHECK THE MIDDLE.
+
+Printf:  there is a stupid incompatibility here.  Csh wants its own
+version of printf which goes through putchar, like the v6 printf did.
+We have a printf written in C (look at the end of ls.c or finger.c,
+or grab the one in the ex source directory if you want it) but it seems
+not to be used in csh for no good reason.  So what happens is we have
+a printf.c which calls _doprnt (which is assumed to be in the stdio
+library) which calls _strout to print strings, and printf.c has its
+own _strout.  But at some point the order of the 1st two arguments to
+_strout was reversed, so there is one _strout for the pdp-11 and another
+for the vax.  (Note the two printf.c files.)  If you are unsure which
+to use, check your source to _strout.  When you get it compiled, do
+a "set" command.  If all you get is "()()" you used the wrong printf.
+If you are on Unix/TS or some such system with no doprnt, you can grab
+a doprnt from the ex directory, or just use a printf written in C.
+(Make sure it calls putchar and not pputchar as the one is ls does.)
+Note: for the vax, it seems to require it's own doprnt.c (don't let it
+fool you, that's in vax assembly language, the .c extension is so the
+C preprocessor can be run on it) since the system doprnt core dumps.
+
+Size:  It was intended that on an 11 csh should run -n, not -i.
+However, due to a bug in our 11 system and the size of csh, we are
+running it -i.  Note that if you run csh -i you CANNOT :rofix the
+strings and command table.  If you run it -n you can.  rofixing
+makes about 4K of stuff sharable and cuts down the per-user space
+drastically, so it's a real win if lots of people use csh.  If you
+want to try running -n, make absolutely sure that the final a.out
+file is no bigger than 40K of text space (5 segmentation registers).
+If you don't have 3 registers for data the shell will run out of memory
+when you try to use tset -s in your .login.
+
+Getpwent:  There are stripped down versions of getpwent enclosed.
+You can use them or your standard system getpwent routines.  Some
+getpwents have bugs which prevent the ~user syntax from working more
+than once.  (They try to open the passwd file and keep a file descriptor
+open, but csh closes all file descriptors.)  getpwnam is supposed to call
+endpwent which closes passwd.  The other reason to use the local getpwent
+routines is to help make csh fit in 40K to run -n, since the standard ones
+suck in stdio.  Otherwise you might as well use the stdio versions since
+csh will run slightly faster doing ~user with stdio buffering.
+
+Bugs:  there are lots of them.  If somebody were maintaining this version
+of csh they might get fixed.  All known bugs have been fixed in the process
+control version.  Here's a kludge to get around the current peeve:
+a bug prevents >file from working as the first command in a .logout or
+source command.  If you really want this, put another command before it
+or put the command in parentheses.  The only known fix to this prevents
+the construct "source file > file2" from working, which is probably just
+as well.
+
+32V: in makefile.vax, be sure to remove VMUNIX and VFORK from CFLAGS.
+The VFORK flag also controls the hashstat command, which cannot work
+if you don't have vfork so it is compiled out.  Any binaries for a vax
+are probably incompatible with whatever vax system you have, since we
+have gone through two incompatible format changes since 32V.

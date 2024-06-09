@@ -1,0 +1,3 @@
+cp unittab.sh unittab
+/etc/install -f /usr/lib unittab
+rm -f unittab

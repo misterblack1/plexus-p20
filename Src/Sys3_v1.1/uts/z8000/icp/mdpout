@@ -1,0 +1,39 @@
+	cd cf; make -f cf.mk "INCRT=/usr/include"
+	cc -O -DICP -Dz8000 -I/usr/include -c c.c
+	/lib/cpp -DASSM -DICP -Dz8000 -I/usr/include -P  l.s >tempfile
+	as -u tempfile -o l.o
+	rm tempfile
+	/lib/cpp -DASSM -DICP -Dz8000 -I/usr/include -P  mch.s >tempfile
+	as -u tempfile -o mch.o
+	rm tempfile
+	cd ml; make -f ml.mk "INCRT=/usr/include"
+	/lib/cpp -DASSM -DICP -Dz8000 -I/usr/include -P  clist.s >tempfile
+	as -u tempfile -o clist.o
+	rm tempfile
+	cc -O -DICP -Dz8000 -I/usr/include -c cinit.c
+	cd io; make -f io.mk "INCRT=/usr/include"
+	cc -O -DICP -Dz8000 -I/usr/include -c ctc.c
+	cc -O -DICP -Dz8000 -I/usr/include -c dh.c
+	cc -O -DICP -Dz8000 -I/usr/include -c dma.c
+	cc -O -DICP -Dz8000 -I/usr/include -c partab.c
+	cc -O -DICP -Dz8000 -I/usr/include -c pio.c
+	cc -O -DICP -Dz8000 -I/usr/include -c tt0.c
+	cc -O -DICP -Dz8000 -I/usr/include -c tty.c
+	cd os; make -f os.mk "INCRT=/usr/include"
+	/lib/cpp -DASSM -DICP -Dz8000 -I/usr/include -P  bcopy.s >tempfile
+	as -u tempfile -o bcopy.o
+	rm tempfile
+	cc -O -DICP -Dz8000 -I/usr/include -c blist.c
+	cc -O -DICP -Dz8000 -I/usr/include -c clock.c
+	cc -O -DICP -Dz8000 -I/usr/include -c daemon.c
+	cc -O -DICP -Dz8000 -I/usr/include -c main.c
+	cc -O -DICP -Dz8000 -I/usr/include -c mb.c
+	cc -O -DICP -Dz8000 -I/usr/include -c pbif.c
+	cc -O -DICP -Dz8000 -I/usr/include -c pbs.c
+	cc -O -DICP -Dz8000 -I/usr/include -c prf.c
+	cc -O -DICP -Dz8000 -I/usr/include -c sched.c
+	cc -O -DICP -Dz8000 -I/usr/include -c slp.c
+	cc -O -DICP -Dz8000 -I/usr/include -c subr.c
+	cc -O -DICP -Dz8000 -I/usr/include -c trap.c
+	ld -o icp -r -d -X cf/l.o cf/mch.o cf/c.o ml/c*.o os/*.o io/*.o
+	cp icp /usr/lib/dnld

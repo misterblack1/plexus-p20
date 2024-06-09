@@ -1,0 +1,41 @@
+Herein is a simplified version of libc.a for standalone programs.
+C programs that run under UNIX can be run standalone by compiling
+the C source with scc in lieu of cc.  Scc is the standalone compiler that
+"pulls in" lib2.a rather than libc.a.  The following programming 
+restrictions must be observed:
+
+argv, argc	No arguments are passed to the program.  Use getargv()
+		within lib2.a.  See ls.c for example.
+
+special files	Those of the standard system are not supported.
+		Lib2.a has its own set of special files.
+
+gtty()
+stty()
+ioctl()		Not fully supported.
+
+signals		Not implemented.
+
+>, <, ^		Redirection of I/O, pipes not possible on command lines.
+
+sync()		Not supported
+
+creat()		Same as an open for writing;  file must exist.
+
+write()		Cannot write regular files; special (dkxx) files are okay.
+
+setbuf()	Do not do setbuf(stdin,NULL) prior to getargv().
+
+file desc.	File descriptors 0, 1, 2 always refer to console.
+
+tape i/o	programs that read tape in blocks smaller that the
+		size of the records on the tape fail and produce
+		tape driver messages.
+
+CHANGES TO lib2 THAT YOU SHOULD LOOK FOR WHEN CONVERTING V7 STANDALONE
+PROGRAMS TO SYS3 STANDALONE
+
+use of io array changed.
+
+the getc/getw subroutines expects a stream pointer in Sys3.  V7 used file
+descriptor.

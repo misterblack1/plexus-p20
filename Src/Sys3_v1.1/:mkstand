@@ -1,0 +1,11 @@
+: make UNIX standalone libraries and commands
+if /bin/vax
+	then	cd /usr/src/lib/lib2
+		make -f lib2.mk SYS=V install clobber
+		cd /usr/src/stand/vax
+		make -f vax.mk install clobber
+	else	cd /usr/src/lib/lib2
+		make -f lib2.mk SYS=70 install clobber
+		cd /usr/src/stand/pdp11
+		make -f pdp11.mk install clobber
+fi

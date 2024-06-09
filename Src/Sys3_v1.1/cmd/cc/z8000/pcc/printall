@@ -1,0 +1,11 @@
+pr \
+makefile \
+mac2defs \
+macdefs \
+myinc.h \
+code.c \
+local.c \
+local2.c \
+order.c \
+table.c \
+| lpr

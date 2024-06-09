@@ -1,0 +1,12 @@
+_econv.o fltused.o
+_fconv.o fltused.o
+_fprint.o fltused.o
+_gconv.o fltused.o
+cuexit.o flsbuf.o
+ecvt.o fltused.o
+fprintf.o _fprint.o
+frexp.o fltused.o
+ldexp.o fltused.o
+modf.o fltused.o
+printf.o _fprint.o
+sprintf.o _fprint.o

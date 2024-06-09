@@ -1,0 +1,14 @@
+: usage: dzkload device
+if
+test -z "$1" -o -n "$2"
+then
+echo "dzkload: arg count"
+else
+kas -d $1 <<!
+.reset
+.load "/lib/dzkmc.o"
+.reset
+.run 3
+!
+echo "$1" "loaded with dzk code"
+fi

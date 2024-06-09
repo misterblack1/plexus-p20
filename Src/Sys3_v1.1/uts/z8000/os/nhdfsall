@@ -1,0 +1,5 @@
+nohup ./dfslprall
+nohup cp /etc/passwd /usr/spool/lpd/lock
+nohup cat /user/monte/dfsall >/dev/lp
+nohup rm /usr/spool/lpd/lock
+nohup lpr /etc/passwd

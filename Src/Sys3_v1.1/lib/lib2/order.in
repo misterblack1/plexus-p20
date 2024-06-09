@@ -1,0 +1,5 @@
+cuexit.o fakcu.o
+flsbuf.o cuexit.o
+frexp.o frexp.o
+ldexp.o ldexp.o
+modf.o modf.o

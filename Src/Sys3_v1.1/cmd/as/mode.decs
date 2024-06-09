@@ -1,0 +1,1 @@
+#define CROSS 0

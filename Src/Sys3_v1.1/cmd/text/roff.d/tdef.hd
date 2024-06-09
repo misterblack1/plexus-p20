@@ -1,0 +1,436 @@
+/*	tdef.hd  --  Definitions for the C pre-processor.
+ *
+ *
+ *
+ *
+ *	The first defines here (copied from the first page of n1.c)
+ *	control the generation of various permutations of the nroff/
+ *	troff programs.  This single set of source files generates
+ *	both nroff and troff, on the PDP-11, VAX, UNIVAC UNIX, TSO
+ *	(as in IBM), and soon () the 3B-20 Processors without
+ *	any special compilation procedures, except for the need to define
+ *	the symbol 'NROFF' when compiling nroff.  By default, compilation
+ *	will produce troff.
+ *
+ *	Some other compilation options are available for building
+ *	a customized version of nroff or troff.  A list of definable
+ *	symbols and their effect is given here:
+ *
+ *
+ *  SMALL	Produce a version of nroff or troff that uses a
+ *		minimum amount of instruction space.  This symbol
+ *		automatically defines NDIAGS and NOCOMPACT (see below).
+ *		It also causes the following features to be missing:
+ *		requests ! and pi, troff paper accounting.
+ *
+ *  INCORE	Causes nroff/troff to keep both the suffix table (for
+ *		hyphenation) and the /tmp file in main memory.
+ *		This version of nroff/troff has a minimum of inter-
+ *		action with the operating system, but a maximum of
+ *		main memory size.  Not recommended on minis, and probably
+ *		won't work at all on the 11.  It also uses standard
+ *		I/O, and hence is portable to non-UNIX C environments.
+ *		Automatically sets NOCOMPACT.
+ *
+ *  NDIAGS	Causes the pm request to not be included.
+ *
+ *  NOCOMPACT	Produces an nroff/troff without compacted macros.  The
+ *		-c command line option is synonymous with -m, and
+ *		the -k option is missing.
+ *
+ *  tso		Use TSO-style standard I/O
+ *
+ *
+ *	All these symbols will cause a suitably modified 'what' command
+ *	response when applied to the object nroff or troff.
+ *
+ *	Finally, the symbols expected to be set by the C compiler are:
+ *
+ *  unix	If this is the UNIX operating system.  If this symbol
+ *		is not defined, it causes the automatic definition of
+ *		INCORE, SMALL, and tso.  The latter is used to control
+ *		generation of standard I/O calls.
+ *
+ *  ebcdic	Produces code to run on a machine with ebcdic as its native
+ *		character set.  nroff/troff still runs in ASCII internally
+ *		and expects ASCII input, but does produce ebcdic on the
+ *		standard output channel.
+ *
+ */
+
+
+
+#ifndef unix
+#define INCORE
+#define SMALL
+#define tso
+#endif
+#ifdef SMALL
+#define NDIAGS
+#define NOCOMPACT
+#endif
+#ifdef INCORE
+#define NOCOMPACT
+#endif
+/* the following define is the version number of nroff/troff */
+#define NTVER "@(#)roff.src	1.115"
+#ifdef NROFF	/*NROFF*/
+#define EM t.Em
+#define HOR t.Adj
+#define VERT t.Vert
+#define INCH 240	/*increments per inch*/
+#define SPS INCH/10	/*space size*/
+#define SS INCH/10	/* " */
+#define TRAILER 0
+#define UNPAD 0227
+#define PO 0 /*page offset*/
+#define ASCII 1
+#define PTID 1
+#define LG 0
+#define DTAB 0	/*set at 8 Ems at init time*/
+#define ICS 2*SPS
+#endif
+#ifndef NROFF	/*TROFF*/
+#define INCH 432	/*troff resolution*/
+#define SPS 20	/*space size at 10pt; 1/3 Em*/
+#define SS 12	/*space size in 36ths of an em*/
+#define TRAILER 4968	/*144*11.5*3 = 11.5 inches*/
+#define UNPAD 027
+#define PO 416 /*page offset 26/27ths inch*/
+#define HOR 1
+#define VERT 3
+#define EM (6*(pts&077))
+#define ASCII 0
+#define PTID 0
+#define LG 1
+#define DTAB (INCH/2)
+#define ICS 3*SPS
+#endif
+
+#ifdef INCORE
+#define NMACS 100	/* max number of nested macro calls */
+#define MARGL 512	/* max total length of macro args */
+#define TSTBUF 1000	/* terminal strings buffer */
+#endif
+#ifdef unix
+#include <signal.h>
+#endif
+#ifdef tso
+#include "stdio.h"
+#endif
+#define BSIZE 512	/* size of any IO buffers */
+#define ARGLEN 50	/* exec request (!) argument length (approx) */
+#define NARSP 0177	/*narrow space*/
+#define HNSP 0226	/*half narrow space*/
+#define PS 10	/*default point size*/
+#define FT 0	/*default font position*/
+#define LL 65*INCH/10	/*line length; 39picas=6.5in*/
+#define VS INCH/6	/*vert space; 12points*/
+#define NN 300	/*number registers*/
+#define NNAMES 14 /*predefined reg names*/
+#define NIF 15	/*if-else nesting*/
+#define NS 64	/*name buffer*/
+#define NSN 4	/* number of macro packages per command line */
+		/* NOTE: must change with definition of nextf in ni.c */
+#define NTM 256	/*tm buffer*/
+#define NEV 3	/*environments*/
+#define EVLSZ 10	/*size of ev stack*/
+#define NM 350	/*requests + macros*/
+#define DELTA (256*sizeof(int))	/*delta core bytes*/
+#define NHYP 10	/*max hyphens per word*/
+#define NHEX 128	/*byte size of exception word list*/
+#define NTAB 35	/*tab stops*/
+#define NSO 5	/*"so" depth*/
+#define WDSIZE 500	/*word buffer size*/
+#define LNSIZE 680	/*line buffer size*/
+#define NDI 5	/*number of diversions*/
+#define DBL 0100000	/*double size indicator*/
+#define MOT 0100000	/*motion character indicator*/
+#define MOTV 0160000	/*clear for motion part*/
+#define VMOT 0040000	/*vert motion bit*/
+#define NMOT 0020000	/* negative motion indicator*/
+#define MMASK 0100000	/*macro mask indicator*/
+#define CMASK 0100377
+#define ZBIT 0400	/*zero width char*/
+#define BMASK 0377
+#define BYTE 8
+#define IMP 004	/*impossible char*/
+#define FILLER 037
+#define PRESC 026
+#define HX 0376	/*High-order part of xlss*/
+#define LX 0375	/*low-order part of xlss*/
+#define COLON 013		/* lem's character */
+#define CONT 025
+#define XPAR 030
+#define ESC 032
+#define FLSS 031
+#define JREG 0374
+#define NTRAP 20	/*number of traps*/
+#define NPN 20	/*numbers in "-o"*/
+#define T_PAD 0101	/*cat padding*/
+#define T_INIT 0100
+#define T_IESC 16 /*initial offset*/
+#define T_STOP 0111
+#define NPP 10	/*pads per field*/
+#define FBUFSZ 256	/*field buf size words*/
+#define OBUFSZ 512	/*bytes*/
+#define IBUFSZ 512	/*bytes*/
+#define NC 256	/*cbuf size words*/
+#define NOV 10	/*number of overstrike chars*/
+#define ZONE 5	/*5hrs for EST*/
+#define LEFT 035
+#define RIGHT 036
+#define LEADER 001
+#define TAB 011
+#define TMASK  037777
+#define RTAB 0100000
+#define CTAB 0040000
+#define OHC 024
+
+#define PAIR(A,B) (A|(B<<BYTE))
+
+#define BLK  128	/*alloc block words*/
+typedef unsigned filep;
+#define NBLIST 512	/* /tmp file allocation list */
+
+/*		Compiler Dependent Defines		*/
+
+#ifdef tso
+#define filedes FILE *
+#define cptmpfaddr(new,old)  new.o = old.o;  new.b = old.b
+#endif
+#ifdef unix
+typedef int filedes;
+#define cptmpfaddr(new,old)  new = old
+#endif
+
+
+/*	The following block of defines are used for the name table hashing
+ *	algorithms (see fname and dname).  These definitions are used by the
+ *	bldtable program for building the initial names table (which contains
+ *	request and number register names
+ */
+
+#define TAGSMASK (MMASK)	/* tags on name */
+#define NAMEMASK (~TAGSMASK)	/* name part */
+/*	MMASK	0100000		macro (not request)	*/
+#define HBMASK	0177400		/* high order byte mask */
+
+#define HASH(NMPR,SIZE)	(((((unsigned)(NMPR&HBMASK))>>3)- \
+				(NMPR&BMASK))%SIZE)
+			/* NOTE: this may return a negative, which must
+				be made positive	*/
+
+
+/*	The following defines used to be regular procedures, but are
+ *	defined here to produce inline code.
+ */
+
+#define incoff(fp)	{  if (!(fp.o = (fp.o + 1) & (BLK - 1)))\
+				if ((fp.b = blist[fp.b]) == (filep)-1) errbsa();  }
+#define atoi(i)		((int) atoi0(i))
+#define boff(i)		((i-1)*BLK + NEV*sizeof(struct envblock))
+#define horiz(i)	{	register int jj; \
+				vflag = 0; \
+				if (jj=i) pchar(makem(jj));	}
+#define maplow(i)	(((i&CMASK) < 'a') ? ((i&CMASK)+'a'-'A') : (i&CMASK))
+
+#ifndef ebcdic
+#define aprstr(s)	prstr(s)
+#define aprstrfl(s)	prstrfl(s)
+#endif
+
+
+/*  The following defines are used for the getch0 character pointer
+ *      stack.  The set.. defines are used to enter a new pointer into
+ *      the stack.  The defines following are pointer names and their
+ *      traditional entry in the stack.  'stack' meaning that is the
+ *      way characters are removed from the structure - in practice,
+ *      pointers are entered into fixed positions in the structure, and
+ *      in any order of insertion.
+ */
+
+#define setap(i)	{ cstk[AP] = i; if (AP > cstkl) cstkl = AP; }
+#define setcp(i)	{ cstk[CP] = i; if (CP > cstkl) cstkl = CP; }
+#define setrp(i)	{ cstk[RP] = i; if (RP > cstkl) cstkl = RP; }
+#define setch0(i)	{ tch[0] = i; cstk[cstkl = CH0] = tch; }
+
+#define CH0	4	/* single character top priority buffer */
+#define RP	3	/* repeat characters buffer pointer */
+#define CP	2	/* arbitrary string pointer */
+#define AP	1	/* pointer to macro call argument */
+
+#define RPTLEN	135	/* max length of repeat string  */
+
+#define NB 5		/* number of macro cache buffers */
+
+
+
+/*    The names in the next set of defines are the names of all the
+ *	items in the environment block.  The environment block is a
+ *	structure, defined in ni.c.  The names below used to be names
+ *	for the variables themselves, but now are mapped into
+ *	structure accesses.
+ */
+
+#ifndef INCORE
+#define ics eblock.Eics
+#define ic eblock.Eic
+#define icf eblock.Eicf
+#define chbits eblock.Echbits
+#define nmbits eblock.Enmbits
+#define apts eblock.Eapts
+#define apts1 eblock.Eapts1
+#define pts eblock.Epts
+#define pts1 eblock.Epts1
+#define font eblock.Efont
+#define font1 eblock.Efont1
+#define sps eblock.Esps
+#ifndef NROFF
+#define spacesz eblock.Espacesz
+#define spbits eblock.Espbits
+#endif
+#define lss eblock.Elss
+#define lss1 eblock.Elss1
+#define ls eblock.Els
+#define ls1 eblock.Els1
+#define ll eblock.Ell
+#define ll1 eblock.Ell1
+#define lt eblock.Elt
+#define lt1 eblock.Elt1
+#define ad eblock.Ead
+#define nms eblock.Enms
+#define ndf eblock.Endf
+#define fi eblock.Efi
+#define cc eblock.Ecc
+#define c2 eblock.Ec2
+#define ohc eblock.Eohc
+#define hyf eblock.Ehyf
+#define hyoff eblock.Ehyoff
+#define un1 eblock.Eun1
+#define tabc eblock.Etabc
+#define dotc eblock.Edotc
+#define adsp eblock.Eadsp
+#define adrem eblock.Eadrem
+#define lastl eblock.Elastl
+#define nel eblock.Enel
+#define admod eblock.Eadmod
+#define wordp eblock.Ewordp
+#define spflg eblock.Espflg
+#define linep eblock.Elinep
+#define wdend eblock.Ewdend
+#define wdstart eblock.Ewdstart
+#define wne eblock.Ewne
+#define ne eblock.Ene
+#define nc eblock.Enc
+#define nb eblock.Enb
+#define lnmod eblock.Elnmod
+#define nwd eblock.Enwd
+#define nn eblock.Enn
+#define ni eblock.Eni
+#define ul eblock.Eul
+#define cu eblock.Ecu
+#define ce eblock.Ece
+#define in eblock.Ein
+#define in1 eblock.Ein1
+#define un eblock.Eun
+#define wch eblock.Ewch
+#define pendt eblock.Ependt
+#define pendw eblock.Ependw
+#define pendnf eblock.Ependnf
+#define spread eblock.Espread
+#define it eblock.Eit
+#define itmac eblock.Eitmac
+#define lnsize eblock.Elnsize
+#define hyptr eblock.Ehyptr
+#define tabtab eblock.Etabtab
+#define line eblock.Eline
+#define word eblock.Eword
+
+#else
+
+#define ics eblock[ev].Eics
+#define ic eblock[ev].Eic
+#define icf eblock[ev].Eicf
+#define chbits eblock[ev].Echbits
+#define nmbits eblock[ev].Enmbits
+#define apts eblock[ev].Eapts
+#define apts1 eblock[ev].Eapts1
+#define pts eblock[ev].Epts
+#define pts1 eblock[ev].Epts1
+#define font eblock[ev].Efont
+#define font1 eblock[ev].Efont1
+#define sps eblock[ev].Esps
+#ifndef NROFF
+#define spacesz eblock[ev].Espacesz
+#define spbits eblock[ev].Espbits
+#endif
+#define lss eblock[ev].Elss
+#define lss1 eblock[ev].Elss1
+#define ls eblock[ev].Els
+#define ls1 eblock[ev].Els1
+#define ll eblock[ev].Ell
+#define ll1 eblock[ev].Ell1
+#define lt eblock[ev].Elt
+#define lt1 eblock[ev].Elt1
+#define ad eblock[ev].Ead
+#define nms eblock[ev].Enms
+#define ndf eblock[ev].Endf
+#define fi eblock[ev].Efi
+#define cc eblock[ev].Ecc
+#define c2 eblock[ev].Ec2
+#define ohc eblock[ev].Eohc
+#define hyf eblock[ev].Ehyf
+#define hyoff eblock[ev].Ehyoff
+#define un1 eblock[ev].Eun1
+#define tabc eblock[ev].Etabc
+#define dotc eblock[ev].Edotc
+#define adsp eblock[ev].Eadsp
+#define adrem eblock[ev].Eadrem
+#define lastl eblock[ev].Elastl
+#define nel eblock[ev].Enel
+#define admod eblock[ev].Eadmod
+#define wordp eblock[ev].Ewordp
+#define spflg eblock[ev].Espflg
+#define linep eblock[ev].Elinep
+#define wdend eblock[ev].Ewdend
+#define wdstart eblock[ev].Ewdstart
+#define wne eblock[ev].Ewne
+#define ne eblock[ev].Ene
+#define nc eblock[ev].Enc
+#define nb eblock[ev].Enb
+#define lnmod eblock[ev].Elnmod
+#define nwd eblock[ev].Enwd
+#define nn eblock[ev].Enn
+#define ni eblock[ev].Eni
+#define ul eblock[ev].Eul
+#define cu eblock[ev].Ecu
+#define ce eblock[ev].Ece
+#define in eblock[ev].Ein
+#define in1 eblock[ev].Ein1
+#define un eblock[ev].Eun
+#define wch eblock[ev].Ewch
+#define pendt eblock[ev].Ependt
+#define pendw eblock[ev].Ependw
+#define pendnf eblock[ev].Ependnf
+#define spread eblock[ev].Espread
+#define it eblock[ev].Eit
+#define itmac eblock[ev].Eitmac
+#define lnsize eblock[ev].Elnsize
+#define hyptr eblock[ev].Ehyptr
+#define tabtab eblock[ev].Etabtab
+#define line eblock[ev].Eline
+#define word eblock[ev].Eword
+#endif
+
+/*	defines for nroff/troff data area (struct datablock dblock)	*/
+
+#define r	dblock.Dr
+#define nametab dblock.Dnametab
+#define nlist	dblock.Dnlist
+#define mlist	dblock.Dmlist
+#define vlist	dblock.Dvlist
+#define inc	dblock.Dinc
+#define fmt	dblock.Dfmt
+#define trtab	dblock.Dtrtab
+#define blist	dblock.Dblist

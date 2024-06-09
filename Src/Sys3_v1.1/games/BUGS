@@ -1,0 +1,15 @@
+DIRECTORY: /usr/src/games
+EXTERNAL NEEDS: getopt and strchr need to be defined in libc in order for
+		some of the games to work
+bj.c	- CCF	02/22/82 - seems to work fine
+craps.c	- MDP	02/23/82 - seems to work o-key doe-key
+fish.c	- CCF	02/22/82 - seems to work fine
+number.c- CCF	02/22/82 - seems to work fine
+quiz.c	- CCF	02/22/82 - wouldn't link -- getopt undefined
+random.c- CCF	02/22/82 - compiles, doesn't seem to run (what does it do)
+trek	- CCF	02/22/82 - missing reset.s -- make doesn't make it
+				seems to work if reset.s is nooped
+ttt.c	- CCF	02/22/82 - wouldn't link -- getopt, strchr undefined (if
+				defined, it seems to work fine)
+wump.c	- CCF	02/22/82 - seems to work fine
+psych.c - JSE	07/14/82 - won't compile. missing erase, move, cont routines.

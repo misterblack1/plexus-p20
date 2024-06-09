@@ -1,0 +1,11 @@
+#ifndef VPMSYS
+	if ( rtn->rc_gate != 0 ) {
+		rtn->rc_error = EIO;
+		rtn->rc_gate = 0;
+		wakeup( (caddr_t) rtn );
+	}
+#else
+	rtn->rc_error = 0;
+	rtn->rc_gate = 0;
+	wakeup( (caddr_t) rtn );
+#endif

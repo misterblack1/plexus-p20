@@ -1,0 +1,10 @@
+:	Make a new Yacc library
+
+ULIB=${ULIB-/p3/usr/lib}
+cc -O -c *.c
+ar rv liby.a *.o
+rm *.o
+cp liby.a $ULIB/liby.a
+chown bin $ULIB/liby.a
+chmod 644 $ULIB/liby.a
+rm -f liby.a
