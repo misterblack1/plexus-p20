@@ -2,6 +2,8 @@
 
 Please see the various files in this directory for more information. Datasheets and other scanned material has been moved to PDF.
 
+Mainboard PCB design files are in the 'CAD' directory.
+
 ### Serial port map:
 
 (Thanks to Patron Peter)
