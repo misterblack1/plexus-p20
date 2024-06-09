@@ -20,7 +20,7 @@ Port 6-7: Normal DB25 RS232 with full flow control
 ### Memory map:
 ```
 |   Bus Master | Space |  Loc   | Address Range | Function
- Job MB DMA BLK Usr Sys Job DMA
+|Job MB DMA BLK|Usr Sys|Job DMA | ------------- | -----------------    
   x      x       x       x       000000 - 7FFFFF  Main User memory
   x      x           x   x       000000 - 7FFFFF  Main Sys memory
      x               x   x       780000 - 7FFFFF  Main Sys Memory
