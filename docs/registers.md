@@ -79,7 +79,8 @@ MUST be to allow normal system operation.
 
 ### Write
 ```
-Address Reset selection
+Address Reset selection:
+
 E00000 NOP
 E00020 Reset Multi bus interface error flag
 E00040 Reset SCSI parity error flag
@@ -92,12 +93,16 @@ E00100 Reset DMA processor clock interrupt
 E00120 Reset Job processor bus error flag
 E00140 Reset DMA processor bus error flag
 E00160 Reset Memory Parity error flag
-Master hardware reset sets this flag
+
+Master hardware reset sets this flag:
+
 E00180 Reset Switch Interrupt Latch
 E001A0 Reset SCSI Bus Error Flag
 E001C0 Unassigned
 E001E0 Unassigned
-Writing to these addresses causes the action. Data values are ignored.
+
+NOTE: Writing to these addresses causes the action. Data values are ignored.
+
 
 E00010
 15-8 Not used     7-4 Not used
