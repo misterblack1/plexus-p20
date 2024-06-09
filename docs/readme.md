@@ -39,10 +39,19 @@ Memory map:
   x      x           x       x   800000 - 80FFFF  PROM (4 - 27128s)
   x                  x   x       900000 - 901FFF  User Page Map
   x                  x   x       902000 - 903FFF  Sys Page Map
-  x      x           x       x   A00001 - A0003F  UART 'A' (odd)
-  x      x           x       x   A10001 - A1003F  UART 'B' (odd)
-  x      x           x       x   A20001 - A2003F  UART 'C' (odd)
-  x      x           x       x   A30001 - A3003F  UART 'D' (odd)
+  
+  x      x           x       x   A00001 - A0003F  UART 'A' (odd) 0080a314 00 a0 00 01     addr       DAT_00a00001
+  x      x           x       x   A00021 - A0003F  UART '#' (odd) 0080a310 00 a0 00 21     addr       DAT_00a00021
+  
+  x      x           x       x   A10001 - A1003F  UART 'B' (odd) 0080a31c 00 a1 00 01     addr       DAT_00a10001
+  x      x           x       x   A10021 - A1003F  UART '#' (odd) 0080a318 00 a1 00 21     addr       DAT_00a10021
+  
+  x      x           x       x   A20001 - A2003F  UART 'C' (odd) 0080a324 00 a2 00 01     addr       DAT_00a20001
+  x      x           x       x   A20021 - A2003F  UART '#' (odd) 0080a320 00 a2 00 21     addr       DAT_00a20021
+  
+  x      x           x       x   A30001 - A3003F  UART 'D' (odd) 0080a328 00 a3 00 01     addr       DAT_00a30001
+  x      x           x       x   A30021 - A3003F  UART '#' (odd) 0080a32c 00 a3 00 21     addr       DAT_00a30021
+ 
   x      x           x       x   A70000 - A70003  SCSI Data Buffers
   x                  x   x       B00000 - B7FFFF  MBus I/O Space
   x                  x   x       B80000 - BFFFFF  MBus Mem Space
