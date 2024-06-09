@@ -9,8 +9,9 @@ For the Plexus P/20 and P/15:
 - The PSU remote power on pin is grounded to turn on the power supply. It has relays inside to turn itself on and also power up the secondary PSU and external fan.
 - The PSU reset input is grounded by the front keyswitch, which which is input into the reset circuit inside the PSU which supplies a reset (Logic low) to the motherboard via pin 4.
 - On my system the primary PSU powers up the motherboard, hard drive, floppy drive and tape drive. The secondary PSU powers up the multibus backplane and the SCSI / MFM interposer. These are powered by normal Molex style 5/12v connectors, so you can use a normal PC splitter to eliminate the secondary PSU if you aren't using any multibus cards. Just unplug the cable that feeds from the primary to the secondary power supply.
-- Serial port 0 is the console port. See below for the pinout. (It is non standard)
-- The top processor (MC68010) runs the boot diagnostics. Without it installed or working, the system will not do anything at power up.
+- Serial port 0 is the console port. See below for the pinout. (It is non standard) It runs at 9600bps, 8N2 as the default baud rate.
+- The top processor (MC68010, named the DMA processor) runs the boot diagnostics. Without it installed or working, the system will not do anything at power up. This CPU likely handles all IO operations while the system is running.
+- The bottom processor (named JOB) likely runs UNIX and user tasks. 
 - My system has 2048k of 41256 DRAM installed (8 chips + 1 parity per 256k) on a RAM board on the backside of the motherboard. All of the RAM chips are in sockets and can be tested in another system. 
 
 ### Serial port map:
@@ -28,7 +29,7 @@ Ports 1-3: 1-TX, 6-RX and 8-GND
 Ports 4-5: 1-TX, 2-RTS, 4-DTR, 6-RX, 7-CTS, 8-GND, 9-DCD
 Port 6-7: Normal DB25 RS232 with full flow control
 ```
-Memory map:
+### Memory map:
 ```
 |   Bus Master | Space |  Loc   | Address Range | Function
  Job MB DMA BLK Usr Sys Job DMA
@@ -67,7 +68,7 @@ Memory map:
   x      x           x       x   F0000D           Clock Int Vector
   x      x           x       x   F0000F           Panic Int Vector
 ```
-## Main Logic Board Components
+### Main Logic Board Components
 
 | Desig. | Part Number | Description |
 | ------ | ----------- | ----------- |
