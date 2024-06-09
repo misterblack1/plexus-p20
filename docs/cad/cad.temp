@@ -1,0 +1,3627 @@
+PARTS LIST      
+
+MEM CONN   MALE 96 PIN CONN      J9      
+S158            16 DIP           U14E    U13E    U12D    U9C     
+S240-2          20 DIP           U14D    U13D    U12M    U5F     
+LS51            14 DIP           U16D    U6E     
+S10             14 DIP           U17D    U3A     
+S244-2          20 DIP           U16E    U19J    U5E     
+S260            14 DIP           U15D    U15E    U11N    U25E    U8D     
+S02             14 DIP           U11D    U20F    U7F     U3D     U23L    
+S00             14 DIP           U17E    U24E    U4B     U22L    U3H     
+S373            20 DIP           U13L    U14N    U12E    U10F    U10H    
+S373            20 DIP           U11E    U9F     U11F    U9E     U8H     
+S244            20 DIP           U18F    U13H    U13K    U23K    
+RPAK 33 OHM DIP 16 DIP           U18E    U19H    
+LS244-2         20 DIP           U17J    
+LS244           20 DIP           U18H    U18D    U19E    U27D    U8K     
+LS244           20 DIP           U7N     U9N     U10L    U5L     U11M    
+LS244           20 DIP           U10M    U5M     U6H     U6J     U8J     
+LS244           20 DIP           U4K     U11B    U9B     U10N    U10E    
+LS244           20 DIP           U7E     U11H    
+S32             14 DIP           U20E    U3L     U3B     U25K    
+LS245           20 DIP           U18J    U19F    U19D    U22J    U23J    
+LS245           20 DIP           U21J    U4J     U13F    U13J    
+1 K RES         RES (075) 500    R30     R12     R11     R18     R17     
+1 K RES         RES (075) 500    R19     R24     R25     R23     R46     
+1 K RES         RES (075) 500    R49     R50     R81     R82     R83     
+1 K RES         RES (075) 500    R84     
+20 PIN SPARE    20 DIP           U28B    U26M    U27M    U24J    U28N    
+20 PIN SPARE    20 DIP           U25N    U28P    U28D    U28C    U11L    
+20 PIN SPARE    20 DIP           U26R    U27R    
+100 RES         RES (075) 500    R86     R4      
+S240-1          20 DIP           U20N    U26E    U2D     U27L    U7D     
+S240-1          20 DIP           U9D     
+2147H           18 DIP           U23D    U22D    
+MCM2016H        24 SDIP          U22E    U23E    U21E    U21H    U23H    
+MCM2016H        24 SDIP          U22H    
+F521            20 DIP           U21D    U24N    
+LS158           16 DIP           U20J    
+LS151           16 DIP           U20H    
+S08             14 DIP           U11K    U4D     U25L    
+100 PIN EDGE    100 PIN EDGE     J3      
+S533            20 DIP           U16B    U18B    U20B    
+LS533           20 DIP           U17B    U19B    U21B    U27B    U26B    
+LS533           20 DIP           U25B    U24B    U23B    U22B    U27C    
+S74             20 DIP           U21C    U20C    U19C    U22N    U4E     
+S74             20 DIP           U3K     U26N    U4A     U22M    U24M    
+S74             20 DIP           U24F    U21L    
+LS00            14 DIP           U1C     U2B     
+S240            20 DIP           U26C    U13N    
+PAL16R4A        20 DIP           U25C    U24L    
+LS05            14 DIP           U2E     
+LS125           14 DIP           U22C    U23R    U4R     
+PAL16L8A        20 DIP           U24C    U23C    U19N    U3M     U22K    
+LS27            14 DIP           U18C    
+S138            16 DIP           U16C    U3R     U5B     U3J     U27K    
+148             16 DIP           U17C    U12B    
+LS373           20 DIP           U17F    U16N    U15N    U17N    U18N    
+LS373           20 DIP           U7A     U9H     
+LS393-1         14 DIP           U26D    U4N     
+S140            14 DIP           U27E    U20M    U21M    U21K    
+9.8304 MHZ OSC  CRYSTAL OSC-4    U28E    
+S175-1          16 DIP           U21N    
+LS11            14 DIP           U23N    U12F    
+S280            14 DIP           U13M    
+LS240           20 DIP           U12N    U10B    U9A     
+LS240-1         20 DIP           U12L    U2N     U2P     
+SCSI CONN       50 PIN CONN      J4      
+JUMPER          JPAD             J20     J21     J22     J23     J24     
+JUMPER          JPAD             J27     J26     J53     J54     J55     
+JUMPER          JPAD             J56     J57     J58     J59     J60     
+JUMPER          JPAD             J61     J62     J63     J64     J31     
+JUMPER          JPAD             J30     J29     J46     J45     J44     
+JUMPER          JPAD             J49     J50     J51     J52     J48     
+JUMPER          JPAD             J47     J10     
+1K RPAK SIP     SIP10 (062)      RN9     
+10 K RPAK SIP   SIP10 (062)      RN14    RN13    RN19    
+220/330 RPAK DIP16 DIP           U2R     U1M     
+LS169           16 DIP           U5K     U7K     U6L     U7L     U8L     
+LS169           16 DIP           U9L     U9M     U8M     U7M     U6M     
+LS169           16 DIP           U12J    U11J    
+LS393           14 DIP           U4M     
+S374-1          20 DIP           U4L     
+S38             14 DIP           U2L     U3N     U3P     
+LS273           20 DIP           U6N     U8N     U7H     U7J     U9J     
+LS74            14 DIP           U10J    U3E     U4H     U5H     U5J     
+LS74            14 DIP           U2M     U26L    
+S257            16 DIP           U10K    U9K     U5N     U4P     
+27128           28 DIP           U17K    U15K    U17L    U15L    
+8KX8 SRAM       28 DIP           U19L    U19K    
+.01 uF CAP      AXL CAP (062)300 C1      
+22 uF CAP       DIODE (075) 600  C2      C102    C101    C103    
+1N4001          RES (075) 450    CR1     CR2     CR3     
+2 K RES         RES (075) 500    R72     R21     R20     R37     
+S112            16 DIP           U8F     U6R     U5R     U25D    U5D     
+S112            16 DIP           U4F     
+PAL16R8A        20 DIP           U6F     U13C    
+LS10            14 DIP           U2C     
+LS08            14 DIP           U5A     U23M    
+MC146818        24 DIP           U2H     
+32.768 KHZ OSC  CRYSTAL OSC-4    U1H     
+10 K RES        RES (075) 500    R13     R10     R7      R14     R77     
+10 K RES        RES (075) 500    R78     R79     R16     R26     R47     
+10 K RES        RES (075) 500    R51     R52     R48     R53     
+68564           48 DIP           U26P    U21P    U15P    U9P     
+1489A           14 DIP           U19R    U24R    U22R    U16R    U18R    
+1489A           14 DIP           U10R    U1E     U25R    
+LS32            14 DIP           U17R    U9R     U1D     
+R1488           14 DIP           U20R    U21R    U13R    U8R     
+LS30            14 DIP           U10C    
+S374            20 DIP           U12C    U13B    U11C    U8A     U8E     
+S374            20 DIP           U12H    
+LS02            14 DIP           U6A     U28J    
+S174            16 DIP           U27N    U8B     U7B     U28M    
+68010           64 DIP           U27H    U16F    
+154             24 DIP           U6C     U4C     U8C     
+S151            16 DIP           U6B     U28K    
+DIAG CONN       32 PIN DIAG      P3      
+200 RES         RES (075) 500    R27     R31     
+THERMISTER      RES (075) 500    R34     
+4.7 K RES 1%    RES (075) 500    R35     
+10 K RES 1%     RES (075) 500    R32     R33     
+100 K RES       RES (075) 500    R36     
+2N2222          TO-18 (075)      Q1      Q2      Q3      Q4      
+220 RES         RES (075) 500    R64     R65     R66     R62     R63     
+330 RES         RES (075) 500    R68     R69     R70     R71     R67     
+ROBIN PWR CONN  18 PIN POWER     P7      
+LM339           14 DIP           U1B     
+15K RPAK SIP    SIP10 (062)      RN16    RN18    RN20    
+33 RES 2W       RES (100) 700    R38     R41     R42     R73     R74     
+33 RES 2W       RES (100) 700    R75     R76     R80     
+Y LED           LED              L1      L3      L4      L5      L6      
+Y LED           LED              L2      L0      
+G LED           LED              L7      
+DB 25 CONN      CONN RECPT 25D   P8      P9      
+DB 9 CONN       CONN RECPT 9D    P1      P2      P10     P4      P5      
+DB 9 CONN       CONN RECPT 9D    P6      
+RPAK 100 DIP    16 DIP           U10A    
+LS20            14 DIP           U28H    U10D    
+.1 uF CAP       AXL CAP (062)300 C105    C106    C104    
+S64             14 DIP           U20K    U24H    U25M    
+S30             14 DIP           U26K    
+S244-1          20 DIP           U28L    
+20 MHZ OSC      CRYSTAL OSC-4    U20L    
+LS138           16 DIP           U28R    
+BYPASS          BYPASS CAP       C5      C6      C7      C8      C9      
+BYPASS          BYPASS CAP       C10     C11     C12     C13     C21     
+BYPASS          BYPASS CAP       C22     C23     C24     C20     C19     
+BYPASS          BYPASS CAP       C18     C17     C16     C3      C4      
+BYPASS          BYPASS CAP       C15     C14     C25     C26     C27     
+BYPASS          BYPASS CAP       C28     C29     C30     C31     C32     
+BYPASS          BYPASS CAP       C33     C34     C35     C46     C57     
+BYPASS          BYPASS CAP       C68     C36     C47     C58     C37     
+BYPASS          BYPASS CAP       C48     C59     C49     C38     C60     
+BYPASS          BYPASS CAP       C39     C50     C61     C40     C51     
+BYPASS          BYPASS CAP       C62     C41     C52     C63     C42     
+BYPASS          BYPASS CAP       C53     C64     C43     C54     C65     
+BYPASS          BYPASS CAP       C44     C45     C56     C55     C67     
+BYPASS          BYPASS CAP       C66     C79     C78     C77     C76     
+BYPASS          BYPASS CAP       C75     C69     C70     C71     C72     
+BYPASS          BYPASS CAP       C73     C74     C90     C89     C88     
+BYPASS          BYPASS CAP       C87     C86     C85     C84     C83     
+BYPASS          BYPASS CAP       C82     C81     C80     C91     C92     
+BYPASS          BYPASS CAP       C93     C94     C95     C96     C97     
+BYPASS          BYPASS CAP       C98     C99     C100    
+BATTERY         BATT PINS        U1F     
+RSTIFF          RSTIFF SHAPE     SA      
+EOS
+NET LIST        
+NODENAME MA1              $
+    J9        1 U13D     13 U12D      9 
+NODENAME GND              $
+    J9        2 J9        6 J9       14 J9       18 J9       22  $
+    J9       26 J9       30 J9       35 J9       39 J9       43  $
+    J9       47 J9       51 J9       55 J9       59 J9       63  $
+    J9       68 J9       76 J9       80 J9       84 J9       88  $
+    J9       92 J9       96 U14E      8 U14E     15 U14D     10  $
+    U13E      8 U13E     15 U13D     10 U12D      8 U12D     15  $
+    U16D      7 U17D      7 U16E     10 U16E     19 U15D      7  $
+    U15E      7 U11D      7 U17E      7 U13L     10 U18F     10  $
+    U19J     10 U17J     10 U18H     10 U20E      7 U18J     10  $
+    U19F     10 U28B     10 U18D     10 U19E     10 U19E     11  $
+    U19E     13 U19E     15 U19E     17 U20N      1 U20N     10  $
+    U20N     19 U23D      9 U22D      9 U22E     12 U23E     12  $
+    U21E     12 U21H     12 U23H     12 U22H     12 U19D     10  $
+    U22J     10 U23J     10 U21J     10 U21D      1 U21D     10  $
+    U20J      8 U20J     15 U20H      7 U20H      8 
+NODENAME GND              $
+    U11K      7 U24E      7 U20F      7 J3        1 J3        2  $
+    J3        9 J3       10 J3       12 J3       13 J3       14  $
+    J3       19 J3       20 J3       23 J3       24 J3       27  $
+    J3       33 J3       34 J3       43 J3       44 J3       53  $
+    J3       54 J3       63 J3       64 J3       65 J3       66  $
+    J3       75 J3       76 J3       85 J3       86 J3       89  $
+    J3       90 J3       91 J3       92 J3       93 J3       97  $
+    U16B     10 U17B     10 U18B     10 U19B     10 U20B     10  $
+    U21B     10 U27B     10 U26B     10 U26B     13 U26B     14  $
+    U26B     17 U25B     10 U24B     10 U23B     10 U22B     10  $
+    U21C      7 U1C       7 U26C      1 U26C     10 U26C     19  $
+    U25C     10 U25C     11 U2E       7 U20C      7 U19C      7  $
+    U22C      7 U24C     10 U23C     10 U18C      7 U16C      4  $
+    U16C      5 U16C      8 U17C      5 U17C      8 U17C     10  $
+    U17C     11 U17C     12 U17C     13 U17F     10 
+NODENAME GND              $
+    U26D      7 U27E      7 U28E      2 U27D      4 U27D     10  $
+    U27C      1 U27C     10 U26E      1 U26E     10 U26E     19  $
+    U19N     10 U16N     10 U15N     10 U17N     10 U18N     10  $
+    U21N      8 U22N      7 U23N      7 U24N     10 U24N     14  $
+    U24N     16 U24N     17 U13M      7 U13N     10 U12N      1  $
+    U12N     10 U12N     19 U12M     10 U11N      7 U11N      8  $
+    U12L      1 U12L     10 U12L     19 U14N     10 J4        1  $
+    J4        3 J4        5 J4        7 J4        9 J4       11  $
+    J4       13 J4       15 J4       17 J4       19 J4       20  $
+    J4       21 J4       22 J4       23 J4       24 J4       27  $
+    J4       28 J4       29 J4       30 J4       31 J4       33  $
+    J4       34 J4       35 J4       37 J4       39 J4       41  $
+    J4       43 J4       45 J4       47 J4       49 J23       1  $
+    U2R       8 U1M       8 U5K       1 U5K       8 U7K       8  $
+    U8K      10 U3L       7 U4M       7 U3M      10 
+NODENAME GND              $
+    U2N       1 U2N      10 U2N      19 U4L       1 U4L      10  $
+    U2L       7 U3N       7 U3P       7 U2P       1 U2P      10  $
+    U2P      19 U7N      10 U9N      10 U6N      10 U8N      10  $
+    U10J      7 U10L     10 U5L      10 U6L       1 U6L       8  $
+    U6L      10 U7L       1 U7L       8 U8L       1 U8L       8  $
+    U9L       1 U9L       8 U11M     10 U10M     10 U9M       8  $
+    U8M       8 U7M       8 U6M       8 U6M      10 U5M      10  $
+    U10K      2 U10K      3 U10K      6 U10K      8 U10K     14  $
+    U9K       3 U9K       6 U9K       8 U9K      10 U9K      13  $
+    U17K     14 U15K     14 U17L     14 U15L     14 U19L     14  $
+    U19K     14 U7H      10 U6H      10 U7J      10 U6J      10  $
+    U9J      10 U8J      10 C1        1 C2        2 J53       1  $
+    J55       1 J57       1 J59       1 U7F       7 U8F       8  $
+    U6F      10 U6F      11 U5F       1 U5F      10 U5E      10  $
+    U4E       7 U3E       2 U3E       7 U3E      12 
+NODENAME GND              $
+    U3K       2 U3K       3 U3K       7 U3K      11 U3K      12  $
+    U6E       7 U4H       7 U5H       2 U5H       7 U12J      1  $
+    U12J      7 U12J      8 U11J      1 U11J      4 U11J      5  $
+    U11J      6 U11J      7 U11J      8 U11J     10 U4N       2  $
+    U4N       7 U4N      12 U5N       8 U4P       8 U2C       7  $
+    U12F      7 U4K      10 U2D       1 U2D      10 U2D      19  $
+    U5A       7 U4J      10 U2H      12 U2H      20 U1H       2  $
+    U5J       7 J31       1 U26P     37 U26P     38 U19R      7  $
+    U23R      7 U24R      7 U22R      7 U17R      7 U20R      7  $
+    U21R      7 U6R       8 U5R       8 U4R       7 U3R       4  $
+    U3R       8 U13R      7 U16R      7 U18R      7 U21P     38  $
+    U8R       7 U9R       7 U10R      7 U15P     21 U15P     22  $
+    U15P     28 U15P     29 U15P     38 U9P      21 U9P      22  $
+    U9P      28 U9P      29 U9P      38 U1E       7 U10C      7  $
+    U12C      1 U12C     10 U10B      4 U10B     10 
+NODENAME GND              $
+    U13B      1 U13B     10 U12B      8 U11B     10 U11B     17  $
+    U11C      1 U11C     10 U6A       7 U9C       8 U9C      13  $
+    U9C      15 U9B       2 U9B       8 U9B      10 U13C     10  $
+    U13C     11 U26N      2 U26N      3 U26N      7 U26N     12  $
+    U27N      8 U25D      2 U25D      8 U27H     16 U27H     53  $
+    U25E      7 U25E      8 U25E      9 U6C      12 U4B       7  $
+    U3B       7 U4C      12 U8B       8 U7B       8 U4A       2  $
+    U4A       3 U4A       7 U4D       7 U5B       4 U5B       8  $
+    U3D       7 U3J       8 U8C      12 U6B       1 U6B       3  $
+    U6B       8 U13H      1 U13H     10 U13H     19 U13K      1  $
+    U13K     10 U13K     19 U13F     10 P3        1 P3        2  $
+    P3        3 P3        4 P3        5 P3        6 P3       10  $
+    R34       1 R35       1 Q1        1 Q2        1 Q3        1  $
+    Q4        1 R52       1 R53       1 J51       1 J52       1  $
+    R64       1 R65       1 R66       1 R62       1 
+NODENAME GND              $
+    R63       1 P7        5 P7        6 P7        7 P7        8  $
+    P7        9 P7       10 J48       1 U1D       7 U2B       7  $
+    U1B       6 U1B       8 U1B      10 U1B      12 R38       1  $
+    R41       1 R42       1 R73       1 R74       1 R75       1  $
+    R76       1 U8A       1 U8A      10 U7A      10 U9A       1  $
+    U9A      10 U9A      19 U10N     10 U25R      7 U10E      6  $
+    U10E      8 U10E     10 U10E     11 U10E     13 U12E     10  $
+    U9H      10 U10F     10 U10H     10 U11E     10 U9F      10  $
+    U11F     10 U9E      10 U8H      10 U8H      14 U8E       1  $
+    U8E      10 U7E      10 U12H      1 U12H     10 U11H     10  $
+    U2M       7 R80       1 U23L      7 U27L      1 U27L     10  $
+    U27L     19 U26L      7 U22K     10 U28J      7 U28H      7  $
+    U25L      7 U23M      7 U22M      7 U24L     10 U24L     11  $
+    U23K     10 U23K     13 U25K      7 U24M      2 U24M      7  $
+    U24M     11 U24M     12 U22L      7 U3H       7 
+NODENAME GND              $
+    U7D       1 U7D      10 U7D      19 U10D      7 U9D       1  $
+    U9D      10 U9D      19 U5D       8 U20K      7 U28M      8  $
+    U27K      8 U26K      7 U28K      7 U28K      8 U28K     12  $
+    U28K     13 U24H      7 U28L      1 U28L     10 U28L     19  $
+    U25M      7 U24F      7 U16F     16 U16F     53 U4F       8  $
+    U8D       1 U8D       7 C102      2 C101      2 C103      1  $
+    U20L      2 U21L      7 U20M      7 U21M      7 U21K      7  $
+    U28R      4 U28R      8 U26M     10 U27M     10 U24J     10  $
+    U28N     10 U25N     10 U28P     10 U28D     10 U28C     10  $
+    U11L     10 U26R     10 U27R     10 C5        1 C6        1  $
+    C7        1 C8        1 C9        1 C10       1 C11       1  $
+    C12       1 C13       1 C21       1 C22       1 C23       1  $
+    C24       1 C20       1 C19       1 C18       1 C17       1  $
+    C16       1 C3        1 C4        1 C15       1 C14       1  $
+    C25       1 C26       1 C27       1 C28       1 
+NODENAME GND              $
+    C29       1 C30       1 C31       1 C32       1 C33       1  $
+    C34       1 C35       1 C46       1 C57       1 C68       1  $
+    C36       1 C47       1 C58       1 C37       1 C48       1  $
+    C59       1 C49       1 C38       1 C60       1 C39       1  $
+    C50       1 C61       1 C40       1 C51       1 C62       1  $
+    C41       1 C52       1 C63       1 C42       1 C53       1  $
+    C64       1 C43       1 C54       1 C65       1 C44       1  $
+    C45       1 C56       1 C55       1 C67       1 C66       1  $
+    C79       1 C78       1 C77       1 C76       1 C75       1  $
+    C69       1 C70       1 C71       1 C72       1 C73       1  $
+    C74       1 C90       1 C89       1 C88       1 C87       1  $
+    C86       1 C85       1 C84       1 C83       1 C82       1  $
+    C81       1 C80       1 C91       1 C92       1 C93       1  $
+    C94       1 C95       1 C96       1 C97       1 C98       1  $
+    C99       1 C100      1 U1F       3 U13J     10 
+NODENAME GND              $
+    U3A       7 SA        1 SA        2 SA        3 SA        4 
+    SA        5 SA        6 SA        7 SA        8 SA        9 
+    SA       10 SA       11 SA       12 SA       13 
+NODENAME MA6              $
+    J9        3 U13E      7 U13D      6 
+NODENAME MA8              $
+    J9        4 U14E     12 U14D      2 
+NODENAME MA10             $
+    J9        5 U14E      7 U14D      6 
+NODENAME MA15             $
+    J9        7 U19E     18 U23E     13 U23H     13 U23J      5 
+NODENAME MA17             $
+    J9        8 U18D      5 U23E     15 U23H     15 U23J      7 
+    U12E      4 
+NODENAME MA19             $
+    J9        9 U18D      9 U23E     17 U23H     17 U23J      9 
+    U12E      8 
+NODENAME EN.JOB           $
+    J9       11 U16D      1 U16D      2 U16D     13 U18J      1  $
+    U19F      1 U6H      17 U7F       5 U5F      18 U4E      12  $
+    U9H       3 U9F       3 U9E       7 U8H       3 
+NODENAME EN.DMA-          $
+    J9       12 U14E      1 U13E      1 U12D      1 U15D     11  $
+    U15E      9 U17E      4 U20F      2 U20F      8 U6F      13  $
+    U5F       4 U20K     10 U20K     11 
+NODENAME DIAG.PEL         $
+    J9       13 U9J      12 U8J      11 
+NODENAME VCC              $
+    J9       15 J9       16 J9       17 J9       81 U14E     16  $
+    U14D     20 U13E     16 U13D     20 U12D     16 U16D     14  $
+    U17D     14 U16E     20 U15D     14 U15E     14 U11D     14  $
+    U17E     14 U13L     20 U18F     20 U19J     20 U17J     20  $
+    U18H     20 U20E     14 U18J     20 U19F     20 U28B     20  $
+    U18D     20 U19E     20 U20N     20 R12       2 R11       2  $
+    U23D     18 U22D     18 U22E     24 U23E     24 U21E     24  $
+    U21H     24 U23H     24 U22H     24 U19D     20 U22J     20  $
+    U23J     20 U21J     20 U21D     20 U20J     16 U20H     16  $
+    U11K     14 U24E     14 U20F     14 U16B     20 U17B     20  $
+    U18B     20 U19B     20 U20B     20 U21B     20 U27B     20  $
+    U26B     20 U25B     20 U24B     20 U23B     20 U22B     20  $
+    U21C     14 U1C      14 U26C     20 U25C     20 U2E      14  $
+    U20C     14 U19C     14 U22C     14 U24C     20 U23C     20  $
+    U18C     14 U16C     16 U17C     16 U17F     20 
+NODENAME VCC              $
+    U26D     14 U27E     14 U28E      4 U27D     20 U27C     20  $
+    U26E     20 U19N     20 U16N     20 U15N     20 U17N     20  $
+    U18N     20 U21N     16 U22N     14 U23N     14 U24N     20  $
+    U13M     14 U13N     20 U12N     20 U12M     20 U11N     14  $
+    U12L     20 U14N     20 J22       1 RN9       1 RN14      1  $
+    RN13      1 RN19      1 U2R      16 U1M      16 U5K      16  $
+    U7K      16 U8K      20 U3L      14 U4M      14 U3M      20  $
+    U2N      20 U4L      20 U2L      14 U3N      14 U3P      14  $
+    U2P      20 U7N      20 U9N      20 U6N      20 U8N      20  $
+    U10J     14 U10L     20 U5L      20 U6L      16 U7L      16  $
+    U8L      16 U9L      16 U11M     20 U10M     20 U9M      16  $
+    U8M      16 U7M      16 U6M      16 U5M      20 U10K     16  $
+    U9K      16 U17K      1 U17K     27 U17K     28 U15K      1  $
+    U15K     27 U15K     28 U17L      1 U17L     27 U17L     28  $
+    U15L      1 U15L     27 U15L     28 U19L      1 
+NODENAME VCC              $
+    U19L     26 U19L     28 U19K      1 U19K     26 U19K     28  $
+    U7H      20 U6H      20 U7J      20 U6J      20 U9J      20  $
+    U8J      20 CR1       1 U7F      14 U8F      16 U6F      20  $
+    U5F      20 U5E      20 U4E      14 U3E      14 U3K      14  $
+    U6E      14 U4H      14 U5H      14 U12J     16 U11J     16  $
+    U4N      14 U5N      16 U4P      16 U2C      14 U12F     14  $
+    U4K      20 U2D      20 U5A      14 U4J      20 U5J      14  $
+    R13       2 R10       2 R21       2 R20       2 R7        2  $
+    R14       2 R77       2 R78       2 R79       1 R16       1  $
+    U26P     12 U19R     14 U23R     14 U24R     14 U22R     14  $
+    U17R     14 U6R      16 U5R      16 U4R      14 U3R      16  $
+    U16R     14 U18R     14 U21P     12 U9R      14 U10R     14  $
+    U15P     12 U9P      12 U1E      14 U10C     14 U12C     20  $
+    U10B     20 U13B     20 U12B     16 U11B     20 U11C     20  $
+    U6A      14 U9C      16 U9B      20 U13C     20 
+NODENAME VCC              $
+    U26N     14 U27N     16 U25D     16 U27H     14 U27H     49  $
+    U25E     14 U6C      24 U4B      14 U3B      14 U4C      24  $
+    U8B      16 U7B      16 U4A      14 U4D      14 U5B      16  $
+    U3D      14 U3J      16 U8C      24 U6B      16 U13H     20  $
+    U13K     20 U13F     20 R25       1 R27       1 R31       2  $
+    R32       2 R33       2 R37       2 R46       2 R68       2  $
+    R69       2 R70       2 R71       2 R67       2 P7       14  $
+    P7       15 P7       16 P7       17 P7       18 J10       1  $
+    U1D      14 U2B      14 U1B       7 U1B       9 U1B      11  $
+    L1        2 L3        2 L4        2 L5        2 L6        2  $
+    L7        2 L2        2 U8A      20 U7A      20 U9A      20  $
+    U10N     20 U25R     14 U10E     20 U12E     20 U9H      20  $
+    U10F     20 U10H     20 U11E     20 U9F      20 U11F     20  $
+    U9E      20 U8H      20 U8E      20 U7E      20 U12H     20  $
+    U11H     20 U2M      14 L0        2 U23L     14 
+NODENAME VCC              $
+    U27L     20 U26L     14 U22K     20 U28J     14 U28H     14  $
+    U25L     14 U23M     14 U22M     14 U24L     20 U23K     20  $
+    U25K     14 U24M     14 U22L     14 U3H      14 U7D      20  $
+    U10D     14 U9D      20 U5D      16 U20K     14 U28M     16  $
+    U27K     16 U26K     14 U28K     16 U24H     14 U28L     20  $
+    U25M     14 U24F     14 U16F     14 U16F     49 U4F      16  $
+    U8D      14 C101      1 U20L      4 U21L     14 U20M     14  $
+    U21M     14 U21K     14 U28R     16 U26M     20 U27M     20  $
+    U24J     20 U28N     20 U25N     20 U28P     20 U28D     20  $
+    U28C     20 U11L     20 U26R     20 U27R     20 C5        2  $
+    C6        2 C7        2 C8        2 C9        2 C10       2  $
+    C11       2 C12       2 C13       2 C21       2 C22       2  $
+    C23       2 C24       2 C20       2 C19       2 C18       2  $
+    C17       2 C16       2 C3        2 C4        2 C15       2  $
+    C14       2 C25       2 C26       2 C27       2 
+NODENAME VCC              $
+    C28       2 C29       2 C30       2 C31       2 C32       2  $
+    C33       2 C34       2 C35       2 C46       2 C57       2  $
+    C68       2 C36       2 C47       2 C58       2 C37       2  $
+    C48       2 C59       2 C49       2 C38       2 C60       2  $
+    C39       2 C50       2 C61       2 C40       2 C51       2  $
+    C62       2 C41       2 C52       2 C63       2 C42       2  $
+    C53       2 C64       2 C43       2 C54       2 C65       2  $
+    C44       2 C45       2 C56       2 C55       2 C67       2  $
+    C66       2 C79       2 C78       2 C77       2 C76       2  $
+    C75       2 C69       2 C70       2 C71       2 C72       2  $
+    C73       2 C74       2 C90       2 C89       2 C88       2  $
+    C87       2 C86       2 C85       2 C84       2 C83       2  $
+    C82       2 C81       2 C80       2 C91       2 C92       2  $
+    C93       2 C94       2 C95       2 C96       2 C97       2  $
+    C98       2 C99       2 C100      2 U13J     20 
+NODENAME VCC              $
+    U3A      14 R81       2 R82       2 R83       2 R84       2 
+NODENAME D.JOB14          $
+    J9       19 U22J     12 U21J     12 U18B     16 U19B     17  $
+    U20B     16 U21B     17 U27H     55 
+NODENAME D.JOB12          $
+    J9       20 U22J     14 U21J     14 U18B     12 U19B     13  $
+    U20B     12 U21B     13 U27H     57 
+NODENAME D.JOB10          $
+    J9       21 U22J     16 U21J     16 U18B      6 U19B      7  $
+    U20B      6 U21B      7 U27H     59 
+NODENAME D.JOB5           $
+    J9       23 U23J     13 U16B     15 U17B     14 U27H     64 
+NODENAME D.JOB3           $
+    J9       24 U23J     15 U16B      9 U17B      8 U27H      2 
+NODENAME D.JOB1           $
+    J9       25 U19D     12 U23J     17 U16B      5 U17B      4 
+    U27H      4 
+NODENAME D.DMA12          $
+    J9       27 U17N     13 U18N     12 U17K     16 U15K     16  $
+    U19K     16 U16F     57 U13J     14 
+NODENAME D.DMA10          $
+    J9       28 U17N      7 U18N      6 U17K     13 U15K     13  $
+    U19K     13 U16F     59 U13J     16 
+NODENAME D.DMA8           $
+    J9       29 U17N      3 U18N      2 U17K     11 U15K     11  $
+    U19K     11 U16F     61 U13J     18 
+NODENAME D.DMA3           $
+    J9       31 U17F      9 U16N      9 U15N      8 U17L     15  $
+    U15L     15 U19L     15 U26P      2 U21P      2 U15P      2  $
+    U9P       2 U13F     15 U16F      2 
+NODENAME D.DMA1           $
+    J9       32 U17F      5 U16N      5 U15N      4 U17L     12  $
+    U15L     12 U19L     12 U26P      1 U21P      1 U15P      1  $
+    U9P       1 U13F     17 U16F      4 
+NODENAME MA2              $
+    J9       33 U13D     15 U12D      7 
+NODENAME MA4              $
+    J9       34 U13E     12 U13D      2 
+NODENAME MA9              $
+    J9       36 U14E      9 U14D      4 U12E     17 
+NODENAME MA11             $
+    J9       37 U14E      4 U14D      8 
+NODENAME MA13             $
+    J9       38 U19E     14 U23E     10 U23H     10 U23J      3 
+NODENAME MA18             $
+    J9       40 U18D      7 U23E     16 U23H     16 U23J      8 
+    U12E      7 
+NODENAME MA20             $
+    J9       41 U18D     12 U22E      9 U22H      9 U22J      2 
+    U12E     13 
+NODE    31 $
+    J9       42 U16D      6 
+NODENAME CAS-             $
+
+NODENAME DIAG.PEH         $
+    J9       45 U9J       9 U8J       8 
+NODENAME WEH              $
+    J9       46 U11D      4 U17E     12 
+NODENAME MEM.DMA          $
+    J9       48 U3D      10 
+NODENAME PEL              $
+    J9       49 U9H      13 U9F      13 U24F     12 
+NODENAME PEH              $
+    J9       50 U9H      14 U9F      14 U24F      2 
+NODENAME D.JOB11          $
+    J9       52 U22J     15 U21J     15 U18B      9 U19B      8  $
+    U20B      9 U21B      8 U27H     58 
+NODENAME D.JOB9           $
+    J9       53 U22J     17 U21J     17 U18B      5 U19B      4  $
+    U20B      5 U21B      4 U27H     60 
+NODENAME D.JOB7           $
+    J9       54 U23J     11 U16B     19 U17B     18 U27H     62 
+NODENAME D.JOB2           $
+    J9       56 U23J     16 U16B      6 U17B      7 U27H      3 
+NODENAME D.JOB0           $
+    J9       57 U19D     11 U23J     18 U16B      2 U17B      3 
+    U27H      5 
+NODENAME D.DMA14          $
+    J9       58 U17N     17 U18N     16 U17K     18 U15K     18  $
+    U19K     18 U16F     55 U13J     12 
+NODENAME D.DMA9           $
+    J9       60 U17N      4 U18N      5 U17K     12 U15K     12  $
+    U19K     12 U16F     60 U13J     17 
+NODENAME D.DMA7           $
+    J9       61 U17F     19 U16N     19 U15N     18 U17L     19  $
+    U15L     19 U19L     19 U26P      4 U21P      4 U15P      4  $
+    U9P       4 U13F     11 U16F     62 
+NODENAME D.DMA5           $
+    J9       62 U17F     15 U16N     15 U15N     14 U17L     17  $
+    U15L     17 U19L     17 U26P      3 U21P      3 U15P      3  $
+    U9P       3 U13F     13 U16F     64 
+NODENAME D.DMA0           $
+    J9       64 U17F      2 U16N      2 U15N      3 U17L     11  $
+    U15L     11 U19L     11 U26P     48 U21P     48 U15P     48  $
+    U9P      48 U13F     18 U16F      5 
+NODENAME MA3              $
+    J9       65 U13D     17 U12D      4 
+NODENAME MA5              $
+    J9       66 U13E      9 U13D      4 
+NODENAME MA7              $
+    J9       67 U13E      4 U13D      8 
+NODENAME MA12             $
+    J9       69 U19E     12 U23E      9 U23H      9 U23J      2 
+NODENAME MA14             $
+    J9       70 U19E     16 U23E     11 U23H     11 U23J      4 
+NODENAME MA16             $
+    J9       71 U18D      3 U23E     14 U23H     14 U23J      6 
+    U12E      3 
+NODE    54 $
+    J9       73 U16D      8 
+NODE    55 $
+    J9       74 U17D     12 
+NODENAME EN.DMA           $
+    J9       75 U16D      4 U16D      5 U15D      2 U15E     13  $
+    U20J      1 U20F      6 U20F     12 U7F       6 U5F      16  $
+    U4E       2 U9H       4 U9F       4 U8H       4 U23M      5  $
+    U3H       2 U3H       9 U20K      2 U20K      6 U25M     12 
+NODENAME WEL              $
+    J9       77 U11D      1 U17E     13 
+NODENAME MS4              $
+    U26N      8 U4D       1 U28M      3 U3A      10 
+NODE    59 $
+    U19N     15 U25L      2 
+NODENAME D.JOB15          $
+    J9       82 U22J     11 U21J     11 U18B     19 U19B     18  $
+    U20B     19 U21B     18 U27H     54 
+NODENAME D.JOB13          $
+    J9       83 U22J     13 U21J     13 U18B     15 U19B     14  $
+    U20B     15 U21B     14 U27H     56 
+NODENAME D.JOB8           $
+    J9       85 U22J     18 U21J     18 U18B      2 U19B      3  $
+    U20B      2 U21B      3 U27H     61 
+NODENAME D.JOB6           $
+    J9       86 U23J     12 U16B     16 U17B     17 U27H     63 
+NODENAME D.JOB4           $
+    J9       87 U23J     14 U16B     12 U17B     13 U27H      1 
+NODENAME D.DMA15          $
+    J9       89 U17N     18 U18N     19 U17K     19 U15K     19  $
+    U19K     19 U16F     54 U13J     11 
+NODENAME D.DMA13          $
+    J9       90 U17N     14 U18N     15 U17K     17 U15K     17  $
+    U19K     17 U16F     56 U13J     13 
+NODENAME D.DMA11          $
+    J9       91 U17N      8 U18N      9 U17K     15 U15K     15  $
+    U19K     15 U16F     58 U13J     15 
+NODENAME D.DMA6           $
+    J9       93 U17F     16 U16N     16 U15N     17 U17L     18  $
+    U15L     18 U19L     18 U26P     45 U21P     45 U15P     45  $
+    U9P      45 U13F     12 U16F     63 
+NODENAME D.DMA4           $
+    J9       94 U17F     12 U16N     12 U15N     13 U17L     16  $
+    U15L     16 U19L     16 U26P     46 U21P     46 U15P     46  $
+    U9P      46 U13F     14 U16F      1 
+NODENAME D.DMA2           $
+    J9       95 U17F      6 U16N      6 U15N      7 U17L     13  $
+    U15L     13 U19L     13 U26P     47 U21P     47 U15P     47  $
+    U9P      47 U13F     16 U16F      3 
+NODENAME A.DMA11          $
+    U14E      2 U14D     12 U11M     12 U17K     21 U15K     21  $
+    U17L     21 U15L     21 U19L     21 U19K     21 U16F     39 
+NODENAME A.JOB11          $
+    U14E      3 U17J      6 U25B      8 U24B      9 U27H     39 
+NODENAME A.DMA10          $
+    U14E      5 U14D     14 U11M     14 U17K     24 U15K     24  $
+    U17L     24 U15L     24 U19L     24 U19K     24 U16F     38 
+NODENAME A.JOB10          $
+    U14E      6 U17J      8 U25B      7 U24B      6 U27H     38 
+NODENAME A.JOB9           $
+    U14E     10 U18H      2 U25B      4 U24B      5 U27H     37 
+NODENAME A.DMA9           $
+    U14E     11 U14D     16 U11M     16 U17K     25 U15K     25  $
+    U17L     25 U15L     25 U19L     25 U19K     25 U16F     37 
+NODENAME A.JOB8           $
+    U14E     13 U18H      4 U25B      3 U24B      2 U27H     36 
+NODENAME A.DMA8           $
+    U14E     14 U14D     18 U17K      3 U15K      3 U17L      3  $
+    U15L      3 U19L      3 U19K      3 U5N       4 U13K     17 
+    U16F     36 
+NODENAME EN.JOB-          $
+    U14D      1 U13D      1 U13D     19 U6F      12 U5F       2  $
+    U5E       1 U6E       3 
+NODENAME A.DMA7           $
+    U13E      2 U13D     12 U17K      4 U15K      4 U17L      4  $
+    U15L      4 U19L      4 U19K      4 U5N       7 U13K      2 
+    U16F     35 
+NODENAME A.JOB7           $
+    U13E      3 U18H      6 U23B     18 U22B     19 U27H     35 
+NODENAME A.DMA6           $
+    U13E      5 U13D     14 U17K      5 U15K      5 U17L      5  $
+    U15L      5 U19L      5 U19K      5 U5N       9 U13K      4 
+    U16F     34 
+NODENAME A.JOB6           $
+    U13E      6 U18H      8 U23B     17 U22B     16 U27H     34 
+NODENAME A.JOB5           $
+    U13E     10 U18H     11 U23B     14 U22B     15 U27H     33 
+NODENAME A.DMA5           $
+    U13E     11 U13D     16 U17K      6 U15K      6 U17L      6  $
+    U15L      6 U19L      6 U19K      6 U5N      12 U26P     25  $
+    U21P     25 U15P     25 U9P      25 U13K      6 U16F     33 
+NODENAME A.JOB4           $
+    U13E     13 U18H     13 U23B     13 U22B     12 U27H     32 
+NODENAME A.DMA4           $
+    U13E     14 U13D     18 U17K      7 U15K      7 U17L      7  $
+    U15L      7 U19L      7 U19K      7 U4P       4 U26P     24  $
+    U21P     24 U15P     24 U9P      24 U13K      8 U16F     32 
+NODENAME A.DMA3           $
+    U13D      3 U12D      2 U17K      8 U15K      8 U17L      8  $
+    U15L      8 U19L      8 U19K      8 U4P       7 U26P     26  $
+    U21P     26 U15P     26 U9P      26 U13K     11 U16F     31 
+NODENAME A.DMA2           $
+    U13D      5 U12D      5 U17K      9 U15K      9 U17L      9  $
+    U15L      9 U19L      9 U19K      9 U4P       9 U26P     23  $
+    U21P     23 U15P     23 U9P      23 U13K     13 U16F     30 
+NODENAME A.DMA1           $
+    U13D      7 U12D     11 U17K     10 U15K     10 U17L     10  $
+    U15L     10 U19L     10 U19K     10 U4P      12 U26P     27  $
+    U21P     27 U15P     27 U9P      27 U13K     15 U16F     29 
+NODENAME A.DMA23          $
+    U13D      9 U3L       2 U10K     12 U16F     52 
+NODE    92 $
+    U13D     11 U12D     12 
+NODENAME A.JOB3           $
+    U12D      3 U18H     15 U23B      8 U22B      9 U27H     31 
+NODENAME A.JOB2           $
+    U12D      6 U18H     17 U23B      7 U22B      6 U27H     30 
+NODENAME A.JOB1           $
+    U12D     10 U23B      4 U22B      5 U27H     29 U22K      6 
+NODENAME BA.JOB23         $
+    U12D     13 U20N     14 J45       1 U28H     13 U27K      6 
+NODENAME BA.DMA23         $
+    U12D     14 U4B       9 U3B      13 U5B       6 U13H     18 
+    U20K      4 U20K      5 
+NODENAME BREAD.JOB-       $
+
+NODENAME BA.DMA23-        $
+    U16D      9 U7D      16 U3A      11 
+NODENAME BREAD.DMA        $
+    U16D     10 U15D     10 U15E     10 U20J     13 U19N      5  $
+    U2C       4 U4J       1 U3B       5 U13F      1 U9D       3 
+    U13J      1 
+NODENAME BREAD.JOB        $
+    U17D      1 U15D      1 U15E      1 U20E      2 U19D      1  $
+    U22J      1 U23J      1 U21J      1 U20J     14 U5E       2  $
+    U23L      9 U27L     15 U28L     16 
+NODENAME S.MAP-           $
+    U17D      2 U17E      2 U17E      5 U17J      1 U18H      1  $
+    U18H     19 U20E      1 U23L      8 U22K      4 U27K     14 
+    U28K     15 
+NODENAME BAS.JOB          $
+
+NODENAME FC2.JOB          $
+    U17D      4 U18F      2 U20J      2 U27D     18 U26E     15  $
+    U27H     26 U28J      6 
+NODENAME MV.EN            $
+    U17D      5 U3E       4 U26K      8 
+NODE   106 $
+    U17D      6 U21C     12 
+NODE   107 $
+    U17D      8 U20F      5 U20F      9 
+NODE   108 $
+    U17D      9 U21D     19 U11K      4 
+NODE   109 $
+    U21N      1 U25L      8 
+NODENAME FC2-             $
+    U17D     11 U20J      4 U20H      4 U11K      5 
+NODENAME S.MBE-           $
+    U17D     13 U23C      2 U26D      2 U26D     12 U7F       3  $
+    U27K     12 U28K      9 
+NODENAME BUDS.DMA-        $
+    U16E      3 U15E      8 
+NODENAME BLDS.DMA-        $
+    U16E      5 U15D      4 
+NODENAME BUDS.JOB-        $
+    U16E      7 U15E     12 
+NODENAME BLDS.JOB-        $
+    U16E      9 U15D      3 
+NODENAME LDS.JOB-         $
+    U16E     11 U24C     13 U23C      3 RN13      4 U5E      13  $
+    U27H      8 U27L     17 U28J      3 
+NODENAME UDS.JOB-         $
+    U16E     13 U23B      3 U24C     14 U23C      4 RN13      5  $
+    U5E      11 U27H      7 U28J      2 
+NODENAME LDS.DMA-         $
+    U16E     15 RN14      3 U5E       7 U23L      5 U23K     14 
+    U16F      8 
+NODENAME UDS.DMA-         $
+    U16E     17 RN14      6 U5E       9 U23L      2 U23K     16 
+    U16F      7 
+NODE   120 $
+    U15D      5 U11D      3 
+NODE   121 $
+    U15D      6 U11D      2 
+NODENAME BMPW-            $
+    U15D      8 U15D     12 U15E      3 U15E      4 U20E      8 
+    U20H     13 U20H     14 
+NODENAME WTOK-            $
+    U15D      9 U15D     13 U15E      2 U15E     11 U27L     12 
+NODE   124 $
+    U15E      5 U11D      5 
+NODE   125 $
+    U15E      6 U11D      6 
+NODENAME DIS.MAP          $
+    U17E      1 U9J       2 U8J       2 U10F     18 U10H     18 
+NODENAME EN.MAP           $
+    U17E      3 U18D      1 U18D     19 U19E      1 U19E     19 
+    U20N      2 
+NODE   128 $
+    U17E      6 U18F      1 U18F     19 U19J      1 
+NODENAME MWT              $
+    U17E     11 U12E     18 U9F      17 U22K      7 U25M      4 
+    U25M      5 
+NODENAME HME-             $
+    U17E      8 U22E     20 U23E     20 U21E     20 
+NODE   131 $
+    U17E      9 U20E      3 
+NODENAME MAP11            $
+    U17E     10 U18F     18 U18E      1 U17J     18 U20E      4  $
+    U18J      9 U18D      2 U22K      5 
+NODENAME BKDN             $
+    U2E       3 U4H       1 U4H       5 U4H      13 U25K      1 
+NODENAME BERR.JOB-        $
+    U20C      2 U27H     22 U25E      5 U11E      4 U11F      4 
+    U25K      2 
+NODE   135 $
+
+NODE   136 $
+
+NODENAME LME-             $
+    U20E      6 U21H     20 U23H     20 U22H     20 
+NODENAME MAS.JOB-         $
+    U26E     17 U7F       2 U8F       3 U8F      11 U25L     13  $
+    U25K      8 U7D      15 U27K      5 
+NODENAME BAS.JOB-         $
+    U5E      15 U6A       2 U27L     13 U25K      9 U20K      9 
+    U28L     18 
+NODENAME BOOT.JOB         $
+
+NODE   141 $
+    U24L     17 U23K      4 U23K      6 U21L      1 U21L      2 
+NODENAME BERR.DMA-        $
+    U3L       8 U4A       1 U11E      3 U11F      3 U25K      4 
+    U16F     22 
+NODENAME ADDON-           $
+    U25L      5 U24L     19 U25K      5 
+NODE   144 $
+    U18F      3 U18E      8 U18H     12 U18J      2 U18D     17 
+NODENAME A.JOB22          $
+    U18F      4 U26B     16 U27H     51 U27K      3 
+NODE   146 $
+    U18F      5 U18E      7 U18H     14 U18J      3 U18D     15 
+NODENAME A.JOB21          $
+    U18F      6 U26B     15 U27H     50 U27K      2 
+NODE   148 $
+    U18F      7 U18E      6 U18H     16 U18J      4 U18D     13 
+NODENAME A.JOB20          $
+    U18F      8 U26B     12 U27H     48 U27K      1 
+NODE   150 $
+    U18F      9 U18E      5 U18H     18 U18J      5 U18D     11 
+NODENAME A.JOB19          $
+    U18F     11 U26B      9 U23C      5 U27H     47 
+NODE   152 $
+    U18F     12 U18E      4 U17J     12 U18J      6 U18D      8 
+NODENAME A.JOB18          $
+    U18F     13 U27B      7 U26B      6 U17F     18 U27H     46 
+NODE   154 $
+    U18F     14 U18E      3 U17J     14 U18J      7 U18D      6 
+NODENAME A.JOB17          $
+    U18F     15 U27B      4 U26B      5 U17F     17 U27H     45 
+NODE   156 $
+    U18F     16 U18E      2 U17J     16 U18J      8 U18D      4 
+NODENAME A.JOB16          $
+    U18F     17 U27B      3 U26B      2 U17F     14 U27H     44 
+NODENAME A.JOB15          $
+    U19J      2 U25B     18 U24B     19 U17F     13 U27H     43 
+NODENAME A.JOB14          $
+    U19J      4 U25B     17 U24B     16 U17F      8 U27H     42 
+NODENAME A.JOB13          $
+    U19J      6 U17J      2 U25B     14 U24B     15 U17F      7 
+    U27H     41 
+NODENAME A.JOB12          $
+    U19J      8 U17J      4 U25B     13 U24B     12 U17F      4 
+    U27H     40 
+NODE   162 $
+    U19J     12 U19H      4 U18H      3 U19F      6 U19E      8 
+NODE   163 $
+    U19J     14 U19H      3 U18H      5 U19F      7 U19E      6 
+NODE   164 $
+    U19J     16 U19H      2 U18H      7 U19F      8 U19E      4 
+NODE   165 $
+    U19J     18 U19H      1 U18H      9 U19F      9 U19E      2 
+NODENAME A.MAP4           $
+    U18E      9 U23D      5 U22D      5 U22E      4 U23E      4  $
+    U21E      4 U21H      4 U23H      4 U22H      4 
+NODENAME A.MAP5           $
+    U18E     10 U23D      6 U22D      6 U22E      3 U23E      3  $
+    U21E      3 U21H      3 U23H      3 U22H      3 
+NODENAME A.MAP6           $
+    U18E     11 U23D     17 U22D     17 U22E      2 U23E      2  $
+    U21E      2 U21H      2 U23H      2 U22H      2 
+NODENAME A.MAP7           $
+    U18E     12 U23D     16 U22D     16 U22E      1 U23E      1  $
+    U21E      1 U21H      1 U23H      1 U22H      1 
+NODENAME A.MAP8           $
+    U18E     13 U23D     15 U22D     15 U22E     23 U23E     23  $
+    U21E     23 U21H     23 U23H     23 U22H     23 
+NODENAME A.MAP9           $
+    U18E     14 U23D     14 U22D     14 U22E     22 U23E     22  $
+    U21E     22 U21H     22 U23H     22 U22H     22 
+NODENAME A.MAP10          $
+    U18E     15 U23D     13 U22D     13 U22E     19 U23E     19  $
+    U21E     19 U21H     19 U23H     19 U22H     19 
+NODENAME A.MAP11          $
+    U18E     16 U23D     12 U22D     12 
+NODENAME A.MAP0           $
+    U19H     13 U23D      1 U22D      1 U22E      8 U23E      8  $
+    U21E      8 U21H      8 U23H      8 U22H      8 
+NODENAME A.MAP1           $
+    U19H     14 U23D      2 U22D      2 U22E      7 U23E      7  $
+    U21E      7 U21H      7 U23H      7 U22H      7 
+NODENAME A.MAP2           $
+    U19H     15 U23D      3 U22D      3 U22E      6 U23E      6  $
+    U21E      6 U21H      6 U23H      6 U22H      6 
+NODENAME A.MAP3           $
+    U19H     16 U23D      4 U22D      4 U22E      5 U23E      5  $
+    U21E      5 U21H      5 U23H      5 U22H      5 
+NODENAME MPW-             $
+    U20E      9 U19E      7 U22E     16 U22H     16 U22J      8 
+NODE   179 $
+    U20E     10 U11K      6 
+NODENAME FC2.DMA          $
+    U18J     11 U20J      3 U23K      9 U16F     26 
+NODENAME A.DMA22          $
+    U18J     12 U10K      9 U13H      4 U16F     51 
+NODENAME A.DMA21          $
+    U18J     13 U10K      7 U13H      6 U16F     50 
+NODENAME A.DMA20          $
+    U18J     14 U10K      4 U13H      8 U16F     48 
+NODENAME A.DMA19          $
+    U18J     15 U9K      12 U16F     47 
+NODENAME A.DMA18          $
+    U18J     16 U9K       9 U13H     13 U16F     46 
+NODENAME A.DMA17          $
+    U18J     17 U9K       7 U13H     15 U16F     45 
+NODENAME A.DMA16          $
+    U18J     18 U9K       4 U13H     17 U16F     44 
+NODENAME TIE-             $
+    U18J     19 U19F     19 U7F       4 
+NODENAME UDS.WOFF         $
+
+NODENAME AS7              $
+    U4A       9 U23L      3 U23L      6 
+NODENAME LDS.WOFF         $
+
+NODE   192 $
+
+NODENAME A.JOB23          $
+    U26B     19 U27H     52 U23L     12 
+NODENAME BA.JOB23-        $
+    U20N      6 U25D      4 U23L     13 
+NODENAME A.DMA15          $
+    U19F     11 U11M      3 J26       1 U16F     43 
+NODENAME A.DMA14          $
+    U19F     12 U11M      5 U17K     26 U15K     26 U17L     26  $
+    U15L     26 U13H     11 U16F     42 
+NODENAME A.DMA13          $
+    U19F     13 U11M      7 U17K      2 U15K      2 U17L      2  $
+    U15L      2 U19L      2 U19K      2 U16F     41 
+NODENAME A.DMA12          $
+    U19F     14 U11M      9 U17K     23 U15K     23 U17L     23  $
+    U15L     23 U19L     23 U19K     23 U16F     40 
+NODENAME CLREF-           $
+    U10J      4 U24L     13 
+NODENAME MS13             $
+
+NODE   201 $
+
+NODENAME RES.PE-          $
+    U8C      13 U27L      6 U23M     12 
+NODE   203 $
+
+NODE   204 $
+
+NODE   205 $
+    U25D      3 U27L     18 U20K      1 U20K     12 U20K     13 
+NODE   206 $
+
+NODENAME CLKB-            $
+    U4H       3 U4H      11 U5H       3 U4A      11 R62       2  $
+    R67       1 U20M      6 
+NODENAME PU5              $
+    J54       1 J56       1 J58       1 J60       1 U8F       4  $
+    U8F      10 U8F      14 U8F      15 U4E       1 U4E       4  $
+    U4E      10 U4E      13 U3E       1 U3E      13 U11J      3  $
+    U5J       4 U5J      10 U10E     17 R82       1 
+NODENAME WOFF.JOB         $
+    U6A       3 U26L      5 U22K      1 
+NODENAME CLK3             $
+    U5K       2 U7K       2 U4M       1 U4L      11 U6L       2  $
+    U7L       2 U8L       2 U9L       2 U9M       2 U8M       2  $
+    U7M       2 U6M       2 U6R       1 U6R      13 R65       2  $
+    R70       1 U21K      8 
+NODENAME READ.JOB         $
+    U24C      2 U23C      1 U17F      3 U27D     12 RN13      6  $
+    U27H      9 U22K      2 U28L      4 
+NODENAME EN.MAP-          $
+    U20N     18 U23D     10 U22D     10 U22E     18 U23E     18  $
+    U21E     18 U21H     18 U23H     18 U22H     18 U22K      9 
+NODENAME WREF-            $
+
+NODENAME WDTY-            $
+
+NODENAME WPGH-            $
+    U22E     21 U23E     21 U22K     14 
+NODENAME WPGL-            $
+    U23H     21 U22H     21 U22K     15 
+NODENAME WIDH-            $
+
+NODENAME WIDL-            $
+    U21H     21 U22K     17 
+NODENAME EID-             $
+    U19D     19 U21J     19 U22K     18 
+NODENAME EPG-             $
+    U22J     19 U23J     19 U22K     19 
+NODENAME MA21             $
+    J9       72 U18D     14 U22E     10 U22H     10 U22J      3 
+    U12E     14 
+NODENAME MA22             $
+    J9       10 U18D     16 U22E     11 U22H     11 U22J      4 
+NODENAME MA23             $
+    U18D     18 U22E     13 U22H     13 U22J      5 
+NODENAME MA24             $
+    U19E      3 U22E     14 U22H     14 U22J      6 
+NODENAME MPX-             $
+    U19E      5 U22E     15 U22H     15 U22J      7 U20H      3 
+NODENAME MPR-             $
+    U19E      9 U22E     17 U22H     17 U22J      9 U20H      2 
+NODE   227 $
+    U20N      3 U15K     22 U15L     22 
+NODE   228 $
+    U20N      5 U18N     11 
+NODE   229 $
+    U20N      7 U16N     11 
+NODENAME REFON-           $
+    U20N      8 U11K      2 U11K      9 U24E     10 U9F      18  $
+    U25L      4 U24L     18 
+NODENAME REFON            $
+    U20N     12 U3L      10 U9K       1 U23M      4 U3H       1 
+    U25M      1 U25M     13 
+NODE   232 $
+    U20N     13 U19N     17 
+NODE   233 $
+    U20N     15 U19N     16 
+NODE   234 $
+    U20N     17 J24       1 U17K     22 U17L     22 
+NODE   235 $
+    R12       1 U22D      7 U22D     11 U19D      9 
+NODE   236 $
+    R11       1 U23D      7 U23D     11 U19D      8 
+NODE   237 $
+    U21E      9 U21H      9 U21J      2 U21D      2 
+NODE   238 $
+    U21E     10 U21H     10 U21J      3 U21D      4 
+NODE   239 $
+    U21E     11 U21H     11 U21J      4 U21D      6 
+NODE   240 $
+    U21E     13 U21H     13 U21J      5 U21D      8 
+NODE   241 $
+    U21E     14 U21H     14 U21J      6 U21D     11 
+NODE   242 $
+    U21E     15 U21H     15 U21J      7 U21D     13 
+NODE   243 $
+    U21E     16 U21H     16 U21J      8 U21D     15 
+NODE   244 $
+    U21E     17 U21H     17 U21J      9 U21D     17 
+NODENAME USER0            $
+    U21D      3 U8E       2 U7E       2 
+NODENAME USER1            $
+    U21D      5 U8E       5 U7E       4 
+NODENAME USER2            $
+    U21D      7 U8E       6 U7E       6 
+NODENAME USER3            $
+    U21D      9 U8E       9 U7E       8 
+NODENAME USER4            $
+    U21D     12 U8E      12 U7E      11 
+NODENAME USER5            $
+    U21D     14 U8E      15 U7E      13 
+NODENAME USER6            $
+    U21D     16 U8E      16 U7E      15 
+NODENAME USER7            $
+    U21D     18 U8E      19 U7E      17 
+NODENAME FC1.JOB          $
+    U20J      5 U27D     16 U5E       6 U27H     27 
+NODENAME FC1.DMA          $
+    U20J      6 U5E      14 U23K      7 U16F     27 
+NODENAME FC1-             $
+    U20J      7 U20H     10 
+NODENAME FC0-             $
+    U20J      9 U20H     11 
+NODENAME FC0.DMA          $
+    U20J     10 U5E      16 U23K      5 U16F     28 
+NODENAME FC0.JOB          $
+    U20J     11 U27D     14 U5E       4 U27H     28 
+NODENAME READ-            $
+    U20J     12 U20H      9 
+NODE   260 $
+    U20H      5 U24E     13 
+NODE   261 $
+    U11K      1 U8N      12 
+NODENAME SCAS             $
+    U11K      3 U10K      1 U5N       1 U4P       1 
+NODENAME SCAOE-           $
+    U11M      1 U11M     19 U10K     15 U9K      15 U5N      15  $
+    U4P      15 U25L      6 U23K      1 U23K     19 
+NODENAME BKDN.BE-         $
+    U24E      1 U5H       6 
+NODE   265 $
+    U24E      2 U28H      8 
+NODENAME AERR.JOB         $
+    U24E      3 U25E      3 U9E      18 
+NODE   267 $
+    U24E      5 J46       1 U25D      5 
+NODE   268 $
+    U24E      6 U25D     15 
+NODE   269 $
+    U24E     11 U20F      3 U20F     11 
+NODENAME ABE.DMA          $
+    U20F      1 U8H       8 U8D       3 
+NODENAME UBE.JOB          $
+    U20F      4 U25E      2 U9E      13 
+NODENAME UBE.DMA          $
+    U20F     10 U8H      13 U8D       2 
+NODENAME ABE.JOB          $
+    U20F     13 U25E      1 U9E       8 
+NODE   274 $
+    J3        3 J3        4 R18       1 
+NODE   275 $
+    J3        5 J3        6 R17       1 
+NODENAME BCLK*            $
+    J3        7 U26C     17 U27E      1 U27E      2 U27E      4 
+    U27E      5 U27E      8 
+NODENAME INIT*            $
+    J3        8 U2E       2 Q3        3 
+NODENAME BUSY*            $
+    J3       11 U26C     11 U22C      3 RN19      6 
+NODENAME MRDC*            $
+    J3       15 U26C      4 U23C     12 RN19      2 
+NODENAME MWTC*            $
+    J3       16 U26C      2 U23C     13 RN19      3 
+NODENAME IORC*            $
+    J3       17 U23C     14 RN19      4 
+NODENAME IOWC*            $
+    J3       18 U23C     15 RN19      5 
+NODENAME XACK*            $
+    J3       21 U26C      6 U22C      6 RN19      7 
+NODENAME BHEN*            $
+    J3       25 U27B     12 U27C      3 
+NODENAME AD10*            $
+    J3       26 U27B      2 U26B      3 
+NODENAME AD11*            $
+    J3       28 U27B      5 U26B      4 
+NODENAME CCLK*            $
+    J3       29 U27E      6 U26E      6 
+NODENAME AD12*            $
+    J3       30 U27B      6 U26B      7 
+NODENAME AD13*            $
+    J3       32 U27B      9 U26B      8 U26C      8 
+NODENAME MBINT6*          $
+    J3       35 RN9       8 U13B      4 
+NODENAME MBINT7*          $
+    J3       36 RN9       9 U13B      3 
+NODENAME MBINT4*          $
+    J3       37 RN9       6 U13B      8 
+NODENAME MBINT5*          $
+    J3       38 RN9       7 U13B      7 
+NODENAME MBINT2*          $
+    J3       39 RN9       4 U13B     14 
+NODENAME MBINT3*          $
+    J3       40 RN9       5 U13B     13 
+NODENAME MBINT0*          $
+    J3       41 RN9       2 U13B     18 
+NODENAME MBINT1*          $
+    J3       42 RN9       3 U13B     17 
+NODENAME ADRE*            $
+    J3       45 U25B     16 U24B     17 
+NODENAME ADRF*            $
+    J3       46 U25B     19 U24B     18 
+NODENAME ADRC*            $
+    J3       47 U25B     12 U24B     13 
+NODENAME ADRD*            $
+    J3       48 U25B     15 U24B     14 
+NODENAME ADRA*            $
+    J3       49 U25B      6 U24B      7 
+NODENAME ADRB*            $
+    J3       50 U25B      9 U24B      8 
+NODENAME ADR8*            $
+    J3       51 U25B      2 U24B      3 
+NODENAME ADR9*            $
+    J3       52 U25B      5 U24B      4 
+NODENAME ADR6*            $
+    J3       55 U23B     16 U22B     17 
+NODENAME ADR7*            $
+    J3       56 U23B     19 U22B     18 
+NODENAME ADR4*            $
+    J3       57 U23B     12 U22B     13 
+NODENAME ADR5*            $
+    J3       58 U23B     15 U22B     14 
+NODENAME ADR2*            $
+    J3       59 U23B      6 U22B      7 
+NODENAME ADR3*            $
+    J3       60 U23B      9 U22B      8 
+NODENAME ADR0*            $
+    J3       61 U23B      2 U22B      3 
+NODENAME ADR1*            $
+    J3       62 U23B      5 U22B      4 
+NODENAME DATE*            $
+    J3       67 U20B     17 U21B     16 
+NODENAME DATF*            $
+    J3       68 U20B     18 U21B     19 
+NODENAME DATC*            $
+    J3       69 U20B     13 U21B     12 
+NODENAME DATD*            $
+    J3       70 U20B     14 U21B     15 
+NODENAME DATA*            $
+    J3       71 U20B      7 U21B      6 
+NODENAME DATB*            $
+    J3       72 U20B      8 U21B      9 
+NODENAME DAT8*            $
+    J3       73 U20B      3 U21B      2 
+NODENAME DAT9*            $
+    J3       74 U20B      4 U21B      5 
+NODENAME DAT6*            $
+    J3       77 U16B     17 U17B     16 U18B     17 U19B     16 
+NODENAME DAT7*            $
+    J3       78 U16B     18 U17B     19 U18B     18 U19B     19 
+NODENAME DAT4*            $
+    J3       79 U16B     13 U17B     12 U18B     13 U19B     12 
+NODENAME DAT5*            $
+    J3       80 U16B     14 U17B     15 U18B     14 U19B     15 
+NODENAME DAT2*            $
+    J3       81 U16B      7 U17B      6 U18B      7 U19B      6 
+NODENAME DAT3*            $
+    J3       82 U16B      8 U17B      9 U18B      8 U19B      9 
+NODENAME DAT0*            $
+    J3       83 U16B      3 U17B      2 U18B      3 U19B      2 
+NODENAME DAT1*            $
+    J3       84 U16B      4 U17B      5 U18B      4 U19B      5 
+NODE   330 $
+    J3       87 J3       88 R19       1 
+NODENAME BREQ3*           $
+    J3       94 U17C      1 U11E     18 U11F     18 
+NODENAME BREQ2*           $
+    J3       95 U17C      2 U11E     17 U11F     17 
+NODENAME BREQ1*           $
+    J3       96 U17C      3 U11E     14 U11F     14 
+NODENAME BPRN3*           $
+    J3       98 U16C     12 
+NODENAME BPRN2*           $
+    J3       99 U16C     13 
+NODENAME BPRN1*           $
+    J3      100 U16C     14 
+NODENAME EP5              $
+    R18       2 P3       18 
+NODENAME EP12             $
+    R17       2 P3       14 
+NODENAME EM12             $
+    R19       2 P3       19 
+NODENAME MBIWD-           $
+    U16B      1 U20B      1 U24C     12 U28H      1 
+NODENAME MBIL-            $
+    U16B     11 U18B     11 U20B     11 U24C     18 
+NODENAME MBOWD-           $
+    U17B      1 U21B      1 U24C     15 U28H      4 
+NODENAME MBOL-            $
+    U17B     11 U19B     11 U21B     11 U27B     11 U25B     11  $
+    U23B     11 U24C     17 
+NODENAME MBIBT-           $
+    U18B      1 U24C     19 U28H      2 
+NODENAME MBOBT-           $
+    U19B      1 U24C     16 U28H      5 
+NODE   346 $
+    U27B     13 U28J      1 
+NODE   347 $
+
+NODENAME JKPD             $
+    U26E     11 U7H      16 U6H      15 U28J      5 
+NODENAME TBUSY-           $
+    U27B      1 U25B      1 U23B      1 U19C      4 U19C      6 
+    U22C      1 
+NODENAME DIAG.MB          $
+    U27B      8 U24C     11 U23C      8 U9J       5 U8J       4 
+NODENAME EN.MBUS-         $
+    U26B      1 U26B     11 U24B      1 U24B     11 U22B      1  $
+    U22B     11 U25C      8 U27D      1 U27D     19 U27C     11  $
+    U6F      14 U6E      10 U7D      11 U24H      6 U24H     13 
+NODENAME A0               $
+    U22B      2 U24C      7 
+NODENAME MBRQ-            $
+    U21C      2 U25C     14 
+NODENAME MBREQ-           $
+    U21C      5 U6F       5 
+NODENAME MBREQ            $
+    U21C      6 U6E       9 
+NODENAME JBREQ            $
+    U21C      8 U6E       2 
+NODENAME JBREQ-           $
+    U21C      9 U6F       2 U25E      4 
+NODENAME PU1              $
+
+NODENAME RESET-           $
+    U1C       1 U1C       9 U6N       1 U8N       1 U7H       1  $
+    U7J       1 U9J       1 U2C       9 U2D       2 U2D       3  $
+    U26P      9 U21P      9 U15P      9 U9P       9 U9A      17 
+    U24M      1 
+NODENAME RESMB-           $
+    U1C       2 U7J      12 U6J      11 
+NODENAME MBRESET          $
+    U1C       3 U25C      4 U2E       1 
+NODENAME TEMP             $
+    U1C       4 R36       2 R37       1 U1B       2 U10F      4 
+    U10H      4 
+NODENAME TINT.EN          $
+    U1C       5 U7J       5 U6J       4 
+NODENAME TMPINT-          $
+    U1C       6 U10C      1 U10B      8 
+NODE   365 $
+    U1C       8 U2E       5 U2E       9 
+NODENAME KILL.JOB-        $
+    U1C      10 U7H       5 U6H       4 
+NODE   367 $
+    U1C      11 U9A      15 
+NODENAME JBE-             $
+    U1C      12 U26N      5 U9E      11 
+NODENAME DBE-             $
+    U1C      13 U4A       5 U8H      11 
+NODE   370 $
+    U26C      3 U20C     11 U19C      3 U19C     11 
+NODENAME BUSY             $
+    U26C      9 U18C      1 U11E      8 U11F      8 
+NODENAME Q13              $
+    U26C     12 U25C      5 
+NODENAME XACK             $
+    U26C     14 U23C      7 
+NODENAME MRDC             $
+    U26C     16 U25C      3 U24C      4 
+NODENAME MWTC             $
+    U26C     18 U25C      2 U27C      4 
+NODENAME MS7              $
+
+NODENAME MBWT-            $
+    U25C      7 U24C      3 U27D      8 U27C      5 
+NODENAME TOME-            $
+    U25C     13 U22C      4 
+NODENAME XAS-             $
+    U25C     16 U20C      3 U24C      9 U27D     11 
+NODENAME XDS-             $
+    U25C     17 U24C      8 
+NODENAME XACKF-           $
+    U25C     18 U22C      5 
+NODENAME HALT.JOB-        $
+    U2E       4 U2E       8 RN13      7 U27H     17 U10F      8 
+    U10H      8 
+NODENAME RES.JOB-         $
+    U2E       6 RN13      2 U27H     18 U10F     13 U10H     13 
+NODENAME RES.DMA-         $
+    U2E      10 RN14      5 U10F     17 U10H     17 U16F     18 
+NODE   385 $
+    U2E      11 U2E      13 U1D       8 
+NODENAME HALT.DMA-        $
+    U2E      12 RN14      4 U10F     14 U10H     14 U16F     17 
+NODENAME MBERR-           $
+    U20C      1 U20C      5 U17F     11 
+NODENAME RES.MBE-         $
+    U20C      4 U8C       2 
+NODENAME MBERR            $
+    U20C      6 U12C      8 
+NODE   390 $
+    U20C      8 U19C     12 
+NODENAME RQBUS-           $
+    U20C     12 U23C     18 
+NODE   392 $
+    U19C      1 U19C      9 
+NODE   393 $
+    U19C      2 U18C     12 
+NODENAME TBUSY            $
+    U19C      5 U23C      6 U6J      17 
+NODENAME BREQ-            $
+    U19C      8 U22C      2 U18C     13 U17C      4 U11E     13 
+    U11F     13 
+NODENAME S.MB-            $
+    U24C      1 U23C     16 
+NODENAME DTCKF-           $
+    U24C      5 U23C     17 U28K      1 U28K      2 U28K      3 
+    U28K      4 
+NODENAME BHEN             $
+    U24C      6 U27C      2 
+NODE   399 $
+    U23C      9 U28H      6 
+NODENAME HOLDMBUS         $
+    U23C     11 U7J      15 U6J      13 
+NODE   401 $
+    U26E      3 U28H      9 
+NODE   402 $
+    U26E      5 U28H     10 
+NODE   403 $
+    U26E      9 U28H     12 
+NODENAME BPRN-            $
+    U18C      2 U16C     15 
+NODE   405 $
+    U16C      1 U17C      9 
+NODE   406 $
+    U16C      2 U17C      7 
+NODE   407 $
+    U16C      3 U17C      6 
+NODE   408 $
+    U16C      6 U17C     15 
+NODENAME R.MBE-           $
+    U17F      1 U6C       3 U3A      13 
+NODE   410 $
+    U26D      1 U26D      8 
+NODENAME MBTO             $
+    U26D      6 U25E     13 U9E      14 
+NODENAME BAUD.CLK         $
+    U26D     13 U26E     14 U5R       1 U5R      13 
+NODE   413 $
+    U27E      9 U27E     10 U27E     12 U27E     13 U28E      3 
+NODENAME AS.JOB-          $
+    U27D      9 RN13      3 U27H      6 U24H      9 U24H     10 
+    U28L      2 
+NODE   415 $
+    U20N      9 U21N      4 
+NODE   416 $
+    U20N     11 U23N      5 U24N     19 
+NODENAME SCSELOE-         $
+
+NODE   418 $
+
+NODE   419 $
+    U13N      1 U13N     19 U12M     19 U25L      3 
+NODE   420 $
+
+NODE   421 $
+
+NODE   422 $
+
+NODENAME SCPERR-          $
+    U9N      13 U12C      7 U25L     10 U22M      9 U22M     13 
+NODE   424 $
+    U19N      1 U21N      7 U21N     12 
+NODENAME IOPTR            $
+    U24E      9 U19N      2 U24N      2 U8N      19 U24L      5 
+NODENAME SCA0             $
+    U19N      3 U6M      14 U5M       2 U24L      6 
+NODENAME BUFRDY           $
+    U19N      4 U21N     11 
+NODE   428 $
+
+NODENAME BA.DMA1          $
+    U19N      9 U4K      17 U6C      23 U4C      23 U3J       1 
+    U13K      5 
+NODENAME S.SCSI-          $
+    U19N     11 U4R       1 U3R       7 
+NODE   431 $
+    U19N     12 U15N     11 U17N     11 
+NODE   432 $
+    U19N     13 U17N      1 
+NODE   433 $
+    U19N     14 U15N      1 
+NODE   434 $
+    U13L      1 U19N     18 U14N      1 
+NODE   435 $
+    U19N     19 U16N      1 U18N      1 
+NODE   436 $
+    U16N      3 U15N      2 U17N      2 U18N      3 U13M      8  $
+    U13N      2 U14N      2 
+NODE   437 $
+    U16N      4 U15N      5 U17N      5 U18N      4 U13M      9  $
+    U13N      4 U14N      5 
+NODE   438 $
+    U16N      7 U15N      6 U17N      6 U18N      7 U13M     10  $
+    U13N      6 U14N      6 
+NODE   439 $
+    U16N      8 U15N      9 U17N      9 U18N      8 U13M     11  $
+    U13N      8 U14N      9 
+NODE   440 $
+    U16N     13 U15N     12 U17N     12 U18N     13 U13M     12  $
+    U13N     11 U14N     12 
+NODE   441 $
+    U16N     14 U15N     15 U17N     15 U18N     14 U13M     13  $
+    U13N     13 U14N     15 
+NODE   442 $
+    U16N     17 U15N     16 U17N     16 U18N     17 U13M      1  $
+    U13N     15 U14N     16 
+NODE   443 $
+    U16N     18 U15N     19 U17N     19 U18N     18 U13M      2  $
+    U13N     17 U14N     19 
+NODENAME CLREF-           $
+
+NODE   445 $
+
+NODE   446 $
+    U24N     18 U22M      8 
+NODENAME RES.SCPE-        $
+    U8C       3 U22M     10 
+NODE   448 $
+    U13M      5 U22L      9 
+NODENAME DTACK.DMA-       $
+    U4D      11 U23M     10 U16F     10 
+NODENAME EN.BLK           $
+    U5F      14 U9H       8 U9F       8 U9E       4 U8H       7 
+    U24L      8 
+NODE   451 $
+
+NODE   452 $
+
+NODENAME RES.SCPE-        $
+
+NODE   454 $
+
+NODENAME REFRQ-           $
+    U10J      1 U10J      5 U24L      2 
+NODENAME DATEN            $
+    U23N      4 U24N     11 U7N       2 U2M       9 U24L      3 
+NODENAME AS6              $
+    U8B       5 U8B       6 U4A      12 U24L      4 U9D       8 
+NODENAME XFER.SC-         $
+
+NODENAME COUNT.SC-        $
+    U5K       7 U7K       7 U6L       7 U7L       7 U8L       7  $
+    U9L       7 U9M       7 U8M       7 U7M       7 U6M       7 
+    U24L     12 
+NODENAME BKREQ-           $
+
+NODE   461 $
+
+NODENAME CAS-             $
+    J9       44 U22K      8 
+NODENAME READ.DMA         $
+    RN14      7 U5E      18 U26P     44 U21P     44 U15P     44  $
+    U9P      44 U23K     12 U9D      15 U16F      9 
+NODENAME AS.DMA-          $
+    RN14      2 U5E       5 U3B      10 U23K     18 U16F      6 
+NODE   465 $
+    U21N      2 U21N      5 
+NODE   466 $
+
+NODE   467 $
+    U21N     10 U21N     13 U22M     11 U22L      1 
+NODENAME BREAD.DMA-       $
+    U19L     22 U19K     22 U6C      18 U22L      5 U22L     13  $
+    U10D     10 U9D       5 U9D      17 
+NODE   469 $
+
+NODE   470 $
+
+NODENAME I/O              $
+    U24N      3 U3M       7 U2P       3 U7N      11 U11C      3 
+    U22L     10 
+NODE   472 $
+
+NODE   473 $
+
+NODENAME PELATCH-         $
+    U7A      11 U12E     11 U9H      11 U10F     11 U10H     11  $
+    U11E     11 U9F      11 U11F     11 U24M      5 
+NODE   475 $
+
+NODENAME SCBERR-          $
+    U9N      11 U24M      9 
+NODENAME RES.SBERR-       $
+    U8C      15 U24M     10 
+NODE   478 $
+    U22N      1 U22N      2 U22N     13 U23N      6 
+NODE   479 $
+    U22N      5 U22N     12 
+NODENAME PTRINT-          $
+    U22N      8 U11C      8 
+NODENAME REQ              $
+    U23N      3 U24N      9 U2P      14 U7N      17 
+NODENAME ZERO             $
+    U24N      1 U9N      15 U3H       6 
+NODENAME CDPTR            $
+    U24N      4 U8N      15 
+NODENAME C/D              $
+    U24N      5 U2P      18 U7N       8 U11C      4 
+NODENAME MSGPTR           $
+    U24N      6 U8N      16 
+NODENAME MSG              $
+    U24N      7 U2N      12 U7N      15 U11C      7 
+NODENAME RESET            $
+    U24N     15 U3L      12 U6F       9 U2D      18 U1D       9 
+    U25M      2 U25M      3 
+NODE   488 $
+    U13L     19 U13M      4 U12M      5 
+NODE   489 $
+    U13M      6 U12M     17 
+NODENAME SCSID7*          $
+    U13N      3 U12N     17 J4       16 U1M       7 
+NODENAME SCSID6*          $
+    U13N      5 U12N     15 J4       14 U1M       9 
+NODENAME SCSID5*          $
+    U13N      7 U12N     13 J4       12 U1M      10 
+NODENAME SCSID4*          $
+    U13N      9 U12N     11 J4       10 U1M      11 
+NODENAME SCSID3*          $
+    U13N     12 U12N      8 J4        8 U1M      12 U2L       6 
+NODENAME SCSID2*          $
+    U13N     14 U12N      6 J4        6 U1M      13 
+NODENAME SCSID1*          $
+    U13N     16 U12N      4 J4        4 U1M      14 
+NODENAME SCSID0*          $
+    U13N     18 U12N      2 J4        2 U1M      15 
+NODE   498 $
+    U12N      3 U11N      9 U14N     18 
+NODE   499 $
+    U12N      5 U11N     10 U14N     17 
+NODE   500 $
+    U12N      7 U11N     11 U14N     14 
+NODE   501 $
+    U12N      9 U11N      4 U14N     13 
+NODENAME MYBIT            $
+    U12N     12 U14N      8 U3M       8 U9N       2 
+NODE   503 $
+    U12N     14 U14N      7 
+NODE   504 $
+    U12N     16 U14N      4 
+NODE   505 $
+    U12N     18 U14N      3 
+NODENAME SCSIDP*          $
+    U12M      3 U12L      6 J4       18 U1M       6 
+NODENAME DIAG.PESC        $
+    U12M     15 U9J       6 U8J       6 
+NODENAME WON              $
+    U11N      6 U3M      17 
+NODE   509 $
+    U13L     18 U12L     14 
+NODENAME SCSIDL-          $
+    U13L     11 U14N     11 U9J      15 U8J      13 
+NODE   511 $
+    J4       25 J21       1 
+NODE   512 $
+    J4       26 J20       1 
+NODENAME SCSIATN*         $
+    J4       32 U1M       5 U2N       4 U2L       8 
+NODENAME SCSIBSY*         $
+    J4       36 U1M       4 U2N       6 U3N       8 
+NODENAME SCSIACK*         $
+    J4       38 U1M       3 U2N      15 U3N      11 
+NODENAME SCSIRST*         $
+    J4       40 U1M       2 U2N      11 U3N       6 Q4        3 
+NODENAME SCSIMSG*         $
+    J4       42 U1M       1 U2N       8 U3N       3 
+NODENAME SCSISEL*         $
+    J4       44 U2R      15 U3P       8 U2P       8 
+NODENAME SCSIC/D*         $
+    J4       46 U2R      14 U3P       6 U2P       2 
+NODENAME SCSIREQ*         $
+    J4       48 U2R      13 U3P      11 U2P       6 
+NODENAME SCSII/O*         $
+    J4       50 U2R      12 U3P       3 U2P      17 
+NODENAME BD.DMA0          $
+    U5K       3 U7K       3 U8K       9 U8K      18 U7N      18  $
+    U6N       3 U5L      18 U6L       3 U6M       3 U5M      18  $
+    U7H       3 U6H      18 U7J       3 U6J      18 U4J      18  $
+    U10B      3 U11B     18 U9B       3 U13F      2 U8A       3  $
+    U10N     18 U10E     18 U12E      2 U11E      2 U9E       2  $
+    U8E       3 U7E      18 U2M      12 
+NODENAME BD.DMA1          $
+    U5K       4 U7K       4 U8K       7 U8K      16 U7N      16  $
+    U6N       4 U5L      16 U6L       4 U6M       4 U5M      16  $
+    U7H       4 U6H      16 U7J       4 U6J      16 U4J      17  $
+    U10B      5 U11B     16 U9B       5 U13F      3 U8A       4  $
+    U10N     16 U10E     16 U12E      5 U11E      5 U9E       5  $
+    U8E       4 U7E      16 
+NODENAME BD.DMA2          $
+    U5K       5 U7K       5 U8K       5 U8K      14 U7N      14  $
+    U6N       7 U5L      14 U6L       5 U6M       5 U5M      14  $
+    U7H       7 U6H      14 U7J       7 U6J      14 U4J      16  $
+    U10B      7 U11B     14 U9B       7 U13F      4 U8A       7  $
+    U10N     14 U10E     14 U12E      6 U11E      6 U9E       6  $
+    U8E       7 U7E      14 
+NODENAME BD.DMA3          $
+    U5K       6 U7K       6 U8K       3 U8K      12 U7N      12  $
+    U6N       8 U5L      12 U6L       6 U6M       6 U5M      12  $
+    U7H       8 U6H      12 U7J       8 U6J      12 U4J      15  $
+    U10B      9 U11B     12 U9B       9 U13F      5 U8A       8  $
+    U10N     12 U10E     12 U12E      9 U11E      9 U9E       9  $
+    U8E       8 U7E      12 
+NODENAME L.SCBCH-         $
+    U5K       9 U4C       4 
+NODENAME SCBC.CRY-        $
+    U5K      10 U9L      15 
+NODE   528 $
+    U5K      11 U8K      17 
+NODE   529 $
+    U5K      12 U8K      15 
+NODE   530 $
+    U5K      13 U8K      13 
+NODE   531 $
+    U5K      14 U8K      11 
+NODE   532 $
+    U5K      15 U3H       5 
+NODENAME L.SCAH-          $
+    U7K       9 U4C       6 
+NODENAME SCA.CRY-         $
+    U7K      10 U9M      15 
+NODENAME SCA19            $
+    U7K      11 U8K       8 U9K      14 
+NODENAME SCA18            $
+    U7K      12 U8K       6 U9K      11 
+NODENAME SCA17            $
+    U7K      13 U8K       4 U9K       5 
+NODENAME SCA16            $
+    U7K      14 U8K       2 U9K       2 
+NODE   539 $
+    U7K      15 U3H       4 
+NODENAME R.SCAH-          $
+    U8K       1 U6C       6 
+NODENAME R.SCBCH-         $
+    U8K      19 U6C       4 
+NODE   542 $
+
+NODENAME BGACK.JOB        $
+
+NODENAME BOOT.DMA         $
+
+NODE   545 $
+    U3L       3 U13H      2 U7D       4 
+NODE   546 $
+    U3L       4 U6N       5 
+NODE   547 $
+    U3L       6 U3N      12 U3N      13 
+NODENAME BERR.TIE-        $
+    U3L       9 U25E     11 U23M      9 U8D       5 
+NODE   549 $
+    U3L      11 U3M      11 
+NODE   550 $
+    U3L      13 U8N       9 
+NODE   551 $
+    U4M       2 U4M       9 U3M       9 U9N       8 
+NODE   552 $
+    U4M       6 U4M      13 
+NODE   553 $
+    U4M      12 U2N       7 
+NODE   554 $
+    U3M       1 U10J      8 
+NODENAME SCSIBSY          $
+    U3M       2 U2N      14 U9N       4 U11E      7 U11F      7 
+    U2M      13 
+NODE   556 $
+    U3M       3 U4L       4 U4L       6 U9N       6 
+NODE   557 $
+    U3M       4 U4L       5 
+NODE   558 $
+    U3M       5 U8N       6 
+NODE   559 $
+    U3M       6 U8N       5 
+NODENAME SINT-            $
+    U3M      12 U11C     13 
+NODE   561 $
+    U3M      13 U2N      13 U2L       4 U2L       5 
+NODE   562 $
+    U3M      14 U3N       9 U3N      10 
+NODE   563 $
+    U3M      15 U3P       9 U3P      10 
+NODENAME RSINT-           $
+    U3M      16 U11C     14 
+NODE   565 $
+    U3M      19 U9N      17 U10J     13 
+NODE   566 $
+    U2N       5 U7N       4 
+NODE   567 $
+    U2N       9 U7N      13 
+NODE   568 $
+    U2N      16 U7N       6 
+NODE   569 $
+    U4L       7 U4L       9 
+NODE   570 $
+    U4L       8 U2P      12 
+NODE   571 $
+    U2L       9 U2L      10 U6N       6 
+NODE   572 $
+    U3N       1 U3N       2 U6N      16 
+NODE   573 $
+    U3N       4 U3N       5 U6N      15 
+NODE   574 $
+    U3P       1 U3P       2 U6N      12 
+NODE   575 $
+    U3P       4 U3P       5 U6N       9 
+NODE   576 $
+    U3P      12 U3P      13 U6N      19 
+NODENAME R.SCCONT-        $
+    U7N       1 U7N      19 U9N       1 U9N      19 U6C       8 
+NODENAME BD.DMA7          $
+    U7N       3 U6N      18 U5L       3 U7L       6 U7M       6  $
+    U5M       3 U7H      18 U6H       3 U7J      18 U6J       3  $
+    U4J      11 U10B     18 U11B      3 U9B      18 U13F      9  $
+    U8A      18 U10N      3 U10E      3 U12E     19 U11E     19  $
+    U9E      19 U8E      18 U7E       3 
+NODENAME BD.DMA6          $
+    U7N       5 U6N      17 U5L       5 U7L       5 U7M       5  $
+    U5M       5 U7H      17 U6H       5 U7J      17 U6J       5  $
+    U4J      12 U10B     16 U11B      5 U9B      16 U13F      8  $
+    U8A      17 U10N      5 U10E      5 U12E     16 U11E     16  $
+    U9E      16 U8E      17 U7E       5 
+NODENAME BD.DMA5          $
+    U7N       7 U6N      14 U5L       7 U7L       4 U7M       4  $
+    U5M       7 U7H      14 U6H       7 U7J      14 U6J       7  $
+    U4J      13 U10B     14 U11B      7 U9B      14 U13F      7  $
+    U8A      14 U10N      7 U10E      7 U12E     15 U11E     15  $
+    U9E      15 U8E      14 U7E       7 
+NODENAME BD.DMA4          $
+    U7N       9 U6N      13 U5L       9 U7L       3 U7M       3  $
+    U5M       9 U7H      13 U6H       9 U7J      13 U6J       9  $
+    U4J      14 U10B     12 U11B      9 U9B      12 U13F      6  $
+    U8A      13 U10N      9 U10E      9 U12E     12 U11E     12  $
+    U9E      12 U8E      13 U7E       9 
+NODENAME BD.DMA15         $
+    U9N       3 U8N      18 U10L      3 U9L       6 U10M      3  $
+    U9M       6 U9J      18 U8J       3 U9H      19 U10H     19  $
+    U8H      19 U12H     18 U11H      3 U13J      9 
+NODENAME BD.DMA14         $
+    U9N       5 U8N      17 U10L      5 U9L       5 U10M      5  $
+    U9M       5 U9J      17 U8J       5 U9H      16 U10H     16  $
+    U8H      16 U12H     17 U11H      5 U13J      8 
+NODENAME BD.DMA13         $
+    U9N       7 U8N      14 U10L      7 U9L       4 U10M      7  $
+    U9M       4 U9J      14 U8J       7 U9H      15 U10H     15  $
+    U8H      15 U12H     14 U11H      7 U13J      7 
+NODENAME BD.DMA12         $
+    U9N       9 U8N      13 U10L      9 U9L       3 U10M      9  $
+    U9M       3 U9J      13 U8J       9 U9H      12 U10H     12  $
+    U8H      12 U12H     13 U11H      9 U13J      6 
+NODENAME BD.DMA11         $
+    U9N      12 U8N       8 U10L     12 U8L       6 U10M     12  $
+    U8M       6 U9J       8 U8J      12 U9H       9 U10H      9  $
+    U8H       9 U12H      8 U11H     12 U13J      5 
+NODENAME BD.DMA10         $
+    U9N      14 U8N       7 U10L     14 U8L       5 U10M     14  $
+    U8M       5 U9J       7 U8J      14 U9H       6 U10H      6  $
+    U8H       6 U12H      7 U11H     14 U13J      4 
+NODENAME BD.DMA9          $
+    U9N      16 U8N       4 U10L     16 U8L       4 U10M     16  $
+    U8M       4 U9J       4 U8J      16 U9H       5 U10H      5  $
+    U8H       5 U12H      4 U11H     16 U13J      3 
+NODENAME BD.DMA8          $
+    U9N      18 U8N       3 U10J     12 U10L     18 U8L       3  $
+    U10M     18 U8M       3 U9J       3 U8J      18 U9H       2  $
+    U10H      2 U8H       2 U12H      3 U11H     18 U13J      2 
+NODENAME L.SCCONT-        $
+    U6N      11 U8N      11 U10J     11 U4C       8 U2M      11 
+NODE   591 $
+    U10J      2 U12J      9 U12J     15 U11J      9 
+NODE   592 $
+    U10J      6 U4N      13 
+NODENAME R.SCBC-          $
+    U10L      1 U10L     19 U5L       1 U5L      19 U6C       5 
+NODE   594 $
+    U10L      2 U8L      14 
+NODE   595 $
+    U10L      4 U8L      13 
+NODE   596 $
+    U10L      6 U8L      12 
+NODE   597 $
+    U10L      8 U8L      11 
+NODE   598 $
+    U10L     11 U9L      14 
+NODE   599 $
+    U10L     13 U9L      13 
+NODE   600 $
+    U10L     15 U9L      12 
+NODE   601 $
+    U10L     17 U9L      11 
+NODE   602 $
+    U5L       2 U6L      14 
+NODE   603 $
+    U5L       4 U6L      13 
+NODE   604 $
+    U5L       6 U6L      12 
+NODE   605 $
+    U5L       8 U6L      11 
+NODE   606 $
+    U5L      11 U7L      14 
+NODE   607 $
+    U5L      13 U7L      13 
+NODE   608 $
+    U5L      15 U7L      12 
+NODE   609 $
+    U5L      17 U7L      11 
+NODENAME L.SCBC-          $
+    U6L       9 U7L       9 U8L       9 U9L       9 U4C       5 
+NODE   611 $
+    U6L      15 U7L      10 
+NODE   612 $
+    U7L      15 U8L      10 
+NODE   613 $
+    U8L      15 U9L      10 
+NODE   614 $
+    U11M      4 U10M      4 U8M      13 
+NODE   615 $
+    U11M      6 U10M      6 U8M      12 
+NODE   616 $
+    U11M      8 U10M      8 U8M      11 
+NODE   617 $
+    U11M     11 U10M     11 U9M      14 
+NODE   618 $
+    U11M     13 U10M     13 U9M      13 
+NODE   619 $
+    U11M     15 U10M     15 U9M      12 
+NODE   620 $
+    U11M     17 U10M     17 U9M      11 
+NODENAME R.SCA-           $
+    U10M      1 U10M     19 U5M       1 U5M      19 U6C       7 
+NODENAME SCA8             $
+    U10M      2 U8M      14 U5N       2 
+NODENAME L.SCA-           $
+    U9M       9 U8M       9 U7M       9 U6M       9 U4C       7 
+NODE   624 $
+    U9M      10 U8M      15 
+NODE   625 $
+    U8M      10 U7M      15 
+NODE   626 $
+    U7M      10 U6M      15 
+NODENAME SCA7             $
+    U7M      11 U5M      17 U5N       5 
+NODENAME SCA6             $
+    U7M      12 U5M      15 U5N      11 
+NODENAME SCA5             $
+    U7M      13 U5M      13 U5N      14 
+NODENAME SCA4             $
+    U7M      14 U5M      11 U4P       2 
+NODENAME SCA3             $
+    U6M      11 U5M       8 U4P       5 
+NODENAME SCA2             $
+    U6M      12 U5M       6 U4P      11 
+NODENAME SCA1             $
+    U6M      13 U5M       4 U4P      14 
+NODENAME BA.DMA14         $
+    J27       1 U13H      9 
+NODENAME S.PROM-          $
+    U17K     20 U15K     20 U17L     20 U15L     20 U5B      15 
+NODENAME S.SRAM-          $
+    U19L     20 U19K     20 U5B      11 
+NODENAME KILL.DMA         $
+    U7H       2 U6H       2 U1D      10 
+NODENAME L.REG1-          $
+    U7H      11 U4C      14 
+NODE   639 $
+    U7H      12 U6H      11 
+NODE   640 $
+    U7H      15 U6H      13 
+NODENAME R.REG1-          $
+    U6H       1 U6H      19 U6C      14 
+NODENAME INT.DMA          $
+    U6H       6 U3K       9 U12C     13 
+NODENAME INT.JOB          $
+    U6H       8 U3K       5 U12C     14 
+NODENAME UINT.EN          $
+    U7J       2 U6J       2 U2B       1 
+NODENAME CINTJ.EN         $
+    U7J       6 U6J       6 U5J       2 
+NODENAME CINTD.EN         $
+    U7J       9 U6J       8 U5J      12 
+NODENAME L.REG0-          $
+    U7J      11 U9J      11 U4C      13 
+NODENAME DIAG.UART        $
+    U7J      16 U6J      15 U17R      2 U17R      5 U17R     10  $
+    U17R     13 U9R       2 U9R       5 U9R      10 U9R      13 
+NODENAME R.REG0-          $
+    U6J       1 U6J      19 U8J       1 U8J      19 U6C      13 
+NODENAME BOOT.JOB-        $
+    U9J      16 U8J      15 U7D       2 
+NODENAME BOOT.DMA-        $
+    U9J      19 U8J      17 U7D      17 
+NODENAME S.CAL            $
+    U2C       3 U12F      1 U5A       5 U7D       7 U10D      9 
+NODENAME BAS.DMA-         $
+    U3B       8 U3B      12 U4D      10 U5B       5 U3J       4  $
+    U7D       8 U4F      11 
+NODENAME EN.MBUS          $
+    U9H       7 U9F       7 U9E       3 U7D       9 
+NODENAME BAS.DMA          $
+    U3E      10 U4B      10 U8B       1 U7B       1 U7D      12 
+    U4F      12 
+NODENAME S.CAL-           $
+
+NODE   657 $
+
+NODE   658 $
+    C1        2 R72       1 U2H      22 
+NODENAME BATT             $
+    R4        1 C2        1 CR1       2 R72       2 U2H      24  $
+    U1H       4 R47       2 
+NODE   660 $
+    R4        2 U1F       1 
+NODE   661 $
+    J61       1 U12J      6 
+NODE   662 $
+    J62       1 U12J      5 
+NODE   663 $
+    J63       1 U12J      4 
+NODE   664 $
+    J64       1 U12J      3 
+NODE   665 $
+    U7F       1 U8F       2 
+NODENAME BG.JOB-          $
+    U7F       8 U7F      11 U27H     11 
+NODE   667 $
+    U7F       9 U8F       5 
+NODENAME JBMG             $
+    U7F      10 U6F       6 
+NODE   669 $
+    U7F      12 U8F       7 
+NODENAME JBBG             $
+    U7F      13 U6F       7 
+NODE   671 $
+    U21N      6 U22L      2 
+NODENAME DMBG             $
+    U6F       8 U3D       4 
+NODENAME EN.BLK-          $
+    U6F      15 U5F       6 U6E       4 
+NODENAME BGACK.JOB-       $
+    U6F      16 U5F       8 U27H     12 
+NODENAME BGACK.DMA-       $
+    U6F      17 U16F     12 
+NODE   676 $
+    U6F      18 U4H       4 U4H      10 U5H       4 
+NODENAME ON.JOB-          $
+    U5E      19 U3E       5 U25E     10 
+NODE   678 $
+    U4E       5 U3E      11 
+NODE   679 $
+    U4E       9 U3E       3 
+NODE   680 $
+
+NODENAME ON.DMA           $
+    U3E       8 U3A       9 
+NODENAME ON.DMA-          $
+    U3E       9 U3D       9 U20K      3 
+NODENAME DMREQ            $
+    U6E       1 U4F       6 
+NODENAME RSINT.JOB-       $
+    U3K       1 U8C       4 
+NODENAME SINT.JOB-        $
+    U3K       4 U8C       5 
+NODENAME SINT.DMA-        $
+    U3K      10 U8C       7 
+NODENAME RSINT.DMA-       $
+    U3K      13 U8C       6 
+NODE   688 $
+    U6E       6 U16F     13 
+NODENAME BR.JOB-          $
+    U6E       8 U27H     13 
+NODE   690 $
+    U4H       2 U4H       9 U5H       1 
+NODE   691 $
+
+NODE   692 $
+    U12J     10 U11J     15 
+NODE   693 $
+    U4N       1 U4N       8 U4P       3 
+NODE   694 $
+    U4N       3 U5N      13 
+NODE   695 $
+    U4N       4 U5N      10 
+NODE   696 $
+    U4N       5 U5N       6 
+NODE   697 $
+    U4N       6 U5N       3 
+NODE   698 $
+    U4N       9 U4P       6 
+NODE   699 $
+    U4N      10 U4P      10 
+NODE   700 $
+    U4N      11 U4P      13 
+NODE   701 $
+    U2C       1 U11C     12 U9C       2 U10D      2 
+NODE   702 $
+    U2C       2 U11C     15 U9C       5 U10D      5 
+NODENAME SWINT-           $
+    U2C       8 U10C      6 U10B     13 U2B      13 
+NODENAME RES.SINT-        $
+    U2C      10 U8C      14 
+NODE   705 $
+    U2C      11 U2B      11 
+NODE   706 $
+    U2C      12 U6A      11 
+NODE   707 $
+    U2C      13 U12C      6 U9C      11 U10D      4 
+NODE   708 $
+    U11C      9 U6A      12 U10D      1 
+NODENAME INT3             $
+    U13C      4 U10D      6 
+NODE   710 $
+
+NODENAME AS12             $
+    U2C       5 U8B      12 U8B      14 U10D     12 
+NODENAME AS22-            $
+
+NODENAME AS4              $
+    U12F      2 U5A       1 U4B       1 U4B       5 U8B       2  $
+    U8B       4 U6B      13 U6B      15 
+NODE   714 $
+    U12F      8 U10E      1 U10E     19 
+NODENAME VI.2-            $
+    U12F      9 U3J      13 U10E      2 
+NODENAME VI.4-            $
+    U12F     10 U3J      11 U10E      4 
+NODENAME VI.6-            $
+    U12F     11 U3J       9 U10E     15 
+NODE   718 $
+    U12F     12 U2H      14 
+NODENAME AS8-             $
+
+NODE   720 $
+    U4K       1 U4K      19 U2D      15 U5A       6 
+NODENAME BA.DMA8          $
+    U4K       2 U8C      20 U13K      3 
+NODE   722 $
+    U4K      18 U4J       9 U2H      11 
+NODENAME BA.DMA7          $
+    U4K       4 U8C      21 U13K     18 
+NODE   724 $
+    U4K      16 U4J       8 U2H      10 
+NODENAME BA.DMA6          $
+    U4K       6 U8C      22 U13K     16 
+NODE   726 $
+    U4K      14 U4J       7 U2H       9 
+NODENAME BA.DMA5          $
+    U4K       8 U8C      23 U13K     14 
+NODE   728 $
+    U4K      12 U4J       6 U2H       8 
+NODENAME BA.DMA4          $
+    U4K      11 U6C      20 U4C      20 U13K     12 
+NODE   730 $
+    U4K       9 U4J       5 U2H       7 
+NODENAME BA.DMA3          $
+    U4K      13 U6C      21 U4C      21 U3J       3 U13K      9 
+NODE   732 $
+    U4K       7 U4J       4 U2H       6 
+NODENAME BA.DMA2          $
+    U4K      15 U6C      22 U4C      22 U3J       2 U13K      7 
+NODE   734 $
+    U4K       5 U4J       3 U2H       5 
+NODE   735 $
+    U4K       3 U4J       2 U2H       4 
+NODE   736 $
+    U2D       5 U4J      19 
+NODE   737 $
+    U2D       6 U3B      11 U3D       8 U4F       3 
+NODE   738 $
+    U2D       9 U5J       3 U5J      11 
+NODE   739 $
+    U2D      11 U2H      23 
+NODE   740 $
+    U2D      14 U4F       2 
+NODE   741 $
+    U2D      17 U1E       6 
+NODE   742 $
+    U5A       3 U9A      11 
+NODENAME AS10             $
+    U5A       4 U8B      10 U8B      13 U6B       4 
+NODE   744 $
+    U2H       2 U1H       3 
+NODENAME CAL.CE-          $
+    U2H      13 Q2        3 R47       1 
+NODE   746 $
+    U2C       6 U2H      17 
+NODENAME MRESET-          $
+    U2H      18 U1E       4 R51       1 R48       2 P7        4 
+NODENAME RES.CINTJ-       $
+    U5J       1 U8C       8 
+NODENAME INTRJ.CLK        $
+    U5J       5 U11C     18 
+NODENAME INTRD.CLK        $
+    U5J       9 U11C     17 
+NODENAME RES.CINTD-       $
+    U5J      13 U8C       9 
+NODE   752 $
+    R13       1 U21P     14 
+NODE   753 $
+    R10       1 U26P     36 
+NODENAME INTR.UART-       $
+    R21       1 U26P      5 U21P      5 U15P      5 U9P       5 
+    U9D      13 
+NODENAME DTACK.UART-      $
+    R20       1 U26P     42 U4R       3 U21P     42 U15P     42  $
+    U9P      42 U3D       3 U9D       2 
+NODE   756 $
+    R7        1 U26P     14 
+NODE   757 $
+    J30       1 U26P     19 
+NODE   758 $
+    J29       1 U21R     13 
+NODE   759 $
+    R14       1 U21P     36 
+NODE   760 $
+    R77       1 U9P      36 
+NODE   761 $
+    R78       1 U9P      14 
+NODE   762 $
+    R79       2 U15P     36 
+NODE   763 $
+    R16       2 U15P     14 
+NODENAME +12V             $
+    R30       2 CR2       1 R24       1 P7       13 U1B       3 
+    C102      1 
+NODENAME PSIOP*           $
+    CR2       2 U20R     14 U21R     14 U13R     14 U8R      14  $
+    C105      2 C106      2 C104      2 
+NODENAME MSIOP*           $
+    CR3       1 U20R      1 U21R      1 U13R      1 U8R       1  $
+    C105      1 C106      1 C104      1 
+NODENAME -12V             $
+    CR3       2 R23       1 R26       1 P7       12 RN16      1  $
+    RN18      1 RN20      1 C103      2 
+NODE   768 $
+    U26P      6 U6R       7 U21P      6 U15P      6 U9P       6 
+NODE   769 $
+    U26P      7 U5R       9 U21P      7 U15P      7 U9P       7 
+NODE   770 $
+    U26P     13 U21P     37 
+NODE   771 $
+    U26P     15 U23R     11 
+NODE   772 $
+    U26P     16 U23R      6 
+NODE   773 $
+    U26P     17 U19R      3 
+NODE   774 $
+    U26P     18 U17R      4 
+NODE   775 $
+    U26P     20 U21R      2 
+NODE   776 $
+    U26P     21 U22R      8 
+NODE   777 $
+    U26P     22 U22R      3 
+NODE   778 $
+    U26P     28 U22R      6 
+NODE   779 $
+    U26P     29 U22R     11 
+NODE   780 $
+    U26P     30 U21R     10 
+NODE   781 $
+    U26P     31 U21R      4 
+NODE   782 $
+    U26P     32 U17R      1 
+NODE   783 $
+    U26P     33 U19R     11 
+NODE   784 $
+    U26P     34 U23R      8 
+NODE   785 $
+    U26P     35 U23R      3 
+NODENAME UART3-           $
+    U26P     41 U3R      12 
+NODENAME VI.5-            $
+    U26P     43 U21P     43 U15P     43 U9P      43 U4B       4  $
+    U3D       2 U3J      10 U3A       1 
+NODENAME RxD.A            $
+    U19R      1 P8        2 RN20     10 
+NODE   789 $
+    U19R      4 RN16      5 P1        3 
+NODENAME DSR.C            $
+    U19R      6 U10N      6 
+NODENAME DSR.D            $
+    U19R      8 U10N      8 
+NODE   792 $
+    U19R     10 P2        3 RN18     10 
+NODENAME RxD.B            $
+    U19R     13 P9        2 RN20      3 
+NODENAME TCE.UB-          $
+    U23R      1 U12H      9 U11H      8 
+NODE   795 $
+    U23R      2 U24R     11 
+NODENAME RCE.UA-          $
+    U23R      4 U12H      2 U11H      2 
+NODE   797 $
+    U23R      5 U24R      6 
+NODE   798 $
+    U23R      9 U24R      3 
+NODENAME RCE.UB-          $
+    U23R     10 U12H      5 U11H      4 
+NODE   800 $
+    U23R     12 U24R      8 
+NODENAME TCE.UA-          $
+    U23R     13 U12H      6 U11H      6 
+NODENAME RxC.B            $
+    U24R      1 RN16      8 P9       17 
+NODENAME RxC.A            $
+    U24R      4 P8       17 RN20      6 
+NODENAME TxC.B            $
+    U24R     13 RN16      9 P9       15 
+NODENAME DCD.A            $
+    U22R      1 P8        8 RN20      8 
+NODENAME DCD.B            $
+    U22R      4 RN16     10 P9        8 
+NODENAME CTS.A            $
+    U22R     10 P8        4 RN20      9 
+NODENAME CTS.B            $
+    U22R     13 P9        4 RN20      2 
+NODE   809 $
+    U17R      3 U20R      2 
+NODE   810 $
+    U17R      6 U20R      4 
+NODE   811 $
+    U17R      8 U13R     10 
+NODE   812 $
+    U17R      9 U21P     18 
+NODE   813 $
+    U17R     11 U13R      2 
+NODE   814 $
+    U17R     12 U21P     32 
+NODENAME TxD.B            $
+    U20R      3 P9        3 
+NODENAME TxD.A            $
+    U20R      6 P8        3 
+NODENAME DTR.C            $
+    U20R      8 P1        4 
+NODE   818 $
+    U20R     10 U21P     19 
+NODENAME RTS.C            $
+    U20R     11 P1        2 
+NODE   820 $
+    U20R     13 U21P     20 
+NODENAME RTS.A            $
+    U21R      3 P8        5 
+NODENAME DTR.B            $
+    U21R      6 P9        6 
+NODENAME RTS.B            $
+    U21R      8 P9        5 
+NODENAME DTR.A            $
+    U21R     11 P8        6 
+NODENAME TxC.A            $
+    U24R     10 P8       15 RN20      7 
+NODENAME PU6              $
+    U6R       2 U6R       3 U6R       4 U6R      10 U6R      14  $
+    U6R      15 U5R       2 U5R       3 U5R       4 U5R      10  $
+    U5R      14 U5R      15 U3R       6 R83       1 
+NODE   827 $
+    U6R       5 U6R      11 U6R      12 
+NODE   828 $
+    U5R       5 U5R      11 U5R      12 
+NODENAME AS6-             $
+
+NODENAME BA.DMA16         $
+    U3R       1 U13H      3 
+NODENAME BA.DMA17         $
+    U3R       2 U13H      5 
+NODENAME BA.DMA18         $
+    U3R       3 U13H      7 
+NODENAME S.UART-          $
+    U3R       5 U5B      13 
+NODENAME UART2-           $
+    U3R      13 U21P     41 
+NODENAME UART1-           $
+    U3R      14 U15P     41 
+NODENAME UART0-           $
+    U3R      15 U9P      41 
+NODENAME TxD.D            $
+    U13R      3 P2        1 
+NODE   838 $
+    U13R      4 U21P     30 
+NODENAME RTS.D            $
+    U13R      6 P2        2 
+NODENAME TxD.C            $
+    U13R      8 P1        1 
+NODENAME DTR.D            $
+    U13R     11 P2        4 
+NODE   842 $
+    U13R     13 U21P     31 
+NODENAME CTS.D            $
+    U16R      1 P2        7 RN18      8 
+NODE   844 $
+    U16R      3 U21P     29 
+NODE   845 $
+    U16R      8 U21P     33 
+NODENAME RxD.D            $
+    U16R     10 P2        6 RN18      9 
+NODENAME CTS.C            $
+    U18R      1 RN16      3 P1        7 
+NODE   848 $
+    U18R      3 U21P     21 
+NODENAME DCD.D            $
+    U18R      4 P2        9 RN18      7 
+NODE   850 $
+    U18R      6 U21P     28 
+NODE   851 $
+    U18R      8 U21P     17 
+NODENAME RxD.C            $
+    U18R     10 RN16      4 P1        6 
+NODE   853 $
+    U18R     11 U21P     22 
+NODENAME DCD.C            $
+    U18R     13 RN16      2 P1        9 
+NODE   855 $
+    U21P     13 U15P     37 
+NODE   856 $
+    U8R       2 U9R       3 
+NODENAME TxD.E            $
+    U8R       3 P10       1 
+NODE   858 $
+    U8R       4 U9R      11 
+NODENAME TxD.F            $
+    U8R       6 P4        1 
+NODENAME TxD.G            $
+    U8R       8 P3       13 P5        1 
+NODE   861 $
+    U8R      10 U9R       8 
+NODENAME TxD.H            $
+    U8R      11 P6        1 
+NODE   863 $
+    U8R      13 U9R       6 
+NODE   864 $
+    U9R       1 U15P     18 
+NODE   865 $
+    U9R       4 U9P      32 
+NODE   866 $
+    U9R       9 U9P      18 
+NODE   867 $
+    U9R      12 U15P     32 
+NODENAME RxD.G            $
+    U10R      1 P3       11 RN18      4 P5        6 
+NODE   869 $
+    U10R      3 U9P      17 
+NODENAME RxD.H            $
+    U10R      4 RN18      3 P6        6 
+NODE   871 $
+    U10R      6 U9P      33 
+NODE   872 $
+    U10R      8 U15P     17 
+NODENAME RxD.E            $
+    U10R     10 RN18      6 P10       6 
+NODE   874 $
+    U10R     11 U15P     33 
+NODENAME RxD.F            $
+    U10R     13 RN18      5 P4        6 
+NODE   876 $
+    U15P     13 U9P      37 
+NODENAME PFW-             $
+    U1E       1 P7        3 
+NODENAME PFW              $
+    U1E       3 U10F      3 U10H      3 U9D       4 
+NODENAME UPS              $
+    U1E      11 U2B       2 U10F      7 U10H      7 
+NODE   880 $
+
+NODE   881 $
+    R30       1 U1E      13 P3       28 
+NODENAME AS22             $
+    U7B      10 U7B      13 U6B      14 U9D       6 
+NODE   883 $
+    U12C      3 U9D       7 
+NODENAME AS8              $
+    U8B       7 U8B      11 U9D      11 
+NODE   885 $
+    U10C     12 U10B     15 U9D      16 
+NODE   886 $
+    U6B       2 U9D      18 
+NODENAME UPSINT-          $
+    U10C      5 U10B     11 U2B       3 
+NODE   888 $
+    U10C      8 U12C      4 
+NODENAME PERROR.INT-      $
+    U10C     11 U10B     17 U24F      6 U24F     10 
+NODENAME INT5             $
+    U12C      2 U13C      6 
+NODENAME INT7             $
+    U12C      5 U13C      9 
+NODE   892 $
+    U12C      9 U12B      5 U11B      8 
+NODE   893 $
+    U12C     11 U13B     11 U11C     11 U13C      1 U5D       5 
+NODENAME INT2             $
+    U12C     12 U13C      3 
+NODENAME INT4             $
+    U12C     15 U13C      5 
+NODENAME VI.7-            $
+    U10B      1 U10B     19 U3J       7 
+NODE   897 $
+    U13B      2 U12B     10 
+NODE   898 $
+    U13B      5 U12B     11 
+NODE   899 $
+    U13B      6 U12B     12 
+NODE   900 $
+    U13B      9 U12B     13 
+NODE   901 $
+    U13B     12 U12B      1 
+NODE   902 $
+    U13B     15 U12B      2 
+NODE   903 $
+    U13B     16 U12B      3 
+NODE   904 $
+    U13B     19 U12B      4 
+NODE   905 $
+    U12B      6 U11B      6 
+NODE   906 $
+    U12B      7 U11B      4 
+NODE   907 $
+    U12B      9 U11B      2 
+NODENAME INT1             $
+    U12B     15 U13C      2 
+NODE   909 $
+
+NODENAME S.VI-            $
+    U5B       7 U3D      11 U3J       5 U5D      14 U3A       3 
+NODENAME VI.1-            $
+    U11B      1 U11B     19 U3J      14 
+NODE   912 $
+    U11C      2 U9C       3 
+NODE   913 $
+    U11C      5 U9C       6 
+NODE   914 $
+    U11C      6 U9C      10 
+NODENAME INT6D            $
+    U11C     16 U13C      8 
+NODENAME INT6J            $
+    U11C     19 U13C      7 
+NODE   917 $
+    R86       1 U6A       1 U9A      13 
+NODE   918 $
+    U6A      13 U9C       1 
+NODE   919 $
+    U9C       4 U9B      17 
+NODE   920 $
+    U9C       7 U9B      15 
+NODE   921 $
+    U9C       9 U9B      13 
+NODE   922 $
+    U9C      12 U9B      11 
+NODENAME VI.3-            $
+    U9B       1 U9B      19 U3J      12 
+NODENAME INT.DMA0-        $
+    U13C     12 U16F     25 
+NODENAME INT.DMA1-        $
+    U13C     13 U16F     24 
+NODENAME INT.DMA2-        $
+    U13C     14 U16F     23 
+NODENAME INT.JOB0-        $
+    U13C     17 U27H     25 
+NODENAME INT.JOB1-        $
+    U13C     18 U27H     24 
+NODENAME INT.JOB2-        $
+    U13C     19 U27H     23 
+NODE   930 $
+    J44       1 U24H      2 U24H      3 
+NODE   931 $
+    U26N     10 U27N      1 U20K      8 U28M      1 
+NODENAME RES.JBE-         $
+    U26N      4 U8C      10 
+NODE   933 $
+
+NODE   934 $
+
+NODE   935 $
+    U27N      3 U28M     15 
+NODE   936 $
+    U27N      2 U27N      4 
+NODENAME MS19             $
+    U27N      5 U27N      6 U24H      4 
+NODE   938 $
+    U27N      7 U27N     11 
+NODE   939 $
+    U27N     10 U27N     13 
+NODE   940 $
+    U27N     12 U27N     14 
+NODE   941 $
+    U24N     13 U24M      8 
+NODE   942 $
+
+NODENAME DTACK.JOB-       $
+    U27H     10 U28K      5 
+NODENAME DTACK.TIE-       $
+    U4D      13 U6B       6 U28K     14 
+NODE   945 $
+
+NODE   946 $
+
+NODE   947 $
+    U26N      1 U25K      3 
+NODE   948 $
+
+NODE   949 $
+
+NODE   950 $
+
+NODENAME DERR.JOB         $
+    U25E      6 U25E     12 U9E      17 
+NODENAME R.MERR0-         $
+    U6C       1 U12E      1 U9H       1 
+NODENAME R.MERR1-         $
+    U6C       2 U10H      1 U11E      1 
+NODENAME R.BE-            $
+    U6C      11 U9E       1 U8H       1 
+NODENAME R.SIO-           $
+    U6C      15 U10N      1 U10N     19 U11H      1 U11H     19 
+NODENAME R.USER-          $
+    U6C      17 U7E       1 U7E      19 
+NODENAME S.REG-           $
+    U6C      19 U4C      19 U5B       9 U8C      18 U3A       5 
+NODENAME AS7-             $
+    U4B       2 U4A       8 
+NODE   959 $
+    U4B       3 U3B       4 
+NODE   960 $
+    U4B       6 U3D      12 
+NODE   961 $
+    U4B       8 U6B       7 
+NODENAME S.OOPS           $
+    U4B      11 U8H      17 U8D      13 
+NODE   963 $
+    U4B      12 U5B      12 
+NODE   964 $
+    U4B      13 U5B      14 
+NODE   965 $
+    U3B       1 U3D       1 
+NODE   966 $
+    U3B       2 U3D      13 
+NODE   967 $
+    U3B       3 U6B      12 
+NODE   968 $
+    U3B       6 U4C      18 
+NODE   969 $
+    U3B       9 U4D       8 
+NODE   970 $
+    U4C       1 U8C      19 
+NODENAME L.LED-           $
+    U4C       9 U8A      11 
+NODENAME L.SIO-           $
+    U4C      15 U12H     11 
+NODENAME L.USER-          $
+    U4C      17 U8E      11 
+NODENAME AS14             $
+    U8B      15 U7B       3 
+NODENAME AS16             $
+    U7B       2 U7B       4 
+NODENAME AS18             $
+    U7B       5 U7B       6 
+NODENAME AS20             $
+    U7B       7 U7B      11 
+NODENAME AS24             $
+    U7B      12 U7B      14 
+NODENAME AS26             $
+    U7B      15 U8H      18 U8D      12 
+NODENAME RES.DBE-         $
+    U4A       4 U8C      11 
+NODE   981 $
+    U4D      12 U3A       8 
+NODENAME BA.DMA20         $
+    U5B       1 U6B      11 U13H     12 
+NODENAME BA.DMA21         $
+    U5B       2 U6B      10 U13H     14 
+NODENAME BA.DMA22         $
+    U5B       3 U6B       9 U13H     16 
+NODE   985 $
+    U3D       5 U16F     11 
+NODE   986 $
+
+NODE   987 $
+    P3        7 U28R      2 
+NODE   988 $
+    P3        8 J47       1 
+NODENAME D.DIAG6          $
+    P3        9 U7A      16 U10F     16 U9F      16 U11F     16 
+NODENAME D.DIAG2          $
+    P3       12 U7A       6 U10F      6 U9F       6 U11F      6 
+NODE   991 $
+    P3       15 R25       2 
+NODE   992 $
+    P3       16 R24       2 
+NODE   993 $
+    P3       17 R23       2 
+NODENAME D.DIAG0          $
+    P3       20 U7A       2 U10F      2 U9F       2 U11F      2 
+NODENAME D.DIAG1          $
+    P3       21 U7A       5 U10F      5 U9F       5 U11F      5 
+NODENAME D.DIAG3          $
+    P3       22 U7A       9 U10F      9 U9F       9 U11F      9 
+NODENAME D.DIAG4          $
+    P3       23 U7A      12 U10F     12 U9F      12 U11F     12 
+NODENAME D.DIAG5          $
+    P3       24 U7A      15 U10F     15 U9F      15 U11F     15 
+NODENAME D.DIAG7          $
+    P3       25 U7A      19 U10F     19 U9F      19 U11F     19 
+NODE  1000 $
+    P3       26 U28R      3 
+NODE  1001 $
+    P3       27 U28R      1 
+NODE  1002 $
+    P3       29 R31       1 U2B      12 
+NODE  1003 $
+    P3       30 J49       1 P7        1 
+NODE  1004 $
+    P3       31 J50       1 P7        2 
+NODE  1005 $
+    P3       32 R27       2 U28R      5 
+NODE  1006 $
+    R34       2 R32       1 U1B       4 
+NODE  1007 $
+    R35       2 R33       1 R36       1 U1B       5 
+NODE  1008 $
+    Q1        2 R48       1 R53       2 
+NODE  1009 $
+    Q1        3 R46       1 R49       1 R50       1 
+NODE  1010 $
+    Q2        2 R51       2 R52       2 
+NODE  1011 $
+    R49       2 Q3        2 
+NODE  1012 $
+    Q4        2 R50       2 
+NODE  1013 $
+
+NODENAME MS7              $
+    U25C      6 U28M      5 U28M      6 U24H      1 U24F      3 
+    U24F     11 
+NODE  1015 $
+
+NODE  1016 $
+
+NODE  1017 $
+
+NODENAME DE3-             $
+    U9F       1 U28R     12 
+NODENAME DE2-             $
+    U10F      1 U28R     13 
+NODENAME DE1-             $
+    U11F      1 U28R     14 
+NODENAME DE0-             $
+    U7A       1 U28R     15 
+NODE  1022 $
+
+NODE  1023 $
+
+NODE  1024 $
+
+NODE  1025 $
+    P8       22 U25R     13 RN20      4 
+NODE  1026 $
+    P8       20 U25R     10 RN20      5 
+NODE  1027 $
+    P9        7 R80       2 
+NODE  1028 $
+    RN16      6 P9       22 U25R      1 
+NODE  1029 $
+    RN16      7 P9       20 U25R      4 
+NODE  1030 $
+    R38       2 P8        7 
+NODE  1031 $
+    L7        1 U10A      9 
+NODE  1032 $
+    L6        1 U10A     10 
+NODE  1033 $
+    R86       2 L5        1 U10A     11 
+NODE  1034 $
+    L4        1 U10A     12 
+NODE  1035 $
+    L3        1 U10A     13 
+NODE  1036 $
+    L2        1 U10A     14 
+NODE  1037 $
+    L1        1 U10A     15 
+NODE  1038 $
+    U10A     16 L0        1 
+NODE  1039 $
+    P8        1 P8       26 P8       27 
+NODE  1040 $
+    P9        1 P9       26 P9       27 
+NODE  1041 $
+    R41       2 P1        8 
+NODE  1042 $
+    P1        5 P1       10 P1       11 
+NODE  1043 $
+    P2        5 P2       10 P2       11 
+NODE  1044 $
+    P2        8 R42       2 
+NODE  1045 $
+    P10       5 P10      10 P10      11 
+NODE  1046 $
+    P10       8 R73       2 
+NODE  1047 $
+    P4        5 P4       10 P4       11 
+NODE  1048 $
+    P4        8 R74       2 
+NODE  1049 $
+    P5        5 P5       10 P5       11 
+NODE  1050 $
+    P5        8 R75       2 
+NODE  1051 $
+    P6        5 P6       10 P6       11 
+NODE  1052 $
+    P6        8 R76       2 
+NODE  1053 $
+    U8A       2 U7A       3 U9A       2 
+NODE  1054 $
+    U8A       5 U7A       4 U9A       4 
+NODE  1055 $
+    U8A       6 U7A       7 U9A       6 
+NODE  1056 $
+    U8A       9 U7A       8 U9A       8 
+NODE  1057 $
+    U8A      12 U7A      13 
+NODE  1058 $
+    U8A      15 U7A      14 
+NODE  1059 $
+    U8A      16 U7A      17 
+NODE  1060 $
+    U8A      19 U7A      18 
+NODE  1061 $
+    U9A       3 U10A      8 
+NODE  1062 $
+    U9A       5 U10A      7 
+NODE  1063 $
+    U9A       7 U10A      6 
+NODE  1064 $
+    U9A       9 U10A      5 
+NODE  1065 $
+    U9A      12 U10A      4 
+NODE  1066 $
+    U9A      14 U10A      3 
+NODE  1067 $
+    U9A      16 U10A      2 
+NODE  1068 $
+    U9A      18 U10A      1 
+NODENAME DSR.A            $
+    U10N      2 U25R      8 
+NODENAME DSR.B            $
+    U10N      4 U25R      6 
+NODENAME RI.B             $
+    U25R      3 U11H     13 
+NODENAME RI.A             $
+    U25R     11 U11H     11 
+NODE  1073 $
+    U12H     16 U11H     15 
+NODE  1074 $
+    U12H     19 U11H     17 
+NODENAME BREAD.JOB-       $
+
+NODE  1076 $
+    U4H      12 U5H       5 
+NODENAME MEM.JOB          $
+    J9       79 U27L      2 U28K     10 U24H      8 
+NODENAME BREAD.JOB-       $
+    U16D      3 U27L      5 
+NODENAME BAS.JOB          $
+    U17D      3 U27L      7 
+NODENAME MS5              $
+    U17D     10 U24E     12 U27L      8 U28M      2 U28M      4 
+NODE  1081 $
+    U20E      5 U23L     10 
+NODE  1082 $
+
+NODENAME WREF-            $
+    U23D      8 U22K     12 
+NODENAME WDTY-            $
+    U22D      8 U22K     13 
+NODENAME WIDH-            $
+    U21E     21 U22K     16 
+NODENAME PU5              $
+
+NODENAME CLKA-            $
+    U24E      4 U21C     11 U27N      9 U25D      1 R66       2  $
+    R71       1 U26L      3 U28M      9 U21M      8 
+NODE  1088 $
+    U24E      8 U23K      8 
+NODENAME MS13             $
+
+NODE  1090 $
+
+NODENAME PU1              $
+    U26B     18 U21C      1 U21C      4 U21C     10 U21C     13  $
+    U20C     10 U20C     13 U19C     10 U19C     13 U27D      2  $
+    U27D      6 RN9      10 U26N     13 U27H     21 
+NODENAME CLK1             $
+    U21C      3 U25C      1 U21N      9 U22N      3 U22N     11  $
+    U26N     11 U27H     15 R63       2 R68       1 U26L     11  $
+    U25L     12 U24L      1 U21M      6 
+NODENAME AS22-            $
+    U5A       2 U10D     13 U9D      14 
+NODENAME UDS.WOFF         $
+    U19N      6 U23L      1 U22L      4 
+NODENAME LDS.WOFF         $
+    U19N      7 U23L      4 U22L     12 
+NODENAME LDS.JOB          $
+
+NODENAME PU2              $
+    U20H      1 U20H     12 U20H     15 U22N      4 U22N     10  $
+    U24N      8 U24N     12 RN13      8 RN13      9 RN13     10  $
+    U26L      4 U26L     10 U23K     11 U23K     15 U21L      4  $
+    U21L     10 U21L     13 U28R      6 
+NODENAME BOOT.DMA         $
+    U11K     10 U7D       3 
+NODENAME SCSELOE-         $
+    U3M      18 U25L      1 
+NODENAME CLK2             $
+    U10J      3 U8F       1 U8F      13 U6F       1 U4E       3  $
+    U4E      11 U12J      2 U11J      2 U8B       9 U4D       9  $
+    R64       2 R69       1 U5D       1 U5D      13 U16F     15  $
+    U4F       1 U4F      13 U21K      6 
+NODENAME PU8              $
+    U7K       1 U10J     10 U9M       1 U8M       1 U7M       1  $
+    U6M       1 U10K      5 U10K     10 U10K     11 U10K     13  $
+    U2M      10 R84       1 
+NODE  1102 $
+    U19L     27 U22L     11 
+NODE  1103 $
+    U19K     27 U22L      6 
+NODE  1104 $
+    U8F      12 U7D       5 
+NODENAME DMREQ-           $
+    U6F       3 U4F       5 
+NODENAME BKREQ-           $
+    U6F       4 U24L     14 U7D       6 
+NODENAME BGACK.JOB        $
+    U5F      12 U3H      10 
+NODENAME ON.JOB           $
+    U3E       6 U28K     11 
+NODE  1109 $
+    U6E       5 U7D      14 
+NODE  1110 $
+    U6E      13 U3H       8 
+NODENAME AS8-             $
+    U12F     13 U9D       9 
+NODE  1112 $
+
+NODENAME DE6-             $
+
+NODE  1114 $
+    U2H      15 U10D      8 
+NODENAME AS6-             $
+    U4R       2 U9D      12 
+NODENAME PU3              $
+    U10C      2 U10C      3 U10C      4 U10B      2 U10B      6  $
+    U11B     11 U11B     13 U11B     15 U9C      14 U9B       4  $
+    U9B       6 U5D       4 U5D      10 U5D      11 U5D      12  $
+    U5D      15 R81       1 
+NODE  1117 $
+
+NODE  1118 $
+
+NODE  1119 $
+
+NODE  1120 $
+
+NODE  1121 $
+
+NODE  1122 $
+
+NODE  1123 $
+
+NODE  1124 $
+
+NODE  1125 $
+
+NODE  1126 $
+
+NODE  1127 $
+
+NODENAME PU7              $
+    RN14      8 RN14      9 RN14     10 U8B       3 U4A      10  $
+    U4A      13 U3J       6 U16F     21 U4F       4 U4F      10 
+    U4F      14 U4F      15 
+NODE  1129 $
+    U3D       6 U4F       7 
+NODENAME PUx              $
+
+NODE  1131 $
+
+NODENAME PUx              $
+
+NODE  1133 $
+
+NODE  1134 $
+
+NODENAME XFER.SC-         $
+
+NODE  1136 $
+
+NODE  1137 $
+
+NODE  1138 $
+
+NODE  1139 $
+
+NODENAME BOOT.JOB         $
+
+NODENAME LDS.JOB          $
+
+NODENAME MS13             $
+
+NODE  1143 $
+
+NODE  1144 $
+
+NODE  1145 $
+
+NODENAME PUx              $
+
+NODE  1147 $
+
+NODE  1148 $
+
+NODE  1149 $
+
+NODE  1150 $
+
+NODE  1151 $
+
+NODE  1152 $
+
+NODE  1153 $
+
+NODENAME DE6-             $
+
+NODE  1155 $
+
+NODE  1156 $
+
+NODENAME XFER.SC-         $
+
+NODE  1158 $
+
+NODE  1159 $
+
+NODE  1160 $
+
+NODE  1161 $
+
+NODE  1162 $
+
+NODE  1163 $
+
+NODE  1164 $
+
+NODE  1165 $
+
+NODE  1166 $
+
+NODE  1167 $
+
+NODE  1168 $
+
+NODE  1169 $
+
+NODE  1170 $
+
+NODE  1171 $
+
+NODE  1172 $
+
+NODE  1173 $
+
+NODE  1174 $
+
+NODENAME PUx              $
+
+NODENAME PUx              $
+
+NODENAME BOOT.JOB         $
+    U23L     11 U7D      18 
+NODENAME LDS.JOB          $
+    U27L      3 U26L      1 U26L     12 U26L     13 U22K      3 
+NODENAME MS13             $
+    U27L      4 U28M     12 U28M     14 U24H      5 
+NODE  1180 $
+    U27L     14 U25M      9 U25M     10 
+NODE  1181 $
+    U27L     16 U24H     11 U24H     12 
+NODE  1182 $
+    U26L      2 U26L      9 
+NODE  1183 $
+    U28J      4 U27K      4 
+NODE  1184 $
+
+NODE  1185 $
+    U25L      9 U24L     15 
+NODE  1186 $
+    U25L     11 U25K     10 
+NODE  1187 $
+
+NODE  1188 $
+    U23M      8 U24L      9 
+NODE  1189 $
+    U23M     11 U24M      4 
+NODENAME DE6-             $
+    U23M     13 U28R      9 
+NODE  1191 $
+
+NODE  1192 $
+    U22M     12 U22L      8 
+NODENAME XFER.SC-         $
+    U24L      7 U22L      3 
+NODE  1194 $
+    U24L     16 U23K      2 
+NODE  1195 $
+    U25K      6 U24M     13 
+NODE  1196 $
+    U24M      3 U24F      5 
+NODE  1197 $
+    U5D       2 U5D       3 U5D       9 
+NODE  1198 $
+    U28M      7 U28M     11 
+NODE  1199 $
+    U28M     10 U28M     13 
+NODE  1200 $
+    U27K      7 U26K      1 
+NODE  1201 $
+    U27K      9 U26K      2 
+NODE  1202 $
+    U27K     10 U26K      3 
+NODE  1203 $
+    U27K     11 U26K      4 
+NODE  1204 $
+    U27K     13 U26K      5 U26K      6 
+NODE  1205 $
+    U27K     15 U26K     11 U26K     12 
+NODE  1206 $
+    U25M      6 U25M     11 U24F      4 U24F      8 
+NODE  1207 $
+    U25M      8 U24F      1 U24F     13 
+NODE  1208 $
+    U20L      3 U21L     11 
+NODENAME SB.CLK           $
+    U21L      3 U21L      8 U21L     12 U20M      1 U20M      2  $
+    U20M      4 U20M      5 U21M      9 U21M     10 U21M     12 
+    U21M     13 
+NODE  1210 $
+    U21L      9 U21M      1 U21M      2 U21M      4 U21M      5 
+    U21K      1 U21K      2 U21K      4 U21K      5 U21K      9 
+    U21K     10 U21K     12 U21K     13 
+NODENAME S.CAL-           $
+    U5B      10 U7D      13 U3A       4 
+NODE  1212 $
+    U19N      8 U21L      5 
+NODE  1213 $
+    U22K     11 U23M      6 
+NODENAME REFON            $
+
+NODENAME EN.DMA           $
+
+NODENAME ACKD             $
+    U21N     15 U3L       5 
+NODE  1217 $
+    U11K      8 U3L       1 
+NODENAME ASCLK            $
+    U6R       9 U7B       9 
+NODE  1219 $
+    U1E      12 R26       2 
+NODE  1220 $
+    U13F     19 U13J     19 U3A      12 
+NODE  1221 $
+
+NODE  1222 $
+    U3A       2 U3A       6 
+NODE  1223 $
+    J9       78 U4D       3 
+NODE  1224 $
+    U4D       2 U3H       3 
+EOS
+POSITION        
+J9       /.,00  21.900    0
+U14E     /.000  21.900    0
+U14D     0.*00  21.900    0
+U13E     0..00  21.900    0
+U13D     0.300  21.900    0
+U12D     0.700  21.900    0
+U16D     1.100  21.900    0
+U17D     1.500  21.900    0
+U16E     1.900  21.900    0
+U15D     2.300  21.900    0
+U15E     2.700  21.900    0
+U11D     3.100  21.900    0
+U17E     3.500  21.900    0
+U13L     /.'00  21.900    0
+U18F     3.900  21.900    0
+U19J     4.300  21.900    0
+U18E     4.700  21.900    0
+U17J     5.100  21.900    0
+U19H     5.500  21.900    0
+U18H     5.900  21.900    0
+U20E     6.300  21.900    0
+U18J     6.700  21.900    0
+R30     18.100  21.900    0
+U19F     7.100  21.900    0
+U28B    18.700  21.900    0
+R86     19.100  21.900    0
+U18D     7.500  21.900    0
+U19E     7.900  21.900    0
+U20N     8.300  21.900    0
+R12      8.700  21.900    0
+R11      9.300  21.900    0
+U23D    10.000  21.900    0
+U22D    10.500  21.900    0
+U22E    10.900  21.900    0
+U23E    11.300  21.900    0
+U21E    11.700  21.900    0
+U21H    12.100  21.900    0
+U23H    12.500  21.900    0
+U22H    12.900  21.900    0
+U19D    13.300  21.900    0
+U22J    13.700  21.900    0
+U23J    14.100  21.900    0
+U21J    14.500  21.900    0
+U21D    14.900  21.900    0
+U20J    15.300  21.900    0
+U20H    15.700  21.900    0
+U11K    16.100  21.900    0
+U24E    16.500  21.900    0
+U20F    16.900  21.900    0
+J3      18.650  19.200    0
+R18     18.700  19.200    0
+R17     19.300  19.200    0
+R19     20.000  19.200    0
+U16B    20.600  19.200    0
+U17B    21.000  19.200    0
+U18B    21.400  19.200    0
+U19B    21.800  19.200    0
+U20B    22.200  19.200    0
+U21B    22.600  19.200    0
+U27B    23.000  19.200    0
+U26B    23.400  19.200    0
+U25B    23.800  19.200    0
+U24B    24.200  19.200    0
+U23B    24.600  19.200    0
+U22B    25.000  19.200    0
+U21C    25.400  19.200    0
+U1C     25.800  19.200    0
+U26C    26.200  19.200    0
+U25C    26.600  19.200    0
+U2E     27.000  19.200    0
+U20C    27.400  19.200    0
+U19C    27.800  19.200    0
+U22C    28.200  19.200    0
+U24C    28.600  19.200    0
+U23C    29.000  19.200    0
+U18C    29.400  19.200    0
+U16C    29.800  19.200    0
+U17C    30.200  19.200    0
+U17F    30.600  19.200    0
+U26D    31.036  19.200    0
+U27E    31.436  19.200    0
+U28E     /.)+0  19.100    0
+U27D     /.000  19.100    0
+U27C     0.*00  19.100    0
+U26E     0..00  19.100    0
+U19N     0.300  19.100    0
+U16N     0.700  19.100    0
+U15N     1.100  19.100    0
+U17N     1.500  19.100    0
+U18N     1.900  19.100    0
+U21N     2.300  19.100    0
+U22N     2.700  19.100    0
+U23N     3.100  19.100    0
+U24N     3.500  19.100    0
+U13M     3.900  19.100    0
+U13N     4.300  19.100    0
+U12N     4.700  19.100    0
+U12M     5.100  19.100    0
+U11N     5.500  19.100    0
+U12L     5.900  19.100    0
+U14N     6.300  19.100    0
+J4       7.400  19.100    0
+J20      8.000  19.100    0
+J21      8.100  19.100    0
+J22      8.200  19.100    0
+J23      8.300  19.100    0
+RN9      8.400  19.100    0
+RN14     8.600  19.100    0
+RN13     8.800  19.100    0
+RN19     8.900  19.100    0
+U2R      9.100  19.100    0
+U1M      9.500  19.100    0
+U5K      9.900  19.100    0
+U7K     10.300  19.100    0
+U8K     10.700  19.100    0
+U3L     11.100  19.100    0
+U4M     11.500  19.100    0
+U3M     11.900  19.100    0
+U2N     12.300  19.100    0
+U4L     12.700  19.100    0
+U2L     13.100  19.100    0
+U3N     13.500  19.100    0
+U3P     13.900  19.100    0
+U2P     14.300  19.100    0
+U7N     14.700  19.100    0
+U9N     15.100  19.100    0
+U6N     15.500  19.100    0
+U8N     15.900  19.100    0
+U10J    16.300  19.100    0
+U10L    16.700  19.100    0
+U5L     18.100  19.100    0
+U6L     18.500  19.100    0
+U7L     18.900  19.100    0
+U8L     19.300  19.100    0
+U9L     19.700  19.100    0
+U11M    20.100  19.100    0
+U10M     /.'00  18.700    0
+U9M      /.+00  18.600    0
+U8M     25.800  18.500    0
+U7M     27.000  18.500    0
+U6M     28.200  18.500    0
+U5M     29.400  18.500    0
+U10K    31.036  18.500    0
+U9K     31.436  18.500    0
+J24      /./00  18.400    0
+J27      3.100  18.400    0
+J26      3.200  18.400    0
+U17K    11.100  18.400    0
+U15K    13.100  18.400    0
+U17L    29.800  18.400    0
+U15L     9.100  18.300    0
+U19L     9.800  18.300    0
+U19K    18.500  18.300    0
+U7H     19.200  18.300    0
+U6H     19.600  18.300    0
+U7J      2.300  18.200    0
+U6J      3.100  18.200    0
+U9J      3.900  18.200    0
+U8J      5.500  18.200    0
+C1      13.800  18.200    0
+R4      20.500  18.200    0
+C2      21.200  18.100    0
+J53     21.900  18.100    0
+J54     22.000  18.100    0
+J55     22.100  18.100    0
+J56     22.200  18.100    0
+J57     22.300  18.100    0
+J58     22.400  18.100    0
+J59     22.500  18.100    0
+J60     22.600  18.100    0
+J61     22.700  18.100    0
+J62     22.800  18.100    0
+J63     22.900  18.100    0
+J64     23.000  18.100    0
+CR1     23.100  18.100    0
+R72     23.700  18.100    0
+U7F     24.300  18.100    0
+U8F     24.700  18.100    0
+U6F     25.100  18.100    0
+U5F     26.200  18.100    0
+U5E     26.600  18.100    0
+U4E     27.400  18.100    0
+U3E     27.800  18.100    0
+U3K     28.600  18.100    0
+U6E     29.000  18.100    0
+U4H     30.500  18.100    0
+U5H      /./00  18.000    0
+U12J     0.)00  18.000    0
+U11J     0.-00  18.000    0
+U4N      0.200  18.000    0
+U5N      0.600  18.000    0
+U4P      1.000  18.000    0
+U2C      1.400  18.000    0
+U12F     1.800  18.000    0
+U4K      2.700  18.000    0
+U2D      3.500  18.000    0
+U5A      4.300  18.000    0
+U4J      4.700  18.000    0
+U2H      5.900  18.000    0
+U1H      5.250  17.800    0
+U5J      6.400  17.800    0
+R13      8.000  17.800    0
+R10     10.500  17.800    0
+R21     11.900  17.800    0
+R20     13.800  17.800    0
+R7      14.500  17.800    0
+J31     15.100  17.800    0
+J30     15.200  17.800    0
+J29     15.300  17.800    0
+R14     15.400  17.800    0
+R77     16.000  17.800    0
+R78     13.000  12.600    0
+R79     13.700  12.600    0
+R16     14.400  12.600    0
+CR2     16.700  17.800    0
+CR3     20.100  17.800    0
+U26P    20.700  17.800    0
+U19R    21.400  17.800    0
+U23R    21.800  17.800    0
+U24R    22.200  17.800    0
+U22R    22.600  17.800    0
+U17R    23.000  17.800    0
+U20R    23.400  17.800    0
+U21R    23.800  17.800    0
+U6R      /.'00  17.700    0
+U5R      /.+00  17.700    0
+U4R      6.800  17.700    0
+U3R      7.200  17.700    0
+U13R     7.600  17.700    0
+U16R     8.000  17.700    0
+U18R     8.400  17.700    0
+U21P    25.500  17.700    0
+U8R     27.000  17.700    0
+U9R     28.200  17.700    0
+U10R    30.936  17.700    0
+U15P    31.336  17.700    0
+U9P     11.900  17.600    0
+U1E     12.600  17.600    0
+U10C    13.800  17.600    0
+U12C    14.200  17.600    0
+U10B    14.600  17.600    0
+U13B    15.000  17.600    0
+U12B    15.400  17.600    0
+U11B    15.800  17.600    0
+U11C    16.200  17.600    0
+U6A     16.600  17.600    0
+U9C     18.100  17.600    0
+U9B     20.000  17.600    0
+U13C    10.500  17.500    0
+J46     10.900  17.500    0
+J45     11.000  17.500    0
+J44     11.800  17.500    0
+U26N     5.100  17.400    0
+U27N    24.200  17.400    0
+U25D    27.800  17.400    0
+U27H     /./00  17.200    0
+U25E     0./00  17.200    0
+U6C      0.400  17.200    0
+U4B      1.000  17.200    0
+U3B      1.400  17.200    0
+U4C      1.800  17.200    0
+U8B      2.300  17.200    0
+U7B      3.100  17.200    0
+U4A      3.900  17.200    0
+U4D      4.300  17.200    0
+U5B     19.200  17.200    0
+U3D     19.600  17.200    0
+U3J     24.600  17.200    0
+U8C     29.000  17.200    0
+U6B     30.500  17.200    0
+U13H     6.400  17.100    0
+U13K    21.400  17.100    0
+U13F    21.800  17.100    0
+P3      22.350  16.340    0
+R24     22.700  16.300    0
+R25     23.400  16.300    0
+R23     24.100  16.300    0
+R26     24.800  16.300    0
+R27     26.200  16.300    0
+R31     26.800  16.300    0
+R34     27.500  16.300    0
+R35     28.200  16.300    0
+R32     29.600  16.300    0
+R33     30.300  16.300    0
+R36      /.'00  16.200    0
+R37      1.000  16.200    0
+Q1       2.500  16.200    0
+R46      2.800  16.200    0
+Q2       3.600  16.200    0
+R49      4.300  16.200    0
+Q3       5.100  16.200    0
+Q4       5.500  16.200    0
+R50      5.800  16.200    0
+R47      6.800  16.200    0
+R51      7.500  16.200    0
+R52      8.200  16.200    0
+R48      8.900  16.200    0
+R53      9.600  16.200    0
+J49     10.200  16.200    0
+J50     10.300  16.200    0
+J51     10.400  16.200    0
+J52     10.500  16.200    0
+R64     10.600  16.200    0
+R65     11.200  16.200    0
+R66     12.700  16.200    0
+R62     13.400  16.200    0
+R63     14.100  16.200    0
+R68     14.800  16.200    0
+R69     15.500  16.200    0
+R70     16.100  16.200    0
+R71     16.700  16.200    0
+R67     17.400  16.200    0
+P7      18.700  15.456    0
+J48     18.900  15.500    0
+J47     19.000  15.500    0
+J10     19.100  15.500    0
+U1D     19.200  15.500    0
+U2B     19.600  15.500    0
+U1B     20.000  15.500    0
+RN16    20.400  15.500    0
+R38     21.400  15.500    0
+L1      22.600  15.500    0
+L3      22.900  15.500    0
+L4      23.100  15.500    0
+L5      23.300  15.500    0
+L6      23.600  15.500    0
+L7      23.800  15.500    0
+L2      24.100  15.500    0
+P8      24.501  15.499    0
+P9      24.901  15.499    0
+R41     26.200  15.500    0
+P1      27.101  15.503    0
+P2      27.501  15.503    0
+RN18    27.800  15.500    0
+R42     28.000  15.500    0
+P10     28.901  15.503    0
+R73     29.200  15.500    0
+P4      30.101  15.503    0
+R74     30.400  15.500    0
+P5       /.)''  15.403    0
+P6       /.-''  15.403    0
+R75      0.000  15.400    0
+R76      0.900  15.400    0
+U8A      1.800  15.400    0
+U7A      2.200  15.400    0
+U9A      2.600  15.400    0
+U10A     3.000  15.400    0
+U10N     3.400  15.400    0
+U25R     3.800  15.400    0
+U10E     4.200  15.400    0
+U12E     4.600  15.400    0
+U9H      5.000  15.400    0
+U10F     5.400  15.400    0
+U10H     5.800  15.400    0
+U11E     6.200  15.400    0
+U9F      6.600  15.400    0
+U11F     7.000  15.400    0
+U9E      7.400  15.400    0
+U8H      7.800  15.400    0
+U8E      8.200  15.400    0
+U7E      8.600  15.400    0
+U12H     9.000  15.400    0
+U11H     9.400  15.400    0
+U2M      9.800  15.400    0
+L0      10.200  15.400    0
+RN20    10.500  15.400    0
+R80     10.700  15.400    0
+U23L    11.500  15.400    0
+U27L    12.600  15.400    0
+U26L    13.000  15.400    0
+U22K    13.400  15.400    0
+U28J    13.800  15.400    0
+U28H    14.200  15.400    0
+U25L    14.600  15.400    0
+U23M    15.000  15.400    0
+U22M    15.400  15.400    0
+U24L    15.800  15.400    0
+U23K    16.200  15.400    0
+U25K    16.600  15.400    0
+U24M    17.000  15.400    0
+U22L    17.400  15.400    0
+U3H     17.800  15.400    0
+U7D     20.600  15.400    0
+U10D    22.200  15.400    0
+C105    22.600  15.400    0
+C106    23.000  15.400    0
+C104    23.400  15.400    0
+U9D     23.800  15.400    0
+U5D     21.000  15.300    0
+U20K    21.400  15.300    0
+U28M    21.800  15.300    0
+U27K    25.200  15.300    0
+U26K    25.600  15.300    0
+U28K    26.000  15.300    0
+U24H    26.400  15.300    0
+U28L    28.000  15.300    0
+U25M    28.400  15.300    0
+U24F    29.200  15.300    0
+U16F    30.400  15.300    0
+U4F     31.436  15.300    0
+U8D      0./00  15.200    0
+C102    22.700  15.200    0
+C101     0.400  15.100    0
+C103    10.700  15.100    0
+U20L    29.750  15.000    0
+U21L     0.300  14.900    0
+U20M     0.700  14.900    0
+U21M     1.100  14.900    0
+U21K    10.700  14.900    0
+U28R    11.100  14.900    0
+U26M    11.900  14.900    0
+U27M    22.600  14.900    0
+U24J    23.000  14.900    0
+U28N    23.400  14.900    0
+U25N    18.900  14.800    0
+U28P    19.300  14.800    0
+U28D    19.700  14.800    0
+U28C     9.800  14.700    0
+U11L    11.500  14.700    0
+U26R    13.000  14.700    0
+U27R    13.800  14.700    0
+C5      14.200  14.600    0
+C6      14.600  14.600    0
+C7      15.000  14.600    0
+C8      16.600  14.600    0
+C9      17.400  14.600    0
+C10     17.800  14.600    0
+C11     21.400  14.600    0
+C12     22.200  14.600    0
+C13     25.600  14.600    0
+C21     26.400  14.600    0
+C22     26.800  14.600    0
+C23     27.200  14.600    0
+C24     28.400  14.600    0
+C20     28.800  14.600    0
+C19     29.600  14.600    0
+C18      /.'00  14.500    0
+C17      /.+00  14.500    0
+C16     20.100  14.500    0
+C3      21.800  14.500    0
+C4      27.600  14.500    0
+C15     31.436  14.500    0
+C14     14.200  14.400    0
+C25     14.600  14.400    0
+C26     15.000  14.400    0
+C27     16.600  14.400    0
+C28     17.400  14.400    0
+C29     17.800  14.400    0
+C30     21.000  14.400    0
+C31     22.200  14.400    0
+C32     25.200  14.400    0
+C33     25.600  14.400    0
+C34     26.000  14.400    0
+C35     26.400  14.400    0
+C46     26.800  14.400    0
+C57     28.400  14.400    0
+C68     28.800  14.400    0
+C36     29.600  14.400    0
+C47      /.'00  14.300    0
+C58      /.+00  14.300    0
+C37      1.500  14.300    0
+C48      1.900  14.300    0
+C59      2.300  14.300    0
+C49      2.700  14.300    0
+C38      3.100  14.300    0
+C60      4.200  14.300    0
+C39      4.600  14.300    0
+C50      5.000  14.300    0
+C61      5.400  14.300    0
+C40      5.800  14.300    0
+C51      6.200  14.300    0
+C62      6.600  14.300    0
+C41      7.000  14.300    0
+C52      7.400  14.300    0
+C63      7.900  14.300    0
+C42      8.300  14.300    0
+C53      8.700  14.300    0
+C64      9.100  14.300    0
+C43     10.200  14.300    0
+C54     12.300  14.300    0
+C65     13.400  14.300    0
+C44     15.400  14.300    0
+C45     15.800  14.300    0
+C56     17.000  14.300    0
+C55     20.100  14.300    0
+C67     20.500  14.300    0
+C66     21.400  14.300    0
+C79     21.800  14.300    0
+C78     23.800  14.300    0
+C77     27.200  14.300    0
+C76     27.600  14.300    0
+C75     31.436  14.300    0
+C69      0.700  14.200    0
+C70      1.100  14.200    0
+C71     10.600  14.200    0
+C72     14.200  14.200    0
+C73     14.600  14.200    0
+C74     16.200  14.200    0
+C90     17.400  14.200    0
+C89     17.800  14.200    0
+C88     20.900  14.200    0
+C87     22.200  14.200    0
+C86     25.200  14.200    0
+C85     25.600  14.200    0
+C84     26.000  14.200    0
+C83     26.400  14.200    0
+C82     28.000  14.200    0
+C81     28.400  14.200    0
+C80     28.800  14.200    0
+C91     29.200  14.200    0
+C92     29.600  14.200    0
+C93      /.'00  14.100    0
+C94      /.+00  14.100    0
+C95      1.500  14.100    0
+C96      1.900  14.100    0
+C97      2.300  14.100    0
+C98      2.700  14.100    0
+C99      3.100  14.100    0
+C100     4.200  14.100    0
+U1F      4.700  12.600    0
+U13J     5.900  12.600    0
+U3A      6.300  12.600    0
+R81      6.800  12.600    0
+R82      7.500  12.600    0
+R83      8.200  12.600    0
+R84      8.900  12.600    0
+SA      12.600  12.600    0
+EOS
+
+                                                               

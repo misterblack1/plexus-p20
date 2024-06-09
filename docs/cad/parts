@@ -1,0 +1,146 @@
+PARTS LIST    ROBIN PILOT RUN                              12-3-84 WB
+
+.01 uF CAP       C1      
+.1 uF CAP        C105    C106    C104    
+1 K RES          R19     R24     R25     R23     R46     
+1 K RES          R30     R12     R11     R18     R17     
+1 K RES          R49     R50     R81     R82     R83     
+1 K RES          R84     
+10 K RES         R13     R10     R7      R14     R77     
+10 K RES         R48     R53     
+10 K RES         R78     R79     R16     R26 
+10 K RES 1%      R32     R33     
+10 K RPAK SIP    RN14    RN13    RN19    
+100 K RES        R36     
+100 RES          R86     R4      
+148              U17C    U12B    
+1488             U20R    U21R    U13R    U8R     
+1489A            U10R    U1E     U25R    
+1489A            U19R    U24R    U22R    U16R    U18R    
+154              U6C     U4C     U8C     
+15K RPAK SIP     RN16    RN18    RN20    
+1K RPAK SIP      RN9     
+1N4001           CR1     CR2     CR3     
+2 K RES          R72     R21     R20     R37     R51
+20 MHZ OSC       U20L    
+20 PIN SPARE     U25N    U28P    U28D    U28C    U11L    
+20 PIN SPARE     U26R    U27R    
+20 PIN SPARE     U28B    U26M    U27M    U24J    U28N    
+200 RES          R27     R31     
+2147H            U23D    U22D    
+22 uF CAP        C2      C102    C101    C103    
+220 RES          R64     R65     R66     R62     R63     
+220/330 RPAK DIP U2R     U1M     
+2N2222           Q1      Q3      Q4      
+2N5772           Q2    
+32.768 KHZ OSC   U1H     
+33 RES 2W        R38     R41     R42     R73     R74     
+33 RES 2W        R75     R76     R80     
+330 RES          R68     R69     R70     R71     R67     
+4.7 K RES 1%     R35     
+510 OHM RES      R47     R52
+68564            U26P    U21P    U15P    U9P     
+8KX8 SRAM        U19L    U19K    
+9.8304 MHZ OSC   U28E    
+BATTERY          U1F     
+BYPASS           C3 - C100
+DUAL DB 25 CONN  P8 and P9      
+DB 9 CONN        P1      P2      P10     P4      P5      
+DB 9 CONN        P6      
+DIAG CONN        P3      
+F521             U21D    U24N    
+JUMPER           J10     
+JUMPER           J20 - J24
+JUMPER           J26 + J27
+JUMPER           J29 - J31
+JUMPER           J44 - J64
+LM339            U1B     
+LS00             U1C     U2B     
+LS02             U6A     U28J    
+LS05             U2E     
+LS08             U5A     U23M    
+LS10             U2C     
+LS11             U23N    U12F    
+LS125            U22C    U23R    U4R     
+LS138            U28R    
+LS151            U20H    
+LS158            U20J    
+LS169            U12J    U11J    
+LS169            U5K     U7K     U6L     U7L     U8L     
+LS169            U9L     U9M     U8M     U7M     U6M     
+LS20             U28H    U10D    
+LS240            U12N    U10B    U9A     
+LS240            U12L    U2N     U2P     
+LS244            U10M    U5M     U6H     U6J     U8J     
+LS244            U18H    U18D    U19E    U27D    U8K     
+LS244            U4K     U11B    U9B     U10N    U10E    
+LS244            U7N     U9N     U10L    U5L     U11M    
+LS244            U7E     U11H    U17J    
+LS245            U18J    U19F    U19D    U22J    U23J    
+LS245            U21J    U4J     U13F    U13J    
+LS27             U18C    
+LS273            U6N     U8N     U7H     U7J     U9J     
+LS30             U10C    
+LS32             U17R    U9R     U1D     
+LS373            U17F    U16N    U15N    U17N    U18N    
+LS373            U7A     U9H     
+LS393            U4M     U26D    U4N     
+LS51             U16D    U6E     
+LS533            U17B    U19B    U21B    U27B    U26B    
+LS533            U25B    U24B    U23B    U22B    U27C    
+LS74             U10J    U4H     U5H     U5J     
+LS74             U2M     U26L    
+MC146818         U2H     
+2 K x 8 MAP RAM  U22E    U23E    U21E    U21H    U23H    
+2 K x 8 MAP RAM  U22H    
+MEM CONN   MALE  J9      
+ROBIN PWR CONN   P7      
+RPAK 100 DIP     U10A    
+RPAK 33 OHM DIP  U18E    U19H    
+RSTIFF           SA      
+S00              U17E    U24E    U4B     U22L    U3H     
+S02              U11D    U20F    U7F     U3D     U23L    
+S08              U11K    U4D     U25L    
+S10              U17D    U3A     
+S112             U4F     
+S112             U8F     U6R     U5R     U25D    U5D     
+S138             U16C    U3R     U5B     U3J     U27K    
+S140             U27E    U20M    U21M    U21K    
+S151             U6B     U28K    
+S158             U14E    U13E    U12D    U9C     
+S174             U27N    U8B     U7B     U28M    
+S175             U21N    
+S240             U20N    U26E    U2D     U27L    U7D     
+S240             U9D     U14D    U13D    U12M    U5F     
+S240             U26C    U13N    
+S244             U18F    U13H    U13K    U23K    U28L    
+S244             U16E    U19J    U5E     
+S257             U10K    U9K     U5N     U4P     
+S260             U15D    U15E    U11N    U25E    U8D     
+S280             U13M    
+S30              U26K    
+S32              U20E    U3L     U3B     U25K    
+S373             U11E    U9F     U11F    U9E     U8H     
+S373             U13L    U14N    U12E    U10F    U10H    
+S374             U12C    U13B    U11C    U8A     U8E     
+S374             U12H    U4L     
+S38              U2L     U3N     U3P     
+S533             U16B    U18B    U20B    
+S64              U20K    U24H    U25M    
+S74              U21C    U20C    U19C    U22N    U4E     
+S74              U3K     U26N    U4A     U22M    U24M    
+S74              U24F    U21L    U3E     
+SCSI CONN        J4      
+THERMISTER       R34     
+G LED            L7      
+Y LED            L1      L3      L4      L5      L6      
+Y LED            L2      L0      
+
+
+  PARTS THAT MUST BE IN SOCKETS
+
+PAL16L8A         U24C    U23C    U19N    U3M     U22K    
+PAL16R4A         U25C
+PAL16R8A         U6F     U13C    U24L     
+27128            U17K    U15K    U17L    U15L    
+68010            U27H    U16F    
