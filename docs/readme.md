@@ -2,21 +2,6 @@
 
 Please see the various files in this directory for more information. Datasheets and other scanned material has been moved to PDF.
 
-### For the Plexus P/20 and P/15:
-
-- Dual MC68010 CPUs. One is the "DMA" processor which handles I/O and all boot diagnostics. The other is "JOB" which likely handles UNIX and user processes.
-- MC1488 / MC1489 used at RS232 drivers/buffers
-- MOSTEK MK68564 used as the SIO chip to drive the 8 serial ports (4 of them)
-- The Motorola MC146818 is used for the battery backed up RAM and clock, just like on the PC and countless other systems. There is a NiCD battery attached to the motherboard to power this circuit when the system is turned off.  
-- The reset circuit on the Plexus is inside the primary power supply. Pin 4 on the motherboard power connector is the input from the PSU to the motherboard, so you cannot run the system on the bench with a different power supply without managing this input yourself. (Logic low = held in reset, logic high 5V = out of reset.) 
-- The PSU remote power on pin is grounded to turn on the power supply. It has relays inside to turn itself on and also power up the secondary PSU and external fan.
-- The PSU reset input is grounded by the front keyswitch, which which is input into the reset circuit inside the PSU which supplies a reset (Logic low) to the motherboard via pin 4.
-- On my system the primary PSU powers up the motherboard, hard drive, floppy drive and tape drive. The secondary PSU powers up the multibus backplane and the SCSI / MFM interposer. These are powered by normal Molex style 5/12v connectors, so you can use a normal PC splitter to eliminate the secondary PSU if you aren't using any multibus cards. Just unplug the cable that feeds from the primary to the secondary power supply.
-- Serial port 0 is the console port. See below for the pinout. (It is non standard) It runs at 9600bps, 8N2 as the default baud rate.
-- The top processor (MC68010, named the DMA processor) runs the boot diagnostics. Without it installed or working, the system will not do anything at power up. This CPU likely handles all IO operations while the system is running.
-- The bottom processor (named JOB) likely runs UNIX and user tasks. 
-- My system has 2048k of 41256 DRAM installed (8 chips + 1 parity per 256k) on a RAM board on the backside of the motherboard. All of the RAM chips are in sockets and can be tested in another system. 
-
 ### Serial port map:
 
 (Thanks to Patron Peter)
@@ -102,3 +87,19 @@ Port 6-7: Normal DB25 RS232 with full flow control
 | U21P | MK68564N-3A | MK68564N Serial Input/Output Controller |
 | U26P | MK68564N-3A | MK68564N Serial Input/Output Controller |
 | U2H | MC146818P | [Motorola MC146818 Real-Time Clock plus RAM](https://www.nxp.com/docs/en/data-sheet/MC146818.pdf) |
+
+### General and random technical information:
+
+- Dual MC68010 CPUs. One is the "DMA" processor which handles I/O and all boot diagnostics. The other is "JOB" which likely handles UNIX and user processes.
+- MC1488 / MC1489 used at RS232 drivers/buffers
+- MOSTEK MK68564 used as the SIO chip to drive the 8 serial ports (4 of them)
+- The Motorola MC146818 is used for the battery backed up RAM and clock, just like on the PC and countless other systems. There is a NiCD battery attached to the motherboard to power this circuit when the system is turned off.  
+- The reset circuit on the Plexus is inside the primary power supply. Pin 4 on the motherboard power connector is the input from the PSU to the motherboard, so you cannot run the system on the bench with a different power supply without managing this input yourself. (Logic low = held in reset, logic high 5V = out of reset.) 
+- The PSU remote power on pin is grounded to turn on the power supply. It has relays inside to turn itself on and also power up the secondary PSU and external fan.
+- The PSU reset input is grounded by the front keyswitch, which which is input into the reset circuit inside the PSU which supplies a reset (Logic low) to the motherboard via pin 4.
+- On my system the primary PSU powers up the motherboard, hard drive, floppy drive and tape drive. The secondary PSU powers up the multibus backplane and the SCSI / MFM interposer. These are powered by normal Molex style 5/12v connectors, so you can use a normal PC splitter to eliminate the secondary PSU if you aren't using any multibus cards. Just unplug the cable that feeds from the primary to the secondary power supply.
+- Serial port 0 is the console port. See below for the pinout. (It is non standard) It runs at 9600bps, 8N2 as the default baud rate.
+- The top processor (MC68010, named the DMA processor) runs the boot diagnostics. Without it installed or working, the system will not do anything at power up. This CPU likely handles all IO operations while the system is running.
+- The bottom processor (named JOB) likely runs UNIX and user tasks. 
+- My system has 2048k of 41256 DRAM installed (8 chips + 1 parity per 256k) on a RAM board on the backside of the motherboard. All of the RAM chips are in sockets and can be tested in another system. 
+
