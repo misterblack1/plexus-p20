@@ -1,6 +1,15 @@
 # Plexus P/20 Hard Drive related files
 
-The Plexus P/20 hard drive has three partitions on it:
+The Plexus P/15 and P/20 interface to all storage devices via on board SCSI.
+
+- The motherboard SCSI controller ID is 03.
+- The OMTI 5200 SCSI interposer is SCSI ID 00.
+  - The interposer is connected to a ST-506/MFM hard drive (LUN 0) and can support up to two MFM drives.
+  - A standard Shugart style floppy drive. (LUN 1)
+  - The floppy drive is a 80 track, double sided, 300rpm, double density drive. (Often called Quad Density) The drive would have a formatted capacity of roughly 720k.
+- The Archive tape drive (QIC) is SCSI ID 07. 
+
+This Plexus P/20 hard drive has three partitions on it:
 
 - /dev/dk1 -> / (root file system)
 - /dev/dsk/0s2 -> /user (home directory for all user files)
