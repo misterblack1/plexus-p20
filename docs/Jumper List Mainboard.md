@@ -1,4 +1,5 @@
-
+Discored user mxshift (05/30/2024 9:36 AM)
+```
 
 Because I was curious, the 4 pins near the SCSI connector:
 J20 -> pin 25 of SCSI connector
@@ -26,3 +27,4 @@ Near the bottom SIO (U26P):
 J29 -> input to MC1488 RS-232 driver
 J30 -> DTR output from U26P port A
 J31 -> GND
+```
