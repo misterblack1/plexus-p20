@@ -7,7 +7,14 @@ The Plexus P/15 and P/20 interfaces to all storage devices via on board SCSI.
   - The interposer is connected to a ST-506/MFM hard drive (LUN 0) and can support up to two MFM drives.
   - A standard Shugart style floppy drive. (LUN 1)
   - The floppy drive is a 80 track, double sided, 300rpm, double density drive. (Often called Quad Density) The drive would have a formatted capacity of roughly 720k.
-- The Archive tape drive (QIC) is SCSI ID 07. 
+- The Archive tape drive (QIC) is SCSI ID 07.
+
+The first sector on the Plexus hard drive contains a bootblock used by the boot ROM to do various things:
+- Setup the OMTI 5200 SCSI interposer with the correct heads and cylinders for the attached drive
+- Find the UNIX kernel image on the drive
+- Load the drive's partition table
+
+See the the boot block.md and associated visualization for more info.
 
 This Plexus P/20 hard drive has three partitions on it:
 
