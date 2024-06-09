@@ -103,7 +103,8 @@ E00010
 15-8 Not used     7-4 Not used
                   3-0 Software settable LEDs
 
-E00016 15 = Boot.DMA- (N=1) 7 = spare
+E00016
+15 = Boot.DMA- (N=1) 7 = spare
 14 = BOOT.JOB- (N=1) 6 = DIAG.UART (N=0)
 13 = SCSIDL- (Diag latch) (N=1) 5 = HOLDMBUS
 12 = DIAG.PEH (force error) (N=0) 4 = RESMB-
@@ -115,27 +116,16 @@ E00016 15 = Boot.DMA- (N=1) 7 = spare
 8 = DIS.MAP (N=0) 0 = UINT.EN (UPS)
 All 16 bits are reset low during System RESET
 
-E00018 Not used 7 = spare
-6 = JKPD
-Job control protection disable
-5 - 2 = spare
-1 = KILL.JOB-
-(Reset Job) (N=1)
-0 = KILL.DMA
-(Reset DMA) (N=0)
-All 8 bits are reset low
-during System RESETE00018 Not used 7 = spare
-6 = JKPD
-Job control protection disable
-5 - 2 = spare
-1 = KILL.JOB-
-(Reset Job) (N=1)
-0 = KILL.DMA
-(Reset DMA) (N=0)
-All 8 bits are reset low
-during System RESET
+E00018
+8-15 Not used     7 = spare
+                  6 = JKPD Job control protection disable
+                  5 - 2 = spare
+                  1 = KILL.JOB- (Reset Job) (N=1)
+                  0 = KILL.DMA (Reset DMA) (N=0)
+All 8 bits are reset low during System RESET
 
-E0001A 15 = spare Not used
+E0001A
+15 = spare        7-0 Not used
 14 = spare
 13 = spare
 12 = spare
