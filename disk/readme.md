@@ -20,3 +20,5 @@ The kernel loads from /unix and the file is 180,208 bytes, dated Nov 27  1985 on
 The filesystem block size is 1024 bytes.
 
 There is also another /user partition which was originally created by the original owner. The running /user partition was created for the computer's new life, but when it was created, the starting block was offset by 6,000 blocks, likely a type. (Original 60,000, new start location 66,000.) That preserved about 6 megs of the original partition and we have been able to recover these files as well. 
+
+As of 9-June-2024, I have not uploaded the full drive image or the other partitions because they contains PII (personally identifyable information) about the previous users of this machine. Work is ongoing to sanitize the data on these partitions when at which point I'll share the complete bootable drive image. (Plus tar file extractions of the files on the partitions.) 
