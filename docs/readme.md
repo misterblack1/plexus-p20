@@ -1,7 +1,10 @@
 # Technical information and documentation of Plexus machines
 
-For the Plexus P/20 and P/15:
+Please see the various files in this directory for more information. Datasheets and other scanned material has been moved to PDF.
 
+### For the Plexus P/20 and P/15:
+
+- Dual MC68010 CPUs. One is the "DMA" processor which handles I/O and all boot diagnostics. The other is "JOB" which likely handles UNIX and user processes.
 - MC1488 / MC1489 used at RS232 drivers/buffers
 - MOSTEK MK68564 used as the SIO chip to drive the 8 serial ports (4 of them)
 - The Motorola MC146818 is used for the battery backed up RAM and clock, just like on the PC and countless other systems. There is a NiCD battery attached to the motherboard to power this circuit when the system is turned off.  
