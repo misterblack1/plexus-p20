@@ -14,7 +14,7 @@ The first sector on the Plexus hard drive contains a bootblock used by the boot 
 - Find the UNIX kernel image on the drive
 - Load the drive's partition table
 
-See the the boot block.md and associated visualization for more info.
+See the the 'bootblock.md' and associated visualization for more info.
 
 This Plexus P/20 hard drive has three partitions on it:
 
