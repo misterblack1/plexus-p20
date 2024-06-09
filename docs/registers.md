@@ -104,16 +104,14 @@ E00010
                   3-0 Software settable LEDs
 
 E00016
-15 = Boot.DMA- (N=1) 7 = spare
-14 = BOOT.JOB- (N=1) 6 = DIAG.UART (N=0)
-13 = SCSIDL- (Diag latch) (N=1) 5 = HOLDMBUS
-12 = DIAG.PEH (force error) (N=0) 4 = RESMB-
-(Multi bus INIT*)
-11 = DIAG.PEL (force error) (N=0) 3 = CINTD.EN
+15 = Boot.DMA- (N=1)               7 = spare
+14 = BOOT.JOB- (N=1)               6 = DIAG.UART (N=0)
+13 = SCSIDL- (Diag latch ) (N=1)   5 = HOLDMBUS
+12 = DIAG.PEH (force error) (N=0)  4 = RESMB- (Multi bus INIT*)
+11 = DIAG.PEL (force error) (N=0)  3 = CINTD.EN
 10 = DIAG.PESC (force error) (N=0) 2 = CINTJ.EN
-9 = DIAG.MB (Multi bus) (N=0) 1 = TINT.EN
-(Temperature)
-8 = DIS.MAP (N=0) 0 = UINT.EN (UPS)
+9 = DIAG.MB (Multi bus) (N=0)      1 = TINT.EN (Temperature)
+8 = DIS.MAP (N=0)                  0 = UINT.EN (UPS)
 All 16 bits are reset low during System RESET
 
 E00018
