@@ -8,6 +8,9 @@ The Plexus P/15 and P/20 interfaces to all storage devices via on board SCSI.
   - A standard Shugart style floppy drive. (LUN 1)
   - The floppy drive is a 80 track, double sided, 300rpm, double density drive. (Often called Quad Density) The drive would have a formatted capacity of roughly 720k.
 - The Archive tape drive (QIC) is SCSI ID 07.
+- /dev/tape (6,0) -> /dev/rmt/0m (6,0) and 0mn (6,4) (major, minor)
+- /dev/floppy (26,0) -> /dev/0m (26,0) and 0s0 (26,0) (major, minor)
+
 
 The first sector on the Plexus hard drive contains a bootblock used by the boot ROM to do various things:
 - Setup the OMTI 5200 SCSI interposer with the correct heads and cylinders for the attached drive
