@@ -7,6 +7,14 @@ Mainboard PCB design files are in the 'CAD' directory.
 Discord user SuperSVGA is working on recreating firmware here on EasyEDA:
 https://easyeda.com/editor#id=4458ae42beaf4e60baca440d338c28c5|98b98baddd544786ae3853954d24d9cd|df686bafd0404414ab79156bae6786e2|f751b3e4a1ff45f5856200f6752685d9|a056aae735f0469ea7f66c1a44c826a9|68cad4c79d3b45df94a9f1b974c85fd0
 
+### Multibus
+
+The Plexus P/20 has three multibus slots on an expansion card backplane. There is evidence the other Plexus models supported 10mbit ethernet with the Exeland Exos 201 ethernet card. The P/20 has some support for ethernet in the bootrom, so it's possible it is for the same card.
+
+http://bitsavers.trailing-edge.com/communications/excelan/4200006-00_EXOS201refJun86.pdf
+
+The other two cards with native support at the Plexus ICP (intelligent communication processor) and Plexus ACP (advanced communication processor) which are from the other Plexus models. They add 8 extra serial ports and come with an 8 port DB25 plate that screws onto the back of the P/20 and from looking at pictures of the P/25, it appears to be the same exact plate. (Based on the mounting screws and apparently visible size.) 
+
 ### Serial port map:
 
 (Thanks to Patron Peter)
