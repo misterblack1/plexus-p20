@@ -1,0 +1,46 @@
+Hitting <DEL> which is Control-? DEC 127 after power on gets you into this dma> diag mode.
+
+t -> run all tests
+h -> lists all test
+tX -> run a specific test number
+q -> show system configuration
+
+I -> prints 0 = 0? Hitting enter just displays 1 = 0? and so on. Hitting Q exits back to DMA. This seems to be examining some other part of RAM. SRAM perhaps? 
+XI -> like I above, but takes a value, likely an address
+
+i -> will print 0 = CO instead of 0. This seems to be talking abotu RAM see in with / command
+
+S -> print "jumping to 0" and then seems to crash
+XS -> where X is a number, will jump to that address
+Z -> Really? (Y or N) [and choosing Y or N doesn't seem to do anything]
+X -> seem to print the status of debugger (bunch of like CPU registers)
+v -> prints "no boards"
+V -> prints "VERSION = RD-32 06/04/85"
+! -> exits to boot
+/ -> allows you to examine and edit RAM
+X/ -> where X is an address, examine directly that address
+@ -> goes a newline and seems to allow you to enter multiple commands at once
+
+L -> does nothing
+XL Y -> where X is an address and Y is a value. Seems to result in these DMA address RECEIVED 0 EXOECTED Y 
+
+
+T -> does nothing
+w -> does nothing
+W -> does nothing
+o -> does nothing
+O -> does nothing
+s -> does nothing
+g -> does nothing
+
+" -> does nothing
+m -> does nothing
+M -> does nothing
+
+Q H e E r R y Y u U p P d D f F G -> prints ????
+[ { ] } \ | ; : ' , < . > - _ = + ? # % ^ & ( ) -> prints ????
+1 2 3 4 5 6 7 8 9 0  -> prints ????
+j J k K l z x c C b B n N -> prints ????
+
+
+
