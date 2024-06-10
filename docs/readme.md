@@ -4,6 +4,9 @@ Please see the various files in this directory for more information. Datasheets 
 
 Mainboard PCB design files are in the 'CAD' directory.
 
+Discord user SuperSVGA is working on recreating firmware here on EasyEDA:
+https://easyeda.com/editor#id=4458ae42beaf4e60baca440d338c28c5|98b98baddd544786ae3853954d24d9cd|df686bafd0404414ab79156bae6786e2|f751b3e4a1ff45f5856200f6752685d9|a056aae735f0469ea7f66c1a44c826a9|68cad4c79d3b45df94a9f1b974c85fd0
+
 ### Serial port map:
 
 (Thanks to Patron Peter)
