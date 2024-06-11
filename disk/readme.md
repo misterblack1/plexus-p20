@@ -56,3 +56,12 @@ root <blank password>
 adrian <blank password>
 ```
 Both accounts have blank passwords, so just hit enter if prompted. 
+
+### Extracted files
+```
+plexus_headers.tar.gz -> Extraction of all C library headers. These are a copy of the rootfs headers.
+plexus_stocku.tar.gz -> Extraction of all files from the stocku (/stocku) partition from the dive image.
+                        This appears to be a recovery partition with an untouched copy of UNIX
+plexus_rootfs.tar.gz -> Extraction of all files from the rootfs (/) from the drive image here
+                        This is the running filesystem taken off the Plexus P/20 I have
+```
