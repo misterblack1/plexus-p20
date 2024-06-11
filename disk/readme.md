@@ -20,6 +20,8 @@ See the the 'bootblock.md' and associated visualization for more info.
 
 This Plexus P/20 hard drive has three partitions on it. An image of hte entier drive is available here as plexus-sanitized.img. A version of the image designed to be used with an MFM emulator is available here: https://archive.org/details/plexus-sanitized.emu
 
+The system is running a port of AT&T Unix System V Release 2. 
+
 ```
 Partition table
 Device  start  length (in blocks)
@@ -37,6 +39,38 @@ Map:
 /dev/dsk/0s2 is the user partition
 /dev/dsk/Os3 is the rest of the drive (do not use)
 /dev/dsk/0s4 is the /stocku partition
+
+
+  /dev/dsk/0s1
+  File System: root Volume: 1
+
+  ** Phase 1 - Check Blocks and Sizes
+  ** Phase 2 - Check Pathnames
+  ** Phase 3 - Check Connectivity
+  ** Phase 4 - Check Reference Counts
+  ** Phase 5 - Check Free List
+  3185 files 27142 blocks 1403 free
+
+  /dev/dsk/0s2
+  File System: user Volume: 1
+
+  ** Phase 1 - Check Blocks and Sizes
+  ** Phase 2 - Check Pathnames
+  ** Phase 3 - Check Connectivity
+  ** Phase 4 - Check Reference Counts
+  ** Phase 5 - Check Free List
+  82 files 868 blocks 15865 free
+
+  /dev/dsk/0s4
+  File System: stocku Volume: 1
+
+  ** Phase 1 - Check Blocks and Sizes
+  ** Phase 2 - Check Pathnames
+  ** Phase 3 - Check Connectivity
+  ** Phase 4 - Check Reference Counts
+  ** Phase 5 - Check Free List
+  1970 files 16792 blocks 5355 free
+
 ```
 The kernel loads from /unix (a file on the rootfs) and the file is 180,208 bytes, dated Nov 27  1985 on the running system. The ROM understands the filesystem and is able to find the file in the root partition for loading the system.
 
@@ -63,5 +97,33 @@ plexus_headers.tar.gz -> Extraction of all C library headers. These are a copy o
 plexus_stocku.tar.gz -> Extraction of all files from the stocku (/stocku) partition from the dive image.
                         This appears to be a recovery partition with an untouched copy of UNIX
 plexus_rootfs.tar.gz -> Extraction of all files from the rootfs (/) from the drive image here
-                        This is the running filesystem taken off the Plexus P/20 I have
+                        This is the running root filesystem taken off the Plexus P/20 I have
+
+I did not upload the /user files, as I deleted all of them to sanitize the drive image.
+```
+
+### Successful boot
+
+```
+PLEXUS PRIMARY BOOT REV 1.2
+: /unix
+
+UNIX/1.2: Sys5.2r8
+real mem  = 2097152
+avail mem = 1794048
+
+INIT: SINGLE USER MODE
+
+The current runlevel:
+   .       run-level S  Jun  3 18:30    S    1    2
+
+NOTE: If just booting, type init 2 to go into multiuser mode.
+
+You are now logged in as root!
+
+Your fortune:
+Troubled day for virgins over 16 who are beautiful and wealthy and live
+in eucalyptus trees.
+
+#
 ```
