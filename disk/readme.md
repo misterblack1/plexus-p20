@@ -1,4 +1,4 @@
-# Plexus P/20 Hard Drive related files
+# Plexus P/20 Storage Drive related files
 
 The Plexus P/15 and P/20 interfaces to all storage devices via on board SCSI.
 
