@@ -1,0 +1,41 @@
+These are the fields from block 0, decoded according to the header files from the device (sys/disk.h, sys/remote.h).
+
+ omti_step_pulse: 0
+omti_step_period: 0
+  omti_step_mode: 0
+     omti_nheads: 10
+      omti_ncyls: 753
+     omti_wpcomp: 1
+   omti_type_wsi: 0
+omti_sct_per_trk: 17
+   omti_reserved: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+         fsbsize: 1024
+              id: 28772
+        initsize: 256
+        bootname: '/unix'
+        nodename: ''
+           nswap: 8000
+           swplo: 58000
+         rootdev: 1
+         pipedev: 1
+         dumpdev: 1
+         swapdev: 1
+       parttable: [ 0:0+10000000, 1:0+66000, 2:66000+34000, 3:100000+10000000, 4:100000+45000 ]
+        ctl_type: 0
+        ctl_spec: 0
+         initlen: 10
+          cdb_op: 194
+     cdb_lunlad2: 0
+        cdb_lad1: 0
+        cdb_lad0: 0
+       cdb_byte4: 0
+       cdb_byte5: 0
+        scsiaddr: 0
+         scsimap: 00 00 00 00 fc ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00 00 00 00 00
+         alttrks: 224
+       miversion: 0
+           mirid: 0
+     mitimestamp: 0
+      miprimdriv: 0
+     misecondary: 0
+         miflags: 0
