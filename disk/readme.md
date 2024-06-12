@@ -1,5 +1,7 @@
 # Plexus P/20 Storage Drive related files
 
+Update June 11 2024: Bitsaver's posted a bunch of dumped Plexus tapes: https://bitsavers.org/bits/Plexus/ There appears to be one Robin Plexus P/20 tape in there, but it only contains a few hundred kilobytes of data, mostly stuff we alreaday have. The other tapes all appear to be for the other Plexus models. 
+
 The Plexus P/15 and P/20 interfaces to all storage devices via on board SCSI.
 
 - The motherboard SCSI controller ID is 03.
