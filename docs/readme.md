@@ -1,6 +1,8 @@
 # Technical information and documentation of Plexus machines
 
-Please see the various files in this directory for more information. Datasheets and other scanned material has been moved to PDF.
+Bitsavers has posted many scanned documents https://bitsavers.org/pdf/plexus/ for other Plexus systems like the P/25, P/40 and P/60. These are completely different systems from the P/20. The other systems use Multibus for all I/O and SMD storage. It seems with the P/20 and P/15, a second MC68010 was added to the motherboard to handle all I/O, SCSI was added for all disk and block storage and a new memory map was designed to handle up to 8mb of RAM. While the P/20 seems to run ports of the boot-ROM and OS, the systems are not likely compatible (from a software perspective) and from a hardware perspective, the P/20 is completely different from the P/25 and other models. 
+
+For the P/20, please see the various files in this directory for more information. Datasheets and other scanned material has been moved to PDF.
 
 Mainboard PCB design files are in the 'CAD' directory.
 
