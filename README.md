@@ -15,6 +15,7 @@ Watch the videos on this machine:
 - Part 1: https://youtu.be/iltZYXg5hZw
 - Part 2: https://youtu.be/lCPZAYvk940
 - Part 3: https://youtu.be/_IrxvDE6Fyo
+- Part 4: https://youtu.be/Ve1SuuRkx_o
 
 Thank you to everyone who has contributed to finding this information!
 
