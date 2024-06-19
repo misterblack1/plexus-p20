@@ -1,0 +1,98 @@
+	 Here are the suggestions I have for reducing things thru the
+	 usage of custom ICs.  I didn't include the arbiter or other
+	 circuits that are control functions of a global scale.
+
+
+	     Multibus Section
+
+1.      106   I/O Lines          Replaces 22 chips  (Entire Interface)
+				4 -  S74
+				1-   S240
+				3 -  S533
+				1 - LS00
+				1 - LS02
+				1 - LS05
+				1 - LS20
+				1 - LS27
+				2 - LS125
+				1 - LS244
+			       10 - LS533
+				1 - PAL16R4A
+				2 - PAL16L8A
+
+                Some pins need to drive 16 ma, a few 40 ma, the rest 6 ma.
+
+2.       68   I/O Lines          Replaces 16 chips  (No address busses)
+				4 -  S74
+				1-   S240
+				3 -  S533
+				1 - LS00
+				1 - LS02
+				1 - LS05
+				1 - LS20
+				1 - LS27
+				2 - LS125
+				1 - LS244
+			        4 - LS533
+				1 - PAL16R4A
+				2 - PAL16L8A
+
+                Some pins need to drive 16 ma, a few 40 ma, the rest 6 ma.
+
+3.       42   I/O Lines          Replaces 10 chips  (No address or data busses)
+				4 -  S74
+				1-   S240
+				1 - LS00
+				1 - LS02
+				1 - LS05
+				1 - LS20
+				1 - LS27
+				2 - LS125
+				1 - LS244
+			        1 - LS533
+				1 - PAL16R4A
+				2 - PAL16L8A
+
+                Some pins need to drive 16 ma, a few 40 ma, the rest 6 ma.
+
+ 
+	     SCSI Section
+
+1.       84   I/O Lines          Replaces 48 chips  (Entire interface)
+				1 -  S11
+				4 -  S00
+				6 -  S08
+				3 -  S32
+                               10 -  S38
+				9 -  S74
+				4 -  S240
+				2 -  S257
+				1 -  S260
+				1 -  S280
+				1 -  F521
+			       10 - LS169
+				8 - LS244
+				6 - LS373
+				1 - LS393
+				1 - PAL16R4A
+				2 - PAL16L8A
+
+                Some pins need to drive 16 ma, a few 40 ma, the rest 6 ma.
+
+ 
+	     Interrupt Section
+
+1.       38   I/O Lines          Replaces 15 chips  (Entire vector generation)
+				1 - LS10
+				2 - LS02
+				1 - LS20
+				1 - LS30
+				1 - LS240
+				3 - LS244
+				5 - LS374
+				1 -  S158
+				1 -   148
+				1 - PAL16R8A
+
+                Pins need to drive 6 ma
+

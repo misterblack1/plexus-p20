@@ -1,0 +1,51 @@
+
+	Proposal:	Develop a SMT memory building block.
+
+	Goals:	1.	Provide a memory packaging density increase
+			by a factor of 4.
+		2.	Provide a building block memory flexible enough
+			to be used across the product line.
+		3.	Be able to use 1 Mbit chips when they become
+			available.
+
+	Implementation:	A 35 pin pc board with an edge connector in which
+			each signal uses fingers on both sides of the board.
+			(To fit into a socket similar to Molex #78810, 
+			available from Molex Aug 85.)
+			150 ns 256K PLCCs would be the main part used - 
+			high speed robins would need 100 ns parts (if we
+			ever decide to make such a beast).
+			The edge connector pinout will support 1M parts as
+			will the layout if the pinouts are similar enough
+			to allow it.
+			9 .01 bypass caps will be mounted on the board.
+
+	Size:		Board: 4.0 in. x .6 in.
+			Socket 4.3 in. x .295 in. (area used of host pc board)
+			Height including socket .675 in. - low profile sockets
+			using a 25 degree angle available in late 85 or custom
+
+	Pinout:		To be determined.  Here are 2 possibilities.
+
+		A:	1  - RAS	11 - A6		21 - DI5	31 - DO5
+			2  - CAS	12 - A7		22 - DI6	32 - DO6
+			3  - WE		13 - A8		23 - DI7	33 - DO7
+			4  - GND	14 - A9		24 - DI8	34 - DO8
+			5  - A0		15 - GND	25 - VCC	35 - GND
+			6  - A1		16 - DI0	26 - DO0
+			7  - A2		17 - DI1	27 - DO1
+			8  - A3		18 - DI2	28 - DO2
+			9  - A4		19 - DI3	29 - DO3
+			10 - A5		20 - DI4	30 - DO4
+
+		B:	1  - A0 	11 - DI2	21 - A7 	31 - DI7
+			2  - DO0	12 - A4 	22 - DO5	32 - RAS
+			3  - DI0	13 - A5 	23 - DI5	33 - CAS
+			4  - A1 	14 - DO3	24 - A8 	34 - DO8
+			5  - A2 	15 - DI3	25 - A9 	35 - DI8
+			6  - DO1	16 - VCC	26 - DO6
+			7  - DI1	17 - A6 	27 - DI6
+			8  - GND	18 - DO4	28 - WE 
+			9  - A3 	19 - DI4	29 - GND
+			10 - DO2	20 - GND	30 - DO7
+

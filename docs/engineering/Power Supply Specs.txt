@@ -1,0 +1,322 @@
+
+		     ROBIN POWER SUPPLY SPECIFICATION
+			    DATAPOWER SUPPLIES
+	
+
+			      FEB 19, 1985
+
+
+
+ Output ratings:         +5V            +12V             -12V
+		  ----------------------------------------------------
+ 		  | max  min  avg | max  min  avg  | max  min   avg  |
+		  ----------------------------------------------------
+        Main      | 35A  16A  35A | 10A   1A   8A  |  3A  0.5A   3A  |
+		  ----------------------------------------------------
+        Auxiliary | 20A   3A  20A |  6A   0A   4A  |  3A   0A    3A  |
+		  ----------------------------------------------------
+ 
+	Peak current is used on +12V to start motors on disk drives.  The
+supply must be capable of supplying max current for a 60 second period
+after turn on at max rated temperature.  Drawing peak current beyond 60
+seconds must not damage the supply but may cause the supply to shut down.
+
+	The supplies must meet the specified output regulation down to the
+specified minimum currents.  When no current is drawn from amy output, the
+12 Volt outputs must not exceed 13.5 Volts, and the 5 Volt output must not
+exceed 5.5 Volts.
+
+	The two supplies are to be connected to a combination of loads
+which share a common ground connection.  The main supply is to power the
+main logic board, up to two peripheral controller boards, and two drives
+(tape/winchester or floppy/winchester).  The auxiliary supply is to power
+one peripheral controller, one drive, and/or up to three logic boards
+through a backplane.  The main logic board ground connects to the backplane
+ground and to the peripheral controller grounds.  The peripheral controller
+grounds also connect to the drive grounds.  See the following diagram.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Output Regulation:  +5.1V    2% max     70% +/- 30% max rated load change
+			      50mv max   p-p ripple and other noise
+			      2% max     overshoot for turn on or turn off
+
+		     +/- 12V             semi regulated outputs
+                              5% max     60% +/- 40% max rated load change
+			      200mv max  p-p ripple and other noise
+			      2% max     overshoot for turn on or turn off
+			      10% max    cross regulation 70% +/- 30% max
+					 rated loads, all outputs
+		     
+		     Common mode noise should not exceed 10% when measured
+		     from Earth to each output.
+
+ Adjustments:        All factory preset and frozen
+
+ Remote Sense:	     Not required.
+
+ Holdup Time:        16 mSec after loss of nominal ac power at full load.
+		     A missing half-cycle of nominal ac power at 47 Hz should
+		     not cause any change in any outputs including Power Fail
+		     Output.
+
+ Efficiency:         Greater than 70% at full load with nominal ac input
+
+ Operational Temp    Deliver rated output at 50 C with forced air cooling
+		     (35 cfm)
+
+ Regulatory:         Supply must be designed and manufactured to meet:
+
+ 		     Safety:   UL 478
+			       CSA C22.2 #154
+			       VDE 0806 and 0805
+			       IEC 380 and IEC 435 Class I
+
+			       Supplies will be initially submitted to VDE
+			       0806 and IEC 380, but we anticipate submitting
+			       them to 0805 and 435 in the future.
+
+			       Must be encased in metal mesh to prevent
+			       access to high voltages.
+
+		     Emissions:  VDE 0871 Level A
+			         FCC Part 15 subpart J Class A
+
+ Mechanical Shock:   10 Gs operating, 20 Gs non operating
+
+ Output protection:  Over voltage on +5V set to 6.2V +/- 0.4V
+
+		     Over power each supply (125 - 150% of rated load)
+
+		     Over temperature protection between 95 and 110 C
+
+		     Both supplies shall shut down simultaneously (within
+		     10 mSec) on fault conditions.
+
+ Altitude:           Operating: 10,000 ft. Non operating: 40,000 ft.
+
+ Storage Temp:       -55 C to +85 C
+
+ MTBF:               30,000 Hour Minimum at max outputs and 35 C
+
+ Relative Humidity:  5% to 95% (non condensing)
+
+ Output Temp Coef:   .02% per degree C max on 5 Volt.
+		     .05% per degree C max on +/- 12 Volt.
+
+ Transient Response: Recovery to within 1% in less than 1.5 mSec.  Maximum
+		     voltage is 5%.
+
+ AC Input:           85 - 130/ 190 - 264 vac input
+		     47 - 63 Hz
+		     Max Irms at low voltage = 14A.
+		     Input Surge Current (cold start) less than 50 Amp
+		     total for both supplies.
+
+Main Supply Features:
+		     The main supply must include the following:
+
+		     o  RFI line filtering for Fcc and VDE compliance
+		     o  AC line cord receptacle
+		     o  Fuse
+		     o  120/240 line voltage selection switch
+		     o  Reset input
+		     o  Remote AC turn-on line
+		     o  Power fail sense circuit
+		     o  Expansion output for connection to auxiliary supply
+			with noise immune control signals.
+		     o  Fan output
+
+ Power Fail Output:  Active at least 2 mSec before outputs go out of spec
+		     (including outputs of secondary supply) due to brown
+		     out or total loss of ac power.  Output valid when 
+		     Reset output is inactive.
+
+		     Active = 0 - .5 Volts at -2 mA
+		     Inactive = 2.6 - 5 Volts (.5 mA at 2.6 V)
+
+ Reset Output:       Output is always valid.  Output changes to its inactive
+		     state when the Power Fail Output is inactive and all
+		     outputs have been in regulation for 150 mSec minimum.
+		     Outputs change to active when they become unregulated
+		     (at least 2 mSec after Power Fail Output becomes active)
+		     or when the reset input is active low.  Minimum active
+		     pulse is 150 mSec.
+
+		     Active = 0 - .8 Volts at -2 mA
+		     Inactive = 2.6 - 5 Volts (3mA at 2.6 V)
+
+ Remote turn on
+ Line:		     The primary and secondary supply and fan must be turned
+		     on when this line is connected to common.  The remote
+		     turn on line must be isolated from primary circuitry.
+		     When the supplies are shut off via this line, the
+		     supplies should draw no more than 5 watts of AC power.
+
+ RESET Input:        Asserts Reset Output to active state when connected to
+		     Common.  This signal will be driven by a switch and must
+		     be pulled up by a 300 ohm resistor to at least 5 volts and
+		     not more than 12 volts.
+
+ Fan Output:         115 vac 38 Watt at line frequency.  This output must
+		     be switched by the remote turn on line.
+
+ COMMON to EARTH:    Secondary COM (0 V dc) will be connected to EARTH
+		     (green wire in the line cord) through a 100 ohm 5 watt
+		     resistor in the primary supply.  COM and EARTH are not
+		     to be connected in the auxiliary supply.
+
+ Safety Shield:      All Main Supplies will be shipped with a dummy plug/
+		     protective cover on P7 to protect personnel from the
+		     300 Vdc lines.
+
+ Connectors:         Main Supply
+ (AMP MTA-156 series)
+
+		      P1  Main board power (1-640444-8)
+			  + 5 Output pins 14-18
+			  +12 Output pin 13
+			  -12 Output pin 12
+			  Key pin        11
+			  COM Output pins 5-10
+			  RES Output pin 4
+			  PFW Output pin 3
+			  RES Input pin 2
+			  Remote Turn-on pin 1
+
+		      P2-5  Peripheral controller/device power ( 640444-5)
+			  +12 Output pin 1
+			  COM Output pins 2-3
+			  Key pin 4
+			  + 5 Output pin 5
+
+		      P6  Fan power (640444-5)
+			  EARTH    pin 1
+			  Key pin 2
+			  ac power pin 3
+			  spare        4
+			  ac power pin 5
+
+		      P7  Main/Auxiliary supply connections (1-640444-0)
+			  300 VDC NEG pin 1
+			  Spare pin   2-3
+			  300 VDC POS pin 4
+			  Key pin 5-6
+			  Common pin 7
+			  Shutdown pin 8
+			  Control circuitry power pin 9
+			  Remote start pin 10
+
+		      P8  Lug connection to green wire and frame ground.
+
+
+
+
+ Connectors:         Auxiliary Supply
+ (AMP MTA-156 series)
+
+		      P1  Expansion board power (1-640444-2)
+			  + 5 Output pins 1-4
+			  +12 Output pin 5
+			  -12 Output pin 6
+			  Key pin 7
+			  COM Output pins 8-12
+
+		      P2-3 Peripheral controller/device power (640444-5)
+			   +12 Output pin 1
+			   COM Output pins 2-3
+			   Key pin 4
+			   + 5 Output pin 5
+
+		      P4  Main/Auxiliary supply connections (connects to
+			  main supply P7) (1-640444-0)
+			  300 VDC NEG pin 1
+			  Key pin   2-3
+			  300 VDC POS pin 4
+			  Key pin 5-6
+			  Common pin 7
+			  Shutdown pin 8
+			  Control circuitry power pin 9
+			  Remote start pin 10
+		      
+		      P5  Lug connection to Chassis
+
+
+	                   Testing
+
+                Supplies can be tested in Main/Aux sets or as Mains only.
+		DO NOT PARALLEL THE OUTPUTS OF 2 SUPPLIES.  AC input voltage
+		should be varied from 90 to 125 VAC.
+
+  Main Supply
+
+       Voltage Ranges:   Output Min  Max
+			   +5   5.1  5.2
+			   +12 10.8 13.2
+			   -12 10.7 13.2
+
+       Test Current Settings:
+       
+       #1. +5 @  35A
+	  +12 @ 1.6A
+	  -12 @ 0.6A
+       
+       #2. +5 @  35A
+	  +12 @   8A
+	  -12 @   3A
+       
+       #3. +5 @  16A
+	  +12 @ 1.6A
+	  -12 @ 0.6A
+       
+       #4. +5 @  16A
+	  +12 @   8A
+	  -12 @   3A
+
+  Aux Supply
+
+       Voltage Ranges:   Output Min  Max
+			   +5   5.1  5.2
+			   +12 10.8 13.2
+			   -12 10.8 13.2
+
+       Test Current Settings:
+       
+       #1. +5 @  20A
+	  +12 @ 1.2A
+	  -12 @ 0.6A
+       
+       #2. +5 @  20A
+	  +12 @   6A
+	  -12 @   3A
+       
+       #3. +5 @   8A
+	  +12 @ 1.2A
+	  -12 @ 0.6A
+       
+       #4. +5 @   8A
+	  +12 @   6A
+	  -12 @   3A

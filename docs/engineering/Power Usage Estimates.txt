@@ -1,0 +1,23 @@
+		          Primary Supply
+
+		      +5      +12        -12
+
+  Main PC board       20       1          1
+  Tape Drive           4       3
+  Hard Disk            3       2.8 (4.5)  1.5
+  Controllers (2)      6        .6
+
+	 Total        33       7.4 (9.1)  2.5
+
+		        Secondary Supply
+
+		      +5      +12        -12
+
+  Hard Disk            3       2.8 (4.5)  1.5
+  Multibus            15.9      .9         .7
+      (ICP)           (3.3)   ( .4)      ( .1)
+      (IMSP)          (6.5)              ( .6)
+      (Ethernet)      (6.1)   ( .5)
+
+	 Total        18.9     3.7 (5.4)  2.2
+

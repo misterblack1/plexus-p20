@@ -1,0 +1,29 @@
+	ROBIN OPTIONS
+
+		System Clock
+
+	10 Mhz 68010		12.5 Mhz 68010
+	150 ns DRAM		    100 ns DRAM
+	150 ns SRAM		    100 ns SRAM
+	S241 memory drivers	F241 memory drivers
+	20 Mhz oscillator	25 Mhz oscillator
+	3 Mhz 68564		    4 Mhz 68564
+
+		Jumpers - Processor Board
+
+	10 Mhz 68010		12.5 Mhz 68010
+	J44 - J45		    J44 - J46
+	J61 - J54		    J61 - J54
+	J62 - J55		    J62 - J56
+	J63 - J57		    J63 - J57
+	J64 - J60		    J64 - J59
+
+	J48 - J47 connect test conn pin 8 to GND
+	J10 - J47 connect test conn pin 8 to +5 volts
+	J29 - J30 connect UART output to DTR on port 6
+	J29 - J31 keep DTR on port 6 always high
+	J24 - J26 address 27128 EPROMs
+	J24 - J27 address 2764 EPROMs
+	J20 - J22 connect SCSI pin 26 to +5 volts
+	J21 - J23 connect SCSI pin 25 to GND
+

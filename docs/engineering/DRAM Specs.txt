@@ -1,0 +1,27 @@
+
+DRAMs for ROBIN
+		       64K
+
+	 Fujitsu 8264A-15    MUST BE THE 'A' PART
+	 NEC     4164-15
+	 TI      4164-12
+	 Hitachi 4864A-15    MUST BE THE 'A' PART
+	 OKI     3764-12
+	 OKI     3764A-15
+	 Motorola 6665A-15
+	 Motorola 6665B-15
+
+		       256K
+	 
+	 Hitachi 50256-15
+	 Fujitsu 81256-15
+	 Motorola 6256-15
+	 NEC
+	 TI       4256-15
+	 OKI
+
+   TYPICAL PROBLEM AREAS INCLUDE:
+      Access time from RAS to DATA 150 ns MAX
+      Access time from CAS to DATA  80 ns MAX (some 150 ns 64Ks take 100 ns)
+      RAS precharge time 120 ns MAX
+      WE setup required to RAS high or CAS high 60 NS MAX
