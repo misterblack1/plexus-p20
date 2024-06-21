@@ -13,10 +13,10 @@ Work is ongoing to create an emulator:
 
 Watch the videos on this machine:
 
-- Part 1: [https://youtu.be/iltZYXg5hZw](https://youtu.be/iltZYXg5hZw)
-- Part 2: [https://youtu.be/lCPZAYvk940](https://youtu.be/lCPZAYvk940)
-- Part 3: [https://youtu.be/\_IrxvDE6Fyo](https://youtu.be/_IrxvDE6Fyo)
-- Part 4: [https://youtu.be/Ve1SuuRkx_o](https://youtu.be/Ve1SuuRkx_o)
+- Part 1: [What is this rare multi-user UNIX workstation? (Plexus P/20)](https://youtu.be/iltZYXg5hZw)
+- Part 2: [First power up of the Plexus P/20 dual processor UNIX system](https://youtu.be/lCPZAYvk940)
+- Part 3: [Booting UNIX on the Plexus P/20 didn't go to plan](https://youtu.be/_IrxvDE6Fyo)
+- Part 4: [We made some unbelievable discoveries about this Plexus P/20!](https://youtu.be/Ve1SuuRkx_o)
 
 Thank you to everyone who has contributed to finding this information!
 
