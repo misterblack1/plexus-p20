@@ -9,13 +9,14 @@ The P/15 and P/20 are dual Motorola 68010 systems which ran a port of AT&T Syste
 We have a discussion happening on Discord around this machine: [https://discord.gg/hyrhQqWh](https://discord.gg/kRrnvF4HSd)
 
 Work is ongoing to create an emulator:
-https://github.com/Spritetm/plexus_20_emu
+[https://github.com/Spritetm/plexus\_20\_emu]([https://github.com/Spritetm/plexus_20_emu])
 
 Watch the videos on this machine:
-- Part 1: https://youtu.be/iltZYXg5hZw
-- Part 2: https://youtu.be/lCPZAYvk940
-- Part 3: https://youtu.be/_IrxvDE6Fyo
-- Part 4: https://youtu.be/Ve1SuuRkx_o
+
+- Part 1: [https://youtu.be/iltZYXg5hZw](https://youtu.be/iltZYXg5hZw)
+- Part 2: [https://youtu.be/lCPZAYvk940](https://youtu.be/lCPZAYvk940)
+- Part 3: [https://youtu.be/\_IrxvDE6Fyo](https://youtu.be/_IrxvDE6Fyo)
+- Part 4: [https://youtu.be/Ve1SuuRkx_o](https://youtu.be/Ve1SuuRkx_o)
 
 Thank you to everyone who has contributed to finding this information!
 
@@ -24,3 +25,24 @@ Thank you to everyone who has contributed to finding this information!
 - June 11, 2024: bootable disk images added. See /disks
 - June 11, 2024: Bitsavers posted tape archives for various plexus machines. See /disks
   
+
+### Reference Hardware
+
+The original hardware of the Plexus P/20 featured in the videos above
+(serial 0-03135) is:
+
+*  [Plexus P/20 main board](docs/pdf/Plexus_P15_P20_Brochure_1985.pdf) with dual (asymmetric) Motorola 68010 CPUs (`job` and `dma` CPUs), and 8 x RS232C serial interfaces (6 x DE9 female, 2 x DB25 female)
+
+*  2MiB DRAM board (behind the main board)
+
+*  [Multibus](https://en.wikipedia.org/wiki/Multibus) backplane (with only a termination resistor card installed)
+
+*  [Omti 5200 SCSI-1 to MFM/Floppy interposer card](http://bitsavers.org/pdf/sms/omti_5x00/3001206_OMTI_5000_Series_Reference_Aug85.pdf), configured for the MFM hard drive on LUN 0, and the floppy drive on LUN 1
+
+*  [87MB/68MB Fujitsu M2243AS 3600rpm full height 5.25" MFM hard drive (with ST-412/ST-506 interface)](https://archive.org/details/bitsavers_fujitsubro1984_2565589) (connected as Unit 0, LUN 0 via the Omti 5200; part number Fujitsu B03B-4805-B003A; about 76MB usable on Plexus P/20)
+
+*  ??? full height 5.25" Floppy Disk Drive (connected as Unit 0, LUN 1 via the Omti 5200)
+
+*  [Archive Scorpion 5945C QIC-24 tape drive (with QIC-36 interface)](https://bitsavers.org/pdf/archive/scorpion/20271-001_scorpPrDesc_Mar84.pdf) (connected via SCSI to QIC-36 interposer card), with 45MB/60MB capacity (on QIC 300 XL and QIC 600 tapes), half height 5.25"
+
+*  ??? SCSI-1 to QIC-36 tape controller interposer card, as SCSI Unit 7
