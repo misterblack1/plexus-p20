@@ -10,7 +10,7 @@ PLEXUS PRIMARY BOOT REV 1.2
 
 which accepts commands to configure and boot the system into Unix.
 
-(If the selftest does not successfuly complete, then `*` can be used
+(If the selftest does not successfuly complete, then `!` can be used
 to exit from the selftest failed state to the boot menu.  This may
 be required when, eg, the clock configuration RAM is invalid and is
 referencing devices which do not exist.)
