@@ -41,7 +41,7 @@ then run the default command.
 ### Default boot command
 
 The default boot command (reached by just pressing enter at the boot menu)
-is `sc(0,)/unix`, and will boot the Unix kernel from `/unix` on the first
+is `sc(0,0)/unix`, and will boot the Unix kernel from `/unix` on the first
 hard drive.
 
 ### Boot menu short codes
@@ -117,9 +117,10 @@ and attempting to do so will simply cause the, eg, `/stand/ls /bin` commmand
 ### SCSI disk device -- `sc(N,S)`
 
 The device prefix `sc(N,...)` refers to a SCSI disk device, but because
-the Omti 5200 presents two LUNs (0 for the hard drive, and 1 for the floppy)
-a confusing system is used to encode *both* the SCSI ID *and* the LUN into
-a single value.
+the Omti 5200 presents two hard drive LUNs (0 for first hard drive,
+1 for second hard drive) a confusing system is used to encode *both*
+the SCSI ID *and* the LUN into a single value.  (On the Omti 5200 LUN 2
+is the floppy drive.)
 
 Specifically for:
 
@@ -135,8 +136,8 @@ N = (U * 2) + L
 (and only LUNs 0 or 1 are supported).
 
 For SCSI Unit 0 (ie, the Omti 5200 in the default hardware) this works
-out to `sc(0,...)` referring to the built in hard drive, and `sc(1,...)`
-referring to the floppy drive.
+out to `sc(0,...)` referring to the (first) built in hard drive, and
+`sc(1,...)` referring to the second (absent) hard drive.
 
 But to access *additional* drives, it is important to remember the encoding
 used.  For instance a SCSI device configured for SCSI ID 1, LUN 0, needs
@@ -174,7 +175,7 @@ file on the tape (and the `F` values are offset 0).
 ### SCSI floppy device -- `fp(...)`
 
 The 5.25" floppy disk drive is connected to the Omti 5200, as SCSI Unit 0,
-LUN 1.  It can be accessed as `fp(...)`, and probably as `sc(1,0)`.
+LUN 2.  It can be accessed as `fp(...)`.
 
 Unfortunately in the Plexus P/20 that Adrian's Digital Basement has, the
 floppy drive is not currently working (does not spin), so the floppy
