@@ -69,7 +69,7 @@ In order these short codes are:
 *    `du`      -- runs `pt(,13)`, the fourteenth file on the tape
 *    `ls`      -- runs `pt(,14)`, the fifteenth file on the tape
 *    `cat`     -- runs `pt(,15)`, the sixteenth file on the tape
-`
+
 This list is hard coded in the Plexus P/20 ROMs; tape positions `pt(,1)`
 and `pt(,11)` are not used on the Plexus P/20 install tapes, but we
 believe they held utilties needed by earlier Plexus systems on their
@@ -113,6 +113,21 @@ parameters from the boot ROM command line to the satnd alone utility,
 and attempting to do so will simply cause the, eg, `/stand/ls /bin` commmand
 (including a space!) to not be found.
 
+On the santitsed hard drive image of the Plexus P/20 `/stand` has:
+
+*    `cat`
+*    `ccal`
+*    `dd`
+*    `du`
+*    `fbkup`   (likely the same as `fbackup` on the tape)
+*    `format`
+*    `fsck`
+*    `fsdb`
+*    `help`
+*    `ls`
+*    `mkfs`
+*    `od`
+*    `restor`
 
 ### SCSI disk device -- `sc(N,S)`
 
