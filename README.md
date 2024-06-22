@@ -41,7 +41,7 @@ The original hardware of the Plexus P/20 featured in the videos above
 
 *  [87MB/68MB Fujitsu M2243AS 3600rpm full height 5.25" MFM hard drive (with ST-412/ST-506 interface)](https://archive.org/details/bitsavers_fujitsubro1984_2565589) (connected as Unit 0, LUN 0 via the Omti 5200; part number Fujitsu B03B-4805-B003A; about 76MB usable on Plexus P/20)
 
-*  ??? full height 5.25" Floppy Disk Drive (connected as Unit 0, LUN 1 via the Omti 5200)
+*  ??? 720KiB (quad density) full height 5.25" Floppy Disk Drive (connected as Unit 0, LUN 1 via the Omti 5200)
 
 *  [Archive Scorpion 5945C QIC-24 tape drive (with QIC-36 interface)](https://bitsavers.org/pdf/archive/scorpion/20271-001_scorpPrDesc_Mar84.pdf) (connected via SCSI to QIC-36 interposer card), with 45MB/60MB capacity (on QIC 300 XL and QIC 600 tapes), half height 5.25"
 
