@@ -17,6 +17,7 @@ Watch the videos on this machine:
 - Part 2: [First power up of the Plexus P/20 dual processor UNIX system](https://youtu.be/lCPZAYvk940)
 - Part 3: [Booting UNIX on the Plexus P/20 didn't go to plan](https://youtu.be/_IrxvDE6Fyo)
 - Part 4: [We made some unbelievable discoveries about this Plexus P/20!](https://youtu.be/Ve1SuuRkx_o)
+- Part 5: [The Plexus P/20 is now fully operational!](https://youtu.be/10b50ECWXLk)
 
 Thank you to everyone who has contributed to finding this information!
 
