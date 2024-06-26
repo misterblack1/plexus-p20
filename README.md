@@ -6,7 +6,7 @@ Plexus was a California based company that was making UNIX server from around 19
 
 The P/15 and P/20 are dual Motorola 68010 systems which ran a port of AT&T System V Release 2 UNIX. The base system was the P/10 which supported 8 concurrent users and had 512k of RAM. The P/20 system included a three slot Multibus expansion chassis and second power supply to support the multibus cards. The system I have is a P/20 with the multibus expansion chassis and 2.0mb of DRAM. The P/20 is a completely new system compared to the P/25 and other Plexus models. It runs ports of the OS and BOOTROM, but is not likely to be backwards compatible in any way.
 
-We have a discussion happening on Discord around this machine: [https://discord.gg/hyrhQqWh](https://discord.gg/kRrnvF4HSd)
+We have a discussion happening on Discord around this machine: [https://discord.gg/kRrnvF4HSd](https://discord.gg/kRrnvF4HSd)
 
 Work is ongoing to create an emulator:
 [https://github.com/Spritetm/plexus\_20\_emu]([https://github.com/Spritetm/plexus_20_emu])
