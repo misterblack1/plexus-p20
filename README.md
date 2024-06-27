@@ -8,8 +8,7 @@ The P/15 and P/20 are dual Motorola 68010 systems which ran a port of AT&T Syste
 
 We have a discussion happening on Discord around this machine: [https://discord.gg/kRrnvF4HSd](https://discord.gg/kRrnvF4HSd)
 
-Work is ongoing to create an emulator:
-[https://github.com/Spritetm/plexus\_20\_emu]([https://github.com/Spritetm/plexus_20_emu])
+Work is ongoing to create an emulator: [https://github.com/Spritetm/plexus_20_emu](https://github.com/Spritetm/plexus_20_emu)
 
 Watch the videos on this machine:
 
