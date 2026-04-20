@@ -1,0 +1,175 @@
+If you are used to the Berkeley shell, there are a bunch of Sys-
+tem V features which will be new.  I give a partial list here:
+
+1.  Shell functions are included.  The syntax is:
+
+        name () command
+
+    Typically the command will be a list of commands enclosed
+    between "{" and "}".  The directory "funcs" contains a few
+    sample functions.
+
+2.  The -f option suppresses file name generation.
+
+3.  The syntax "[!...]" specifies a negated character class which
+    will match any character not in "...".
+
+4.  The first time you execute a command, the shell remembers
+    where it found it.  If a command is not found, nothing is
+    recorded.  If the location of a command changes, you can say
+    "hash command_name" to cause the command to be searched for
+    again, or you can say "hash -r" to cause it to forget the lo-
+    cation of all commands.
+
+Differences between ash and the System V shell:
+
+5.  Shell functions can have local variables.  These are declared
+    by writing
+            local var1 var2 ...
+    at the top of the function.  As a special case, the name "-"
+    makes the shell options local to the function so that the
+    original values of the options will be restored when the
+    function returns.  Function arguments and the internal vari-
+    ables used by getopts are implicitly made local to a func-
+    tion.  This means that you can call a shell function, and
+    when the shell function returns the values of the positional
+    parameters ($1, $2, etc.) will be unchanged.
+
+6.  A directory of shell functions can be included in the search
+    path.  This is done by following the directory name by
+    "%func".  For example
+
+        PATH=:/bin:/usr/bin:/usr/local/ashfuncs%func
+
+    will cause the directory /usr/local/ashfuncs to be searched
+    for shell functions.  Each file in that directory should de-
+    fine a shell function with the same name as the file.  Some-
+    times it's convenient to combine several related functions
+    into a single file.  In this case there must be one link to
+    the file for each function (see ln(1)).  Note that once a
+    shell function has been read in, it will stay defined even if
+    PATH is changed or you do a "hash -r" command.
+
+7.  Function definitions override builtin commands.  In addition,
+    if the string "%builtin" appears in PATH then the list of
+    builtin commands will be search at that point in the path.
+    If the string "%builtin" does not appear in PATH, then the
+    list of builtin commands will be searched before PATH.
+
+8.  It is legal to have both a function and a variable with the
+    same name.  If you do this, then unset builtin will unset
+    both the variable and the name.
+
+9.  Ash allows you to negate a pattern by prefixing it with two
+    exclamation points.  For example,
+             ls src/!!*.o
+    lists all files in the src directory whose names do not end
+    in ".o".  Two exclamation points are required rather than one
+    to decrease the chances of users not familiar with this
+    feature invoking it by accident.
+
+10. Ash can simulate a /u directory containing the home direc-
+    tories of all the users on the system.  It is of course
+    better to have this handled by the file system if your system
+    supports symbolic links.
+
+11. The readonly and export commands allow you to assign a value
+    to a variable at the same time you export it or make it read
+    only.  For example:
+
+        export TERM=2621
+
+    sets the value of TERM to "2621" and then exports it.
+
+12. The method that sh uses to handle variables passed to it in
+    the environment appears to me to be unnecessarily confusing.
+    When ash starts up, it reads the environment, and for each
+    entry of the form "name=value", sets the variable "name" to
+    "value" and exports "name".
+
+13. The System V shell does strange things with backslashes in-
+    side back quotes.  In ash, commands inside back quotes are
+    parsed just like other commands.  Ash accepts "$(cmd)" as a
+    synomynm for "`cmd`".
+
+14. The login and newgrp builtins have been replaced with shell
+    functions.  The times and ulimit commands are not implement-
+    ed.
+
+15. The echo builtin has a "-n" option for compatibility with the
+    BSD echo.
+
+16. Test and expr have been merged into a single command and have
+    been built in.  Both commands accept the same syntax, which
+    is a merger of the operators provided by the two commands in-
+    dividually, except that the relational operators of expr have
+    been omitted.  I believe that the new command is slightly
+    more picky that the old test command about using strings that
+    are the same as operators; you should write
+
+        test "'$line'" = "'X'"
+
+    rather than
+
+        test "$line" = ""
+
+    The single quotes are used to indicate that the argument is a
+    string rather than an operator.  In the example I include
+    single quotes around both arguments to the "=" operator rath-
+    er than just the first one in order to make the test work
+    correctly on versions of test that don't treat single quotes
+    specially.
+
+    Don't underestimate the power of regular expressions.  For
+    example, expr can compute substrings:
+
+        y="`expr "$x" : ".\{4\}\(.\{0,3\}\)"`"
+
+    sets y to the three character string of x beginning after the
+    fourth character.  If x is too short, it returns the all the
+    characters available.  (The System V syntax \{0,3\} matches 0
+    to 3 occurances of the preceding character; \{4\} is a
+    synonym for \{4,4\}.)
+
+17. The following flags are not implemented:  a, h, k, t, u, v.
+    These don't seem very useful to me (with the possible excep-
+    tion of -v), so I'm not likely to add them unless people ask.
+
+18. An interface to the Berkeley job control facilities is pro-
+    vided on systems where the kernel supports Berkeley job con-
+    trol, although not all the features of csh are included.  The
+    -j flag turns on job control.  (It is set on by default for
+    interactive shells.)  There are fg and bg commands function
+    more or less like the csh equivalents.
+
+    The jobs command lists all the processes that you have start-
+    ed.  It is available even on systems without job control.
+
+19. The character ^ is not a synonym for |.
+
+20. In an interactive shell, the variable "$_" is set to the
+    value of the argument to the last command executed (exclusive
+    of commands inside executed inside shell functions).  This is
+    intended to be used in sequences like:
+            mkdir long_directory_name
+            cd $_
+    There is also a new builtin named "lc" (for last command)
+    which re-executed the last command (with no arguments) or de-
+    fines a function that will execute the command (if a function
+    name is given as an argument).  This is intended to make it
+    easier to re-execute a command.
+
+I conclude by listing a few features that I have omitted inten-
+tionally.
+
+1.  Aliases.  Use functions instead.
+
+2.  Features that duplicate existing functionality.
+
+3.  History.  It seems to me that the csh history mechanism is
+    mostly a response to the deficiencies of UNIX terminal I/O.
+    Those of you running 4.2 BSD should try out atty (which I am
+    posting to the net at the same time as ash) and see if you
+    still want history.
+
+4.  Restricted shell.  Restricted shells tend to be insecure.

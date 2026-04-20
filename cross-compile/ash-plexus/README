@@ -1,0 +1,43 @@
+			     What is ash?
+
+Ash is a reimplementation of the System V shell.  Currently it has
+most features of that shell, plus some additions.  The file ash.1
+contains the manual entry for ash.  The file DIFFERENCES lists known
+differences between ash and the standard shell.  The file TOUR provides
+some documentation of the internals.  Manual pages for some builtin
+commands are in the bltin subdirectory.
+
+Ash is copyrighted but there are few restrictions on what you can do
+with it.  Read the file LICENSE, which gives the details and explains
+about the lack of a warrantee.
+
+
+			      Compiling
+
+1)  Create shell.h.  Three versions are provided with distribution:
+	shell.h.bsd	for 4.2/4.3 BSD
+	shell.h.s5r3	for System V release 3
+	shell.h.s5r2	for System III and System V release 1 and 2
+    For a Version 7 system, try using shell.h.s5r2 with SYSV undefined.
+
+2)  Type "make".  You may want to add DEBUG=-O to the make commands to
+    turn on optimization.  Also, use gcc rather than cc if you have it
+    (but remember that ANSI compilers like gcc won't work with the BSD
+    header files as distributed by Berkeley; if you use the unmodified
+    header files with gcc, job control won't work.)  If you don't have
+    an ANSI C compiler, you will get a lot of messages about illegal
+    pointer combinations; ignore them.  You can also ignore messages
+    from the loader telling you to run ranlib.
+
+3)  Install the commands where ever you feel like.  Besides ash, there
+    are several commands in the bltin directory:  catf, expr, echo, line,
+    nlecho test, [, and umask.  These are stand alone versions of builtin
+    commands.  Finally, the directory funcs contains shell functions.
+    Install these in a suitable directory and include them in your
+    path (e. g. PATH=$PATH:$HOME/ash/funcs%func).
+
+If you are adventurous, you can compile with MALLOC=mymalloc.o, which
+will get you a version of malloc that uses a first fit allocation scheme.
+It may make more efficient use of memory than the standard version of
+malloc on your system.  The code was written for a VAX and is somewhat
+machine dependent.

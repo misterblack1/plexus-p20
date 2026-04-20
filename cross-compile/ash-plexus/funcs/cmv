@@ -1,0 +1,16 @@
+# Conditional move--don't replace an existing file.
+# Copyright (C) 1989 by Kenneth Almquist.  All rights reserved.
+# This file is part of ash, which is distributed under the terms specified
+# by the Ash General Public License.
+
+cmv() {
+	if test $# != 2
+	then	echo "cmv: arg count"
+		return 2
+	fi
+	if test -f "$2" -o -w "$2"
+	then	echo "$2 exists"
+		return 2
+	fi
+	/bin/mv "$1" "$2"
+}

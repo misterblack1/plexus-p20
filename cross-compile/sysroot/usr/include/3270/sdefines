@@ -1,0 +1,147 @@
+
+/* 
+ * SID @(#)sdefines	5.1
+ */
+
+/* SNA request/response field lengths                                        */
+/*                                                                           */
+#define     THSIZE  6                       /* TH length                     */
+#define     RHSIZE  3                       /* RH length                     */
+#define     RUSIZE  2020                    /* RU length                     */
+/*                                                                           */
+/*          TH VALUES                                                        */
+/*                                                                           */
+#define     FIDTYPE 0x20                     /* TH FID type                  */
+#define     FID2    0x20                     /* FID type - 2                 */
+#define     FID3    0x30                     /*          - 3                 */
+#define     BBIU    0x08                     /* MPF - begin BIU              */
+#define     EBIU    0x04                     /*     - end BIU                */
+#define     EXPEDIT 0x01                     /* EFI = expedited              */
+#define     NORMAL  0x00                     /*     = normal                 */
+/*                                                                           */
+/*                                                                           */
+/*          DATA FLOW CONTROL COMMANDS                                       */
+/*                                                                           */
+#define     BID     0XC8                    /* Bid                           */
+#define     CANCEL  0X83                    /* Cancel                        */
+#define     CHASE   0X84                    /* Chase                         */
+#define     LUSTAT  0X04                    /* Logical Unit Status           */
+#define     QC      0X81                    /* Quiesce Complete              */
+#define     QEC     0X80                    /* Quiesce at End of Chain       */
+#define     RELQ    0x82                    /* Release Quiesce               */
+#define     RSHUTD  0XC2                    /* Request Shutdown              */
+#define     RTR     0X05                    /* Ready to Receive              */
+#define     SHUTC   0XC1                    /* Shutdown Complete             */
+#define     SHUTD   0XC0                    /* Shutdown                      */
+#define     SIG     0XC9                    /* Signal                        */
+#define     BIS     0X70                    /* Bracket Initiation Stopped    */
+#define     SBI     0X71                    /* Stop Bracket Initiation       */
+/*                                                                           */
+/*          RETURN CODES                                                     */
+/*                                                                           */
+#define     OK      1                       /* good return                   */
+#define     NG      2                       /* not good return               */
+#define     GOOD    3                       /* good return                   */
+#define     DISCARD 4                       /* return element to pool        */
+#define     NODISC  5                       /* do not discard                */
+#define     NEGRSP  6                       /* negative response             */
+#define     ERROR   7                       /* error return                  */
+#define     NEG     8                       /* negative return               */
+#define     BIUCOMP 9                       /* complete BIU available        */
+#define     NOBIU   10                      /* complete BIU not available yet*/
+#define     IPRDISC 11                      /* discard Isolated pacing rsp   */
+#define     NIPRDSC 12                      /* do not discard IPR            */
+#define     EXR     13                      /* exception request             */
+#define     RCVCHK  14                      /* receive check                 */
+#define     NOTFIND 15                      /* not found                     */
+#define     FOUND   16                      /* found                         */
+#define     LT      17                      /* less than                     */
+#define     EQ      18                      /* equal                         */
+#define     GT      19                      /* greater than                  */
+/*                                                                           */
+/*          MESSAGE UNIT(MU) DIRECTION                                       */
+/*                                                                           */
+#define     SEND    0                       /* MU is being sent              */
+#define     RECEIVE 1                       /* MU is being received          */
+/*                                                                           */
+/*          ASSEMBLY OPTIONS                                                 */
+/*                                                                           */
+#define     NOASM   0                       /* No Assembly                   */
+#define     STATASM 1                       /* Station Assembly              */
+#define     SESSASM 2                       /* Session Assembly              */
+/*                                                                           */
+/*          CONTENTION WINNERS                                               */
+/*                                                                           */
+#define     PRIWIN  0x10                    /* primary is contention winner  */
+#define     SECWIN  0x00                    /* secondary is contention winner*/
+/*                                                                           */
+/*          SESSION TYPE                                                     */
+/*                                                                           */
+#define     HALF    0                       /* this is a half session        */
+#define     PRI     1                       /* primary half session          */
+#define     SEC     0                       /* secondary half session        */
+/*                                                                           */
+/*          MISCELLANEOUS                                                    */
+/*                                                                           */
+#define     YES     1                       /* yes - condition is true       */
+#define     NO      0                       /* no - condition is false       */
+#define     NULL    0                       /* null condition                */
+#define     NOTSR   5                       /* not sent or received          */
+#define     BLANK   0x40                    /* blank character               */
+#define     SYM     0x20                    /* symmetric                     */
+#define     FMHS    0x40                    /* function management headers   */
+#define     CONT    0                       /* contention                    */
+#define     SNDPRI  1                       /* send for primary              */
+#define     SNDSEC  0                       /* send for secondary            */
+#define     PARTCHN 0                       /* partial chain received        */
+#define     WCCAN   2                       /* whole chain with CANCEL       */
+#define     WCNOCAN 1                       /* whole chain not CANCEL        */
+#define     CANONLY 3                       /* CANCEL only                   */
+#define     POS     0                       /* positive                      */
+#define     RCVD    0                       /* received                      */
+#define     SENT    1                       /* sent                          */
+/*                                                                           */
+/* Chain use                                                                 */
+/*                                                                           */
+#define     SINGLE  0x00                      /* Single RU chains only       */
+#define     MULT    0x80                      /* Multiple RU chains allowed  */
+/*                                                                           */
+/* Normal-flow send/receive mode                                             */
+/*                                                                           */
+#define     FDX     0x00                      /* Full duplex                 */
+#define     HDXCONT 0x40                      /* Hlaf-duplex contention      */
+#define     HDXFF   0x80                      /* Half-duplex flip-flop       */
+/*                                                                           */
+/* RU response type                                                          */
+/*                                                                           */
+#define     NORSP   0x00                      /* No response                 */
+#define     EXRSP   0x10                      /* Exception response          */
+#define     DEFRSP  0x20                      /* Definite response           */
+/*                                                                           */
+/* Sequence number field usage                                               */
+/*                                                                           */
+#define     ID      0                         /* IDs used instead of seq. #s */
+#define     SEQNUMS 1                         /* Sequence numbers used       */
+#define     NOSNF   2                         /* Seq. number field not used  */
+/*                                                                           */
+/* Control mode                                                              */
+/*                                                                           */
+#define     IMM     0x00                      /* Immediate mode              */
+#define     DELAYED 0x40                      /* Delayed mode                */
+/*                                                                           */
+#define     PUT1    1                         /* Type 1 Physical Unit        */
+#define     PUT2    2                         /* Type 2 Physical Unit        */
+/*                                                                           */
+/* RESOURCE CATEGORIES                                                       */
+/*                                                                           */
+#define     PU      0                         /* Physical Unit               */
+#define     LU      1                         /* Logical Unit                */
+/*                                                                           */
+/* SESSION TYPES                                                             */
+/*                                                                           */
+#define     SSCPPU  2                         /* SSCP-PU session             */
+#define     SSCPLU  0                         /* SSCP-LU session             */
+#define     LULU    1                         /* LU-LU session               */
+#define     PUCPPU  3                         /* PUCP-PU session             */
+#define     UNOWNED 4                         /* undefined session           */
+/*                                                                           */

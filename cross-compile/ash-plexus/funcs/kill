@@ -1,0 +1,17 @@
+# Copyright (C) 1989 by Kenneth Almquist.  All rights reserved.
+# This file is part of ash, which is distributed under the terms specified
+# by the Ash General Public License.
+#
+# Convert job names to process ids and then run /bin/kill.
+
+kill() {
+	local args x
+	args=
+	for x in "$@"
+	do	case $x in
+		%*)	x=`jobid "$x"` ;;
+		esac
+		args="$args $x"
+	done
+	/bin/kill $args
+}

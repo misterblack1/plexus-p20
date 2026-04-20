@@ -1,0 +1,421 @@
+
+/* 
+ * SID @(#)scrstrc	5.1
+ */
+
+/*---------------------------------------------------------------------------*/
+/*          SCRSTRC.                                                         */
+/*                                                                           */
+/* Current Version:     						     */
+/* structure in this file:                                                   */
+/*      curctl          (currently unused)				     */
+/*      luib           							     */
+/*      ibi           							     */
+/*      screen       							     */
+/*                                                                           */
+/* Last Change:                                                              */
+/*	Date		Who	Comments				     */
+/*	-------		---	-------------------------------------------  */
+/*---------------------------------------------------------------------------*/
+
+#define     VT100   0
+#define     VT52    1
+
+
+#define     SCRNSIZ 1920
+#define     FIRST   1
+#define     MIDDLE  0
+#define     LAST    2
+/*									     */
+/*          SCS CHARACTER CODES (SSCP-LU) and LU3 Print Orders.              */
+/*                                                                           */
+#define     SCSNL   0X15
+#define     SCSNULL 0X00
+#define     SCSIFS  0X1c
+#define     SCSIRS  0X1e
+#define     NL      0x15
+#define     FF      0x0c
+#define     EM      0x19
+#define     CR      0x0d
+#define     LF      0x0a
+/*                                                                           */
+/*          COMMAND AND ORDER CONSTANTS AND MASKS                            */
+/*COMMANDS*/
+#define     EWRTALT 0x7e
+#define     WRITE   0XF1
+#define     EWRITE  0XF5
+#define     RDBUF   0XF2
+#define     RDMOD   0XF6
+#define     EAU     0X6F
+/*                                                                           */
+/*ORDERS*/
+#define     SF      0X1D
+#define     SBA     0X11
+#define     IC      0X13
+#define     PT      0X05
+#define     RA      0X3C
+#define     EUA     0X12
+#define     WCC     0X00
+#define     CMDORDER  0X01
+#define     PTNOFILL  0X02
+#define     PTFILL    0X03
+#define     DEFCHAR   0X04
+/*                                                                           */
+/*AID KEY VALUES*/
+/*                                                                           */
+#define     NOAID   0X60
+#define     ENTER   0XfD
+#define     PF1     0XF1
+#define     PF2     0XF2
+#define     PF3     0XF3
+#define     PF4     0XF4
+#define     PF5     0XF5
+#define     PF6     0XF6
+#define     PF7     0XF7
+#define     PF8     0XF8
+#define     PF9     0XF9
+#define     PF10    0XfA
+#define     PF11    0XfB
+#define     PF12    0XfC
+#define     PF13    0XC1
+#define     PF14    0XC2
+#define     PF15    0XC3
+#define     PF16    0XC4
+#define     PF17    0XC5
+#define     PF18    0XC6
+#define     PF19    0XC7
+#define     PF20    0XC8
+#define     PF21    0XC9
+#define     PF22    0XcA
+#define     PF23    0XcB
+#define     PF24    0XcC
+#define     CRDRDR  0XE6
+#define     MAGRDR  0XE7
+#define     LIGHTPN 0XfE
+#define     PA1     0XeC
+#define     PA2     0XeE
+#define     PA3     0XeB
+#define     CLRKEY  0XeD
+#define     SYSREQ  0XF0
+/*MASKS*/
+#define     MDTRST  0X01
+#define     SNDBELL 0X04
+#define     KBDRSTR 0X02
+#define     ATRCHAR 0XA0
+#define     ATRMASK 0X80
+#define     NUMERIC 0X90
+#define     PROTECT 0XA0
+#define     NONPROT 0X80
+#define     BCDNULL 0X00
+#define     NODSPLA 0X0C
+#define     HIGHLITE 0X08
+#define     MODIFID 0X81
+#define     STARTP  0x08		/* WCC masks                         */
+#define     PRTCOLS 0x30		                                       
+#define     COL132  0x00		                                       
+#define     COL80   0x30		                                       
+#define     COL40   0x10		                                       
+#define     COL64   0x20		                                       
+/*KEYCODES*/
+#define     HOME    0X01
+#define     ERASEOF 0X02
+#define     UP      0X03
+#define     DOWN    0X04
+#define     BACKTAB 0X05
+#define     RIGHT   0X06
+#define     RESETKY 0X07
+#define     LEFT    0X08
+#define     TAB     0X09
+#define     ERASEIN 0X0A
+#define     CRGRET  0X0D
+#define     DUP     0X0E
+#define     FDMK    0X0F
+#define     DEVCNCL 0X10
+#define     ATTN    0X11
+#define     PRINT   0x12
+#define     DELETE  0x13
+#define     INS     0x14
+/*LU*/
+#define     CRTDEV  0 			/* Device type in screen.devtyp      */
+#define     PRTDEV  1 
+#define     LUNUM   2
+
+#define LU1 1
+#define LU2 2
+#define LU3 3
+
+#define	PWROFF 0x00
+#define	PWRON  0x01
+#define BUSY   0x02
+#define	NOTENT 0x04
+#define	ENTKY  0x05
+
+			/* defines for luib.hostlock			     */	
+#define FREE 0
+#define RSTABLE 1
+#define INHIBIT 2
+     /*  Values for luib.prtreq field                                        */
+#define      NOREQ       0      /*  Indicates no change in print requests    */
+#define      NEWREQ      1      /*  Indicates new print request              */
+#define      CANREQ      2      /*  Indicates cancel print request           */
+
+     /*  Values for luib.opmod  and  luib.state  field                       */
+#define      POLLPWRD    0      /*  Printer is powered down and BETB.        */
+#define      POLLPWRU    1      /*  Printer is powered up   and BETB.        */
+#define      POLLPERR    2      /*  Printer is up & needs intervention BETB. */
+#define      OUTCHAR     3      /*  Printer is up, ready to recieve & INB.   */
+#define      DEVBUSY     4      /*  Printer is up, printing a char. & INB.   */
+#define      PWRDWN      5      /*  Printer is powered down and INB.         */
+#define      PWRUP       6      /*  Printer is up but request is stopped due */
+                                /*    to interruption of powered down. INB.  */
+#define      DEVERR      7      /*  Printer is up & needs intervention INB.  */
+#define      KDETECT     8	/*  LU2 input has been detected.	     */
+#define      NOTBUSY     9	/*  Printer copy done. Device not busy       */
+#define      HOSTRST    10	/*  Reset of Hostlock.                       */
+
+    /* values for physical staus of a printer.                               */
+#define      PRTBUSY     1      /*  Printer short-term busy.                 */
+#define      PRTRDY      2      /*  Printer powered up  and on-line.         */
+#define      PRTDOWN     3      /*  Printer powered down.                    */
+#define      PRTERR      4      /*  Printer error condition.                 */
+#define      PRTREDO     5      /*  Printer busy, must retry same char.      */
+
+     /*  Counts for luib.pollcnt  field                                      */
+#define      MXPOLPWR    4      /*  Check physical status after counting this*/
+                                /*   this many times, while dev is BETB.     */
+#define      MXPOLINB    1      /*  Check physical status after counting this*/
+                                /*   this many times, while dev is INB.      */
+
+     /*  Values for luib.prtproc  field                                      */
+#define      DONE        1      /*  Indicates all characters printed.        */
+#define      NOTDONE     0      /*  Indicates printer idle, or still printing*/
+
+     /*  Values for luib.prttype  field                                      */
+#define      RESET	 0
+#define      HOSTCOPY    1      /*  Indicates HOST initiated local copy.     */
+#define      HSESSION    2      /*  Indicates HOST LU-LU session FM data.    */
+#define      LOCLCOPY    3      /*  Indicates LOCAL initiated copy.          */
+
+     /*  Values for screen.iiplock  field                                    */
+/*already    FREE        0      /*  Default Printer has no operation.        */
+/*defined.   HOSTCOPY    1      /*  Indicates HOST initiated local copy.     */
+/*elsewhere  LOCLCOPY    3      /*  Indicates LOCAL initiated copy.          */
+#define      PRTINHIB    4      /*  Local Copy Operation Inhibited.          */
+
+     /*  Values needed for declaration of d_devio_cb. */
+#define      NUMVTAB  16        /*  number of vertical tabs                  */
+#define      NUMHTAB  17        /*  number of horizontal tabs                */
+#define      VTAB     12        /*  number of vertical channels              */
+
+/*                                                                           */
+/* MASKs of the 25th line display                                            */
+/*                                                                           */
+#define     PDISPLN 0
+#define     PSYS2   PDISPLN + 4
+#define     PSYS3   PDISPLN + 6
+#define     PDONT   PDISPLN + 11
+#define     PREM    PDISPLN + 25
+#define     PPRT    PDISPLN + 59
+#define     CU4     0
+#define     CU6     1
+#define     ONB     2
+#define     JOB     3
+#define     SYSOP   4
+#define     UNOWN   5
+#define     TESTMOD 6
+#define     XTIME   7
+#define     XSYST   8
+#define     XWHAT   9
+#define     XOP     10
+#define     XOPTMD  11
+#define     XOPNUM  12
+#define     XMS     13
+#define     XMCHK   14
+#define     XCOMM   15
+#define     XPROG   16
+#define     XMF     17
+#define     XPRTF   18
+#define     XPRTB   19
+#define     XPRTVB  20
+#define     COMM    21
+#define     PRT     22
+#define     PFAIL   23
+#define     CLRSYS1 24
+#define     CLRSYS2 25
+#define     CLRSYS3 26
+#define     CLRDONT 27
+#define     CLRREM  28
+#define     CLRPRT  29
+     /*  Values for Display 25 line routine.                                 */
+#define     PRT_PRNG 30         /*  Indicates Printer is printing on owner   */
+                                /*      CRT only.                            */
+#define     OP_UNATH 31         /*  Indicates operation is unauthorized.     */
+
+
+
+/*                                                                           */
+/*          STRUCTURE DECLARATIONS                                           */
+/*                                                                           */
+struct curctl                       /*contains the cursor control codes for  */
+				    /*      the screen that is pointing to it*/
+{
+    char home[3];    		/*the Home sequence                      */
+    char up[3];		        /*the up cursor sequence                 */
+    char down[3];   		/*the down cursor sequence               */
+    char left[3];    		/*the left cursor sequence               */
+    char right[3];   		/*the right cursor sequence              */
+    char clrall[3];  		/*the clear all sequence                 */
+    char tab[3];     		/*the tab sequence                       */
+    char backtab[3]; 		/*the backtab sequence                   */
+    char newline[3]; 		/*the newline sequence                   */
+    char setcur[4];  		/*the set cursor position sequence       */
+    char esc[128];   		/*escape key translations.               */
+    char cntrls[32]; 		/*control key translations               */
+};
+
+
+
+/*                                                                           */
+struct luib
+{
+    struct luib *nxtluib;     /* pointer to the nxtluib in the chain       */
+    struct mu *request;       /* pointer to the request unit               */
+    struct mu *pendmu;        /* pointer to the request unit               */
+    struct screen *devptr;    /* pointer to the screen structure of the    */
+                              /*  addresed device                          */
+    struct ibi *luibibi;      /* pointer to the ibi structure              */
+    int (*sscpps)();          /* pointer to the presentation services      */
+                              /*  routine for the sscplu session           */
+    int (*lulups)();          /* pointer to the presentation service       */
+                              /*  routine for the lulu session             */
+    unsigned long lusense;    /* sna sense code returned by a write        */
+    unsigned short msgcnt;    /* the number of messages remaining          */
+                              /*    until a chase must be sent             */
+    unsigned short maxru;     /* the maximum ru length                     */
+    char luop;       	      /* logical unit opcode                       */
+    char luopmod;             /* operation code modifier                   */
+    char num;                 /* LU number                                 */
+    char luopstt;             /* logical unit operation completion stat    */
+    char sscpsts;             /* status of the sscp-lu session             */ 
+                              /*   (active or not active)                  */
+    char lulusts;             /* status of the lu-lu session               */ 
+                              /*   (active or not active)                  */
+    char pusts;               /* status of the sscp-pu session             */
+                              /*   (active or not active)                  */
+    unsigned char pendord[4]; /* the pending order parameters              */
+    unsigned char precmd;     /* the previous command                      */
+    char hostlock[2];	      /* Input-Inhibited. locked =1  unlocked=0*/
+			      /*  hostlock[ SSCPLU=0] & [LULU=1]       */
+    unsigned char origrh[3];  /*  RH contained in FMD BC ru.               */
+    struct luib *prtdflt;     /*  Crt -> luib of default printer           */
+                              /*    Prt -> luib of CRT doing copy.         */
+    short devstat;   	      /*  Physical status of print device.         */
+    char pendstat;   	      /*  LUSTAT pending, since FM data rejected   */
+    char prtreq;     	      /*  Indicates if there is a print/cancel req */
+                              /*    Use defines NEWREQ, CANREQ, NOREQ.     */
+    struct  luib *nextprt;    /*  Points to next printer in service queue  */
+    short pollcnt;   	      /*  Counter for poll of physical dev status  */
+    short port;      	      /*  Physical port number of printer device.  */
+    char state;      	      /*  Logical/physical state of printer        */
+    char prtproc;    	      /*  Flag indicates last character is printed */
+    char prttype;    	      /*  Indicates owner type of print request.   */
+    struct mu *prtout;	      /*  Pointer to first output mu for printer.  */
+    struct d_devio_cb *dcb;   /*  Pointer to the device io  cb. For lu1.   */
+    int    (*prtphy)();       /*  Pointer to routine to get physical status*/
+    int    (*prtio)();        /*  Pointer to routine to phyically output   */
+    char initdcb;	      /*  Indicates if dcb is to be inited.        */
+			      /*    Uses RESET and YES                     */
+    char prtretry;	      /*  Indicates if print char is to be retried */
+			      /*    Uses RESET and YES                     */
+    char redochar;            /*  The print character to retry printing.   */
+         };
+
+
+
+struct ibi
+{
+    struct sib *sscpsib;      /*  pointers to the sibs used by this luib   */
+    struct sib *lulusib;
+    char toggle;     	      /*  indicates iownership of device.          */
+                              /*   UNOWNED, LULU,  and SSCPLU              */
+};
+
+
+struct screen
+{
+    unsigned char scrnbuf[SCRNSIZ];    /* screen model                     */
+    unsigned short curaddr;   /* cursor address                            */
+    unsigned short crntloc;   /* current location in buffer                */
+    unsigned short instart;   /* location of first char entered by oper.   */
+                              /*  on the SSCP-LU session only.             */
+    char lastord;    	      /* the previous order byte                   */
+    char wcc;        	      /* the current WCC                           */
+    unsigned char crnatrb;    /* current attribute byte, where cursor is   */
+                              /*  is within a field. 0=> unformatted       */
+    unsigned short atrbadr;   /* the address of the current atribute       */
+    char aidkey;     	      /* the AID key last entered by operator      */
+    short device;             /* the physical device addr of the screen    */
+    struct curctl *crsctl;    /* cursor controls for this screen           */
+    char enable;     	      /* keyboard enabled/disabled locally.        */
+    char inhibit;    	      /* ---just to keep it consistent ----        */
+    char *kyintbl;   	      /* input key translation table               */
+    int  errcode;   	      /* error code display on the 25th line  	   */
+    char line25[80]; 	      /* buffer of the 25th line                   */
+    char insmode;   	      /* insert mode indicator                	   */
+    int (*wrtout)();          /* addr of output routine                    */
+    char devtyp;     	      /* device type, CRTDEV, & PRTDEV.            */
+    int (*out25)();           /*addr of 25th line routine.                 */
+    char iiplock;    	      /* Indicates different states of             */
+			      /*   Input-Inhibited Print                   */
+    char ii25err;	      /* Input-Inhibit 25th display error number   */
+    int   dprtnum;	      /*  Default printer number for 25th display  */
+};
+ 
+
+
+ 
+struct d_devio_cb             /* device io control block for lu1 devices   */
+{
+    unsigned short dvid;               	/* device type                    */
+    short int      dfp;                	/* system fp                      */
+    unsigned short status;             	/* avail status                   */
+    unsigned short ddcf;               	/* count of chars in bfr          */
+    unsigned short maxdcf;             	/* max size                       */
+    unsigned short index;              	/* index into bfr                 */
+    unsigned short recsz;              	/* physical record size           */
+    char           *dibfr;             	/* input buffer ptr               */
+    char           *obfr;              	/* output buffer ptr for non scs  */
+    unsigned short mpp;                	/* max presentation position      */
+    unsigned short mpl;                	/* max presentation line          */
+    unsigned short tm;                 	/* top margin                     */
+    unsigned short bm;                 	/* bottom margin                  */
+    unsigned short lm;                 	/* left margin                    */
+    unsigned short rm;                 	/* right margin                   */
+    unsigned short col;                	/* column position                */
+    unsigned short line;               	/* line position                  */
+    unsigned char ld;                  	/* line density                   */
+    char htabmap[ NUMHTAB];             /* horizontal tab                 */
+    char vtabmap[ NUMVTAB];             /* vertical tab                   */
+    char vtab[ VTAB];                   /* vertical channel               */
+    unsigned char pcount;              	/* pending scs c'mand parm count  */
+    unsigned char lastcmd;              /* pending scs command in previous*/
+    					/*   message unit                 */
+    unsigned char shfstate;             /* state indicator  for shf       */
+    unsigned char svfstate;             /* state indicator for svf        */
+    unsigned char mudone;               /* flag telling if all char in mu */
+    					/*   have been compressed.        */
+    int (*lu1cr)();                     /* routine entry for carr return  */
+    int (*lu1nl)();                     /* routine entry for new line     */
+    int (*lu1ff)();                     /* routine entry for form feed    */
+    int (*lu1lf)();                     /* routine entry for line feed    */
+    int (*lu1bell)();                   /* routine entry for bell         */
+    int (*lu1putch)();                  /* routine entry for outputting   */
+    					/*   character(s)                 */
+    int (*lu1vdft)();                   /* routine entry for initializing */
+                                        /*   default values for vert fmt  */
+    int (*lu1hdft)();                   /* routine entry for initializing */
+                                        /*   default values for hor fmt   */
+    struct luib *dluib;                 /* pointer back to luib           */
+    char        *dsel;         		/* ptr to the ds_dscrptr in 3770  */
+					/*  for 3270, this is a filler    */
+};

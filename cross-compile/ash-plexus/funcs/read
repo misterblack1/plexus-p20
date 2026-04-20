@@ -1,0 +1,29 @@
+# Copyright (C) 1989 by Kenneth Almquist.  All rights reserved.
+# This file is part of ash, which is distributed under the terms specified
+# by the Ash General Public License.
+
+read () {
+	if test "$#" = 0
+	then	echo "Usage: read variable..."
+		return 2
+	fi
+	read_line="`line`" read_status=$?
+	read_flag="$-"
+	set -f
+	for read_word in $read_line
+	do	set +f
+		if test $# -eq 0
+		then	eval "$read_var=\"\$$read_var \"'$read_word'"
+		else	eval "$1='$read_word'"
+			read_var="$1"
+			shift
+		fi
+	done
+	set +f
+	set "-$read_flag"
+	while test $# -gt 0
+	do	eval "$1="
+		shift
+	done
+	return "$read_status"
+}

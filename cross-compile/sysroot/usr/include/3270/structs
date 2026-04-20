@@ -1,0 +1,280 @@
+
+/* 
+ * SID @(#)structs	5.1
+ */
+
+#include "sdefines"
+/*                                                                           */
+/*          STRUCTURE DECLARATIONS                                           */
+/*                                                                           */
+/* Message Unit (MU)                                                         */
+/*                                                                           */
+     struct mu
+         {
+          struct mu *pnxtmu;        /*pointer to next mu                     */
+          struct mu *pmuseq;        /*pointer to next mu segment             */
+          union
+            {
+            long ssensl;
+            unsigned char ssensc[4];
+            } mussens;              /*send check sense                       */
+          union
+            {
+            long rsensl;
+            unsigned char rsensc[4];
+            } mursens;              /*recieve check sense                    */
+          unsigned char mudir;      /*mu direction                           */
+          unsigned char muschk;     /*send check                             */
+          unsigned char muldi;      /*lost data indicator                    */
+          unsigned char muxid;      /*xid indicator                          */
+/*	unsigned char muxidl;     xid length                             */
+          unsigned int  muxidl;     /*xid length                             */
+          unsigned char mupucp;     /*pucp based session                     */
+/*      unsigned short dcf;       data count field                       */
+          unsigned int dcf;       /*data count field ***** 6/9/83 dvc ***  */
+          unsigned char lsid;       /*local station id                       */
+          unsigned char pad;        /*reserved                               */
+          unsigned char th0;        /*TH byte 0                              */
+          unsigned char th1;        /* "  "   1                              */
+          unsigned char daf;        /* "  "   2, destination address         */
+          unsigned char oaf;        /* "  "   3, origin address              */
+          unsigned char snf[2];     /* "  "   4-5, sequence number           */
+          unsigned char rh0;        /*RH byte 0                              */
+          unsigned char rh1;        /* "  "   1                              */
+          unsigned char rh2;        /* "  "   2                              */
+          unsigned char ru[RUSIZE]; /*RU - request unit                      */
+         };
+/*                                                                           */
+/* ACTPU request                                                             */
+/*                                                                           */
+     struct actpurq
+         {
+          unsigned char rcode;      /* ACTPU code                            */
+          unsigned char fmtype;     /* format, type activation               */
+          unsigned char apupros;    /* FM profile, TS profile                */
+          unsigned char sscpid[6];  /* SSCP id                               */
+         };
+/*                                                                           */
+/* ACTPU response                                                            */
+/*                                                                           */
+     struct actpurs
+         {
+          unsigned char rcode;      /* ACTPU code                            */
+          unsigned char fmtype;     /* format, type activation               */
+          unsigned char contid[8];  /* contents id                           */
+         };
+/*                                                                           */
+/* ACTLU request                                                             */
+/*                                                                           */
+     struct actlurq
+         {
+          unsigned char rcode;      /* ACTLU code                            */
+          unsigned char typeact;    /* type activation                       */
+          unsigned char luprofs;    /* FM profile, TS profile                */
+         };
+/*                                                                           */
+/* ACTLU response                                                            */
+/*                                                                           */
+     struct actlurs
+         {
+          unsigned char rcode;      /* ACTLU code                            */
+          unsigned char typeact;    /* type activation                       */
+          unsigned char luprofs;    /* FM profile, TS profile                */
+          unsigned char ctlvect[21];/* control vectors                       */
+         };
+/*                                                                           */
+/* BIND request                                                              */
+/*                                                                           */
+     struct bindrq
+         {
+          unsigned char rcode;      /* BIND code                             */
+          unsigned char fmtype;     /* format, type activation               */
+          unsigned char fmprof;     /* FM profile                            */
+          unsigned char tsprof;     /* TS profile                            */
+          unsigned char plufm;      /* PLU protocols for FM data             */
+          unsigned char slufm;      /* SLU protocols for FM data             */
+          unsigned char commlu1;    /* common LU protocols                   */
+          unsigned char commlu2;    /* common LU protocols (cont.)           */
+          unsigned char tsuse1;     /* TS usage                              */
+          unsigned char tsuse2;     /* TS usage (cont.)                      */
+          unsigned char maxrus;     /* max RU sent by secondary              */
+          unsigned char maxrup;     /* max RU sent by primary                */
+          unsigned char psndpc;     /* primary CPMGR's send pacing count     */
+          unsigned char prcvpc;     /* primary CPMGR's receive pacing count  */
+          unsigned char psprof;     /* PS profile                            */
+          unsigned char psusg[11];  /* PS usage                              */
+         };
+/*                                                                           */
+/* STSN request                                                              */
+/*                                                                           */
+     struct stsnrq
+         {
+          unsigned char rcode;      /* STSN code                             */
+          unsigned char actcode;    /* action code                           */
+          unsigned char secpri[2];  /* secondary to primary sequence number  */
+          unsigned char prisec[2];  /* primary to secondary sequence number  */
+         };
+/*                                                                           */
+/* Transmission Control Control Block (TCCB)                                 */
+/*                                                                           */
+     struct tccb
+         {
+          struct tccb *nxttccb;     /*pointer to next tccb                   */
+          unsigned char prqsnds;    /*state of pacing request send FSM       */
+          unsigned char prqrcvs;    /*state of pacing request receive FSM    */
+          unsigned char tcbspac;    /*send pacing indicator                  */
+          unsigned char tcbrpac;    /*recieve pacing indicator               */
+          unsigned short tcbmaxr;   /*maximum recieve RU size                */
+          unsigned short tcbmaxs;   /*maximum send RU size                   */
+          unsigned char tcbpcnt;    /*pacing count                           */
+          unsigned char tcbwsiz;    /*size of pacing group                   */
+          int (*tcbnpc)();          /*address of path control routine to call*/
+          struct mu *tcbqpac;       /*pacing queue                           */
+         };
+/*                                                                           */
+/* Path Control Control Block (PCCB)                                         */
+/*                                                                           */
+     struct pccb
+         {
+          unsigned char stbiucs;    /* state of station assembly FSM         */
+          struct btu *qbturcv;      /*pointer to recieve queue               */
+          unsigned char asmopt;     /*segment assembly option                */
+          struct mu *partbiu;       /*pointer to partially assembled BIU     */
+          struct mu *sndlist;       /*pointer to PIU send list               */
+         };
+/*                                                                           */
+/* Environment Vector (EV)                                                   */
+/*                                                                           */
+     struct ev
+         {
+          int (*dproc)();           /* destination procedure                 */
+          int (*sproc)();           /* sending procedure                     */
+          unsigned char signal;     /* input signal                          */
+          struct btu *parmptr;      /* parameter pointer                     */
+          struct mu *muptr;/* mu pointer                            */
+         };
+/*                                                                           */
+/* Link Station Control Block (LSCB)                                         */
+/*                                                                           */
+     struct lscb           /*link station control block             */
+         {
+          unsigned char state;      /*FSM states                             */
+          unsigned char lscbt;      /*LSCB type                              */
+          unsigned char dlcsw;      /*switched link support                  */
+          unsigned char loctype;    /*local station type                     */
+          unsigned char loccap;     /*local station transmit capabilities    */
+          unsigned char locmax;     /*local station max. BIU length          */
+          unsigned char dladdr;     /*station address                        */
+          struct lscb *lscbptr;     /*pointer to corresponding LSCB          */
+          unsigned char adjtype;    /*adjacent station type                  */
+          unsigned char adjcap;     /*adjacent transmission capabilities     */
+          unsigned char adjmax;     /*adjacent station max. BIU length       */
+          long btusnd;     /*list of BTUs to transmit               */
+          unsigned char ns;         /*send sequence number                   */
+          unsigned char nr;         /*recieve sequence number                */
+          unsigned char lastnr;     /*last nr recieved                       */
+          unsigned char nspoll;     /*send sequence number of poll           */
+          unsigned char rej;        /*REJ supported                          */
+          unsigned short retrys;    /*max retries                            */
+          unsigned char cmdout;     /*outstanding unnumbered command         */
+          unsigned short idled;     /*idle detect timeout                    */
+          unsigned short nonrcv;    /*non - productive recieve timeout       */
+          unsigned short inact;     /*inactivity timeout                     */
+          unsigned char constat;    /*status code to be set in contacted     */
+          unsigned char *xidsnd;    /*pointer to XID sent                    */
+          unsigned char *xidrcv;    /*pointer to XID recieved                */
+         };
+/*                                                                           */
+/* Node Resource Control Block (NRCB)                                        */
+/*                                                                           */
+     struct nrcb
+         {
+          struct nrcb *nxtnrcb;     /*pointer to next NRCB                   */
+          unsigned char nrcbst;     /*states                                 */
+          unsigned char rescat;     /*resource category                      */
+          unsigned char eladdr;     /*element address                        */
+          unsigned char lcprst;     /*reset option                           */
+          unsigned char swlink;     /*switched link support                  */
+          unsigned short dlchdr;    /*dlc header address for ALS             */
+          unsigned char aprisec;    /*primary/secondary configurable         */
+          unsigned char dlcrole;    /*primary or secondary station           */
+          struct mu *savemu;        /*list of RUs waiting for retry          */
+         };
+/*                                                                           */
+/* Correlation Table for Normal Requests/Responses (CTNORM)                  */
+/*                                                                           */
+     struct ctnorm
+         {
+         struct ctnorm *nxtctnr;    /* pointer to next ct                    */
+         unsigned char enttype;     /* entry type                            */
+         unsigned char begsnf[2];   /* beginning sequence number of chain    */
+         unsigned char endsnf[2];   /* ending sequence number of chain       */
+         unsigned char rsptonc;     /* response to not cancel                */
+         unsigned char snotcan[4];  /* exr sense for not cancel              */
+         unsigned char scancel[4];  /* exr sense for cancel                  */
+         unsigned char ctrh0;       /* rh0                                   */
+         unsigned char ctrh1;       /* rh1                                   */
+         unsigned char ctrh2;       /* rh2                                   */
+         unsigned char ctrqcod;     /* request code                          */
+         };
+/*                                                                           */
+/*                                                                           */
+/*                                                                           */
+/* Communications Control Block (CCB)                                        */
+/*                                                                           */
+     struct ccb
+         {
+          struct ccb *pnxtccb;      /*pointer to next ccb in chain           */
+          unsigned char ccbstat;    /*ccb status                             */
+          unsigned char ccbctl;     /*control byte                           */
+          unsigned char *ccbdata;   /*pointer to data to transmit            */
+          unsigned short ccbcnt;    /*number of bytes of data                */
+         };
+/*                                                                           */
+     struct cbuff
+         {
+          struct cbuff *pnxtcbf;
+          unsigned char cbfstat;
+          unsigned short cbufcnt;
+          unsigned char cbdata[4];
+         };
+/*                                                                          */
+/* Basic Transmission Unit (BTU)                                            */
+/*                                                                          */
+     struct btu
+         {
+          struct btu *nxtbtu;
+          struct lscb *linkptr;
+          unsigned short btulth;
+          unsigned char btustat;
+          unsigned char rsrvd;
+          unsigned char btudata[THSIZE+RHSIZE+RUSIZE+2];
+         };
+/*                                                                           */
+/* Data Link Initialization Table                                            */
+/*                                                                           */
+     struct inittbl
+         {
+          unsigned char *paddr;
+          unsigned char *xidadr;
+          unsigned short maxi;       /*max I-frame to recieve                */
+          unsigned short idtout;
+          unsigned short nprout;
+          unsigned short dscout;
+          unsigned char leased;
+          unsigned char autop;
+          unsigned char autodia;
+          unsigned char loop;
+          unsigned char primary;
+          unsigned char hdx;
+          unsigned char config;
+          unsigned char nrzi;
+          unsigned char rate;
+          unsigned char rcvsize;
+          unsigned char xmtsiz;
+          unsigned char maxout;
+          unsigned char *pdigs;
+          unsigned char numdigs;
+          unsigned short autotim;
+         };
+/*                                                                           */
